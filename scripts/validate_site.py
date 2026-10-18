@@ -35,7 +35,7 @@ def main():
         assert all(x.get("prompt") and x.get("answer") for x in s["challenges"])
     packs = [
         json.loads((DOCS / "assets" / name).read_text(encoding="utf-8"))
-        for name in ("school-pathways.json", "life-pathways.json")
+        for name in ("school-pathways.json", "health-booking.json", "health-consultation.json", "health-testing.json", "health-pharmacy-path.json", "health-family-emergency.json", "life-pathways.json")
     ]
     all_tracks = {}
     for pack in packs:
@@ -68,15 +68,28 @@ def main():
                 assert sum(bool(x.get("correct")) for x in decision["choices"]) == 1
                 assert all(x.get("es") and x.get("feedback") for x in decision["choices"])
             scenarios.append(scene)
-    assert len(all_tracks) == 7
+    assert len(all_tracks) == 12
     assert sum(s["domain"] == "school" for s in scenarios) >= 23
-    assert len(scenarios) >= 41
+    assert len(scenarios) == 61
+    assert sum(s["domain"] == "health" for s in scenarios) == 26
+    assert sum(s.get("track", "").startswith("clinic-") for s in scenarios) == 20
     for track_id in all_tracks:
         bands={s["level"] for s in scenarios if s.get("track")==track_id}
         assert bands == {"A1", "A2", "B1", "B2"}, track_id
+    # The new healthcare curriculum must include appointments, consultation, testing,
+    # prescriptions and pediatric/emergency triage at every teaching stage.
+    for track_name in ("clinic-booking", "clinic-consultation", "clinic-testing",
+                       "clinic-pharmacy", "clinic-family-emergency"):
+        lesson_set = [scene for scene in scenarios if scene.get("track") == track_name]
+        assert len(lesson_set) == 4, track_name
+        assert sum(len(scene["dialogue"]) for scene in lesson_set) >= 30
+        assert all(len(scene["vocab"]) >= 10 for scene in lesson_set)
+        assert all(len(scene["mission"]["decisions"]) >= 2 for scene in lesson_set)
+        assert all(all(len(d["choices"]) >= 3 for d in scene["mission"]["decisions"]) for scene in lesson_set)
+
     assert len({x["es"].lower() for x in data["colloquial"]})==len(data["colloquial"])
     assert all(x.get("neutral") and x.get("use") and x.get("avoid") for x in data["colloquial"])
-    for path in ["index.html","assets/content.json","assets/app.js","assets/pathways.js","assets/school-pathways.json","assets/life-pathways.json","assets/audio.js","assets/styles.css","assets/favicon.svg"]:
+    for path in ["index.html","assets/content.json","assets/app.js","assets/pathways.js","assets/school-pathways.json","assets/life-pathways.json","assets/health-booking.json","assets/health-consultation.json","assets/health-testing.json","assets/health-pharmacy-path.json","assets/health-family-emergency.json","assets/audio.js","assets/styles.css","assets/favicon.svg"]:
         assert (DOCS/path).is_file(),path
     checker=HTMLCheck()
     checker.feed((DOCS/"index.html").read_text(encoding="utf-8"))
