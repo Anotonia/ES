@@ -127,6 +127,16 @@ def main() -> None:
         pieces = analysis["segments"].split(" + ")
         assert len(pieces) >= 2 and "".join(pieces) == analysis["target"], analysis["target"]
         assert analysis["status"] == "provisional_editorial_analysis"
+    component_rows = read_rows(
+        morphology_dir / "components.csv",
+        ("target", "related_base", "analysis_type", "order", "segment",
+         "component_role", "analysis_status", "caution"),
+    )
+    assert len(component_rows)==270
+    assert {x["target"] for x in component_rows} == {x["target"] for x in analyses}
+    assert {x["component_role"] for x in component_rows}.issuperset(
+        {"derivational_prefix","derivational_suffix","lexical_stem"}
+    )
     coverage = read_rows(
         morphology_dir / "morphology_master.csv",
         ("curated_id", "level", "unit", "spanish", "lemma_core", "part_of_speech",
