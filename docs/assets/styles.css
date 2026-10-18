@@ -220,3 +220,58 @@
 .med-role-controls p{font-size:11px;line-height:1.8;color:#5d7b62;margin:10px 0 0}
 .med-role-controls .med-toolbar button{background:white}
 .med-cue{color:#91a493;font-size:10px;font-weight:650;white-space:nowrap;line-height:1.5}
+
+/* Morphology explorer */
+.morph-hero,.morph-detail-hero{padding:27px 31px;border:1px solid #d9e8d3;border-radius:19px;background:#f4f9f1;margin-bottom:23px}
+.morph-hero h1,.morph-detail-hero h1{font-size:clamp(24px,3vw,37px);letter-spacing:-.05em;margin:10px 0}
+.morph-hero>p,.morph-detail-hero>p{color:#628069;line-height:1.8;font-size:12px}
+.morph-metrics{display:flex;flex-wrap:wrap;gap:22px;margin:20px 0}
+.morph-metrics span{font-size:11px;color:#5d7a63}.morph-metrics strong{font-size:23px;color:#3b6946;margin-right:6px}
+.morph-alert{background:#fff9ee;padding:10px 12px;border-radius:7px;border-left:3px solid #c79b53}
+.morph-layout{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:17px;align-items:start}
+.morph-search-area,.morph-affix-area,.morph-panel{background:#fff;border:1px solid #e1e9dd;padding:23px;border-radius:16px;min-width:0}
+.morph-layout h2,.morph-panel h2{font-size:18px;color:#355e3e;margin:0 0 15px}
+.morph-label{font-size:11px;color:#67826d;display:block;margin:10px 0 6px}
+#morph-q{width:100%;border:1px solid #ccdccc;border-radius:9px;padding:12px;background:white;font-size:12px}
+.morph-filters{display:flex;gap:10px;margin:12px 0}.morph-filters label{flex:1;display:flex;flex-direction:column;gap:5px;color:#66806b;font-size:11px}
+.morph-filters select{width:100%;font-size:11px;border:1px solid #d0dfca;border-radius:8px;padding:9px;background:#fff}
+.morph-small{font-size:11px;color:#7e9181;line-height:1.8}.morph-small a{color:#356c43}
+.morph-word-list{display:flex;flex-direction:column;gap:6px}
+.morph-word-link{border:1px solid #e6eee3;background:#fbfdf9;border-radius:9px;padding:10px 12px;display:flex;align-items:center;justify-content:space-between;gap:7px}
+.morph-word-link:hover{border-color:#a1c5a4;background:#f2f8ef}
+.morph-word-link div{display:flex;flex-direction:column;gap:5px;min-width:0}
+.morph-word-link strong{color:#375a41;font-size:12px}
+.morph-word-link small{color:#778c7c;font-size:11px}
+.morph-word-link>span{color:#8a9d8d;font-size:10px;white-space:nowrap}
+.morph-more{border:1px solid #a6c5a3;background:#edf6e9;color:#426b49;padding:10px;border-radius:9px;margin-top:14px}
+.morph-toggle{display:flex;gap:8px;margin:13px 0}
+.morph-toggle button{border:1px solid #cddfc9;color:#547a59;background:#f5f9f1;border-radius:8px;padding:9px 12px;font-size:12px}
+.morph-toggle button.active{background:#dcefd7;border-color:#97b99c}
+.morph-affix{margin-bottom:7px;background:#fbfdfa;border:1px solid #e1eadd;border-radius:10px;padding:13px;font-size:12px}
+.morph-affix summary{cursor:pointer;display:flex;gap:9px;align-items:center;justify-content:space-between}
+.morph-affix summary strong{color:#366445;font-size:13px}.morph-affix summary span{font-size:11px;color:#819785}
+.morph-affix p{line-height:1.85;color:#637b67;font-size:11px}
+.morph-caution{color:#9b7c55!important;background:#fffbf4;padding:8px;border-radius:6px}
+.morph-footerlinks{display:flex;flex-direction:column;gap:9px;margin-top:15px;font-size:11px}
+.morph-footerlinks a{color:#3d794a}
+.morph-status{display:inline-block;padding:6px 10px;border-radius:20px;background:#e5f0e0;color:#4c7854;font-size:11px}
+.morph-panel{margin-bottom:18px}.morph-visual{background:#f3f9f0;padding:21px;border-radius:12px;text-align:center}
+.morph-whole{font-size:22px;font-weight:800;color:#285337;overflow-wrap:anywhere}
+.morph-vertical-arrow{font-size:11px;color:#849e89;margin:12px 0}
+.morph-parts{display:flex;justify-content:center;gap:8px;align-items:center;flex-wrap:wrap}
+.morph-part{border:1px solid #b9d4b5;background:#fff;border-radius:10px;min-width:80px;padding:12px;display:flex;flex-direction:column;gap:5px;color:#366a42}
+.morph-part strong{font-size:15px}.morph-part small{font-size:10px;color:#8b9f8a}
+.morph-plus{color:#85a08a;font-size:20px}
+.morph-unknown{padding:26px;background:#f4f6f2;border:1px dashed #ccd7ca;border-radius:11px;display:flex;flex-direction:column;gap:8px;align-items:center}
+.morph-unknown strong{font-size:20px;color:#455f4b}
+.morph-unknown span{font-size:12px;color:#869486}
+.morph-facts{margin:16px 0;font-size:12px;color:#536e5a;line-height:1.8}
+.morph-facts strong{color:#3b6146}
+.morph-panel h3{font-size:14px;color:#4f7757;margin:14px 0}
+.morph-related{display:flex;flex-wrap:wrap;gap:8px}.morph-related a{padding:8px 10px;border-radius:7px;background:#eef7ec;font-size:11px;color:#436e4c}
+#morph-mermaid-text{width:100%;box-sizing:border-box;padding:14px;border:1px solid #d2e3ce;background:#fbfdfa;border-radius:10px;color:#385c40;font:12px/1.8 ui-monospace,monospace;resize:vertical}
+.morph-buttons{display:flex;gap:12px;align-items:center;margin-top:14px}
+.morph-buttons button{background:#477d51;color:#fff;border-radius:8px;padding:11px 13px;font-size:11px}
+.morph-buttons a{font-size:11px;color:#3c7550}
+@media(max-width:970px){.morph-layout{grid-template-columns:1fr}}
+@media(max-width:560px){.morph-hero,.morph-detail-hero,.morph-search-area,.morph-affix-area,.morph-panel{padding:17px}.morph-filters{flex-direction:column}.morph-word-link{align-items:flex-start;flex-direction:column}.morph-metrics{gap:11px}}
