@@ -1,0 +1,1949 @@
+{
+  "schema": 2,
+  "description": "医疗、银行与行政 A1–B2 进阶任务；仅教学用途，不代表法规、诊疗或开户条款。",
+  "tracks": [
+    {
+      "id": "health-care",
+      "domain": "health",
+      "title": "医疗沟通进阶",
+      "subtitle": "找接待台 → 描述症状 → 复诊 → 知情讨论",
+      "description": "由简单求助到准确理解医疗信息；诊疗判断应由医护人员负责。"
+    },
+    {
+      "id": "banking",
+      "domain": "bank",
+      "title": "银行业务与争议",
+      "subtitle": "柜台咨询 → 费用条件 → 交易异常 → 正式申诉",
+      "description": "先读懂基本业务，再练习对账、质疑扣款和证据沟通。"
+    },
+    {
+      "id": "public-admin",
+      "domain": "admin",
+      "title": "行政办事流程",
+      "subtitle": "找到办事处 → 表格补正 → 数字身份验证 → 复核通知",
+      "description": "从问窗口发展到复杂书面行政沟通；程序以官方通知为准。"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "care-01",
+      "domain": "health",
+      "track": "health-care",
+      "level": "A1",
+      "stage": 1,
+      "title": "在医疗中心求助",
+      "subtitle": "Pedir ayuda en recepción",
+      "goal": "找到正确窗口，表达预约和简单身体不适。",
+      "brief": "第一次来到社区医疗中心，先学会问路、说明需求。",
+      "vocab": [
+        {
+          "es": "la recepción",
+          "zh": "接待台"
+        },
+        {
+          "es": "el centro de salud",
+          "zh": "社区医疗中心"
+        },
+        {
+          "es": "la cita",
+          "zh": "预约"
+        },
+        {
+          "es": "el médico / la médica",
+          "zh": "医生"
+        },
+        {
+          "es": "la tarjeta sanitaria",
+          "zh": "医疗卡"
+        },
+        {
+          "es": "la sala de espera",
+          "zh": "候诊室"
+        },
+        {
+          "es": "hoy",
+          "zh": "今天"
+        },
+        {
+          "es": "¿Dónde está…?",
+          "zh": "在哪里……"
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "患者",
+          "es": "Buenos días. ¿Dónde está la recepción?",
+          "zh": "您好，接待台在哪里？"
+        },
+        {
+          "speaker": "工作人员",
+          "es": "Aquí mismo. ¿Qué necesita?",
+          "zh": "就在这里。您需要什么？"
+        },
+        {
+          "speaker": "患者",
+          "es": "Tengo cita con mi médica.",
+          "zh": "我约了家庭医生。"
+        },
+        {
+          "speaker": "工作人员",
+          "es": "¿Para qué hora?",
+          "zh": "几点？"
+        },
+        {
+          "speaker": "患者",
+          "es": "Para las once.",
+          "zh": "十一点。"
+        },
+        {
+          "speaker": "工作人员",
+          "es": "La sala de espera está a la izquierda.",
+          "zh": "候诊室在左边。"
+        },
+        {
+          "speaker": "患者",
+          "es": "Gracias. ¿Puedo esperar aquí?",
+          "zh": "谢谢。我可以在这里等吗？"
+        }
+      ],
+      "expressions": [
+        {
+          "standard": "Quisiera confirmar dónde está la sala de espera.",
+          "natural": "¿Dónde espero?",
+          "zh": "我在哪里等？",
+          "register": "自然口语与正式表达",
+          "note": "问具体候诊位置，比只说“我不知道”更清楚。"
+        },
+        {
+          "standard": "Tengo una cita médica.",
+          "natural": "Tengo cita con el médico.",
+          "zh": "我预约了医生。",
+          "register": "自然口语与正式表达",
+          "note": "日常口语常省略 una。"
+        }
+      ],
+      "challenges": [
+        {
+          "prompt": "说：我约了十一点的医生。",
+          "answer": "Tengo cita con el médico a las once."
+        },
+        {
+          "prompt": "问：候诊室在哪里？",
+          "answer": "¿Dónde está la sala de espera?"
+        },
+        {
+          "prompt": "问：我可以在这里等吗？",
+          "answer": "¿Puedo esperar aquí?"
+        }
+      ],
+      "mission": {
+        "setup": "先听完双语对话，再处理工作人员改变说法或提出问题的情况。",
+        "decisions": [
+          {
+            "situation": "你没听懂接待人员给的方向。",
+            "prompt": "怎样请对方重复？",
+            "model": "Perdone, ¿puede repetirlo, por favor?",
+            "choices": [
+              {
+                "es": "Perdone, ¿puede repetirlo, por favor?",
+                "correct": true,
+                "feedback": "礼貌请求重复，避免误解位置。"
+              },
+              {
+                "es": "¡Hable bien!",
+                "correct": false,
+                "feedback": "带指责的命令不适合。"
+              }
+            ]
+          },
+          {
+            "situation": "你不知道是否要取号。",
+            "prompt": "怎么确认？",
+            "model": "¿Tengo que coger un número?",
+            "choices": [
+              {
+                "es": "¿Tengo que coger un número?",
+                "correct": true,
+                "feedback": "询问流程而不自作假设。"
+              },
+              {
+                "es": "Me siento sin hacer nada.",
+                "correct": false,
+                "feedback": "不表达具体问题无法得到答复。"
+              }
+            ]
+          }
+        ],
+        "transfer": "模拟你改成没有预约，想询问如何预约的对话。",
+        "debrief": "不看答案，复述事情、已知条件、未解决事项和接下来要做的一步。"
+      }
+    },
+    {
+      "id": "care-02",
+      "domain": "health",
+      "track": "health-care",
+      "level": "A2",
+      "stage": 2,
+      "title": "描述症状与发生时间",
+      "subtitle": "Explicar síntomas y duración",
+      "goal": "用简单句描述症状的起始时间与严重程度，理解转诊提示。",
+      "brief": "在医疗接待处或问诊时说明身体状态；仅为语言练习。",
+      "vocab": [
+        {
+          "es": "desde hace dos días",
+          "zh": "从两天前起"
+        },
+        {
+          "es": "la fiebre",
+          "zh": "发烧"
+        },
+        {
+          "es": "el dolor",
+          "zh": "疼痛"
+        },
+        {
+          "es": "empeorar",
+          "zh": "恶化"
+        },
+        {
+          "es": "mejorar",
+          "zh": "好转"
+        },
+        {
+          "es": "la molestia",
+          "zh": "不适"
+        },
+        {
+          "es": "la intensidad",
+          "zh": "强度"
+        },
+        {
+          "es": "la cita urgente",
+          "zh": "紧急预约"
+        },
+        {
+          "es": "el síntoma",
+          "zh": "症状"
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "医生",
+          "es": "¿Qué le ocurre?",
+          "zh": "您哪里不舒服？"
+        },
+        {
+          "speaker": "患者",
+          "es": "Desde hace dos días tengo fiebre y dolor de garganta.",
+          "zh": "两天来我发烧并喉咙痛。"
+        },
+        {
+          "speaker": "医生",
+          "es": "¿Ha mejorado o ha empeorado?",
+          "zh": "有好转还是更严重？"
+        },
+        {
+          "speaker": "患者",
+          "es": "Ayer estaba mejor, pero esta mañana me encuentro peor.",
+          "zh": "昨天好一点，但今天早上更难受。"
+        },
+        {
+          "speaker": "医生",
+          "es": "¿Ha notado algún otro síntoma?",
+          "zh": "有其他症状吗？"
+        },
+        {
+          "speaker": "患者",
+          "es": "También tengo tos. No sé si es importante.",
+          "zh": "还有咳嗽，不知道是否重要。"
+        },
+        {
+          "speaker": "医生",
+          "es": "Es útil que me lo cuente todo para valorar la situación.",
+          "zh": "告诉我全部症状有助于判断。"
+        },
+        {
+          "speaker": "患者",
+          "es": "De acuerdo. ¿Necesita que le diga cuándo empezó cada síntoma?",
+          "zh": "好的。需要我说明每种症状何时开始吗？"
+        }
+      ],
+      "expressions": [
+        {
+          "standard": "Me encuentro peor que ayer.",
+          "natural": "Hoy estoy peor.",
+          "zh": "我今天比昨天难受。",
+          "register": "自然口语与正式表达",
+          "note": "说清楚变化趋势是关键。"
+        },
+        {
+          "standard": "Me duele la garganta.",
+          "natural": "Tengo dolor de garganta.",
+          "zh": "我嗓子痛。",
+          "register": "自然口语与正式表达",
+          "note": "两种表达都可用，语义自然。"
+        }
+      ],
+      "challenges": [
+        {
+          "prompt": "说：我两天前开始发烧。",
+          "answer": "Tengo fiebre desde hace dos días."
+        },
+        {
+          "prompt": "说：今天比昨天更难受。",
+          "answer": "Hoy me encuentro peor que ayer."
+        },
+        {
+          "prompt": "问：您还需要了解哪些症状？",
+          "answer": "¿Necesita saber si tengo otros síntomas?"
+        }
+      ],
+      "mission": {
+        "setup": "先听完双语对话，再处理工作人员改变说法或提出问题的情况。",
+        "decisions": [
+          {
+            "situation": "医生问还有其他不适，你担心不重要。",
+            "prompt": "如何应答？",
+            "model": "Sí, también tengo tos desde ayer.",
+            "choices": [
+              {
+                "es": "Sí, también tengo tos desde ayer.",
+                "correct": true,
+                "feedback": "尽量完整、准确描述实际症状。"
+              },
+              {
+                "es": "No se lo digo porque es una tontería.",
+                "correct": false,
+                "feedback": "不要自行认为症状无关紧要。"
+              }
+            ]
+          },
+          {
+            "situation": "你没理解对方的医学术语。",
+            "prompt": "更好的说法？",
+            "model": "¿Podría explicármelo con palabras más sencillas?",
+            "choices": [
+              {
+                "es": "¿Podría explicármelo con palabras más sencillas?",
+                "correct": true,
+                "feedback": "主动请求通俗解释有利于知情沟通。"
+              },
+              {
+                "es": "No entiendo nada y me voy.",
+                "correct": false,
+                "feedback": "直接离开无法澄清重要信息。"
+              }
+            ]
+          }
+        ],
+        "transfer": "重新描述另一种情况：只有咳嗽、没有发烧、持续一周。",
+        "debrief": "不看答案，复述事情、已知条件、未解决事项和接下来要做的一步。"
+      }
+    },
+    {
+      "id": "care-03",
+      "domain": "health",
+      "track": "health-care",
+      "level": "B1",
+      "stage": 3,
+      "title": "复诊、检查结果和转诊",
+      "subtitle": "Seguimiento y pruebas médicas",
+      "goal": "准确复述诊疗经过、检查与下一步；不猜测诊断。",
+      "brief": "做完检查后复诊，询问结果的含义和后续安排。",
+      "vocab": [
+        {
+          "es": "los resultados",
+          "zh": "结果"
+        },
+        {
+          "es": "la prueba",
+          "zh": "检查"
+        },
+        {
+          "es": "el informe",
+          "zh": "报告"
+        },
+        {
+          "es": "la derivación",
+          "zh": "转诊"
+        },
+        {
+          "es": "el especialista",
+          "zh": "专科医生"
+        },
+        {
+          "es": "el seguimiento",
+          "zh": "随访"
+        },
+        {
+          "es": "la evolución",
+          "zh": "变化过程"
+        },
+        {
+          "es": "las indicaciones",
+          "zh": "医嘱／指示"
+        },
+        {
+          "es": "consultar dudas",
+          "zh": "咨询疑问"
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "患者",
+          "es": "Vengo a revisar los resultados de las pruebas que me hicieron la semana pasada.",
+          "zh": "我来复核上周做的检查结果。"
+        },
+        {
+          "speaker": "医生",
+          "es": "Perfecto. ¿Cómo se ha encontrado desde entonces?",
+          "zh": "好的。从那以后您感觉如何？"
+        },
+        {
+          "speaker": "患者",
+          "es": "En general mejor, aunque todavía tengo molestias por la tarde.",
+          "zh": "总体好一些，但下午仍有些不适。"
+        },
+        {
+          "speaker": "医生",
+          "es": "Vamos a revisar el informe y decidir los siguientes pasos.",
+          "zh": "我们先看报告，再决定下一步。"
+        },
+        {
+          "speaker": "患者",
+          "es": "¿Podría explicarme qué significa este resultado?",
+          "zh": "您能解释这个结果代表什么吗？"
+        },
+        {
+          "speaker": "医生",
+          "es": "Sí, es importante interpretarlo junto con los síntomas y la exploración.",
+          "zh": "可以，要结合症状和检查来理解。"
+        },
+        {
+          "speaker": "患者",
+          "es": "¿Será necesario consultar con un especialista?",
+          "zh": "有必要咨询专科医生吗？"
+        },
+        {
+          "speaker": "医生",
+          "es": "Lo valoraremos según la información disponible.",
+          "zh": "我们会根据现有信息评估。"
+        }
+      ],
+      "expressions": [
+        {
+          "standard": "Quisiera aclarar el significado de este resultado.",
+          "natural": "¿Qué quiere decir este valor?",
+          "zh": "我想问这个检查数值是什么意思。",
+          "register": "自然口语与正式表达",
+          "note": "提问具体数值或结论，不自行推断。"
+        },
+        {
+          "standard": "¿Es necesaria una derivación?",
+          "natural": "¿Me tienen que mandar a un especialista?",
+          "zh": "需要转诊吗？",
+          "register": "自然口语与正式表达",
+          "note": "mandar a 在口语中常用，正式记录中可说 derivar。"
+        }
+      ],
+      "challenges": [
+        {
+          "prompt": "问：这个结果是什么意思？",
+          "answer": "¿Qué significa este resultado?"
+        },
+        {
+          "prompt": "说：下午还有一些不适。",
+          "answer": "Todavía tengo molestias por la tarde."
+        },
+        {
+          "prompt": "问：下一步是什么？",
+          "answer": "¿Cuáles son los próximos pasos?"
+        }
+      ],
+      "mission": {
+        "setup": "先听完双语对话，再处理工作人员改变说法或提出问题的情况。",
+        "decisions": [
+          {
+            "situation": "检查报告里有个你不理解的词。",
+            "prompt": "怎样追问？",
+            "model": "¿Podría explicarme qué significa este término en mi caso?",
+            "choices": [
+              {
+                "es": "¿Podría explicarme qué significa este término en mi caso?",
+                "correct": true,
+                "feedback": "要求结合个人情况解释更合适。"
+              },
+              {
+                "es": "He leído algo en internet y ya sé el diagnóstico.",
+                "correct": false,
+                "feedback": "网络检索不能代替专业判断。"
+              }
+            ]
+          },
+          {
+            "situation": "医生给了随访建议，但你没听清日期。",
+            "prompt": "如何确认？",
+            "model": "¿Cuándo debo volver y dónde puedo consultar las indicaciones?",
+            "choices": [
+              {
+                "es": "¿Cuándo debo volver y dónde puedo consultar las indicaciones?",
+                "correct": true,
+                "feedback": "确认日期与书面医嘱能减少误解。"
+              },
+              {
+                "es": "Ya me acordaré luego.",
+                "correct": false,
+                "feedback": "依赖模糊记忆可能遗漏安排。"
+              }
+            ]
+          }
+        ],
+        "transfer": "整理一份复诊总结：症状变化、已做检查、未解疑问、下一次安排。",
+        "debrief": "不看答案，复述事情、已知条件、未解决事项和接下来要做的一步。"
+      }
+    },
+    {
+      "id": "care-04",
+      "domain": "health",
+      "track": "health-care",
+      "level": "B2",
+      "stage": 4,
+      "title": "解释治疗选择并确认知情",
+      "subtitle": "Comparar opciones y consentimiento",
+      "goal": "比较信息、确认风险收益、复述理解并提出问题。",
+      "brief": "医生介绍几种可选处理方案；练习知情讨论，而不是提供医疗建议。",
+      "vocab": [
+        {
+          "es": "la alternativa terapéutica",
+          "zh": "治疗选择"
+        },
+        {
+          "es": "los beneficios",
+          "zh": "益处"
+        },
+        {
+          "es": "los riesgos",
+          "zh": "风险"
+        },
+        {
+          "es": "la incertidumbre",
+          "zh": "不确定性"
+        },
+        {
+          "es": "el consentimiento informado",
+          "zh": "知情同意"
+        },
+        {
+          "es": "las contraindicaciones",
+          "zh": "禁忌证"
+        },
+        {
+          "es": "el seguimiento",
+          "zh": "随访"
+        },
+        {
+          "es": "la decisión compartida",
+          "zh": "共同决策"
+        },
+        {
+          "es": "aclarar prioridades",
+          "zh": "明确优先事项"
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "患者",
+          "es": "Quisiera comprender las opciones que estamos valorando.",
+          "zh": "我想了解我们正在考虑的各种选择。"
+        },
+        {
+          "speaker": "医生",
+          "es": "Podemos comentar sus posibles beneficios, riesgos y limitaciones.",
+          "zh": "我们可以讨论各自可能的收益、风险和局限。"
+        },
+        {
+          "speaker": "患者",
+          "es": "¿Qué factores influyen más en la recomendación para mi situación?",
+          "zh": "哪些因素最影响您对我情况的建议？"
+        },
+        {
+          "speaker": "医生",
+          "es": "Depende de los antecedentes, los resultados y sus prioridades.",
+          "zh": "要看既往情况、结果和您的优先事项。"
+        },
+        {
+          "speaker": "患者",
+          "es": "Antes de decidir, me ayudaría conocer las incertidumbres y el seguimiento necesario.",
+          "zh": "决定前，我希望了解不确定性和需要的随访。"
+        },
+        {
+          "speaker": "医生",
+          "es": "Por supuesto. Puede preguntar todo lo que necesite.",
+          "zh": "当然。您可以提出所有问题。"
+        },
+        {
+          "speaker": "患者",
+          "es": "Entonces, para asegurarme de haberlo entendido, ¿podría resumir los puntos principales?",
+          "zh": "为确保理解，您能总结一下主要内容吗？"
+        },
+        {
+          "speaker": "医生",
+          "es": "Sí, revisemos juntos lo que hemos hablado.",
+          "zh": "好的，我们一起回顾。"
+        }
+      ],
+      "expressions": [
+        {
+          "standard": "Agradecería una explicación comparativa de las alternativas.",
+          "natural": "¿Me puede contar las diferencias entre las opciones?",
+          "zh": "能比较不同方案吗？",
+          "register": "自然口语与正式表达",
+          "note": "对复杂决定可要求通俗的解释。"
+        },
+        {
+          "standard": "Necesito tiempo para valorar la información.",
+          "natural": "Quiero pensármelo con calma.",
+          "zh": "我想认真考虑一下。",
+          "register": "自然口语与正式表达",
+          "note": "不能推断所有情况下都可延迟治疗；具体时效应咨询医生。"
+        }
+      ],
+      "challenges": [
+        {
+          "prompt": "正式问：这些选择分别有哪些风险？",
+          "answer": "¿Qué riesgos presenta cada una de las alternativas?"
+        },
+        {
+          "prompt": "说：我想知道有哪些不确定之处。",
+          "answer": "Quisiera conocer las incertidumbres que existen."
+        },
+        {
+          "prompt": "请求对方总结重点。",
+          "answer": "¿Podría resumirme los puntos principales, por favor?"
+        }
+      ],
+      "mission": {
+        "setup": "先听完双语对话，再处理工作人员改变说法或提出问题的情况。",
+        "decisions": [
+          {
+            "situation": "你无法比较两个方案的利弊。",
+            "prompt": "你应该怎样询问？",
+            "model": "¿Podría explicar los beneficios y riesgos de cada opción de forma comparable?",
+            "choices": [
+              {
+                "es": "¿Podría explicar los beneficios y riesgos de cada opción de forma comparable?",
+                "correct": true,
+                "feedback": "要求有结构的解释有助于理解并参与决定。"
+              },
+              {
+                "es": "Elija usted y no me explique nada.",
+                "correct": false,
+                "feedback": "完全跳过解释无法确认自己的理解。"
+              }
+            ]
+          },
+          {
+            "situation": "医生说你可以提出担心。",
+            "prompt": "什么回应更好？",
+            "model": "Me preocupa cómo afectaría cada opción a mi vida diaria.",
+            "choices": [
+              {
+                "es": "Me preocupa cómo afectaría cada opción a mi vida diaria.",
+                "correct": true,
+                "feedback": "把生活方面的优先事项说明出来，便于专业讨论。"
+              },
+              {
+                "es": "No tengo ninguna pregunta aunque no he entendido nada.",
+                "correct": false,
+                "feedback": "不理解时不应假装理解。"
+              }
+            ]
+          }
+        ],
+        "transfer": "用西语复述你理解的两种方案（虚构）、尚存疑问与希望确认的后续。",
+        "debrief": "不看答案，复述事情、已知条件、未解决事项和接下来要做的一步。"
+      }
+    },
+    {
+      "id": "bank-01",
+      "domain": "bank",
+      "track": "banking",
+      "level": "A1",
+      "stage": 1,
+      "title": "找银行柜台和取款机",
+      "subtitle": "Preguntar por caja y cajeros",
+      "goal": "找到银行服务位置并确认营业时间。",
+      "brief": "你想办理简单银行业务，但不知道该找哪个窗口。",
+      "vocab": [
+        {
+          "es": "el banco",
+          "zh": "银行"
+        },
+        {
+          "es": "la oficina bancaria",
+          "zh": "银行营业网点"
+        },
+        {
+          "es": "el cajero automático",
+          "zh": "ATM"
+        },
+        {
+          "es": "el mostrador",
+          "zh": "柜台"
+        },
+        {
+          "es": "abrir",
+          "zh": "营业"
+        },
+        {
+          "es": "cerrar",
+          "zh": "关门"
+        },
+        {
+          "es": "el dinero",
+          "zh": "钱"
+        },
+        {
+          "es": "la tarjeta",
+          "zh": "卡"
+        },
+        {
+          "es": "la hora",
+          "zh": "时间"
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "客户",
+          "es": "Buenos días. ¿Dónde está el cajero automático?",
+          "zh": "您好，ATM 在哪里？"
+        },
+        {
+          "speaker": "职员",
+          "es": "Está fuera, al lado de la entrada.",
+          "zh": "在外面入口旁。"
+        },
+        {
+          "speaker": "客户",
+          "es": "Gracias. ¿Y el mostrador?",
+          "zh": "谢谢。柜台呢？"
+        },
+        {
+          "speaker": "职员",
+          "es": "Al fondo de la oficina.",
+          "zh": "在网点尽头。"
+        },
+        {
+          "speaker": "客户",
+          "es": "¿A qué hora cierra hoy?",
+          "zh": "今天几点关门？"
+        },
+        {
+          "speaker": "职员",
+          "es": "Puede consultar el horario de esta oficina aquí.",
+          "zh": "您可以在这里查看网点营业时间。"
+        },
+        {
+          "speaker": "客户",
+          "es": "Perfecto, muchas gracias.",
+          "zh": "好的，非常感谢。"
+        }
+      ],
+      "expressions": [
+        {
+          "standard": "¿Podría indicarme dónde está el cajero?",
+          "natural": "¿Dónde hay un cajero?",
+          "zh": "ATM 在哪？",
+          "register": "自然口语与正式表达",
+          "note": "口语中 ATM 往往简称 cajero。"
+        },
+        {
+          "standard": "¿Cuál es el horario de atención?",
+          "natural": "¿A qué hora cerráis?",
+          "zh": "你们几点关门？",
+          "register": "自然口语与正式表达",
+          "note": "在西班牙的熟悉情境中 cerráis 常见；正式问法更稳妥。"
+        }
+      ],
+      "challenges": [
+        {
+          "prompt": "问：ATM 在哪里？",
+          "answer": "¿Dónde está el cajero automático?"
+        },
+        {
+          "prompt": "问：今天几点关门？",
+          "answer": "¿A qué hora cierra hoy la oficina?"
+        },
+        {
+          "prompt": "说：我需要帮助。",
+          "answer": "Necesito ayuda."
+        }
+      ],
+      "mission": {
+        "setup": "先听完双语对话，再处理工作人员改变说法或提出问题的情况。",
+        "decisions": [
+          {
+            "situation": "你找不到办理业务的柜台。",
+            "prompt": "如何提问？",
+            "model": "¿Dónde está el mostrador, por favor?",
+            "choices": [
+              {
+                "es": "¿Dónde está el mostrador, por favor?",
+                "correct": true,
+                "feedback": "询问地点比说出不相关命令更合适。"
+              },
+              {
+                "es": "Deme dinero ahora.",
+                "correct": false,
+                "feedback": "命令式容易引起误会。"
+              }
+            ]
+          },
+          {
+            "situation": "职员说 ATM 在门外。",
+            "prompt": "怎样确认？",
+            "model": "¿Fuera, al lado de la entrada?",
+            "choices": [
+              {
+                "es": "¿Fuera, al lado de la entrada?",
+                "correct": true,
+                "feedback": "重复地点信息可避免找错。"
+              },
+              {
+                "es": "¡No!",
+                "correct": false,
+                "feedback": "单说“不”无法澄清。"
+              }
+            ]
+          }
+        ],
+        "transfer": "换一种情况：你还不知道营业网点是否需要预约。",
+        "debrief": "不看答案，复述事情、已知条件、未解决事项和接下来要做的一步。"
+      }
+    },
+    {
+      "id": "bank-02",
+      "domain": "bank",
+      "track": "banking",
+      "level": "A2",
+      "stage": 2,
+      "title": "银行卡费用和账户条件",
+      "subtitle": "Consultar comisiones y condiciones",
+      "goal": "明确费用、卡种与账户条件，理解区别。",
+      "brief": "开户之前想搞清账户手续费、借记卡和费用发生条件。",
+      "vocab": [
+        {
+          "es": "las comisiones",
+          "zh": "手续费"
+        },
+        {
+          "es": "la cuenta corriente",
+          "zh": "活期银行账户"
+        },
+        {
+          "es": "la tarjeta de débito",
+          "zh": "借记卡"
+        },
+        {
+          "es": "el mantenimiento",
+          "zh": "维护"
+        },
+        {
+          "es": "la condición",
+          "zh": "条件"
+        },
+        {
+          "es": "el contrato",
+          "zh": "合同"
+        },
+        {
+          "es": "el folleto informativo",
+          "zh": "信息说明"
+        },
+        {
+          "es": "gratuito/a",
+          "zh": "免费的"
+        },
+        {
+          "es": "el cargo",
+          "zh": "扣款"
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "客户",
+          "es": "Quisiera conocer las comisiones de esta cuenta.",
+          "zh": "我想了解这个账户的手续费。"
+        },
+        {
+          "speaker": "职员",
+          "es": "Las condiciones dependen del producto y de los requisitos que cumpla.",
+          "zh": "条件取决于产品及您是否符合要求。"
+        },
+        {
+          "speaker": "客户",
+          "es": "¿La tarjeta de débito tiene algún coste?",
+          "zh": "借记卡收费吗？"
+        },
+        {
+          "speaker": "职员",
+          "es": "Debe consultar las condiciones de la tarjeta concreta.",
+          "zh": "需要查看具体卡产品的条款。"
+        },
+        {
+          "speaker": "客户",
+          "es": "¿Y hay comisión de mantenimiento de la cuenta?",
+          "zh": "那账户有维护费吗？"
+        },
+        {
+          "speaker": "职员",
+          "es": "Puede figurar en la información contractual y depender de ciertas condiciones.",
+          "zh": "合同信息里会说明，也可能取决于某些条件。"
+        },
+        {
+          "speaker": "客户",
+          "es": "¿Podría darme un resumen por escrito antes de firmar?",
+          "zh": "签字前能给我一份书面摘要吗？"
+        },
+        {
+          "speaker": "职员",
+          "es": "Sí, puede revisar toda la información antes de decidir.",
+          "zh": "可以，您可以在决定前查阅所有信息。"
+        }
+      ],
+      "expressions": [
+        {
+          "standard": "¿Se aplica una comisión de mantenimiento?",
+          "natural": "¿Me cobran por tener la cuenta?",
+          "zh": "持有账户收费吗？",
+          "register": "自然口语与正式表达",
+          "note": "收费条件依产品而异，不要把某一银行费用当成普遍标准。"
+        },
+        {
+          "standard": "Quisiera revisar las condiciones antes de firmar.",
+          "natural": "Quiero leer la letra pequeña antes de firmar.",
+          "zh": "签字前我想看看小字条款。",
+          "register": "自然口语与正式表达",
+          "note": "la letra pequeña 是指合同细则的自然说法，可能带防范意味。"
+        }
+      ],
+      "challenges": [
+        {
+          "prompt": "问：账户有维护费吗？",
+          "answer": "¿Tiene comisión de mantenimiento esta cuenta?"
+        },
+        {
+          "prompt": "问：借记卡收费吗？",
+          "answer": "¿Tiene algún coste la tarjeta de débito?"
+        },
+        {
+          "prompt": "说：签字前我想读合同。",
+          "answer": "Quiero leer el contrato antes de firmarlo."
+        }
+      ],
+      "mission": {
+        "setup": "先听完双语对话，再处理工作人员改变说法或提出问题的情况。",
+        "decisions": [
+          {
+            "situation": "银行说“条件符合就免费”，但没说明条件。",
+            "prompt": "下一句？",
+            "model": "¿Podría especificarme qué condiciones debo cumplir para que no cobren comisiones?",
+            "choices": [
+              {
+                "es": "¿Podría especificarme qué condiciones debo cumplir para que no cobren comisiones?",
+                "correct": true,
+                "feedback": "要求明确触发收费的条件。"
+              },
+              {
+                "es": "Pues seguro que nunca cobrarán.",
+                "correct": false,
+                "feedback": "不要根据模糊承诺推定永远免费。"
+              }
+            ]
+          },
+          {
+            "situation": "你不太理解一项手续费。",
+            "prompt": "最佳追问？",
+            "model": "¿En qué situaciones se aplica exactamente esta comisión?",
+            "choices": [
+              {
+                "es": "¿En qué situaciones se aplica exactamente esta comisión?",
+                "correct": true,
+                "feedback": "具体询问收费情境有助于做决定。"
+              },
+              {
+                "es": "Da igual lo que cobren.",
+                "correct": false,
+                "feedback": "随意接受不清楚的收费风险较高。"
+              }
+            ]
+          }
+        ],
+        "transfer": "在签署合同前，用三句话概括账户费用和仍需确认的问题。",
+        "debrief": "不看答案，复述事情、已知条件、未解决事项和接下来要做的一步。"
+      }
+    },
+    {
+      "id": "bank-03",
+      "domain": "bank",
+      "track": "banking",
+      "level": "B1",
+      "stage": 3,
+      "title": "无法识别的扣款与客服沟通",
+      "subtitle": "Revisar un cargo desconocido",
+      "goal": "区分“没印象”与“未授权”，记录事实并按正规渠道咨询。",
+      "brief": "发现一笔不熟悉的账户交易，尚不能确定是否未经授权。",
+      "vocab": [
+        {
+          "es": "el movimiento bancario",
+          "zh": "银行交易记录"
+        },
+        {
+          "es": "el cargo",
+          "zh": "扣款"
+        },
+        {
+          "es": "el importe",
+          "zh": "金额"
+        },
+        {
+          "es": "la fecha de operación",
+          "zh": "交易日期"
+        },
+        {
+          "es": "identificar",
+          "zh": "识别"
+        },
+        {
+          "es": "el justificante",
+          "zh": "凭证"
+        },
+        {
+          "es": "presentar una incidencia",
+          "zh": "报告异常"
+        },
+        {
+          "es": "bloquear la tarjeta",
+          "zh": "冻结／锁定银行卡"
+        },
+        {
+          "es": "el canal oficial",
+          "zh": "官方渠道"
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "客户",
+          "es": "He encontrado un cargo que no reconozco en el extracto.",
+          "zh": "我在对账单里发现一笔不认识的扣款。"
+        },
+        {
+          "speaker": "客服",
+          "es": "¿Puede comprobar el importe y la fecha?",
+          "zh": "能否核对金额和日期？"
+        },
+        {
+          "speaker": "客户",
+          "es": "Sí. He revisado mis compras, pero no identifico la operación.",
+          "zh": "可以。我检查了购物记录，但认不出这笔交易。"
+        },
+        {
+          "speaker": "客服",
+          "es": "Le indicaré cómo comunicar la incidencia por el canal correspondiente.",
+          "zh": "我会说明通过哪个渠道报告异常。"
+        },
+        {
+          "speaker": "客户",
+          "es": "¿Debería adoptar alguna medida de seguridad mientras se revisa?",
+          "zh": "在核查期间我是否需要采取安全措施？"
+        },
+        {
+          "speaker": "客服",
+          "es": "Revisaremos las opciones disponibles según el caso.",
+          "zh": "我们会按具体情况说明可用措施。"
+        },
+        {
+          "speaker": "客户",
+          "es": "¿Cómo puedo obtener un número de referencia para el seguimiento?",
+          "zh": "我如何获取后续跟进的参考编号？"
+        },
+        {
+          "speaker": "客服",
+          "es": "Solicite el resguardo o la referencia del trámite, si procede.",
+          "zh": "如果适用，请索取办理回执或参考编号。"
+        }
+      ],
+      "expressions": [
+        {
+          "standard": "No identifico esta operación.",
+          "natural": "Este cargo no me suena.",
+          "zh": "这笔扣款我没印象。",
+          "register": "自然口语与正式表达",
+          "note": "“不熟悉”不等于已证明存在欺诈。"
+        },
+        {
+          "standard": "Quisiera comunicar una incidencia.",
+          "natural": "Quería avisar de un cargo raro.",
+          "zh": "我想报告一笔异常扣款。",
+          "register": "自然口语与正式表达",
+          "note": "raro 口语自然，正式应写明具体交易。"
+        }
+      ],
+      "challenges": [
+        {
+          "prompt": "说：我不认识这笔交易。",
+          "answer": "No reconozco este movimiento bancario."
+        },
+        {
+          "prompt": "问：可以给我参考编号吗？",
+          "answer": "¿Puedo obtener un número de referencia?"
+        },
+        {
+          "prompt": "问：目前需要采取安全措施吗？",
+          "answer": "¿Debo adoptar alguna medida de seguridad?"
+        }
+      ],
+      "mission": {
+        "setup": "先听完双语对话，再处理工作人员改变说法或提出问题的情况。",
+        "decisions": [
+          {
+            "situation": "客服问“您确定未经授权吗”，你尚未核实。",
+            "prompt": "应该怎样表达？",
+            "model": "No puedo confirmarlo todavía; lo que sé es que no reconozco el cargo.",
+            "choices": [
+              {
+                "es": "No puedo confirmarlo todavía; lo que sé es que no reconozco el cargo.",
+                "correct": true,
+                "feedback": "区别确知事实与尚待核实的判断。"
+              },
+              {
+                "es": "Estoy seguro de que el banco me ha robado.",
+                "correct": false,
+                "feedback": "无依据的指控容易偏离解决问题。"
+              }
+            ]
+          },
+          {
+            "situation": "对方建议改用安全渠道。",
+            "prompt": "怎么答？",
+            "model": "De acuerdo. ¿Cuál es el canal oficial y qué referencia debo conservar?",
+            "choices": [
+              {
+                "es": "De acuerdo. ¿Cuál es el canal oficial y qué referencia debo conservar?",
+                "correct": true,
+                "feedback": "只用经过确认的渠道；绝不在公开对话中提交密码。"
+              },
+              {
+                "es": "Le mando mis claves por este chat público.",
+                "correct": false,
+                "feedback": "公开发送登录凭证存在安全风险。"
+              }
+            ]
+          }
+        ],
+        "transfer": "模拟一次安全沟通：描述交易→询问安全建议→确认正式申报路径→保留编号。",
+        "debrief": "不看答案，复述事情、已知条件、未解决事项和接下来要做的一步。"
+      }
+    },
+    {
+      "id": "bank-04",
+      "domain": "bank",
+      "track": "banking",
+      "level": "B2",
+      "stage": 4,
+      "title": "正式质疑收费并请求书面依据",
+      "subtitle": "Reclamación bancaria documentada",
+      "goal": "引用合同条款、请求解释与证据，提出理性申诉。",
+      "brief": "你认为账户收费方式可能与签约条件不符，需要核对事实后正式沟通。",
+      "vocab": [
+        {
+          "es": "la cláusula contractual",
+          "zh": "合同条款"
+        },
+        {
+          "es": "la comisión aplicada",
+          "zh": "实际收取的费用"
+        },
+        {
+          "es": "la discrepancia",
+          "zh": "不一致"
+        },
+        {
+          "es": "la justificación",
+          "zh": "理由说明"
+        },
+        {
+          "es": "la documentación acreditativa",
+          "zh": "证明材料"
+        },
+        {
+          "es": "la reclamación formal",
+          "zh": "正式投诉"
+        },
+        {
+          "es": "la rectificación",
+          "zh": "更正"
+        },
+        {
+          "es": "el acuse de recibo",
+          "zh": "收件回执"
+        },
+        {
+          "es": "el plazo de respuesta",
+          "zh": "回复期限"
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "客户",
+          "es": "Quisiera presentar una consulta sobre una comisión aplicada a mi cuenta.",
+          "zh": "我想询问账户收取的一项手续费。"
+        },
+        {
+          "speaker": "银行",
+          "es": "¿Cuál es la discrepancia que ha observado?",
+          "zh": "您发现哪方面不一致？"
+        },
+        {
+          "speaker": "客户",
+          "es": "Según la documentación que recibí al contratarla, no esperaba este cargo en estas condiciones.",
+          "zh": "根据开户时收到的文件，我不认为在这些条件下应收该费用。"
+        },
+        {
+          "speaker": "银行",
+          "es": "Necesitamos revisar el contrato y los movimientos concretos.",
+          "zh": "我们需要核对合同及具体交易。"
+        },
+        {
+          "speaker": "客户",
+          "es": "Por supuesto. Traigo una copia de la cláusula y el extracto correspondiente.",
+          "zh": "当然，我带了合同条款复印件及相关对账单。"
+        },
+        {
+          "speaker": "银行",
+          "es": "Tras revisarlo, podremos explicarle el fundamento del cargo.",
+          "zh": "核查后我们可以说明收费依据。"
+        },
+        {
+          "speaker": "客户",
+          "es": "Si hubiera un error, ¿qué procedimiento existe para solicitar la rectificación?",
+          "zh": "如果存在错误，可以通过什么程序申请更正？"
+        },
+        {
+          "speaker": "银行",
+          "es": "Le indicaremos el canal de reclamación y cómo obtener constancia de su presentación.",
+          "zh": "我们会说明投诉渠道及如何取得提交凭证。"
+        }
+      ],
+      "expressions": [
+        {
+          "standard": "Solicito la justificación contractual de esta comisión.",
+          "natural": "Quiero saber por qué me han cobrado esto.",
+          "zh": "我想知道这笔钱为什么被扣。",
+          "register": "自然口语与正式表达",
+          "note": "正式争议应要求依据并附具体合同条款。"
+        },
+        {
+          "standard": "Solicito una respuesta motivada por escrito.",
+          "natural": "Me gustaría que me respondieran por escrito.",
+          "zh": "希望获得说明理由的书面答复。",
+          "register": "自然口语与正式表达",
+          "note": "银行投诉的时效与主管渠道因争议种类不同，应核实。"
+        }
+      ],
+      "challenges": [
+        {
+          "prompt": "正式说：请说明此项手续费的合同依据。",
+          "answer": "Solicito que se me indique el fundamento contractual de esta comisión."
+        },
+        {
+          "prompt": "说：我附上合同条款与对账单。",
+          "answer": "Adjunto la cláusula contractual y el extracto bancario."
+        },
+        {
+          "prompt": "问：如何确认投诉已被受理？",
+          "answer": "¿Cómo puedo obtener un acuse de recibo de la reclamación?"
+        }
+      ],
+      "mission": {
+        "setup": "先听完双语对话，再处理工作人员改变说法或提出问题的情况。",
+        "decisions": [
+          {
+            "situation": "客服没有明确费用依据。",
+            "prompt": "怎样继续？",
+            "model": "Agradecería una explicación por escrito con referencia a la cláusula aplicable.",
+            "choices": [
+              {
+                "es": "Agradecería una explicación por escrito con referencia a la cláusula aplicable.",
+                "correct": true,
+                "feedback": "基于合同证据提出可核验的诉求。"
+              },
+              {
+                "es": "Quiero que lo quiten porque sí.",
+                "correct": false,
+                "feedback": "没有具体依据的要求难以沟通。"
+              }
+            ]
+          },
+          {
+            "situation": "对方表示需进一步核查。",
+            "prompt": "最适合的回应？",
+            "model": "¿Podrían indicarme el procedimiento y la referencia de seguimiento?",
+            "choices": [
+              {
+                "es": "¿Podrían indicarme el procedimiento y la referencia de seguimiento?",
+                "correct": true,
+                "feedback": "正式流程与参考编号便于跟进，勿公开账户数据。"
+              },
+              {
+                "es": "Entonces publico mis datos bancarios para demostrarlo.",
+                "correct": false,
+                "feedback": "泄露私人金融信息会增加风险。"
+              }
+            ]
+          }
+        ],
+        "transfer": "写一份没有真实账号的正式投诉提纲：时间、金额、合同条款、请求与回复方式。",
+        "debrief": "不看答案，复述事情、已知条件、未解决事项和接下来要做的一步。"
+      }
+    },
+    {
+      "id": "admin-01",
+      "domain": "admin",
+      "track": "public-admin",
+      "level": "A1",
+      "stage": 1,
+      "title": "找到办事处并预约",
+      "subtitle": "Encontrar la oficina y pedir cita",
+      "goal": "确认办公室位置、是否预约及开放时间。",
+      "brief": "第一次咨询市政服务，不确定去哪办理。",
+      "vocab": [
+        {
+          "es": "el ayuntamiento",
+          "zh": "市政府"
+        },
+        {
+          "es": "la oficina",
+          "zh": "办事处"
+        },
+        {
+          "es": "la cita previa",
+          "zh": "提前预约"
+        },
+        {
+          "es": "el horario",
+          "zh": "时间"
+        },
+        {
+          "es": "el mostrador",
+          "zh": "窗口"
+        },
+        {
+          "es": "el papel",
+          "zh": "纸张／文件（口语）"
+        },
+        {
+          "es": "la dirección",
+          "zh": "地址"
+        },
+        {
+          "es": "preguntar",
+          "zh": "询问"
+        },
+        {
+          "es": "necesitar",
+          "zh": "需要"
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "市民",
+          "es": "Buenos días. ¿Dónde está la oficina de atención?",
+          "zh": "您好，办事处在哪里？"
+        },
+        {
+          "speaker": "工作人员",
+          "es": "Está en la primera planta.",
+          "zh": "在一楼（西班牙楼层说法）。"
+        },
+        {
+          "speaker": "市民",
+          "es": "Gracias. ¿Necesito cita previa?",
+          "zh": "谢谢。需要预约吗？"
+        },
+        {
+          "speaker": "工作人员",
+          "es": "Depende del trámite.",
+          "zh": "看办理的业务。"
+        },
+        {
+          "speaker": "市民",
+          "es": "¿Dónde puedo preguntar?",
+          "zh": "我到哪里咨询？"
+        },
+        {
+          "speaker": "工作人员",
+          "es": "Puede hacerlo en el mostrador de información.",
+          "zh": "可以在咨询柜台。"
+        },
+        {
+          "speaker": "市民",
+          "es": "Muchas gracias.",
+          "zh": "非常感谢。"
+        }
+      ],
+      "expressions": [
+        {
+          "standard": "¿Es necesaria una cita previa?",
+          "natural": "¿Hay que pedir cita?",
+          "zh": "需要预约吗？",
+          "register": "自然口语与正式表达",
+          "note": "口语常用 hay que + 不定式表达是否需要。"
+        },
+        {
+          "standard": "¿Dónde está la oficina de atención?",
+          "natural": "¿Dónde se pregunta por esto?",
+          "zh": "这个事项去哪问？",
+          "register": "自然口语与正式表达",
+          "note": "不确定负责窗口时先问信息台。"
+        }
+      ],
+      "challenges": [
+        {
+          "prompt": "问：我需要提前预约吗？",
+          "answer": "¿Necesito cita previa?"
+        },
+        {
+          "prompt": "问：办事处在哪里？",
+          "answer": "¿Dónde está la oficina?"
+        },
+        {
+          "prompt": "问：什么时候开门？",
+          "answer": "¿A qué hora abre?"
+        }
+      ],
+      "mission": {
+        "setup": "先听完双语对话，再处理工作人员改变说法或提出问题的情况。",
+        "decisions": [
+          {
+            "situation": "你走到错误的窗口。",
+            "prompt": "怎么问？",
+            "model": "Perdone, ¿dónde puedo consultar este trámite?",
+            "choices": [
+              {
+                "es": "Perdone, ¿dónde puedo consultar este trámite?",
+                "correct": true,
+                "feedback": "确认负责部门比要求错误窗口受理更有效。"
+              },
+              {
+                "es": "Hágamelo aquí.",
+                "correct": false,
+                "feedback": "不同窗口职责可能不同。"
+              }
+            ]
+          },
+          {
+            "situation": "对方说看业务决定是否预约。",
+            "prompt": "如何追问？",
+            "model": "¿Dónde puedo comprobarlo para mi trámite?",
+            "choices": [
+              {
+                "es": "¿Dónde puedo comprobarlo para mi trámite?",
+                "correct": true,
+                "feedback": "需要根据具体事项判断。"
+              },
+              {
+                "es": "Entonces nunca hace falta cita.",
+                "correct": false,
+                "feedback": "不能从不确定回答推出绝对结论。"
+              }
+            ]
+          }
+        ],
+        "transfer": "尝试问：如果办事处今天不开放，我能不能网上预约？",
+        "debrief": "不看答案，复述事情、已知条件、未解决事项和接下来要做的一步。"
+      }
+    },
+    {
+      "id": "admin-02",
+      "domain": "admin",
+      "track": "public-admin",
+      "level": "A2",
+      "stage": 2,
+      "title": "表格填错与补正",
+      "subtitle": "Corregir un formulario",
+      "goal": "询问是否可以更正、材料是否能替换、如何留存记录。",
+      "brief": "提交表格后发现地址字段填错，希望确认补正方法。",
+      "vocab": [
+        {
+          "es": "rellenar",
+          "zh": "填写"
+        },
+        {
+          "es": "la casilla",
+          "zh": "栏位"
+        },
+        {
+          "es": "el formulario",
+          "zh": "表格"
+        },
+        {
+          "es": "corregir",
+          "zh": "更正"
+        },
+        {
+          "es": "la solicitud",
+          "zh": "申请"
+        },
+        {
+          "es": "el justificante",
+          "zh": "凭证"
+        },
+        {
+          "es": "adjuntar",
+          "zh": "附加"
+        },
+        {
+          "es": "la versión actualizada",
+          "zh": "更新版本"
+        },
+        {
+          "es": "el error",
+          "zh": "错误"
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "申请人",
+          "es": "He enviado una solicitud, pero creo que me he equivocado en una casilla.",
+          "zh": "我提交了申请，但可能在一栏填错了。"
+        },
+        {
+          "speaker": "工作人员",
+          "es": "¿En qué dato se ha equivocado?",
+          "zh": "哪个信息填错？"
+        },
+        {
+          "speaker": "申请人",
+          "es": "En la dirección. ¿Puedo corregirla después de presentar el formulario?",
+          "zh": "地址。提交表格后能更改吗？"
+        },
+        {
+          "speaker": "工作人员",
+          "es": "Tiene que consultar las posibilidades de subsanación de este procedimiento.",
+          "zh": "需要确认该程序允许怎样补正。"
+        },
+        {
+          "speaker": "申请人",
+          "es": "¿Debo presentar una solicitud nueva o adjuntar una corrección?",
+          "zh": "需要重新申请还是附上更正信息？"
+        },
+        {
+          "speaker": "工作人员",
+          "es": "Le indicaremos el canal que corresponda.",
+          "zh": "我们会说明相应渠道。"
+        },
+        {
+          "speaker": "申请人",
+          "es": "Gracias. ¿Cómo puedo guardar un justificante del cambio?",
+          "zh": "谢谢。我怎样保留更正凭证？"
+        }
+      ],
+      "expressions": [
+        {
+          "standard": "Me he equivocado al rellenar el formulario.",
+          "natural": "He metido la pata al rellenarlo.",
+          "zh": "我填表时弄错了。",
+          "register": "自然口语与正式表达",
+          "note": "meter la pata 是自然口语的“搞砸”，正式窗口可用 me he equivocado。"
+        },
+        {
+          "standard": "Quisiera subsanar un error.",
+          "natural": "Quería arreglar un dato que puse mal.",
+          "zh": "我想更正填错的信息。",
+          "register": "自然口语与正式表达",
+          "note": "subsanar 是行政办事常见书面词，但是否可补正要看程序。"
+        }
+      ],
+      "challenges": [
+        {
+          "prompt": "说：我填错了地址。",
+          "answer": "Me he equivocado en la dirección."
+        },
+        {
+          "prompt": "问：需要重新提交吗？",
+          "answer": "¿Tengo que presentar una solicitud nueva?"
+        },
+        {
+          "prompt": "问：怎么保留更正凭证？",
+          "answer": "¿Cómo puedo obtener un justificante de la corrección?"
+        }
+      ],
+      "mission": {
+        "setup": "先听完双语对话，再处理工作人员改变说法或提出问题的情况。",
+        "decisions": [
+          {
+            "situation": "对方说可能需要补正。",
+            "prompt": "你应该问？",
+            "model": "¿Cuál es el procedimiento para subsanar este dato?",
+            "choices": [
+              {
+                "es": "¿Cuál es el procedimiento para subsanar este dato?",
+                "correct": true,
+                "feedback": "不同事项补正方式不同，应核实。"
+              },
+              {
+                "es": "Pues lo cambio sin avisar.",
+                "correct": false,
+                "feedback": "私自更改无法保证已正式生效。"
+              }
+            ]
+          },
+          {
+            "situation": "办事员没有讲清申请编号。",
+            "prompt": "你如何追问？",
+            "model": "¿Puede indicarme dónde aparece el número de referencia?",
+            "choices": [
+              {
+                "es": "¿Puede indicarme dónde aparece el número de referencia?",
+                "correct": true,
+                "feedback": "参考编号通常有助于跟进。"
+              },
+              {
+                "es": "Da igual el número.",
+                "correct": false,
+                "feedback": "不要轻易忽略办理凭证。"
+              }
+            ]
+          }
+        ],
+        "transfer": "模拟填错姓氏而非地址的情况，问明确更正步骤。",
+        "debrief": "不看答案，复述事情、已知条件、未解决事项和接下来要做的一步。"
+      }
+    },
+    {
+      "id": "admin-03",
+      "domain": "admin",
+      "track": "public-admin",
+      "level": "B1",
+      "stage": 3,
+      "title": "数字证书登录受阻",
+      "subtitle": "Problemas de identificación electrónica",
+      "goal": "区别访问、身份验证和提交，说明技术故障并寻找官方替代。",
+      "brief": "网上办理时身份验证无法完成，担心申请截止期限。",
+      "vocab": [
+        {
+          "es": "el certificado digital",
+          "zh": "数字证书"
+        },
+        {
+          "es": "la identificación electrónica",
+          "zh": "电子身份验证"
+        },
+        {
+          "es": "el acceso",
+          "zh": "访问权限"
+        },
+        {
+          "es": "la incidencia técnica",
+          "zh": "技术问题"
+        },
+        {
+          "es": "el justificante",
+          "zh": "提交凭证"
+        },
+        {
+          "es": "el navegador",
+          "zh": "浏览器"
+        },
+        {
+          "es": "la autenticación",
+          "zh": "身份验证"
+        },
+        {
+          "es": "el plazo",
+          "zh": "期限"
+        },
+        {
+          "es": "la vía alternativa",
+          "zh": "替代途径"
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "用户",
+          "es": "Estoy intentando presentar una solicitud, pero no consigo identificarme en la sede electrónica.",
+          "zh": "我想网上提交申请，但无法通过电子政务平台验证身份。"
+        },
+        {
+          "speaker": "客服",
+          "es": "¿En qué fase aparece el error?",
+          "zh": "在哪一步报错？"
+        },
+        {
+          "speaker": "用户",
+          "es": "Después de seleccionar el certificado digital. El formulario no llega a enviarse.",
+          "zh": "选择数字证书后。表格始终未提交。"
+        },
+        {
+          "speaker": "客服",
+          "es": "¿Le aparece algún mensaje concreto?",
+          "zh": "有具体错误提示吗？"
+        },
+        {
+          "speaker": "用户",
+          "es": "Sí, lo he anotado. Me preocupa que termine el plazo.",
+          "zh": "有，我记下来了。担心期限到期。"
+        },
+        {
+          "speaker": "客服",
+          "es": "Le indicaremos los canales de soporte y las alternativas disponibles, si las hubiera.",
+          "zh": "我们会说明支持渠道及可能的替代途径。"
+        },
+        {
+          "speaker": "用户",
+          "es": "¿Cómo puedo dejar constancia de la incidencia y confirmar si se ha registrado algo?",
+          "zh": "我如何留下故障记录，并确认系统是否登记了内容？"
+        },
+        {
+          "speaker": "客服",
+          "es": "Compruebe el estado de la solicitud y siga las instrucciones oficiales.",
+          "zh": "请检查申请状态并遵循官方说明。"
+        }
+      ],
+      "expressions": [
+        {
+          "standard": "No puedo completar la identificación electrónica.",
+          "natural": "No me deja entrar con el certificado.",
+          "zh": "用数字证书进不去。",
+          "register": "自然口语与正式表达",
+          "note": "no me deja 是描述系统无法操作的常见表达。"
+        },
+        {
+          "standard": "¿Existe un canal alternativo de presentación?",
+          "natural": "¿Hay otra manera de entregarlo?",
+          "zh": "有没有其他提交方式？",
+          "register": "自然口语与正式表达",
+          "note": "切勿假设替代渠道一定存在，需咨询对应机构。"
+        }
+      ],
+      "challenges": [
+        {
+          "prompt": "说：表格没有成功提交。",
+          "answer": "El formulario no ha llegado a enviarse."
+        },
+        {
+          "prompt": "问：怎样证明遇到技术故障？",
+          "answer": "¿Cómo puedo dejar constancia de la incidencia técnica?"
+        },
+        {
+          "prompt": "问：还有其他提交渠道吗？",
+          "answer": "¿Existe alguna vía alternativa para presentar la solicitud?"
+        }
+      ],
+      "mission": {
+        "setup": "先听完双语对话，再处理工作人员改变说法或提出问题的情况。",
+        "decisions": [
+          {
+            "situation": "你不知道点击按钮后是否已成功提交。",
+            "prompt": "最合适的行为？",
+            "model": "¿Cómo puedo comprobar si la solicitud figura como presentada?",
+            "choices": [
+              {
+                "es": "¿Cómo puedo comprobar si la solicitud figura como presentada?",
+                "correct": true,
+                "feedback": "先确认状态避免重复操作或遗漏。"
+              },
+              {
+                "es": "La enviaré diez veces sin mirar.",
+                "correct": false,
+                "feedback": "重复提交可能造成混乱。"
+              }
+            ]
+          },
+          {
+            "situation": "期限即将到期但系统持续报错。",
+            "prompt": "怎样提问？",
+            "model": "¿Qué canal oficial puedo utilizar para comunicar la incidencia antes de que venza el plazo?",
+            "choices": [
+              {
+                "es": "¿Qué canal oficial puedo utilizar para comunicar la incidencia antes de que venza el plazo?",
+                "correct": true,
+                "feedback": "及时通过官方渠道报告并记录问题。"
+              },
+              {
+                "es": "Ya lo intentaré cuando pase el plazo.",
+                "correct": false,
+                "feedback": "超过期限再处理可能增加风险。"
+              }
+            ]
+          }
+        ],
+        "transfer": "用 60 秒说清：具体页面、操作步骤、错误提示、时间、你期望的解决方式。",
+        "debrief": "不看答案，复述事情、已知条件、未解决事项和接下来要做的一步。"
+      }
+    },
+    {
+      "id": "admin-04",
+      "domain": "admin",
+      "track": "public-admin",
+      "level": "B2",
+      "stage": 4,
+      "title": "阅读通知并询问申诉期限",
+      "subtitle": "Interpretar una notificación y pedir revisión",
+      "goal": "理解正式通知、确认生效日、提交渠道、权利救济与证据。",
+      "brief": "收到行政部门的书面通知，但部分内容与提交的材料不符，需要先核查而非盲目申诉。",
+      "vocab": [
+        {
+          "es": "la resolución administrativa",
+          "zh": "行政决定"
+        },
+        {
+          "es": "la notificación",
+          "zh": "送达通知"
+        },
+        {
+          "es": "el cómputo de plazos",
+          "zh": "期限计算"
+        },
+        {
+          "es": "la fecha de notificación",
+          "zh": "通知送达日期"
+        },
+        {
+          "es": "la subsanación",
+          "zh": "补正"
+        },
+        {
+          "es": "las alegaciones",
+          "zh": "申辩／陈述意见"
+        },
+        {
+          "es": "el recurso administrativo",
+          "zh": "行政救济申请"
+        },
+        {
+          "es": "el órgano competente",
+          "zh": "主管机关"
+        },
+        {
+          "es": "el expediente",
+          "zh": "案卷"
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "市民",
+          "es": "He recibido una notificación y quisiera aclarar su alcance antes de responder.",
+          "zh": "我收到一份通知，想在回复之前澄清其含义。"
+        },
+        {
+          "speaker": "工作人员",
+          "es": "¿Qué punto necesita entender mejor?",
+          "zh": "您想进一步了解哪一点？"
+        },
+        {
+          "speaker": "市民",
+          "es": "No sé desde qué fecha se computa el plazo indicado en el documento.",
+          "zh": "我不确定文件上的期限从哪一天开始计算。"
+        },
+        {
+          "speaker": "工作人员",
+          "es": "Debe revisar la información de la notificación y la normativa aplicable.",
+          "zh": "您需要查看通知及适用规定。"
+        },
+        {
+          "speaker": "市民",
+          "es": "Además, la resolución parece referirse a una documentación distinta de la que presenté.",
+          "zh": "此外，这份决定似乎涉及的材料与我提交的不一致。"
+        },
+        {
+          "speaker": "工作人员",
+          "es": "Puede solicitar información sobre cómo consultar su expediente.",
+          "zh": "您可以咨询如何查阅案卷。"
+        },
+        {
+          "speaker": "市民",
+          "es": "Agradecería que me indicaran los cauces disponibles para aclararlo o, si procede, impugnarlo.",
+          "zh": "希望您说明有哪些澄清途径，如适用又如何提出救济。"
+        },
+        {
+          "speaker": "工作人员",
+          "es": "Le informaremos de las vías y plazos que correspondan al procedimiento.",
+          "zh": "我们会告知对应程序适用的渠道及期限。"
+        }
+      ],
+      "expressions": [
+        {
+          "standard": "Quisiera saber cómo se computa el plazo.",
+          "natural": "¿Desde qué día empieza a contar?",
+          "zh": "期限从哪天开始算？",
+          "register": "自然口语与正式表达",
+          "note": "行政期限计算依据具体程序与通知，不能套用通用日期。"
+        },
+        {
+          "standard": "Solicito acceso a la documentación del expediente.",
+          "natural": "Quería ver qué documentos constan en el expediente.",
+          "zh": "我想看案卷里有哪些文件。",
+          "register": "自然口语与正式表达",
+          "note": "正式书面最好注明具体事项；勿在公共网站提交真实编号。"
+        }
+      ],
+      "challenges": [
+        {
+          "prompt": "问：期限从哪一天开始计算？",
+          "answer": "¿Desde qué fecha se computa el plazo?"
+        },
+        {
+          "prompt": "说：文件似乎与我提交的材料不一致。",
+          "answer": "La resolución parece no coincidir con la documentación que presenté."
+        },
+        {
+          "prompt": "问：可以查阅案卷吗？",
+          "answer": "¿Puedo consultar el expediente?"
+        }
+      ],
+      "mission": {
+        "setup": "先听完双语对话，再处理工作人员改变说法或提出问题的情况。",
+        "decisions": [
+          {
+            "situation": "你尚未确定收到的是补正通知还是最终决定。",
+            "prompt": "最重要的提问？",
+            "model": "¿Esta notificación exige subsanar documentación o contiene una resolución definitiva?",
+            "choices": [
+              {
+                "es": "¿Esta notificación exige subsanar documentación o contiene una resolución definitiva?",
+                "correct": true,
+                "feedback": "先识别文书类型和适用程序。"
+              },
+              {
+                "es": "Presentaré un recurso cualquiera.",
+                "correct": false,
+                "feedback": "不同通知的回应方式可能不同。"
+              }
+            ]
+          },
+          {
+            "situation": "你想询问救济渠道。",
+            "prompt": "怎样正式表达？",
+            "model": "¿Podrían señalar la vía de recurso y el plazo indicados en esta resolución?",
+            "choices": [
+              {
+                "es": "¿Podrían señalar la vía de recurso y el plazo indicados en esta resolución?",
+                "correct": true,
+                "feedback": "明确法定期限、管辖机关和流程。"
+              },
+              {
+                "es": "Me da igual el plazo, presentaré cuando pueda.",
+                "correct": false,
+                "feedback": "忽视期限会造成重大程序风险。"
+              }
+            ]
+          }
+        ],
+        "transfer": "根据虚构通知写正式咨询邮件，分别标注“我确认的事实”“我不确定的情况”和“我请求的说明”。",
+        "debrief": "不看答案，复述事情、已知条件、未解决事项和接下来要做的一步。"
+      }
+    }
+  ]
+}
