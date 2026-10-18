@@ -1,0 +1,767 @@
+{
+  "schema": 2,
+  "description": "问诊实用西语课：描述症状、病史与深入讨论，全部为语言示例，不是医疗诊断或治疗指引。",
+  "tracks": [
+    {
+      "id": "clinic-consultation",
+      "domain": "health",
+      "title": "医生面诊与症状表达",
+      "subtitle": "哪里不舒服 → 程度和变化 → 病史及过敏 → 方案与风险",
+      "description": "按医生问诊顺序练习表达，尤其学会说清楚“不知道、不确定”，以及请求医师用更通俗的语言解释。"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "hc-doctor-01",
+      "domain": "health",
+      "track": "clinic-consultation",
+      "level": "A1",
+      "stage": 1,
+      "title": "第一次面诊：哪里不舒服",
+      "subtitle": "En la consulta médica",
+      "goal": "准确表达疼痛部位、开始时间和请求重复。",
+      "brief": "你坐在诊室里，医生开始问诊；学会自然回答“怎么了”“哪里疼”。",
+      "vocab": [
+        {
+          "es": "¿Qué le pasa?",
+          "zh": "您怎么了？"
+        },
+        {
+          "es": "me duele…",
+          "zh": "我……疼"
+        },
+        {
+          "es": "la cabeza",
+          "zh": "头"
+        },
+        {
+          "es": "la garganta",
+          "zh": "喉咙"
+        },
+        {
+          "es": "el estómago",
+          "zh": "胃；肚子"
+        },
+        {
+          "es": "tener tos",
+          "zh": "咳嗽"
+        },
+        {
+          "es": "la fiebre",
+          "zh": "发烧"
+        },
+        {
+          "es": "desde ayer",
+          "zh": "从昨天起"
+        },
+        {
+          "es": "un poco",
+          "zh": "一点儿"
+        },
+        {
+          "es": "más despacio",
+          "zh": "慢一点"
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "医生",
+          "es": "Buenos días. Siéntese, por favor. ¿Qué le pasa?",
+          "zh": "您好，请坐。您哪里不舒服？"
+        },
+        {
+          "speaker": "患者",
+          "es": "Me duele la garganta.",
+          "zh": "我喉咙痛。"
+        },
+        {
+          "speaker": "医生",
+          "es": "¿Desde cuándo?",
+          "zh": "从什么时候开始的？"
+        },
+        {
+          "speaker": "患者",
+          "es": "Desde ayer por la tarde.",
+          "zh": "从昨天下午起。"
+        },
+        {
+          "speaker": "医生",
+          "es": "¿Tiene fiebre o tos?",
+          "zh": "您发烧或咳嗽吗？"
+        },
+        {
+          "speaker": "患者",
+          "es": "Tengo un poco de tos, pero no sé si tengo fiebre.",
+          "zh": "我有一点咳嗽，但不知道有没有发烧。"
+        },
+        {
+          "speaker": "医生",
+          "es": "De acuerdo. Voy a hacerle unas preguntas.",
+          "zh": "好的。我会问您几个问题。"
+        },
+        {
+          "speaker": "患者",
+          "es": "¿Puede hablar más despacio, por favor? Estoy aprendiendo español.",
+          "zh": "请您说慢一点好吗？我正在学西语。"
+        },
+        {
+          "speaker": "医生",
+          "es": "Claro. Vamos poco a poco.",
+          "zh": "当然。我们慢慢来。"
+        },
+        {
+          "speaker": "患者",
+          "es": "Muchas gracias.",
+          "zh": "非常感谢。"
+        }
+      ],
+      "expressions": [
+        {
+          "standard": "Tengo dolor de garganta.",
+          "natural": "Me duele la garganta.",
+          "note": "喉咙痛常用 me duele + 部位。",
+          "register": "西班牙本地自然表达与正式问诊"
+        },
+        {
+          "standard": "¿Podría hablar más despacio, por favor?",
+          "natural": "¿Puede ir más despacio?",
+          "note": "向医生请求慢速讲话非常合适。",
+          "register": "西班牙本地自然表达与正式问诊"
+        }
+      ],
+      "challenges": [
+        {
+          "prompt": "说：我喉咙痛。",
+          "answer": "Me duele la garganta."
+        },
+        {
+          "prompt": "说：从昨天下午起。",
+          "answer": "Desde ayer por la tarde."
+        },
+        {
+          "prompt": "说：我不知道有没有发烧。",
+          "answer": "No sé si tengo fiebre."
+        }
+      ],
+      "mission": {
+        "setup": "医生将继续追问。尽量区分确实存在的症状、未发生的症状和你不确定的信息。",
+        "decisions": [
+          {
+            "situation": "医生问症状从何时开始，你只知道昨天。",
+            "prompt": "哪句最准确？",
+            "model": "Desde ayer, no recuerdo la hora exacta.",
+            "choices": [
+              {
+                "es": "Desde ayer, no recuerdo la hora exacta.",
+                "correct": true,
+                "feedback": "如实表明大致时间，不编造准确日期。"
+              },
+              {
+                "es": "Hace tres días, seguro.",
+                "correct": false,
+                "feedback": "此回应没有传递医生当前需要的准确病情信息，可能误导交流。"
+              },
+              {
+                "es": "Tengo muchas preguntas.",
+                "correct": false,
+                "feedback": "有一定信息，但尚未回答最关键的问诊问题。"
+              }
+            ]
+          },
+          {
+            "situation": "医生说了一个不懂的词。",
+            "prompt": "你可以怎样请求解释？",
+            "model": "Perdone, ¿qué significa esa palabra?",
+            "choices": [
+              {
+                "es": "Perdone, ¿qué significa esa palabra?",
+                "correct": true,
+                "feedback": "问清专业词语比假装理解更安全。"
+              },
+              {
+                "es": "Sí, lo he entendido todo.",
+                "correct": false,
+                "feedback": "此回应没有传递医生当前需要的准确病情信息，可能误导交流。"
+              },
+              {
+                "es": "¿A qué hora abre la recepción?",
+                "correct": false,
+                "feedback": "有一定信息，但尚未回答最关键的问诊问题。"
+              }
+            ]
+          }
+        ],
+        "transfer": "换成‘肚子疼了两天，没有咳嗽’，用四句西语完整描述。",
+        "debrief": "离开练习时请能复述主诉、开始时间、伴随症状及仍需向医生确认的问题。"
+      }
+    },
+    {
+      "id": "hc-doctor-02",
+      "domain": "health",
+      "track": "clinic-consultation",
+      "level": "A2",
+      "stage": 2,
+      "title": "症状详细描述：时间、程度、变化",
+      "subtitle": "Describir síntomas con precisión",
+      "goal": "解释疼痛位置、程度、频率、伴随表现及变化趋势。",
+      "brief": "你有反复头痛，需要回答医生对持续时间与症状变化的追问；示例不提供诊断。",
+      "vocab": [
+        {
+          "es": "el dolor de cabeza",
+          "zh": "头痛"
+        },
+        {
+          "es": "dolor fuerte",
+          "zh": "剧烈疼痛"
+        },
+        {
+          "es": "dolor leve",
+          "zh": "轻微疼痛"
+        },
+        {
+          "es": "empezar",
+          "zh": "开始"
+        },
+        {
+          "es": "durar",
+          "zh": "持续"
+        },
+        {
+          "es": "a menudo",
+          "zh": "经常"
+        },
+        {
+          "es": "de vez en cuando",
+          "zh": "偶尔"
+        },
+        {
+          "es": "empeorar",
+          "zh": "变严重"
+        },
+        {
+          "es": "mejorar",
+          "zh": "好转"
+        },
+        {
+          "es": "el mareo",
+          "zh": "头晕"
+        },
+        {
+          "es": "acompañado de",
+          "zh": "伴有"
+        },
+        {
+          "es": "la intensidad",
+          "zh": "强度"
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "医生",
+          "es": "Cuénteme cómo es el dolor de cabeza.",
+          "zh": "请描述您的头痛。"
+        },
+        {
+          "speaker": "患者",
+          "es": "Me duele la cabeza desde hace cuatro días.",
+          "zh": "我头痛已有四天。"
+        },
+        {
+          "speaker": "医生",
+          "es": "¿Le duele todo el tiempo o solo a ratos?",
+          "zh": "是一直疼还是间歇性疼？"
+        },
+        {
+          "speaker": "患者",
+          "es": "A ratos. Sobre todo por la tarde.",
+          "zh": "是间歇性的，尤其在下午。"
+        },
+        {
+          "speaker": "医生",
+          "es": "¿Es un dolor leve o fuerte?",
+          "zh": "是轻微还是剧烈？"
+        },
+        {
+          "speaker": "患者",
+          "es": "Normalmente es leve, pero hoy es más fuerte.",
+          "zh": "通常比较轻，但今天更痛。"
+        },
+        {
+          "speaker": "医生",
+          "es": "¿Se acompaña de mareos u otros síntomas?",
+          "zh": "伴有头晕或其他症状吗？"
+        },
+        {
+          "speaker": "患者",
+          "es": "Ayer me mareé un poco. No he notado otros síntomas.",
+          "zh": "昨天有一点头晕。没注意到其他症状。"
+        },
+        {
+          "speaker": "医生",
+          "es": "Gracias. Voy a hacerle más preguntas antes de valorar qué pruebas necesita.",
+          "zh": "谢谢。我会再问一些问题，然后评估需要做什么检查。"
+        },
+        {
+          "speaker": "患者",
+          "es": "¿Le explico también cuándo me siento mejor?",
+          "zh": "要不要我也说说什么时候感觉好一些？"
+        }
+      ],
+      "expressions": [
+        {
+          "standard": "El dolor aparece de manera intermitente.",
+          "natural": "Me da por ratos.",
+          "note": "是间歇性疼痛；me da 是口语，正式病历描述通常更精确。",
+          "register": "西班牙本地自然表达与正式问诊"
+        },
+        {
+          "standard": "Ha aumentado la intensidad.",
+          "natural": "Hoy me duele más.",
+          "note": "今天更疼；简单口语可清楚传递病情变化。",
+          "register": "西班牙本地自然表达与正式问诊"
+        }
+      ],
+      "challenges": [
+        {
+          "prompt": "说：头痛四天了。",
+          "answer": "Me duele la cabeza desde hace cuatro días."
+        },
+        {
+          "prompt": "说：是间歇性的，下午更明显。",
+          "answer": "Me duele a ratos, sobre todo por la tarde."
+        },
+        {
+          "prompt": "说：今天比昨天更痛。",
+          "answer": "Hoy me duele más que ayer."
+        }
+      ],
+      "mission": {
+        "setup": "医生将继续追问。尽量区分确实存在的症状、未发生的症状和你不确定的信息。",
+        "decisions": [
+          {
+            "situation": "医生问是否持续，你实际上只有下午间歇性疼。",
+            "prompt": "选择哪句？",
+            "model": "No, aparece a ratos, sobre todo por la tarde.",
+            "choices": [
+              {
+                "es": "No, aparece a ratos, sobre todo por la tarde.",
+                "correct": true,
+                "feedback": "时间与频率是问诊的重要信息，应避免夸大或省略。"
+              },
+              {
+                "es": "Sí, me duele siempre, día y noche.",
+                "correct": false,
+                "feedback": "此回应没有传递医生当前需要的准确病情信息，可能误导交流。"
+              },
+              {
+                "es": "¿Puedo salir antes de la consulta?",
+                "correct": false,
+                "feedback": "有一定信息，但尚未回答最关键的问诊问题。"
+              }
+            ]
+          },
+          {
+            "situation": "医生问是否伴有其他症状，你不确定头晕是否相关。",
+            "prompt": "如何回答？",
+            "model": "Ayer tuve algo de mareo; no sé si está relacionado.",
+            "choices": [
+              {
+                "es": "Ayer tuve algo de mareo; no sé si está relacionado.",
+                "correct": true,
+                "feedback": "如实陈述已出现的症状，由医生评估相关性。"
+              },
+              {
+                "es": "No, porque el mareo no importa.",
+                "correct": false,
+                "feedback": "此回应没有传递医生当前需要的准确病情信息，可能误导交流。"
+              },
+              {
+                "es": "¿Cuál es su apellido?",
+                "correct": false,
+                "feedback": "有一定信息，但尚未回答最关键的问诊问题。"
+              }
+            ]
+          }
+        ],
+        "transfer": "把头痛改为‘右手腕痛一周，运动时加重，休息时减轻’，完成一次模拟问诊。",
+        "debrief": "离开练习时请能复述主诉、开始时间、伴随症状及仍需向医生确认的问题。"
+      }
+    },
+    {
+      "id": "hc-doctor-03",
+      "domain": "health",
+      "track": "clinic-consultation",
+      "level": "B1",
+      "stage": 3,
+      "title": "完整病史：药物、过敏与既往情况",
+      "subtitle": "Antecedentes y medicación actual",
+      "goal": "完整说明用药、过敏、不确定信息，核对医生记录。",
+      "brief": "第一次见不熟悉的医生，需要回忆当前药物、既往疾病和过敏情况；严禁假装知道药品名称或剂量。",
+      "vocab": [
+        {
+          "es": "los antecedentes médicos",
+          "zh": "既往病史"
+        },
+        {
+          "es": "la medicación habitual",
+          "zh": "日常用药"
+        },
+        {
+          "es": "la dosis",
+          "zh": "剂量"
+        },
+        {
+          "es": "la frecuencia",
+          "zh": "服用频率"
+        },
+        {
+          "es": "la alergia",
+          "zh": "过敏"
+        },
+        {
+          "es": "la reacción",
+          "zh": "反应"
+        },
+        {
+          "es": "la operación",
+          "zh": "手术"
+        },
+        {
+          "es": "el informe anterior",
+          "zh": "以前的报告"
+        },
+        {
+          "es": "dejar constancia",
+          "zh": "留下记录"
+        },
+        {
+          "es": "la revisión de la historia",
+          "zh": "核对病历"
+        },
+        {
+          "es": "confirmar",
+          "zh": "确认"
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "医生",
+          "es": "Antes de continuar, quisiera repasar sus antecedentes médicos.",
+          "zh": "继续前我想核对您的既往病史。"
+        },
+        {
+          "speaker": "患者",
+          "es": "De acuerdo. Me operaron de la rodilla hace varios años.",
+          "zh": "好的。我几年前做过膝盖手术。"
+        },
+        {
+          "speaker": "医生",
+          "es": "¿Toma alguna medicación actualmente?",
+          "zh": "您目前在服用药物吗？"
+        },
+        {
+          "speaker": "患者",
+          "es": "Sí, tomo un medicamento a diario, pero no recuerdo ahora el nombre exacto.",
+          "zh": "有，每天服用一种药，但现在记不清准确名称。"
+        },
+        {
+          "speaker": "医生",
+          "es": "¿Tiene una lista o una foto del envase?",
+          "zh": "您有清单或药盒照片吗？"
+        },
+        {
+          "speaker": "患者",
+          "es": "Sí, lo tengo en el móvil. Prefiero comprobarlo antes de darle un dato incorrecto.",
+          "zh": "有，在手机里。我想先核对，避免提供错误信息。"
+        },
+        {
+          "speaker": "医生",
+          "es": "Muy bien. ¿Tiene alguna alergia conocida a medicamentos?",
+          "zh": "很好。您已知对药物过敏吗？"
+        },
+        {
+          "speaker": "患者",
+          "es": "Tuve una reacción hace tiempo, pero no sé qué medicamento la causó.",
+          "zh": "很久以前有过一次反应，但我不知道是哪种药引起的。"
+        },
+        {
+          "speaker": "医生",
+          "es": "Lo anotaremos y revisaremos los informes disponibles.",
+          "zh": "我们会记录，并查看现有报告。"
+        },
+        {
+          "speaker": "患者",
+          "es": "Gracias. ¿Puedo revisar con usted que los datos se hayan entendido bien?",
+          "zh": "谢谢。我可以与您确认这些信息记录是否准确吗？"
+        }
+      ],
+      "expressions": [
+        {
+          "standard": "Desconozco el nombre exacto del medicamento.",
+          "natural": "Ahora mismo no me sale el nombre.",
+          "note": "暂时想不起药名，不应猜测。",
+          "register": "西班牙本地自然表达与正式问诊"
+        },
+        {
+          "standard": "He tenido una reacción adversa anteriormente.",
+          "natural": "Una vez me sentó mal un medicamento.",
+          "note": "一次药物让我不舒服；这不自动等于已确诊药物过敏。",
+          "register": "西班牙本地自然表达与正式问诊"
+        }
+      ],
+      "challenges": [
+        {
+          "prompt": "说：我现在记不清药物的准确名称。",
+          "answer": "No recuerdo ahora el nombre exacto del medicamento."
+        },
+        {
+          "prompt": "说：我有药盒照片。",
+          "answer": "Tengo una foto del envase."
+        },
+        {
+          "prompt": "问：可以一起核对病历吗？",
+          "answer": "¿Podemos revisar juntos los datos de mi historia clínica?"
+        }
+      ],
+      "mission": {
+        "setup": "医生将继续追问。尽量区分确实存在的症状、未发生的症状和你不确定的信息。",
+        "decisions": [
+          {
+            "situation": "医生问你的常用药量，你只记得药名。",
+            "prompt": "怎样回答？",
+            "model": "Sé el nombre, pero no estoy seguro de la dosis. Puedo comprobar el envase.",
+            "choices": [
+              {
+                "es": "Sé el nombre, pero no estoy seguro de la dosis. Puedo comprobar el envase.",
+                "correct": true,
+                "feedback": "不确定剂量时明确不确定，并提供核对渠道。"
+              },
+              {
+                "es": "Tomo dos pastillas, creo, así que apúntelo.",
+                "correct": false,
+                "feedback": "此回应没有传递医生当前需要的准确病情信息，可能误导交流。"
+              },
+              {
+                "es": "Tengo una cita para mañana.",
+                "correct": false,
+                "feedback": "有一定信息，但尚未回答最关键的问诊问题。"
+              }
+            ]
+          },
+          {
+            "situation": "你之前有过不良反应，但不知道是哪种药引起的。",
+            "prompt": "选择哪种说法？",
+            "model": "Tuve una reacción, pero desconozco qué medicamento la causó.",
+            "choices": [
+              {
+                "es": "Tuve una reacción, pero desconozco qué medicamento la causó.",
+                "correct": true,
+                "feedback": "避免把尚未确认的反应归因或扩大为所有药物过敏。"
+              },
+              {
+                "es": "Soy alérgico a todos los medicamentos.",
+                "correct": false,
+                "feedback": "此回应没有传递医生当前需要的准确病情信息，可能误导交流。"
+              },
+              {
+                "es": "¿Podemos pasar a otro tema?",
+                "correct": false,
+                "feedback": "有一定信息，但尚未回答最关键的问诊问题。"
+              }
+            ]
+          }
+        ],
+        "transfer": "不使用真实医疗信息，模拟交代三段信息：以前的手术、现在服用的药、曾经的不适及哪些内容尚不确定。",
+        "debrief": "离开练习时请能复述主诉、开始时间、伴随症状及仍需向医生确认的问题。"
+      }
+    },
+    {
+      "id": "hc-doctor-04",
+      "domain": "health",
+      "track": "clinic-consultation",
+      "level": "B2",
+      "stage": 4,
+      "title": "与医生深入沟通：风险、疑问和治疗选择",
+      "subtitle": "Decisiones compartidas en consulta",
+      "goal": "能比较可选处理方式、询问利弊与后续条件，复述理解。",
+      "brief": "听完医生的初步解释后，你希望参与讨论，明确已知、尚不确定的部分以及需要进一步评估的情况。",
+      "vocab": [
+        {
+          "es": "el diagnóstico provisional",
+          "zh": "暂定诊断"
+        },
+        {
+          "es": "la valoración clínica",
+          "zh": "临床评估"
+        },
+        {
+          "es": "las alternativas",
+          "zh": "可选方案"
+        },
+        {
+          "es": "el beneficio esperado",
+          "zh": "预期收益"
+        },
+        {
+          "es": "el riesgo",
+          "zh": "风险"
+        },
+        {
+          "es": "la limitación",
+          "zh": "局限"
+        },
+        {
+          "es": "la evolución",
+          "zh": "病情变化"
+        },
+        {
+          "es": "el seguimiento",
+          "zh": "随访"
+        },
+        {
+          "es": "la contraindicación",
+          "zh": "禁忌证"
+        },
+        {
+          "es": "la incertidumbre",
+          "zh": "不确定性"
+        },
+        {
+          "es": "solicitar aclaraciones",
+          "zh": "请求进一步说明"
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "患者",
+          "es": "Antes de decidir, me gustaría asegurarme de haber comprendido su valoración.",
+          "zh": "在决定前，我想确保自己理解了您的评估。"
+        },
+        {
+          "speaker": "医生",
+          "es": "Por supuesto. ¿Qué parte le genera más dudas?",
+          "zh": "当然。您最疑惑的是哪部分？"
+        },
+        {
+          "speaker": "患者",
+          "es": "Entiendo que todavía no hay un diagnóstico definitivo.",
+          "zh": "我理解目前还没有最终诊断。"
+        },
+        {
+          "speaker": "医生",
+          "es": "Exactamente. Necesitamos integrar la exploración y los resultados pendientes.",
+          "zh": "正是如此。我们还需要结合体格检查和待出的结果。"
+        },
+        {
+          "speaker": "患者",
+          "es": "¿Qué alternativas se contemplan mientras tanto y cuáles son sus límites?",
+          "zh": "在此期间会考虑哪些方案，各有什么局限？"
+        },
+        {
+          "speaker": "医生",
+          "es": "Podemos revisar las opciones pertinentes para su caso y sus posibles riesgos.",
+          "zh": "我们可以结合您的情况讨论相关选项及可能的风险。"
+        },
+        {
+          "speaker": "患者",
+          "es": "¿Qué señales o cambios deberían hacer que volviera a consultar antes de la revisión?",
+          "zh": "哪些迹象或变化意味着我应该在复诊前再次咨询？"
+        },
+        {
+          "speaker": "医生",
+          "es": "Le explicaré las indicaciones y cómo contactar si la situación cambia.",
+          "zh": "我会解释相关指引及情况变化时如何联系。"
+        },
+        {
+          "speaker": "患者",
+          "es": "Entonces, ¿podría resumir el plan por escrito para comprobar que lo he entendido bien?",
+          "zh": "那么可以书面总结一下计划吗？这样我能核对自己是否理解正确。"
+        },
+        {
+          "speaker": "医生",
+          "es": "Sí, dejaremos constancia de las indicaciones pertinentes.",
+          "zh": "可以，我们会记录相关指引。"
+        }
+      ],
+      "expressions": [
+        {
+          "standard": "Quisiera conocer los beneficios y riesgos de cada alternativa.",
+          "natural": "¿Qué tiene de bueno y de malo cada opción?",
+          "note": "正式/口语的利弊提问；不自己决定药物和检查。",
+          "register": "西班牙本地自然表达与正式问诊"
+        },
+        {
+          "standard": "Agradecería que concretara las señales que requieren nueva valoración.",
+          "natural": "¿En qué casos debería volver a consultar?",
+          "note": "医生具体化回诊指征更重要，不能凭例句判断危险程度。",
+          "register": "西班牙本地自然表达与正式问诊"
+        }
+      ],
+      "challenges": [
+        {
+          "prompt": "问：现在有最终诊断了吗？",
+          "answer": "¿Se dispone ya de un diagnóstico definitivo?"
+        },
+        {
+          "prompt": "问：每个选项有哪些局限和风险？",
+          "answer": "¿Qué limitaciones y riesgos presenta cada alternativa?"
+        },
+        {
+          "prompt": "请求书面总结后续计划。",
+          "answer": "¿Podría resumirme por escrito el plan de seguimiento?"
+        }
+      ],
+      "mission": {
+        "setup": "医生将继续追问。尽量区分确实存在的症状、未发生的症状和你不确定的信息。",
+        "decisions": [
+          {
+            "situation": "医生解释了两种方式，但你尚未理解区别。",
+            "prompt": "应如何继续？",
+            "model": "¿Podríamos compararlas en cuanto a beneficios, riesgos y seguimiento para mi caso?",
+            "choices": [
+              {
+                "es": "¿Podríamos compararlas en cuanto a beneficios, riesgos y seguimiento para mi caso?",
+                "correct": true,
+                "feedback": "比较时应结合个人情况，明确每个选项的利弊及监测安排。"
+              },
+              {
+                "es": "Elijo la más rápida sin saber más.",
+                "correct": false,
+                "feedback": "此回应没有传递医生当前需要的准确病情信息，可能误导交流。"
+              },
+              {
+                "es": "¿Puede repetirme su nombre?",
+                "correct": false,
+                "feedback": "有一定信息，但尚未回答最关键的问诊问题。"
+              }
+            ]
+          },
+          {
+            "situation": "诊断还未确定，你担心病情变化。",
+            "prompt": "如何提出具体问题？",
+            "model": "¿Qué cambios deberían llevarme a consultar de nuevo antes de la cita prevista?",
+            "choices": [
+              {
+                "es": "¿Qué cambios deberían llevarme a consultar de nuevo antes de la cita prevista?",
+                "correct": true,
+                "feedback": "不确定时向医生核实应注意的变化及联系渠道。"
+              },
+              {
+                "es": "Entonces ya sé que no puede pasar nada.",
+                "correct": false,
+                "feedback": "此回应没有传递医生当前需要的准确病情信息，可能误导交流。"
+              },
+              {
+                "es": "¿Podría bajar el volumen del ordenador?",
+                "correct": false,
+                "feedback": "有一定信息，但尚未回答最关键的问诊问题。"
+              }
+            ]
+          }
+        ],
+        "transfer": "模拟 120 字面诊总结：确认当前了解的信息、两种待讨论的选择、仍有的不确定性、希望医生明确的随访提示。",
+        "debrief": "离开练习时请能复述主诉、开始时间、伴随症状及仍需向医生确认的问题。"
+      }
+    }
+  ]
+}
