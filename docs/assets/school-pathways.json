@@ -1,0 +1,2667 @@
+{
+  "schema": 2,
+  "description": "学校进阶课程：4条学习路径，每条A1→B2共4个深入任务。场景是原创教学示例，并非实际办事规定。",
+  "tracks": [
+    {
+      "id": "school-entry",
+      "domain": "school",
+      "title": "入学与申请流程",
+      "subtitle": "咨询 → 补交材料 → 候补跟进 → 决定复核",
+      "description": "一条连续的入学任务链，逐步练习正式沟通与问题处理。"
+    },
+    {
+      "id": "school-learning",
+      "domain": "school",
+      "title": "课堂与学业反馈",
+      "subtitle": "课堂指令 → 作业要求 → 学习计划 → 评价标准",
+      "description": "由听懂老师到理解学习反馈，并能客观讨论评分。"
+    },
+    {
+      "id": "school-wellbeing",
+      "domain": "school",
+      "title": "同学关系与安全",
+      "subtitle": "寻求帮助 → 解释误会 → 事件记录 → 正式保护沟通",
+      "description": "练习事实、感受、诉求的分离；涉及孩子安全时避免弱化风险。"
+    },
+    {
+      "id": "school-logistics",
+      "domain": "school",
+      "title": "食堂与家校日常事务",
+      "subtitle": "接送时间 → 食物过敏 → 临时接送授权 → 服务申诉",
+      "description": "从简单生活问答升级到安全流程与建设性协商。"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "entry-01",
+      "domain": "school",
+      "track": "school-entry",
+      "level": "A1",
+      "stage": 1,
+      "title": "进校咨询前台",
+      "subtitle": "Preguntar en secretaría",
+      "goal": "找对办公室，问开放时间，礼貌开场。",
+      "brief": "第一次到学校，不熟悉楼层与工作人员；先学简短、清楚的问句。",
+      "vocab": [
+        {
+          "es": "la entrada",
+          "zh": "入口"
+        },
+        {
+          "es": "la secretaría",
+          "zh": "学校行政办公室"
+        },
+        {
+          "es": "el horario",
+          "zh": "开放时间"
+        },
+        {
+          "es": "el colegio",
+          "zh": "学校（常指小学）"
+        },
+        {
+          "es": "la oficina",
+          "zh": "办公室"
+        },
+        {
+          "es": "el documento",
+          "zh": "文件"
+        },
+        {
+          "es": "aquí",
+          "zh": "这里"
+        },
+        {
+          "es": "¿Dónde está…?",
+          "zh": "……在哪里？"
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "访客",
+          "es": "Buenos días. ¿Dónde está la secretaría, por favor?",
+          "zh": "您好，请问学校行政办公室在哪里？"
+        },
+        {
+          "speaker": "门卫",
+          "es": "Está al fondo, a la derecha.",
+          "zh": "在尽头右边。"
+        },
+        {
+          "speaker": "访客",
+          "es": "Gracias. ¿Está abierta ahora?",
+          "zh": "谢谢。现在开门吗？"
+        },
+        {
+          "speaker": "门卫",
+          "es": "Sí, hasta las dos.",
+          "zh": "是的，开到两点。"
+        },
+        {
+          "speaker": "访客",
+          "es": "Perfecto. Necesito información sobre el colegio.",
+          "zh": "好的。我想咨询学校的信息。"
+        },
+        {
+          "speaker": "工作人员",
+          "es": "Buenos días. ¿En qué puedo ayudarle?",
+          "zh": "您好，有什么可以帮您？"
+        },
+        {
+          "speaker": "访客",
+          "es": "Quería hacer una pregunta, por favor.",
+          "zh": "我想请教一个问题。"
+        }
+      ],
+      "expressions": [
+        {
+          "standard": "¿Podría indicarme dónde está la secretaría?",
+          "natural": "¿Dónde está secretaría?",
+          "zh": "请问行政办公室在哪儿？",
+          "register": "简短自然",
+          "note": "正式与自然表达都礼貌，保留 por favor 更稳妥。"
+        },
+        {
+          "standard": "Quisiera hacer una consulta.",
+          "natural": "Quería preguntar una cosa.",
+          "zh": "我想问一件事。",
+          "register": "日常自然",
+          "note": "进入学校办公室时常听到 quería 这种委婉过去式。"
+        }
+      ],
+      "challenges": [
+        {
+          "prompt": "问：学校行政办公室在哪里？",
+          "answer": "¿Dónde está la secretaría, por favor?"
+        },
+        {
+          "prompt": "问：现在开门吗？",
+          "answer": "¿Está abierta ahora?"
+        },
+        {
+          "prompt": "说：我想咨询一下。",
+          "answer": "Quería hacer una pregunta."
+        }
+      ],
+      "mission": {
+        "setup": "你正在西班牙学校处理真实任务。请先听对话，再根据对方的变化选择合适答复。",
+        "decisions": [
+          {
+            "situation": "工作人员看起来很忙。",
+            "prompt": "如何礼貌打断？",
+            "choices": [
+              {
+                "es": "Perdone, ¿puedo hacerle una pregunta?",
+                "zh": "更合适",
+                "correct": true,
+                "feedback": "perdone + 简单请求适合陌生工作人员。"
+              },
+              {
+                "es": "¡Oye! ¡Ven aquí!",
+                "zh": "不适合本情境",
+                "correct": false,
+                "feedback": "命令式和叫喊容易显得无礼。"
+              }
+            ],
+            "model": "Perdone, ¿puedo hacerle una pregunta?"
+          },
+          {
+            "situation": "对方指向右边的办公室。",
+            "prompt": "如何确认位置？",
+            "choices": [
+              {
+                "es": "¿Al fondo, a la derecha?",
+                "zh": "更合适",
+                "correct": true,
+                "feedback": "重复关键信息是自然的确认技巧。"
+              },
+              {
+                "es": "No entiendo nada.",
+                "zh": "不适合本情境",
+                "correct": false,
+                "feedback": "直接说“什么都不懂”没有确认具体位置。"
+              }
+            ],
+            "model": "¿Al fondo, a la derecha?"
+          }
+        ],
+        "transfer": "重新模拟：办公室今天关闭，你要问明天几点开门。",
+        "debrief": "完成后关闭提示，分别用正式口语和自然日常表达重新讲一遍，并变换一项条件。"
+      }
+    },
+    {
+      "id": "entry-02",
+      "domain": "school",
+      "track": "school-entry",
+      "level": "A2",
+      "stage": 2,
+      "title": "办理入学时补交材料",
+      "subtitle": "Entregar documentación pendiente",
+      "goal": "确认缺件、提交渠道与期限。",
+      "brief": "已递交申请，但学校来信称缺少文件，需要了解如何补齐。",
+      "vocab": [
+        {
+          "es": "entregar",
+          "zh": "递交"
+        },
+        {
+          "es": "faltar",
+          "zh": "缺少"
+        },
+        {
+          "es": "el justificante",
+          "zh": "证明／回执"
+        },
+        {
+          "es": "el plazo",
+          "zh": "期限"
+        },
+        {
+          "es": "la solicitud",
+          "zh": "申请"
+        },
+        {
+          "es": "la copia",
+          "zh": "复印件"
+        },
+        {
+          "es": "la documentación",
+          "zh": "文件材料"
+        },
+        {
+          "es": "la sede electrónica",
+          "zh": "电子政务平台"
+        },
+        {
+          "es": "adjuntar",
+          "zh": "附上"
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "家长",
+          "es": "Buenos días. Me han avisado de que falta un documento en la solicitud.",
+          "zh": "您好，有人通知我申请缺少一份文件。"
+        },
+        {
+          "speaker": "秘书处",
+          "es": "¿Tiene el número de referencia?",
+          "zh": "您有申请编号吗？"
+        },
+        {
+          "speaker": "家长",
+          "es": "Sí, aquí lo tengo. ¿Qué documento falta exactamente?",
+          "zh": "有，在这里。具体缺哪份文件？"
+        },
+        {
+          "speaker": "秘书处",
+          "es": "Falta una copia del certificado solicitado.",
+          "zh": "缺少要求的证明复印件。"
+        },
+        {
+          "speaker": "家长",
+          "es": "¿Puedo entregarla aquí o tengo que subirla por internet?",
+          "zh": "我能在这里交，还是要通过网上上传？"
+        },
+        {
+          "speaker": "秘书处",
+          "es": "Compruebe el procedimiento y el plazo indicados en la notificación.",
+          "zh": "请核对通知中的办理方式与期限。"
+        },
+        {
+          "speaker": "家长",
+          "es": "Entendido. ¿Me pueden dar un justificante de entrega?",
+          "zh": "明白。提交后能给我回执吗？"
+        },
+        {
+          "speaker": "秘书处",
+          "es": "Si se genera un resguardo, consérvelo.",
+          "zh": "如果系统生成回执，请妥善保存。"
+        }
+      ],
+      "expressions": [
+        {
+          "standard": "Deseo aportar documentación adicional.",
+          "natural": "Quería traer el papel que faltaba.",
+          "zh": "我来补交之前缺的材料。",
+          "register": "日常中性",
+          "note": "在窗口自然说法可短一些；书面正式用 aportar documentación。"
+        },
+        {
+          "standard": "¿Cuál es el plazo de subsanación?",
+          "natural": "¿Hasta cuándo tengo para entregarlo?",
+          "zh": "最迟什么时候交？",
+          "register": "日常自然",
+          "note": "subsanación 是正式补正材料术语；日常可直接问截至何时。"
+        }
+      ],
+      "challenges": [
+        {
+          "prompt": "问：具体少了什么材料？",
+          "answer": "¿Qué documento falta exactamente?"
+        },
+        {
+          "prompt": "问：我能线上交吗？",
+          "answer": "¿Puedo entregarlo por internet?"
+        },
+        {
+          "prompt": "问：最晚几号交？",
+          "answer": "¿Hasta qué fecha puedo presentarlo?"
+        }
+      ],
+      "mission": {
+        "setup": "你正在西班牙学校处理真实任务。请先听对话，再根据对方的变化选择合适答复。",
+        "decisions": [
+          {
+            "situation": "窗口说需要补正，但没有讲清截止日。",
+            "prompt": "你应该怎么追问？",
+            "choices": [
+              {
+                "es": "¿Hasta cuándo puedo entregarlo?",
+                "zh": "更合适",
+                "correct": true,
+                "feedback": "询问明确期限能避免错过办理窗口。"
+              },
+              {
+                "es": "Bueno, ya lo haré algún día.",
+                "zh": "不适合本情境",
+                "correct": false,
+                "feedback": "含糊承诺无法确认是否逾期。"
+              }
+            ],
+            "model": "¿Hasta cuándo puedo entregarlo?"
+          },
+          {
+            "situation": "你已提交材料，却没有凭证。",
+            "prompt": "你会怎么做？",
+            "choices": [
+              {
+                "es": "¿Me puede dar un justificante de entrega?",
+                "zh": "更合适",
+                "correct": true,
+                "feedback": "申请类材料应保留能够证明提交的记录。"
+              },
+              {
+                "es": "Ya está, no necesito nada.",
+                "zh": "不适合本情境",
+                "correct": false,
+                "feedback": "不确认回执不利于后续沟通。"
+              }
+            ],
+            "model": "¿Me puede dar un justificante de entrega?"
+          }
+        ],
+        "transfer": "家长刚发现提交的文件不是最新版本，打电话问是否可以替换。",
+        "debrief": "完成后关闭提示，分别用正式口语和自然日常表达重新讲一遍，并变换一项条件。"
+      }
+    },
+    {
+      "id": "entry-03",
+      "domain": "school",
+      "track": "school-entry",
+      "level": "B1",
+      "stage": 3,
+      "title": "学位申请被列为候补",
+      "subtitle": "Lista de espera y seguimiento",
+      "goal": "说明问题、询问候补程序、记录后续沟通。",
+      "brief": "孩子没有获得首选学校的学位，需要明确候补信息，不作无根据承诺。",
+      "vocab": [
+        {
+          "es": "la lista de espera",
+          "zh": "候补名单"
+        },
+        {
+          "es": "la adjudicación",
+          "zh": "学位分配"
+        },
+        {
+          "es": "la vacante",
+          "zh": "空余名额"
+        },
+        {
+          "es": "la notificación",
+          "zh": "通知"
+        },
+        {
+          "es": "la preferencia",
+          "zh": "志愿顺序"
+        },
+        {
+          "es": "la baremación",
+          "zh": "积分评定"
+        },
+        {
+          "es": "el criterio",
+          "zh": "标准"
+        },
+        {
+          "es": "hacer seguimiento",
+          "zh": "跟进进度"
+        },
+        {
+          "es": "solicitar aclaración",
+          "zh": "请求澄清"
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "家长",
+          "es": "He consultado el resultado y mi hijo figura en lista de espera.",
+          "zh": "我查看了结果，孩子在候补名单上。"
+        },
+        {
+          "speaker": "工作人员",
+          "es": "Sí, aún no tiene plaza adjudicada en ese centro.",
+          "zh": "对，目前那所学校尚未分配到名额。"
+        },
+        {
+          "speaker": "家长",
+          "es": "¿Podría explicarme cómo se gestionan las vacantes?",
+          "zh": "您能解释空余学位如何处理吗？"
+        },
+        {
+          "speaker": "工作人员",
+          "es": "Depende del procedimiento de admisión aplicable.",
+          "zh": "这取决于对应的入学申请程序。"
+        },
+        {
+          "speaker": "家长",
+          "es": "¿Dónde puedo consultar los próximos plazos y notificaciones?",
+          "zh": "我该到哪里查看后续期限和通知？"
+        },
+        {
+          "speaker": "工作人员",
+          "es": "En el canal oficial que corresponda a su solicitud.",
+          "zh": "在申请对应的官方渠道。"
+        },
+        {
+          "speaker": "家长",
+          "es": "Gracias. También quisiera comprobar los datos de baremación.",
+          "zh": "谢谢。我还想核对积分评定信息。"
+        },
+        {
+          "speaker": "工作人员",
+          "es": "Podemos indicarle cómo solicitar esa comprobación.",
+          "zh": "我们可以说明如何申请核对。"
+        }
+      ],
+      "expressions": [
+        {
+          "standard": "Mi hijo figura en la lista de espera.",
+          "natural": "Nos hemos quedado en lista de espera.",
+          "zh": "孩子现在在候补名单上。",
+          "register": "日常自然",
+          "note": "“quedarse en”是自然叙述结果；正式邮件宜写 figura。"
+        },
+        {
+          "standard": "Quisiera consultar la baremación.",
+          "natural": "Quería mirar cómo han contado los puntos.",
+          "zh": "我想核对积分怎么算。",
+          "register": "日常自然",
+          "note": "积分规则因地区/学年而异，先核实是否适用于这项申请。"
+        }
+      ],
+      "challenges": [
+        {
+          "prompt": "说：我孩子现在在候补名单上。",
+          "answer": "Mi hijo figura en la lista de espera."
+        },
+        {
+          "prompt": "问：在哪里能看到后续通知？",
+          "answer": "¿Dónde puedo consultar las próximas notificaciones?"
+        },
+        {
+          "prompt": "请对方说明学位分配标准。",
+          "answer": "¿Podría explicarme los criterios de adjudicación?"
+        }
+      ],
+      "mission": {
+        "setup": "你正在西班牙学校处理真实任务。请先听对话，再根据对方的变化选择合适答复。",
+        "decisions": [
+          {
+            "situation": "对方说“等待通知”但没有给入口。",
+            "prompt": "更好的追问？",
+            "choices": [
+              {
+                "es": "¿En qué canal se publican las notificaciones?",
+                "zh": "更合适",
+                "correct": true,
+                "feedback": "明确通知渠道是可操作的信息。"
+              },
+              {
+                "es": "¿Entonces seguro que entrará?",
+                "zh": "不适合本情境",
+                "correct": false,
+                "feedback": "不能要求对方保证尚未决定的结果。"
+              }
+            ],
+            "model": "¿En qué canal se publican las notificaciones?"
+          },
+          {
+            "situation": "积分看起来有误，但你还未核对。",
+            "prompt": "最合适的表达？",
+            "choices": [
+              {
+                "es": "Quisiera solicitar una revisión de los datos, si procede.",
+                "zh": "更合适",
+                "correct": true,
+                "feedback": "先陈述需要核实的事项，避免在缺乏证据时直接指控。"
+              },
+              {
+                "es": "¡Habéis cometido un fraude!",
+                "zh": "不适合本情境",
+                "correct": false,
+                "feedback": "没有证据的指控不利于问题处理。"
+              }
+            ],
+            "model": "Quisiera solicitar una revisión de los datos, si procede."
+          }
+        ],
+        "transfer": "对方通知你出现了空位，但有时间限制。重述通话并确认下一步。",
+        "debrief": "完成后关闭提示，分别用正式口语和自然日常表达重新讲一遍，并变换一项条件。"
+      }
+    },
+    {
+      "id": "entry-04",
+      "domain": "school",
+      "track": "school-entry",
+      "level": "B2",
+      "stage": 4,
+      "title": "正式申请复核与申诉说明",
+      "subtitle": "Revisión de una resolución",
+      "goal": "区分事实、依据、请求和证据，准确提出程序问题。",
+      "brief": "收到入学决定后，家庭认为有一项材料未被计入，准备向主管部门咨询正规复核流程。",
+      "vocab": [
+        {
+          "es": "la resolución",
+          "zh": "行政决定"
+        },
+        {
+          "es": "la alegación",
+          "zh": "陈述意见／申辩"
+        },
+        {
+          "es": "la subsanación",
+          "zh": "补正材料"
+        },
+        {
+          "es": "el recurso",
+          "zh": "申诉／救济申请"
+        },
+        {
+          "es": "la motivación",
+          "zh": "决定依据说明"
+        },
+        {
+          "es": "el expediente",
+          "zh": "案卷／申请资料"
+        },
+        {
+          "es": "el órgano competente",
+          "zh": "主管机关"
+        },
+        {
+          "es": "solicitar revisión",
+          "zh": "申请复核"
+        },
+        {
+          "es": "aportar pruebas",
+          "zh": "提供证明"
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "申请人",
+          "es": "Buenos días. Quisiera solicitar información sobre la revisión de esta resolución.",
+          "zh": "您好，我想了解对这份决定申请复核的程序。"
+        },
+        {
+          "speaker": "工作人员",
+          "es": "¿Qué aspecto desea que se revise?",
+          "zh": "您希望复核哪一部分？"
+        },
+        {
+          "speaker": "申请人",
+          "es": "Según el expediente, parece que no se ha tenido en cuenta un documento presentado dentro de plazo.",
+          "zh": "根据申请档案，似乎有一份按时提交的材料未被考虑。"
+        },
+        {
+          "speaker": "工作人员",
+          "es": "¿Dispone del justificante de presentación?",
+          "zh": "您有提交回执吗？"
+        },
+        {
+          "speaker": "申请人",
+          "es": "Sí. Agradecería que me indicaran el cauce y los plazos aplicables.",
+          "zh": "有。希望您告知适用的申请途径和期限。"
+        },
+        {
+          "speaker": "工作人员",
+          "es": "Debe consultar las instrucciones de la resolución y el procedimiento correspondiente.",
+          "zh": "您应查看决定及相应程序的说明。"
+        },
+        {
+          "speaker": "申请人",
+          "es": "Entiendo. Mi intención es aclarar los hechos y aportar la documentación pertinente.",
+          "zh": "明白。我希望澄清事实并提供相关材料。"
+        },
+        {
+          "speaker": "工作人员",
+          "es": "Puede formular la consulta por los canales oficiales previstos.",
+          "zh": "您可以通过规定的官方渠道提出咨询。"
+        }
+      ],
+      "expressions": [
+        {
+          "standard": "Quisiera interponer el recurso que proceda.",
+          "natural": "Quería recurrir la decisión.",
+          "zh": "我想依照规定提出救济申请。",
+          "register": "正式/口语",
+          "note": "recurrir 指提起法律/行政救济，具体可用方式及期限需按正式决定核实。"
+        },
+        {
+          "standard": "No se ha valorado un documento presentado en plazo.",
+          "natural": "Parece que no contaron un papel que entregué a tiempo.",
+          "zh": "似乎没计入按时递交的材料。",
+          "register": "口头非正式",
+          "note": "正式书面陈述更宜精确说明日期、文件和回执。"
+        }
+      ],
+      "challenges": [
+        {
+          "prompt": "正式说：我希望核查一份按时提交的文件。",
+          "answer": "Quisiera que se revisara un documento presentado dentro de plazo."
+        },
+        {
+          "prompt": "问：适用的复核途径与期限是什么？",
+          "answer": "¿Cuál es el cauce de revisión y qué plazo resulta aplicable?"
+        },
+        {
+          "prompt": "说明：我可以提供提交回执。",
+          "answer": "Puedo aportar el justificante de presentación."
+        }
+      ],
+      "mission": {
+        "setup": "你正在西班牙学校处理真实任务。请先听对话，再根据对方的变化选择合适答复。",
+        "decisions": [
+          {
+            "situation": "你还不知道哪种救济方式适用。",
+            "prompt": "更稳妥的询问？",
+            "choices": [
+              {
+                "es": "¿Qué vía de revisión o recurso corresponde en este caso?",
+                "zh": "更合适",
+                "correct": true,
+                "feedback": "应先确认正确的程序与期限。"
+              },
+              {
+                "es": "Voy a presentar cualquier recurso, da igual cuál.",
+                "zh": "不适合本情境",
+                "correct": false,
+                "feedback": "行政救济类型并非任意互换。"
+              }
+            ],
+            "model": "¿Qué vía de revisión o recurso corresponde en este caso?"
+          },
+          {
+            "situation": "工作人员表示无法当场决定。",
+            "prompt": "下一句怎么办？",
+            "choices": [
+              {
+                "es": "¿Podrían indicarme dónde presentar la solicitud por escrito?",
+                "zh": "更合适",
+                "correct": true,
+                "feedback": "转向可追踪的书面流程更有操作性。"
+              },
+              {
+                "es": "Entonces me lo tiene que solucionar ya.",
+                "zh": "不适合本情境",
+                "correct": false,
+                "feedback": "不应要求前台越权作出正式决定。"
+              }
+            ],
+            "model": "¿Podrían indicarme dónde presentar la solicitud por escrito?"
+          }
+        ],
+        "transfer": "写一段五句的正式邮件：事实→提交日期→证据→请求→感谢，不写无依据指控。",
+        "debrief": "完成后关闭提示，分别用正式口语和自然日常表达重新讲一遍，并变换一项条件。"
+      }
+    },
+    {
+      "id": "learning-01",
+      "domain": "school",
+      "track": "school-learning",
+      "level": "A1",
+      "stage": 1,
+      "title": "听懂课堂指令",
+      "subtitle": "Instrucciones de clase",
+      "goal": "理解老师的常用课堂指令并求助。",
+      "brief": "第一次跟上老师上课节奏，学会请对方重复。",
+      "vocab": [
+        {
+          "es": "abrir el libro",
+          "zh": "打开书"
+        },
+        {
+          "es": "cerrar el cuaderno",
+          "zh": "合上本子"
+        },
+        {
+          "es": "escuchar",
+          "zh": "听"
+        },
+        {
+          "es": "repetir",
+          "zh": "重复"
+        },
+        {
+          "es": "la página",
+          "zh": "页"
+        },
+        {
+          "es": "el ejercicio",
+          "zh": "练习"
+        },
+        {
+          "es": "no entiendo",
+          "zh": "我不明白"
+        },
+        {
+          "es": "más despacio",
+          "zh": "慢一点"
+        },
+        {
+          "es": "otra vez",
+          "zh": "再一次"
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "老师",
+          "es": "Abrid el libro por la página doce.",
+          "zh": "请翻开书第十二页。"
+        },
+        {
+          "speaker": "学生",
+          "es": "Perdón, ¿qué página?",
+          "zh": "不好意思，第几页？"
+        },
+        {
+          "speaker": "老师",
+          "es": "La doce. Leed el primer ejercicio.",
+          "zh": "第十二页。读第一题。"
+        },
+        {
+          "speaker": "学生",
+          "es": "¿Puede repetir, por favor?",
+          "zh": "您能再说一遍吗？"
+        },
+        {
+          "speaker": "老师",
+          "es": "Sí, lee la primera pregunta.",
+          "zh": "可以，读第一道问题。"
+        },
+        {
+          "speaker": "学生",
+          "es": "Ahora sí. Gracias.",
+          "zh": "现在懂了，谢谢。"
+        },
+        {
+          "speaker": "老师",
+          "es": "Muy bien. Después, escribid la respuesta.",
+          "zh": "很好。然后写下答案。"
+        }
+      ],
+      "expressions": [
+        {
+          "standard": "¿Podría repetirlo, por favor?",
+          "natural": "¿Lo puedes repetir?",
+          "zh": "能再说一遍吗？",
+          "register": "校园自然",
+          "note": "随关系和对方的称呼选择 usted/tú；不熟悉教师可先用礼貌问法。"
+        },
+        {
+          "standard": "No he entendido la explicación.",
+          "natural": "No me he enterado.",
+          "zh": "我没听明白。",
+          "register": "日常口语",
+          "note": "no me he enterado 是非常常见的自然说法；正式写作选完整表达。"
+        }
+      ],
+      "challenges": [
+        {
+          "prompt": "请老师再重复一次。",
+          "answer": "¿Puede repetir, por favor?"
+        },
+        {
+          "prompt": "说：我不明白这道题。",
+          "answer": "No entiendo este ejercicio."
+        },
+        {
+          "prompt": "说：请慢一点。",
+          "answer": "Más despacio, por favor."
+        }
+      ],
+      "mission": {
+        "setup": "你正在西班牙学校处理真实任务。请先听对话，再根据对方的变化选择合适答复。",
+        "decisions": [
+          {
+            "situation": "老师说得很快，你没听清第几页。",
+            "prompt": "你要怎么问？",
+            "choices": [
+              {
+                "es": "Perdón, ¿qué página ha dicho?",
+                "zh": "更合适",
+                "correct": true,
+                "feedback": "确认具体指令比逃避练习更好。"
+              },
+              {
+                "es": "No quiero hacer nada.",
+                "zh": "不适合本情境",
+                "correct": false,
+                "feedback": "没有回应指令内容。"
+              }
+            ],
+            "model": "Perdón, ¿qué página ha dicho?"
+          },
+          {
+            "situation": "老师重复后你已经懂了。",
+            "prompt": "应如何回应？",
+            "choices": [
+              {
+                "es": "Ahora sí, gracias.",
+                "zh": "更合适",
+                "correct": true,
+                "feedback": "简短感谢在课堂更恰当。"
+              },
+              {
+                "es": "¡Por fin!",
+                "zh": "不适合本情境",
+                "correct": false,
+                "feedback": "“终于啊”带抱怨色彩。"
+              }
+            ],
+            "model": "Ahora sí, gracias."
+          }
+        ],
+        "transfer": "把页数从12改成28，把阅读任务换成写作任务。",
+        "debrief": "完成后关闭提示，分别用正式口语和自然日常表达重新讲一遍，并变换一项条件。"
+      }
+    },
+    {
+      "id": "learning-02",
+      "domain": "school",
+      "track": "school-learning",
+      "level": "A2",
+      "stage": 2,
+      "title": "作业要求与补交",
+      "subtitle": "Pedir aclaraciones sobre los deberes",
+      "goal": "确认任务、截止日期和补交安排。",
+      "brief": "你生病缺课，担心错过老师布置的作业。",
+      "vocab": [
+        {
+          "es": "entregar",
+          "zh": "提交"
+        },
+        {
+          "es": "la fecha límite",
+          "zh": "截止日"
+        },
+        {
+          "es": "ponerse al día",
+          "zh": "补上落下的内容"
+        },
+        {
+          "es": "los apuntes",
+          "zh": "笔记"
+        },
+        {
+          "es": "la actividad",
+          "zh": "活动／作业项目"
+        },
+        {
+          "es": "la plataforma",
+          "zh": "线上平台"
+        },
+        {
+          "es": "recuperar una clase",
+          "zh": "补上缺的课"
+        },
+        {
+          "es": "la instrucción",
+          "zh": "指示"
+        },
+        {
+          "es": "el archivo",
+          "zh": "文件"
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "学生",
+          "es": "Profe, ayer no vine porque estaba enfermo.",
+          "zh": "老师，我昨天病了没来。"
+        },
+        {
+          "speaker": "老师",
+          "es": "Espero que estés mejor. ¿Qué necesitas?",
+          "zh": "希望你好些了。你需要什么？"
+        },
+        {
+          "speaker": "学生",
+          "es": "Quería saber qué deberes tengo que recuperar.",
+          "zh": "我想知道要补哪些作业。"
+        },
+        {
+          "speaker": "老师",
+          "es": "Hay dos ejercicios en la plataforma.",
+          "zh": "平台里有两道练习。"
+        },
+        {
+          "speaker": "学生",
+          "es": "¿Se entregan el jueves o el viernes?",
+          "zh": "周四交还是周五交？"
+        },
+        {
+          "speaker": "老师",
+          "es": "El viernes, antes de las seis.",
+          "zh": "周五六点前。"
+        },
+        {
+          "speaker": "学生",
+          "es": "Vale. ¿Puedo preguntarte si tengo dudas?",
+          "zh": "好。如果有疑问可以问您吗？"
+        },
+        {
+          "speaker": "老师",
+          "es": "Claro, escríbeme por el canal habitual.",
+          "zh": "当然，通过平常的渠道联系我。"
+        }
+      ],
+      "expressions": [
+        {
+          "standard": "Deseo ponerme al día con las tareas pendientes.",
+          "natural": "Quiero ponerme al día con los deberes.",
+          "zh": "我想把落下的作业补上。",
+          "register": "自然口语",
+          "note": "ponerse al día 广泛用于学校及工作。"
+        },
+        {
+          "standard": "¿Cuál es la fecha límite de entrega?",
+          "natural": "¿Para cuándo hay que entregarlo?",
+          "zh": "什么时候之前交？",
+          "register": "校园日常",
+          "note": "para cuándo 常用于询问截止日期，语气自然。"
+        }
+      ],
+      "challenges": [
+        {
+          "prompt": "问：这些作业什么时候交？",
+          "answer": "¿Para cuándo hay que entregar los deberes?"
+        },
+        {
+          "prompt": "说：我想补上没做的任务。",
+          "answer": "Quiero ponerme al día con las tareas pendientes."
+        },
+        {
+          "prompt": "问：作业在平台哪里？",
+          "answer": "¿Dónde están las tareas en la plataforma?"
+        }
+      ],
+      "mission": {
+        "setup": "你正在西班牙学校处理真实任务。请先听对话，再根据对方的变化选择合适答复。",
+        "decisions": [
+          {
+            "situation": "老师说周五交，但不明确具体时间。",
+            "prompt": "如何确认？",
+            "choices": [
+              {
+                "es": "¿Hasta qué hora puedo subirlo el viernes?",
+                "zh": "更合适",
+                "correct": true,
+                "feedback": "确认具体时点可减少误解。"
+              },
+              {
+                "es": "Lo entregaré cuando quiera.",
+                "zh": "不适合本情境",
+                "correct": false,
+                "feedback": "随意决定交期并不合适。"
+              }
+            ],
+            "model": "¿Hasta qué hora puedo subirlo el viernes?"
+          },
+          {
+            "situation": "发现文件打不开。",
+            "prompt": "更合适的回应？",
+            "choices": [
+              {
+                "es": "No consigo abrir el archivo. ¿Podría enviarlo de nuevo?",
+                "zh": "更合适",
+                "correct": true,
+                "feedback": "具体说明问题并请求帮助。"
+              },
+              {
+                "es": "El archivo es una basura.",
+                "zh": "不适合本情境",
+                "correct": false,
+                "feedback": "攻击性评价不能有效解决技术问题。"
+              }
+            ],
+            "model": "No consigo abrir el archivo. ¿Podría enviarlo de nuevo?"
+          }
+        ],
+        "transfer": "课后给老师写一条简短信息，说明缺课、请求作业与截止时间。",
+        "debrief": "完成后关闭提示，分别用正式口语和自然日常表达重新讲一遍，并变换一项条件。"
+      }
+    },
+    {
+      "id": "learning-03",
+      "domain": "school",
+      "track": "school-learning",
+      "level": "B1",
+      "stage": 3,
+      "title": "理解成绩反馈并制定学习计划",
+      "subtitle": "Revisar resultados y objetivos",
+      "goal": "说明薄弱点、追问建议、约定可执行的改进措施。",
+      "brief": "学生两次考试未达预期，与老师讨论原因和学习计划。",
+      "vocab": [
+        {
+          "es": "el criterio de evaluación",
+          "zh": "评价标准"
+        },
+        {
+          "es": "el error frecuente",
+          "zh": "常见错误"
+        },
+        {
+          "es": "la comprensión lectora",
+          "zh": "阅读理解"
+        },
+        {
+          "es": "la expresión escrita",
+          "zh": "写作表达"
+        },
+        {
+          "es": "la recuperación",
+          "zh": "补考／补救学习（依制度）"
+        },
+        {
+          "es": "mejorar progresivamente",
+          "zh": "逐步改善"
+        },
+        {
+          "es": "repasar en casa",
+          "zh": "在家复习"
+        },
+        {
+          "es": "establecer objetivos",
+          "zh": "设定目标"
+        },
+        {
+          "es": "hacer seguimiento",
+          "zh": "跟踪进度"
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "学生",
+          "es": "He visto mis notas y me gustaría entender en qué estoy fallando.",
+          "zh": "我看了成绩，想知道自己哪里出了问题。"
+        },
+        {
+          "speaker": "老师",
+          "es": "Entiendes los temas, pero te cuesta organizar las respuestas.",
+          "zh": "你理解知识点，但组织答案比较吃力。"
+        },
+        {
+          "speaker": "学生",
+          "es": "¿Es un problema de contenido o de expresión escrita?",
+          "zh": "是知识内容的问题，还是写作表达的问题？"
+        },
+        {
+          "speaker": "老师",
+          "es": "Principalmente de expresión y de justificar tus ideas.",
+          "zh": "主要是表达和论证自己的想法。"
+        },
+        {
+          "speaker": "学生",
+          "es": "¿Qué ejercicios me recomienda para mejorar?",
+          "zh": "您建议我做什么练习来改进？"
+        },
+        {
+          "speaker": "老师",
+          "es": "Empieza por resumir textos cortos y revisar los conectores.",
+          "zh": "先练短文总结并复习连接词。"
+        },
+        {
+          "speaker": "学生",
+          "es": "De acuerdo. ¿Podemos revisar mi progreso dentro de dos semanas?",
+          "zh": "明白。两周后能否再次检查我的进步？"
+        },
+        {
+          "speaker": "老师",
+          "es": "Sí, trae algunos ejercicios para comentarlos.",
+          "zh": "可以，带一些练习来讨论。"
+        }
+      ],
+      "expressions": [
+        {
+          "standard": "Me cuesta estructurar los argumentos.",
+          "natural": "Me lío al organizar las ideas.",
+          "zh": "我组织观点时容易乱。",
+          "register": "自然口语",
+          "note": "liarse 表示弄乱／搞混，学校面对面聊天常见。"
+        },
+        {
+          "standard": "Quisiera mejorar mi expresión escrita.",
+          "natural": "Quiero escribir mejor.",
+          "zh": "我想提高写作能力。",
+          "register": "中性自然",
+          "note": "简短说法不损失主要意图；写学习计划宜更具体。"
+        }
+      ],
+      "challenges": [
+        {
+          "prompt": "说：我想知道自己在哪些方面出错。",
+          "answer": "Me gustaría saber en qué estoy fallando."
+        },
+        {
+          "prompt": "问：可以两周后查看进步吗？",
+          "answer": "¿Podemos revisar mi progreso dentro de dos semanas?"
+        },
+        {
+          "prompt": "问：主要是知识点问题还是表达问题？",
+          "answer": "¿El problema es de contenido o de expresión?"
+        }
+      ],
+      "mission": {
+        "setup": "你正在西班牙学校处理真实任务。请先听对话，再根据对方的变化选择合适答复。",
+        "decisions": [
+          {
+            "situation": "老师说你写得不好，但没有细节。",
+            "prompt": "最有用的追问？",
+            "choices": [
+              {
+                "es": "¿Podría señalarme un error concreto y cómo corregirlo?",
+                "zh": "更合适",
+                "correct": true,
+                "feedback": "要求具体例子有助于改进。"
+              },
+              {
+                "es": "Pues entonces no haré más tareas.",
+                "zh": "不适合本情境",
+                "correct": false,
+                "feedback": "放弃练习不会得到需要的反馈。"
+              }
+            ],
+            "model": "¿Podría señalarme un error concreto y cómo corregirlo?"
+          },
+          {
+            "situation": "你想提出可验证的目标。",
+            "prompt": "什么说法更明确？",
+            "choices": [
+              {
+                "es": "Voy a escribir dos resúmenes a la semana y revisarlos.",
+                "zh": "更合适",
+                "correct": true,
+                "feedback": "具体频率和行动比笼统承诺更可执行。"
+              },
+              {
+                "es": "Voy a mejorar mucho, ya verá.",
+                "zh": "不适合本情境",
+                "correct": false,
+                "feedback": "没有步骤难以衡量进展。"
+              }
+            ],
+            "model": "Voy a escribir dos resúmenes a la semana y revisarlos."
+          }
+        ],
+        "transfer": "写一段学习计划：薄弱点、两项行动、检查时间、向老师求助方式。",
+        "debrief": "完成后关闭提示，分别用正式口语和自然日常表达重新讲一遍，并变换一项条件。"
+      }
+    },
+    {
+      "id": "learning-04",
+      "domain": "school",
+      "track": "school-learning",
+      "level": "B2",
+      "stage": 4,
+      "title": "讨论评价标准与合理复核",
+      "subtitle": "Revisión razonada de una evaluación",
+      "goal": "区分争辩分数与理解标准，提出证据充分的学术讨论。",
+      "brief": "你认为一份报告的某项评分没有反映已完成内容，希望礼貌请求澄清评分标准。",
+      "vocab": [
+        {
+          "es": "la rúbrica",
+          "zh": "评分量表"
+        },
+        {
+          "es": "los indicadores",
+          "zh": "指标"
+        },
+        {
+          "es": "la ponderación",
+          "zh": "权重"
+        },
+        {
+          "es": "la retroalimentación",
+          "zh": "反馈"
+        },
+        {
+          "es": "la coherencia",
+          "zh": "连贯性"
+        },
+        {
+          "es": "la argumentación",
+          "zh": "论证"
+        },
+        {
+          "es": "la evidencia",
+          "zh": "证据"
+        },
+        {
+          "es": "solicitar aclaración",
+          "zh": "请求澄清"
+        },
+        {
+          "es": "reconsiderar",
+          "zh": "重新考虑"
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "学生",
+          "es": "Gracias por corregir el trabajo. Quisiera plantear una duda sobre la rúbrica.",
+          "zh": "谢谢您批改作业。我想就评分量表提出一个疑问。"
+        },
+        {
+          "speaker": "老师",
+          "es": "Adelante, ¿qué criterio no te queda claro?",
+          "zh": "请说，是哪个标准不清楚？"
+        },
+        {
+          "speaker": "学生",
+          "es": "En el apartado de argumentación aparece una valoración baja.",
+          "zh": "论证部分的评分比较低。"
+        },
+        {
+          "speaker": "老师",
+          "es": "He considerado que faltan ejemplos que respalden las conclusiones.",
+          "zh": "我认为缺少支持结论的例子。"
+        },
+        {
+          "speaker": "学生",
+          "es": "Entiendo su observación, pero en la segunda página incluí dos casos documentados.",
+          "zh": "我理解您的意见，但在第二页我加入了两个有资料依据的案例。"
+        },
+        {
+          "speaker": "老师",
+          "es": "Podemos revisar juntos si esos casos se ajustan al indicador.",
+          "zh": "我们可以一起检查这些案例是否符合评分指标。"
+        },
+        {
+          "speaker": "学生",
+          "es": "Lo agradecería. Mi intención es comprender el criterio, no discutir por discutir.",
+          "zh": "我会很感谢。我的目的是理解标准，而不是为了争论而争论。"
+        },
+        {
+          "speaker": "老师",
+          "es": "De acuerdo. Revisemos el texto y la rúbrica.",
+          "zh": "好的。我们一起检查文章和量表。"
+        }
+      ],
+      "expressions": [
+        {
+          "standard": "Agradecería una aclaración de los criterios de evaluación.",
+          "natural": "¿Me explica cómo ha puntuado esta parte?",
+          "zh": "能解释这一部分怎么评分吗？",
+          "register": "中性自然",
+          "note": "正式邮件可选择第一种，面对面可选第二种。"
+        },
+        {
+          "standard": "Quisiera contrastar su valoración con la rúbrica.",
+          "natural": "Quería comparar la nota con la rúbrica.",
+          "zh": "我想把分数和评分标准对照一下。",
+          "register": "校园日常",
+          "note": "强调共同核对，而不是断言对方错误。"
+        }
+      ],
+      "challenges": [
+        {
+          "prompt": "正式说：希望解释评分指标。",
+          "answer": "Agradecería que me explicara los indicadores de evaluación."
+        },
+        {
+          "prompt": "说：我的目的是理解标准。",
+          "answer": "Mi intención es comprender los criterios."
+        },
+        {
+          "prompt": "提出：第二页包含了两个相关案例。",
+          "answer": "En la segunda página he incluido dos ejemplos pertinentes."
+        }
+      ],
+      "mission": {
+        "setup": "你正在西班牙学校处理真实任务。请先听对话，再根据对方的变化选择合适答复。",
+        "decisions": [
+          {
+            "situation": "老师不同意你对案例质量的判断。",
+            "prompt": "更成熟的回应？",
+            "choices": [
+              {
+                "es": "Entiendo su valoración. ¿Podríamos revisar qué requisito concreto no cumplen?",
+                "zh": "更合适",
+                "correct": true,
+                "feedback": "先确认分歧点，再基于标准讨论。"
+              },
+              {
+                "es": "Pues su criterio no tiene sentido.",
+                "zh": "不适合本情境",
+                "correct": false,
+                "feedback": "直接否定教师通常无法促进澄清。"
+              }
+            ],
+            "model": "Entiendo su valoración. ¿Podríamos revisar qué requisito concreto no cumplen?"
+          },
+          {
+            "situation": "你想请求可能的复核，但不知道规定。",
+            "prompt": "如何措辞？",
+            "choices": [
+              {
+                "es": "¿Existe algún procedimiento para solicitar una revisión formal?",
+                "zh": "更合适",
+                "correct": true,
+                "feedback": "正式复核依据学校/机构规定，先确认路径。"
+              },
+              {
+                "es": "Exijo que cambie la nota ahora mismo.",
+                "zh": "不适合本情境",
+                "correct": false,
+                "feedback": "无依据要求即时改分并不稳妥。"
+              }
+            ],
+            "model": "¿Existe algún procedimiento para solicitar una revisión formal?"
+          }
+        ],
+        "transfer": "模拟正式会谈：简述事实、引用评分量表、提出两项证据并询问后续程序。",
+        "debrief": "完成后关闭提示，分别用正式口语和自然日常表达重新讲一遍，并变换一项条件。"
+      }
+    },
+    {
+      "id": "wellbeing-01",
+      "domain": "school",
+      "track": "school-wellbeing",
+      "level": "A1",
+      "stage": 1,
+      "title": "表达情绪并寻求帮助",
+      "subtitle": "Pedir ayuda en el colegio",
+      "goal": "清楚说不舒服、发生了什么和需要谁帮助。",
+      "brief": "学生在学校感到不安，用简单句向老师求助。",
+      "vocab": [
+        {
+          "es": "estar triste",
+          "zh": "难过"
+        },
+        {
+          "es": "estar nervioso/a",
+          "zh": "紧张"
+        },
+        {
+          "es": "tener miedo",
+          "zh": "害怕"
+        },
+        {
+          "es": "ayudar",
+          "zh": "帮助"
+        },
+        {
+          "es": "el compañero / la compañera",
+          "zh": "同学"
+        },
+        {
+          "es": "el profesor / la profesora",
+          "zh": "老师"
+        },
+        {
+          "es": "hablar",
+          "zh": "说话"
+        },
+        {
+          "es": "estar solo/a",
+          "zh": "独自一人"
+        },
+        {
+          "es": "necesitar ayuda",
+          "zh": "需要帮助"
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "学生",
+          "es": "Profe, ¿puedo hablar contigo?",
+          "zh": "老师，我能跟您说几句话吗？"
+        },
+        {
+          "speaker": "老师",
+          "es": "Claro. ¿Qué pasa?",
+          "zh": "当然，怎么了？"
+        },
+        {
+          "speaker": "学生",
+          "es": "Estoy triste y no quiero estar solo.",
+          "zh": "我很难过，不想一个人待着。"
+        },
+        {
+          "speaker": "老师",
+          "es": "Gracias por contármelo. ¿Ha pasado algo en clase?",
+          "zh": "谢谢你告诉我。课堂上发生什么事了吗？"
+        },
+        {
+          "speaker": "学生",
+          "es": "Sí, he tenido un problema con un compañero.",
+          "zh": "有，我和同学发生了问题。"
+        },
+        {
+          "speaker": "老师",
+          "es": "Vamos a hablar en un lugar tranquilo.",
+          "zh": "我们去安静的地方谈。"
+        },
+        {
+          "speaker": "学生",
+          "es": "Gracias. Necesito ayuda.",
+          "zh": "谢谢。我需要帮助。"
+        }
+      ],
+      "expressions": [
+        {
+          "standard": "Necesito hablar con un profesor.",
+          "natural": "Profe, ¿podemos hablar un momento?",
+          "zh": "老师，我们能聊一下吗？",
+          "register": "校园日常",
+          "note": "profe 是校园常见称呼；情况严重也可以直接表达。"
+        },
+        {
+          "standard": "Me encuentro mal por lo que ha pasado.",
+          "natural": "Me siento fatal por lo que ha pasado.",
+          "zh": "发生的事让我很难受。",
+          "register": "日常口语",
+          "note": "fatal 表达情绪强烈，不等于具体医学诊断。"
+        }
+      ],
+      "challenges": [
+        {
+          "prompt": "说：我很难过。",
+          "answer": "Estoy triste."
+        },
+        {
+          "prompt": "问：我能跟您聊聊吗？",
+          "answer": "¿Puedo hablar contigo?"
+        },
+        {
+          "prompt": "说：我需要帮助。",
+          "answer": "Necesito ayuda."
+        }
+      ],
+      "mission": {
+        "setup": "你正在西班牙学校处理真实任务。请先听对话，再根据对方的变化选择合适答复。",
+        "decisions": [
+          {
+            "situation": "老师问你是否需要帮助。",
+            "prompt": "最清楚的回答？",
+            "choices": [
+              {
+                "es": "Sí, necesito hablar con usted.",
+                "zh": "更合适",
+                "correct": true,
+                "feedback": "直接说明需要帮助，便于老师跟进。"
+              },
+              {
+                "es": "Da igual.",
+                "zh": "不适合本情境",
+                "correct": false,
+                "feedback": "da igual 表示无所谓，可能掩盖需求。"
+              }
+            ],
+            "model": "Sí, necesito hablar con usted."
+          },
+          {
+            "situation": "你不想在全班面前讲。",
+            "prompt": "如何提出？",
+            "choices": [
+              {
+                "es": "¿Podemos hablar en otro sitio?",
+                "zh": "更合适",
+                "correct": true,
+                "feedback": "可以请求私人、安静的谈话环境。"
+              },
+              {
+                "es": "No pienso hablar nunca.",
+                "zh": "不适合本情境",
+                "correct": false,
+                "feedback": "完全拒绝沟通无法表达隐私需求。"
+              }
+            ],
+            "model": "¿Podemos hablar en otro sitio?"
+          }
+        ],
+        "transfer": "角色扮演：告诉一位可信任成年人自己不舒服，并提出想私下交流。",
+        "debrief": "完成后关闭提示，分别用正式口语和自然日常表达重新讲一遍，并变换一项条件。"
+      }
+    },
+    {
+      "id": "wellbeing-02",
+      "domain": "school",
+      "track": "school-wellbeing",
+      "level": "A2",
+      "stage": 2,
+      "title": "解释同学之间的误会",
+      "subtitle": "Aclarar un malentendido",
+      "goal": "叙述事情经过、表达感受、提出解决方式。",
+      "brief": "两位同学因一句话发生争执，想请老师帮助澄清。",
+      "vocab": [
+        {
+          "es": "el malentendido",
+          "zh": "误会"
+        },
+        {
+          "es": "discutir",
+          "zh": "争执"
+        },
+        {
+          "es": "molestar",
+          "zh": "打扰／让人不舒服"
+        },
+        {
+          "es": "disculparse",
+          "zh": "道歉"
+        },
+        {
+          "es": "interrumpir",
+          "zh": "打断"
+        },
+        {
+          "es": "resolver un problema",
+          "zh": "解决问题"
+        },
+        {
+          "es": "el respeto",
+          "zh": "尊重"
+        },
+        {
+          "es": "escuchar a alguien",
+          "zh": "听某人讲话"
+        },
+        {
+          "es": "llevarse bien",
+          "zh": "相处好"
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "学生甲",
+          "es": "Quería explicar lo que pasó ayer en el recreo.",
+          "zh": "我想解释昨天课间发生了什么。"
+        },
+        {
+          "speaker": "老师",
+          "es": "Cuéntamelo con calma.",
+          "zh": "慢慢说。"
+        },
+        {
+          "speaker": "学生甲",
+          "es": "Dije algo que mi compañero entendió mal y discutimos.",
+          "zh": "我说的话被同学误解了，我们吵了起来。"
+        },
+        {
+          "speaker": "老师",
+          "es": "¿Le has preguntado cómo se sintió?",
+          "zh": "你问过他当时的感受吗？"
+        },
+        {
+          "speaker": "学生甲",
+          "es": "No todavía. Quiero pedirle disculpas y aclararlo.",
+          "zh": "还没有。我想向他道歉并澄清。"
+        },
+        {
+          "speaker": "老师",
+          "es": "Podemos ayudaros a hablar y escucharos mutuamente.",
+          "zh": "我们可以帮你们沟通并互相倾听。"
+        },
+        {
+          "speaker": "学生甲",
+          "es": "Me parece bien. No quiero que se repita.",
+          "zh": "我觉得好。我不想再发生这种事。"
+        }
+      ],
+      "expressions": [
+        {
+          "standard": "Creo que hubo un malentendido.",
+          "natural": "Creo que nos hemos liado.",
+          "zh": "我觉得我们有些误会。",
+          "register": "熟人口语",
+          "note": "liarse 在口语中可表达弄混，正式说明用 malentendido。"
+        },
+        {
+          "standard": "Quiero aclarar lo ocurrido.",
+          "natural": "Quiero arreglar lo que pasó.",
+          "zh": "我想把这件事说清楚／解决。",
+          "register": "自然口语",
+          "note": "arreglar 强调整理解决，aclarar 偏澄清事实。"
+        }
+      ],
+      "challenges": [
+        {
+          "prompt": "说：我们发生了误会。",
+          "answer": "Tuvimos un malentendido."
+        },
+        {
+          "prompt": "说：我想道歉。",
+          "answer": "Quiero pedir disculpas."
+        },
+        {
+          "prompt": "说：我不想再发生这种事。",
+          "answer": "No quiero que vuelva a pasar."
+        }
+      ],
+      "mission": {
+        "setup": "你正在西班牙学校处理真实任务。请先听对话，再根据对方的变化选择合适答复。",
+        "decisions": [
+          {
+            "situation": "同学误解了你的意思。",
+            "prompt": "怎样回应？",
+            "choices": [
+              {
+                "es": "No quería hacerte daño. ¿Podemos hablar?",
+                "zh": "更合适",
+                "correct": true,
+                "feedback": "承认对方的感受并请求沟通。"
+              },
+              {
+                "es": "¡Tú siempre lo entiendes todo mal!",
+                "zh": "不适合本情境",
+                "correct": false,
+                "feedback": "责备对方会加深冲突。"
+              }
+            ],
+            "model": "No quería hacerte daño. ¿Podemos hablar?"
+          },
+          {
+            "situation": "老师建议双方轮流表达。",
+            "prompt": "你的回应？",
+            "choices": [
+              {
+                "es": "Me parece bien. Quiero escuchar su versión.",
+                "zh": "更合适",
+                "correct": true,
+                "feedback": "接受轮流发言更可能解决误会。"
+              },
+              {
+                "es": "No me interesa lo que diga.",
+                "zh": "不适合本情境",
+                "correct": false,
+                "feedback": "拒绝倾听会阻断澄清。"
+              }
+            ],
+            "model": "Me parece bien. Quiero escuchar su versión."
+          }
+        ],
+        "transfer": "改写：如果你其实没有说过那句话，如何不指责地说明事实？",
+        "debrief": "完成后关闭提示，分别用正式口语和自然日常表达重新讲一遍，并变换一项条件。"
+      }
+    },
+    {
+      "id": "wellbeing-03",
+      "domain": "school",
+      "track": "school-wellbeing",
+      "level": "B1",
+      "stage": 3,
+      "title": "反复冲突与家校沟通",
+      "subtitle": "Comunicar incidentes repetidos",
+      "goal": "整理时间线、描述已知事实与感受、请求适当跟进。",
+      "brief": "孩子连续几天遇到同学冲突，家长需要向班主任陈述可核实情况。",
+      "vocab": [
+        {
+          "es": "el incidente",
+          "zh": "事件"
+        },
+        {
+          "es": "repetirse",
+          "zh": "反复发生"
+        },
+        {
+          "es": "el testigo",
+          "zh": "目击者"
+        },
+        {
+          "es": "la versión de los hechos",
+          "zh": "事件陈述"
+        },
+        {
+          "es": "el seguimiento",
+          "zh": "后续跟进"
+        },
+        {
+          "es": "la convivencia",
+          "zh": "校园共处"
+        },
+        {
+          "es": "el bienestar",
+          "zh": "身心安好"
+        },
+        {
+          "es": "la comunicación",
+          "zh": "沟通"
+        },
+        {
+          "es": "pedir una reunión",
+          "zh": "要求面谈"
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "家长",
+          "es": "Gracias por recibirme. Me preocupa una situación que se ha repetido esta semana.",
+          "zh": "感谢您接待我。我很担心本周反复发生的一件事。"
+        },
+        {
+          "speaker": "班主任",
+          "es": "Cuénteme los hechos que conoce.",
+          "zh": "请告诉我您所了解的事实。"
+        },
+        {
+          "speaker": "家长",
+          "es": "Mi hijo dice que tres días seguidos le han insultado en el recreo.",
+          "zh": "孩子说连续三天在课间被辱骂。"
+        },
+        {
+          "speaker": "班主任",
+          "es": "¿Sabe en qué momentos ocurrió y quién estaba presente?",
+          "zh": "您知道什么时候发生、谁在场吗？"
+        },
+        {
+          "speaker": "家长",
+          "es": "He anotado las fechas, aunque no conozco todas las versiones.",
+          "zh": "我记录了日期，但不知道各方完整说法。"
+        },
+        {
+          "speaker": "班主任",
+          "es": "Gracias. Recogeremos información y seguiremos las medidas del centro.",
+          "zh": "谢谢。我们会收集信息并按学校措施处理。"
+        },
+        {
+          "speaker": "家长",
+          "es": "¿Podríamos fijar una fecha para conocer cómo evoluciona la situación?",
+          "zh": "能否定个日期了解处理进展？"
+        },
+        {
+          "speaker": "班主任",
+          "es": "Sí, mantendremos la comunicación por el cauce habitual.",
+          "zh": "可以，我们按常规渠道保持沟通。"
+        }
+      ],
+      "expressions": [
+        {
+          "standard": "La situación se ha repetido en varias ocasiones.",
+          "natural": "Esto ha pasado ya varias veces.",
+          "zh": "这件事已经发生好几次。",
+          "register": "日常自然",
+          "note": "正式记录中列出次数日期更精确。"
+        },
+        {
+          "standard": "Agradecería un seguimiento de la situación.",
+          "natural": "Me gustaría saber cómo va el tema.",
+          "zh": "我希望了解后续处理情况。",
+          "register": "日常口语",
+          "note": "tema 在口语中指“这件事”，正式邮件可改 situación。"
+        }
+      ],
+      "challenges": [
+        {
+          "prompt": "说：这一情况本周反复发生。",
+          "answer": "Esta situación se ha repetido varias veces esta semana."
+        },
+        {
+          "prompt": "说：我记录了日期，但不确定细节。",
+          "answer": "He anotado las fechas, pero no conozco todos los detalles."
+        },
+        {
+          "prompt": "问：什么时候能跟进处理？",
+          "answer": "¿Cuándo podríamos hacer un seguimiento?"
+        }
+      ],
+      "mission": {
+        "setup": "你正在西班牙学校处理真实任务。请先听对话，再根据对方的变化选择合适答复。",
+        "decisions": [
+          {
+            "situation": "你只听到了孩子的一方陈述。",
+            "prompt": "最合适的措辞？",
+            "choices": [
+              {
+                "es": "Según me ha contado mi hijo, ocurrió tres veces.",
+                "zh": "更合适",
+                "correct": true,
+                "feedback": "区分亲历、转述和未知内容，更利于公正沟通。"
+              },
+              {
+                "es": "Sé perfectamente lo que ha pasado y quién es culpable.",
+                "zh": "不适合本情境",
+                "correct": false,
+                "feedback": "对尚未核实的事实做断言可能失真。"
+              }
+            ],
+            "model": "Según me ha contado mi hijo, ocurrió tres veces."
+          },
+          {
+            "situation": "老师说会处理但没有后续时间。",
+            "prompt": "你如何请求明确跟进？",
+            "choices": [
+              {
+                "es": "¿Podemos acordar una fecha para revisar la situación?",
+                "zh": "更合适",
+                "correct": true,
+                "feedback": "明确下一次联系时间是可执行措施。"
+              },
+              {
+                "es": "No sirve de nada hablar con usted.",
+                "zh": "不适合本情境",
+                "correct": false,
+                "feedback": "直接否定沟通不利于后续合作。"
+              }
+            ],
+            "model": "¿Podemos acordar una fecha para revisar la situación?"
+          }
+        ],
+        "transfer": "练习 60 秒陈述：时间—地点—发生了什么—孩子感受—希望如何跟进。",
+        "debrief": "完成后关闭提示，分别用正式口语和自然日常表达重新讲一遍，并变换一项条件。"
+      }
+    },
+    {
+      "id": "wellbeing-04",
+      "domain": "school",
+      "track": "school-wellbeing",
+      "level": "B2",
+      "stage": 4,
+      "title": "严重校园欺凌风险的正式沟通",
+      "subtitle": "Comunicar una situación de posible acoso",
+      "goal": "清晰区分风险、已知事实与待调查情况，请求保护和正式渠道。",
+      "brief": "家庭担心孩子遭遇持续针对，需要采取严肃但不预断调查结果的沟通方式。",
+      "vocab": [
+        {
+          "es": "el posible acoso escolar",
+          "zh": "可能存在的校园欺凌"
+        },
+        {
+          "es": "la protección",
+          "zh": "保护"
+        },
+        {
+          "es": "las medidas preventivas",
+          "zh": "预防措施"
+        },
+        {
+          "es": "el protocolo del centro",
+          "zh": "学校处理程序"
+        },
+        {
+          "es": "la confidencialidad",
+          "zh": "保密"
+        },
+        {
+          "es": "la investigación",
+          "zh": "调查"
+        },
+        {
+          "es": "la documentación",
+          "zh": "记录材料"
+        },
+        {
+          "es": "la integridad",
+          "zh": "人身及身心完整性"
+        },
+        {
+          "es": "la comunicación escrita",
+          "zh": "书面沟通"
+        },
+        {
+          "es": "solicitar actuaciones",
+          "zh": "请求采取措施"
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "家长",
+          "es": "Solicito una reunión urgente por una posible situación de acoso escolar.",
+          "zh": "我希望紧急会面，因为可能存在校园欺凌。"
+        },
+        {
+          "speaker": "负责人",
+          "es": "Entiendo su preocupación. ¿Puede describir los hechos conocidos?",
+          "zh": "理解您的担心。能否描述已经知道的事实？"
+        },
+        {
+          "speaker": "家长",
+          "es": "Hemos registrado fechas, mensajes y cambios en el bienestar de nuestra hija.",
+          "zh": "我们记录了日期、信息和女儿身心状态的变化。"
+        },
+        {
+          "speaker": "负责人",
+          "es": "Debemos recoger la información por los cauces previstos.",
+          "zh": "我们需要通过规定渠道收集信息。"
+        },
+        {
+          "speaker": "家长",
+          "es": "Agradeceríamos saber qué medidas de protección pueden valorarse mientras se aclaran los hechos.",
+          "zh": "希望了解在情况核实期间可考虑哪些保护措施。"
+        },
+        {
+          "speaker": "负责人",
+          "es": "Le indicaremos el procedimiento aplicable y los contactos responsables.",
+          "zh": "我们会说明适用程序及负责联系的人。"
+        },
+        {
+          "speaker": "家长",
+          "es": "También quisiera conocer cómo se garantizará la confidencialidad y el seguimiento.",
+          "zh": "我还想了解如何保障保密与后续跟进。"
+        },
+        {
+          "speaker": "负责人",
+          "es": "Dejaremos constancia de su comunicación y de los próximos pasos.",
+          "zh": "我们会记录您的沟通和后续步骤。"
+        }
+      ],
+      "expressions": [
+        {
+          "standard": "Quisiera comunicar una posible situación de acoso escolar.",
+          "natural": "Me preocupa mucho lo que le está pasando a mi hija.",
+          "zh": "我非常担心孩子可能遇到的欺凌。",
+          "register": "正式/自然",
+          "note": "acoso 是严肃概念，正式申报应提供具体事实，不随意下结论。"
+        },
+        {
+          "standard": "Solicito información sobre las medidas de protección.",
+          "natural": "Quería saber cómo vais a protegerla mientras tanto.",
+          "zh": "我想知道期间有哪些保护措施。",
+          "register": "较直接口语",
+          "note": "与校方关系允许时可用 vais；正式文书用 solicitamos información。"
+        }
+      ],
+      "challenges": [
+        {
+          "prompt": "正式说：可能存在校园欺凌，需核查。",
+          "answer": "Podría existir una situación de acoso escolar que debe investigarse."
+        },
+        {
+          "prompt": "询问：调查期间有哪些保护措施？",
+          "answer": "¿Qué medidas de protección pueden aplicarse mientras se investigan los hechos?"
+        },
+        {
+          "prompt": "请求书面确认收到信息。",
+          "answer": "Agradecería una confirmación escrita de la recepción de esta comunicación."
+        }
+      ],
+      "mission": {
+        "setup": "你正在西班牙学校处理真实任务。请先听对话，再根据对方的变化选择合适答复。",
+        "decisions": [
+          {
+            "situation": "校方说目前尚不能认定欺凌。",
+            "prompt": "你应如何继续？",
+            "choices": [
+              {
+                "es": "Entiendo que debe investigarse. Mientras tanto, solicito que se valore la protección de la alumna.",
+                "zh": "更合适",
+                "correct": true,
+                "feedback": "承认调查必要，同时明确孩子安全需求。"
+              },
+              {
+                "es": "Si no lo reconocen ahora, publicaré todos los nombres.",
+                "zh": "不适合本情境",
+                "correct": false,
+                "feedback": "公开未成年人身份信息可能造成严重伤害。"
+              }
+            ],
+            "model": "Entiendo que debe investigarse. Mientras tanto, solicito que se valore la protección de la alumna."
+          },
+          {
+            "situation": "对方要求通过官方渠道递交材料。",
+            "prompt": "如何确认交付与后续？",
+            "choices": [
+              {
+                "es": "¿Podrían indicarme el canal, el responsable y cómo recibir un acuse de recibo?",
+                "zh": "更合适",
+                "correct": true,
+                "feedback": "具体确认负责人、提交渠道和回执更安全。"
+              },
+              {
+                "es": "Se lo mando a todo el mundo por redes sociales.",
+                "zh": "不适合本情境",
+                "correct": false,
+                "feedback": "社交媒体不是处理敏感未成年人信息的适当渠道。"
+              }
+            ],
+            "model": "¿Podrían indicarme el canal, el responsable y cómo recibir un acuse de recibo?"
+          }
+        ],
+        "transfer": "撰写 120–160 字西语正式沟通：不出现真实儿童姓名与个人细节，列明事实、风险和请求。",
+        "debrief": "完成后关闭提示，分别用正式口语和自然日常表达重新讲一遍，并变换一项条件。"
+      }
+    },
+    {
+      "id": "logistics-01",
+      "domain": "school",
+      "track": "school-logistics",
+      "level": "A1",
+      "stage": 1,
+      "title": "问食堂和接送时间",
+      "subtitle": "Comedor y horario de salida",
+      "goal": "询问孩子什么时候吃饭、几点放学、在哪里接。",
+      "brief": "第一次参加学校开放日，要知道食堂和接送的基本时间。",
+      "vocab": [
+        {
+          "es": "el comedor",
+          "zh": "食堂"
+        },
+        {
+          "es": "la comida",
+          "zh": "午餐／食物"
+        },
+        {
+          "es": "la salida",
+          "zh": "放学／出口"
+        },
+        {
+          "es": "la hora",
+          "zh": "时间"
+        },
+        {
+          "es": "recoger",
+          "zh": "接（孩子）"
+        },
+        {
+          "es": "hoy",
+          "zh": "今天"
+        },
+        {
+          "es": "mañana",
+          "zh": "明天"
+        },
+        {
+          "es": "¿A qué hora…?",
+          "zh": "几点……"
+        },
+        {
+          "es": "la puerta",
+          "zh": "门"
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "家长",
+          "es": "Buenos días. ¿Hay comedor en el colegio?",
+          "zh": "您好，学校有食堂吗？"
+        },
+        {
+          "speaker": "工作人员",
+          "es": "Sí, tenemos servicio de comedor.",
+          "zh": "有，我们有食堂服务。"
+        },
+        {
+          "speaker": "家长",
+          "es": "¿A qué hora comen los niños?",
+          "zh": "孩子们几点吃饭？"
+        },
+        {
+          "speaker": "工作人员",
+          "es": "El horario depende del grupo.",
+          "zh": "时间要看班级。"
+        },
+        {
+          "speaker": "家长",
+          "es": "¿Y a qué hora puedo recoger a mi hija?",
+          "zh": "那我几点可以接女儿？"
+        },
+        {
+          "speaker": "工作人员",
+          "es": "Consulte la hora de salida de su clase.",
+          "zh": "请查看她班级的放学时间。"
+        },
+        {
+          "speaker": "家长",
+          "es": "Gracias. ¿La recogida es en esta puerta?",
+          "zh": "谢谢。在这扇门接孩子吗？"
+        }
+      ],
+      "expressions": [
+        {
+          "standard": "¿A qué hora es la salida?",
+          "natural": "¿A qué hora salen los peques?",
+          "zh": "小朋友们几点放学？",
+          "register": "家长熟人口语",
+          "note": "peques 是对小孩的亲切口语，正式询问可说 alumnos/niños。"
+        },
+        {
+          "standard": "¿Hay servicio de comedor?",
+          "natural": "¿Tienen comedor?",
+          "zh": "有食堂吗？",
+          "register": "自然中性",
+          "note": "两个说法都能用于学校咨询。"
+        }
+      ],
+      "challenges": [
+        {
+          "prompt": "问：学校有食堂吗？",
+          "answer": "¿Hay comedor en el colegio?"
+        },
+        {
+          "prompt": "问：孩子几点放学？",
+          "answer": "¿A qué hora salen los niños?"
+        },
+        {
+          "prompt": "问：从哪里接孩子？",
+          "answer": "¿Dónde se recoge a los niños?"
+        }
+      ],
+      "mission": {
+        "setup": "你正在西班牙学校处理真实任务。请先听对话，再根据对方的变化选择合适答复。",
+        "decisions": [
+          {
+            "situation": "你不确定接孩子的是哪个门。",
+            "prompt": "如何确认？",
+            "choices": [
+              {
+                "es": "¿La recogida es por esta puerta?",
+                "zh": "更合适",
+                "correct": true,
+                "feedback": "提前确认接送地点是安全做法。"
+              },
+              {
+                "es": "Bueno, entraré por donde pueda.",
+                "zh": "不适合本情境",
+                "correct": false,
+                "feedback": "不要擅自进入不开放的校门。"
+              }
+            ],
+            "model": "¿La recogida es por esta puerta?"
+          },
+          {
+            "situation": "学校说放学时间按班级不同。",
+            "prompt": "你应问？",
+            "choices": [
+              {
+                "es": "¿Dónde puedo consultar el horario de su grupo?",
+                "zh": "更合适",
+                "correct": true,
+                "feedback": "核对班级对应时间。"
+              },
+              {
+                "es": "Todos salen a la misma hora, seguro.",
+                "zh": "不适合本情境",
+                "correct": false,
+                "feedback": "不要推定所有班级同一安排。"
+              }
+            ],
+            "model": "¿Dónde puedo consultar el horario de su grupo?"
+          }
+        ],
+        "transfer": "班主任临时说明天早放学：问清准确时间与入口。",
+        "debrief": "完成后关闭提示，分别用正式口语和自然日常表达重新讲一遍，并变换一项条件。"
+      }
+    },
+    {
+      "id": "logistics-02",
+      "domain": "school",
+      "track": "school-logistics",
+      "level": "A2",
+      "stage": 2,
+      "title": "食物过敏和食堂沟通",
+      "subtitle": "Comunicar una alergia alimentaria",
+      "goal": "客观说明已知的过敏、问处理程序、不自行规定菜单。",
+      "brief": "需要向学校说明孩子对某种食品过敏，确认登记与就餐沟通方式。",
+      "vocab": [
+        {
+          "es": "la alergia",
+          "zh": "过敏"
+        },
+        {
+          "es": "el alérgeno",
+          "zh": "过敏原"
+        },
+        {
+          "es": "el menú escolar",
+          "zh": "学校菜单"
+        },
+        {
+          "es": "la ficha",
+          "zh": "信息表"
+        },
+        {
+          "es": "comunicar",
+          "zh": "报告／告知"
+        },
+        {
+          "es": "la documentación médica",
+          "zh": "医疗材料"
+        },
+        {
+          "es": "evitar",
+          "zh": "避免"
+        },
+        {
+          "es": "la persona responsable",
+          "zh": "负责人"
+        },
+        {
+          "es": "la cocina",
+          "zh": "厨房"
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "家长",
+          "es": "Buenos días. Mi hijo tiene una alergia alimentaria diagnosticada.",
+          "zh": "您好，我儿子有确诊的食物过敏。"
+        },
+        {
+          "speaker": "工作人员",
+          "es": "¿Se ha comunicado al centro?",
+          "zh": "已经告知学校了吗？"
+        },
+        {
+          "speaker": "家长",
+          "es": "Todavía no. ¿Qué procedimiento debemos seguir?",
+          "zh": "还没有。我们应该走什么流程？"
+        },
+        {
+          "speaker": "工作人员",
+          "es": "El centro le indicará los formularios y la documentación necesaria.",
+          "zh": "学校会告知表格及所需材料。"
+        },
+        {
+          "speaker": "家长",
+          "es": "¿Con quién puedo confirmar que el comedor ha recibido la información?",
+          "zh": "我该找谁确认食堂收到这些信息？"
+        },
+        {
+          "speaker": "工作人员",
+          "es": "Le facilitaremos el contacto responsable.",
+          "zh": "我们会提供负责人的联系方式。"
+        },
+        {
+          "speaker": "家长",
+          "es": "Gracias. Quisiera asegurarme de que la comunicación queda registrada.",
+          "zh": "谢谢。我想确保这份信息有记录。"
+        },
+        {
+          "speaker": "工作人员",
+          "es": "De acuerdo, siga el canal de comunicación indicado.",
+          "zh": "好的，请通过指定渠道提交。"
+        }
+      ],
+      "expressions": [
+        {
+          "standard": "Tiene una alergia alimentaria diagnosticada.",
+          "natural": "Es alérgico a un alimento.",
+          "zh": "他对某种食物过敏。",
+          "register": "中性自然",
+          "note": "与食堂沟通时须说明准确过敏原及实际医疗资料。"
+        },
+        {
+          "standard": "¿Cómo se registra esta información?",
+          "natural": "¿Dónde lo tengo que apuntar?",
+          "zh": "这项信息怎么登记？",
+          "register": "口语自然",
+          "note": "apuntar 表示记下；正式表格用 registrar/ comunicar。"
+        }
+      ],
+      "challenges": [
+        {
+          "prompt": "说：孩子对某种食品过敏。",
+          "answer": "Mi hijo tiene alergia a un alimento."
+        },
+        {
+          "prompt": "问：由谁负责接收过敏信息？",
+          "answer": "¿Quién es responsable de recibir la información sobre alergias?"
+        },
+        {
+          "prompt": "问：需要什么材料？",
+          "answer": "¿Qué documentación hace falta?"
+        }
+      ],
+      "mission": {
+        "setup": "你正在西班牙学校处理真实任务。请先听对话，再根据对方的变化选择合适答复。",
+        "decisions": [
+          {
+            "situation": "工作人员说“口头告诉食堂即可”，但你希望核对流程。",
+            "prompt": "合适的回应？",
+            "choices": [
+              {
+                "es": "¿Existe también un formulario o un canal para dejarlo registrado?",
+                "zh": "更合适",
+                "correct": true,
+                "feedback": "确认正式记录方式更稳妥。"
+              },
+              {
+                "es": "No hace falta decir nada más.",
+                "zh": "不适合本情境",
+                "correct": false,
+                "feedback": "重要过敏信息不宜只依赖模糊沟通。"
+              }
+            ],
+            "model": "¿Existe también un formulario o un canal para dejarlo registrado?"
+          },
+          {
+            "situation": "你不确定学校实际的供餐安排。",
+            "prompt": "如何确认？",
+            "choices": [
+              {
+                "es": "¿Podemos revisar el procedimiento con la persona responsable del comedor?",
+                "zh": "更合适",
+                "correct": true,
+                "feedback": "与负责人明确程序，避免未经核实的安排。"
+              },
+              {
+                "es": "Simplemente preparen cualquier plato.",
+                "zh": "不适合本情境",
+                "correct": false,
+                "feedback": "食物过敏不能采取随意替代方案。"
+              }
+            ],
+            "model": "¿Podemos revisar el procedimiento con la persona responsable del comedor?"
+          }
+        ],
+        "transfer": "模拟一次完整沟通：说明情况、列出需核实的三个步骤、请求回执。",
+        "debrief": "完成后关闭提示，分别用正式口语和自然日常表达重新讲一遍，并变换一项条件。"
+      }
+    },
+    {
+      "id": "logistics-03",
+      "domain": "school",
+      "track": "school-logistics",
+      "level": "B1",
+      "stage": 3,
+      "title": "临时更换接送人",
+      "subtitle": "Autorizar una recogida extraordinaria",
+      "goal": "说明临时变更、问授权方式，确认学校安全核验。",
+      "brief": "原接送人因工作不能到校，需要另一位可信任成年人代接。",
+      "vocab": [
+        {
+          "es": "la recogida extraordinaria",
+          "zh": "临时接送"
+        },
+        {
+          "es": "la autorización",
+          "zh": "授权"
+        },
+        {
+          "es": "identificarse",
+          "zh": "证明身份"
+        },
+        {
+          "es": "la persona autorizada",
+          "zh": "获授权人员"
+        },
+        {
+          "es": "el cambio de última hora",
+          "zh": "临时变更"
+        },
+        {
+          "es": "la incidencia",
+          "zh": "突发情况"
+        },
+        {
+          "es": "el horario de salida",
+          "zh": "放学时间"
+        },
+        {
+          "es": "confirmar por escrito",
+          "zh": "书面确认"
+        },
+        {
+          "es": "cumplir el procedimiento",
+          "zh": "遵守流程"
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "家长",
+          "es": "Buenas tardes. Necesito consultar un cambio puntual en la recogida de mi hija.",
+          "zh": "您好，我想咨询女儿接送人的临时变更。"
+        },
+        {
+          "speaker": "工作人员",
+          "es": "¿Qué cambio necesita hacer?",
+          "zh": "需要什么变更？"
+        },
+        {
+          "speaker": "家长",
+          "es": "Normalmente la recojo yo, pero mañana no podré llegar a tiempo.",
+          "zh": "通常我接她，但明天我赶不及。"
+        },
+        {
+          "speaker": "工作人员",
+          "es": "¿Quién la recogería en su lugar?",
+          "zh": "谁代替您接？"
+        },
+        {
+          "speaker": "家长",
+          "es": "Una persona de confianza. ¿Cómo puedo autorizarla de forma correcta?",
+          "zh": "一位可信任的人。我该怎么正确授权？"
+        },
+        {
+          "speaker": "工作人员",
+          "es": "Debe seguir el procedimiento de autorización de este centro.",
+          "zh": "您需要按学校授权程序办理。"
+        },
+        {
+          "speaker": "家长",
+          "es": "¿Es necesario confirmar el cambio por escrito y presentar identificación?",
+          "zh": "需要书面确认及出示身份证明吗？"
+        },
+        {
+          "speaker": "工作人员",
+          "es": "Le indicaremos los requisitos concretos.",
+          "zh": "我们会说明具体要求。"
+        }
+      ],
+      "expressions": [
+        {
+          "standard": "Solicito autorizar una recogida extraordinaria.",
+          "natural": "Mañana viene otra persona a recogerla.",
+          "zh": "明天换别人来接孩子。",
+          "register": "自然口语",
+          "note": "口头通知不能替代学校规定的授权步骤。"
+        },
+        {
+          "standard": "No podré llegar a la hora habitual.",
+          "natural": "Mañana no llego a recogerla.",
+          "zh": "我明天无法按时去接。",
+          "register": "日常自然",
+          "note": "用现在时表示未来安排在口语里很常见。"
+        }
+      ],
+      "challenges": [
+        {
+          "prompt": "说：明天我无法按时来接女儿。",
+          "answer": "Mañana no podré llegar a tiempo para recoger a mi hija."
+        },
+        {
+          "prompt": "问：需要书面授权吗？",
+          "answer": "¿Hace falta una autorización por escrito?"
+        },
+        {
+          "prompt": "问：需要证明接送人身份吗？",
+          "answer": "¿Debe identificarse la persona autorizada?"
+        }
+      ],
+      "mission": {
+        "setup": "你正在西班牙学校处理真实任务。请先听对话，再根据对方的变化选择合适答复。",
+        "decisions": [
+          {
+            "situation": "学校要求验证身份。",
+            "prompt": "合适的回应？",
+            "choices": [
+              {
+                "es": "De acuerdo. ¿Qué documento debe presentar la persona autorizada?",
+                "zh": "更合适",
+                "correct": true,
+                "feedback": "安全核验应尊重学校流程。"
+              },
+              {
+                "es": "Es de confianza, así que no necesita identificarse.",
+                "zh": "不适合本情境",
+                "correct": false,
+                "feedback": "熟人关系不是跳过身份核验的理由。"
+              }
+            ],
+            "model": "De acuerdo. ¿Qué documento debe presentar la persona autorizada?"
+          },
+          {
+            "situation": "已经临近放学，却还没确认变更。",
+            "prompt": "下一步怎么做？",
+            "choices": [
+              {
+                "es": "Voy a contactar con el centro por el canal urgente indicado.",
+                "zh": "更合适",
+                "correct": true,
+                "feedback": "应通过学校允许的沟通渠道确认。"
+              },
+              {
+                "es": "Le enviaré un mensaje a cualquier alumno.",
+                "zh": "不适合本情境",
+                "correct": false,
+                "feedback": "学生不是可靠的正式接送授权渠道。"
+              }
+            ],
+            "model": "Voy a contactar con el centro por el canal urgente indicado."
+          }
+        ],
+        "transfer": "假设临时接送人也迟到了：按学校要求联系接待人员并确认孩子等待安排。",
+        "debrief": "完成后关闭提示，分别用正式口语和自然日常表达重新讲一遍，并变换一项条件。"
+      }
+    },
+    {
+      "id": "logistics-04",
+      "domain": "school",
+      "track": "school-logistics",
+      "level": "B2",
+      "stage": 4,
+      "title": "就餐服务投诉与合理改进请求",
+      "subtitle": "Reclamación sobre un servicio escolar",
+      "goal": "依据事实提出服务问题、要求调查和回复，不臆测规章。",
+      "brief": "某项食堂服务长期与学校公布的信息不一致，家长希望以建设性方式申诉。",
+      "vocab": [
+        {
+          "es": "el servicio de comedor",
+          "zh": "食堂服务"
+        },
+        {
+          "es": "la incidencia reiterada",
+          "zh": "反复异常"
+        },
+        {
+          "es": "el compromiso anunciado",
+          "zh": "公开承诺"
+        },
+        {
+          "es": "el canal de reclamaciones",
+          "zh": "投诉渠道"
+        },
+        {
+          "es": "la respuesta motivada",
+          "zh": "说明理由的回复"
+        },
+        {
+          "es": "documentar",
+          "zh": "留存记录"
+        },
+        {
+          "es": "la solución propuesta",
+          "zh": "建议解决方案"
+        },
+        {
+          "es": "la revisión del servicio",
+          "zh": "服务复核"
+        },
+        {
+          "es": "la comunicación a familias",
+          "zh": "家长通知"
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "家长",
+          "es": "Me gustaría trasladar una incidencia que hemos observado en el comedor.",
+          "zh": "我想反映我们观察到的一项食堂问题。"
+        },
+        {
+          "speaker": "负责人",
+          "es": "¿Puede describirla con detalle?",
+          "zh": "能详细描述吗？"
+        },
+        {
+          "speaker": "家长",
+          "es": "Durante varias semanas la información del menú no ha coincidido con lo comunicado inicialmente.",
+          "zh": "连续数周菜单信息与最初公布的信息不一致。"
+        },
+        {
+          "speaker": "负责人",
+          "es": "¿Dispone de ejemplos concretos?",
+          "zh": "您有具体例子吗？"
+        },
+        {
+          "speaker": "家长",
+          "es": "Sí, he reunido fechas y comunicaciones para que puedan comprobarlo.",
+          "zh": "有，我整理了日期和通知以便核查。"
+        },
+        {
+          "speaker": "负责人",
+          "es": "Gracias. Revisaremos la situación con el equipo responsable.",
+          "zh": "谢谢，我们会与负责团队核查。"
+        },
+        {
+          "speaker": "家长",
+          "es": "Agradecería conocer el cauce de reclamación y cuándo podemos esperar una respuesta.",
+          "zh": "我想了解投诉渠道，以及何时能收到答复。"
+        },
+        {
+          "speaker": "负责人",
+          "es": "Le indicaremos el procedimiento y el canal de seguimiento.",
+          "zh": "我们会说明流程和后续跟进渠道。"
+        }
+      ],
+      "expressions": [
+        {
+          "standard": "Quisiera presentar una reclamación documentada.",
+          "natural": "Quería poner una queja con ejemplos concretos.",
+          "zh": "我想就具体问题提出投诉。",
+          "register": "自然/正式",
+          "note": "正式申诉优先举证并写明要求。"
+        },
+        {
+          "standard": "Agradecería una respuesta por escrito.",
+          "natural": "Me gustaría que me contestaran por escrito.",
+          "zh": "希望书面回复。",
+          "register": "中性自然",
+          "note": "两种表达都可使用，前者更适合正式邮件。"
+        }
+      ],
+      "challenges": [
+        {
+          "prompt": "正式说：我整理了日期和相关通知。",
+          "answer": "He recopilado las fechas y las comunicaciones correspondientes."
+        },
+        {
+          "prompt": "请求：请说明可用投诉渠道。",
+          "answer": "Les agradecería que me indicaran el canal de reclamaciones disponible."
+        },
+        {
+          "prompt": "问：何时能收到答复？",
+          "answer": "¿En qué plazo puedo esperar una respuesta?"
+        }
+      ],
+      "mission": {
+        "setup": "你正在西班牙学校处理真实任务。请先听对话，再根据对方的变化选择合适答复。",
+        "decisions": [
+          {
+            "situation": "对方表示目前不能判断你说的是否属实。",
+            "prompt": "应该回应？",
+            "choices": [
+              {
+                "es": "Por supuesto. Les facilito los datos para que puedan comprobarlos.",
+                "zh": "更合适",
+                "correct": true,
+                "feedback": "提供可核查事实更利于调查。"
+              },
+              {
+                "es": "No hace falta comprobar nada: yo tengo razón.",
+                "zh": "不适合本情境",
+                "correct": false,
+                "feedback": "要求无条件认定结论不合理。"
+              }
+            ],
+            "model": "Por supuesto. Les facilito los datos para que puedan comprobarlos."
+          },
+          {
+            "situation": "你希望有实际改进而不是争吵。",
+            "prompt": "如何结束谈话？",
+            "choices": [
+              {
+                "es": "Agradecería que nos informaran de las medidas que se adopten tras la revisión.",
+                "zh": "更合适",
+                "correct": true,
+                "feedback": "请求书面跟进与明确的沟通流程。"
+              },
+              {
+                "es": "Si no cambian todo mañana, lo publico en redes.",
+                "zh": "不适合本情境",
+                "correct": false,
+                "feedback": "公开威胁不利于解决具体问题。"
+              }
+            ],
+            "model": "Agradecería que nos informaran de las medidas que se adopten tras la revisión."
+          }
+        ],
+        "transfer": "写正式申诉提纲：具体事实—时间—证据—请求—跟进方式，不包含学生身份信息。",
+        "debrief": "完成后关闭提示，分别用正式口语和自然日常表达重新讲一遍，并变换一项条件。"
+      }
+    }
+  ]
+}
