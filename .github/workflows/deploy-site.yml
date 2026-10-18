@@ -32,7 +32,7 @@ jobs:
       - name: Validate lesson content
         run: python3 scripts/validate_site.py
       - name: Validate client JavaScript syntax
-        run: node --check docs/assets/app.js
+        run: node --check docs/assets/app.js && node --check docs/assets/audio.js
       - name: Smoke-test rendered learning pages
         run: node scripts/smoke_site.js
       - name: Configure Pages
