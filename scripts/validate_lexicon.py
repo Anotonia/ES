@@ -112,6 +112,52 @@ def main() -> None:
         ("base", "derived", "pattern", "derived_meaning_zh",
          "example_es", "suggested_level", "relation_type", "review_note"),
     )
+    # Morphology is an indexed review layer, NOT a claim that all words are segmented.
+    import json
+    morphology_dir = ROOT / "data" / "morphology"
+    analyses = read_rows(
+        morphology_dir / "curated_analyses.csv",
+        ("target", "related_base", "segments", "analysis_type", "status", "note"),
+    )
+    affixes = json.loads((morphology_dir / "affix_catalog.json").read_text(encoding="utf-8"))
+    assert len(affixes["affixes"]) == 53
+    assert len(analyses) == 135
+    assert len({x["target"].casefold() for x in analyses}) == len(analyses)
+    for analysis in analyses:
+        pieces = analysis["segments"].split(" + ")
+        assert len(pieces) >= 2 and "".join(pieces) == analysis["target"], analysis["target"]
+        assert analysis["status"] == "provisional_editorial_analysis"
+    coverage = read_rows(
+        morphology_dir / "morphology_master.csv",
+        ("curated_id", "level", "unit", "spanish", "lemma_core", "part_of_speech",
+         "meaning_zh", "example_es", "analysis_status", "analysis_type",
+         "segments", "related_base", "note", "family_key"),
+    )
+    assert len(coverage) == len(master) == 827
+    assert {x["curated_id"] for x in coverage} == known_ids
+    status_counts=Counter(x["analysis_status"] for x in coverage)
+    assert status_counts == {
+        "provisional_editorial_analysis": 76,
+        "infinitive_pattern_only": 118,
+        "multiword_or_variant": 193,
+        "not_analyzed": 440,
+    }, status_counts
+    linked = {x["target"].casefold() for x in analyses}
+    for x in coverage:
+        if x["analysis_status"] == "provisional_editorial_analysis":
+            assert x["segments"] and x["lemma_core"].casefold() in linked
+        if x["analysis_status"] == "infinitive_pattern_only":
+            assert x["segments"].endswith((" + -ar", " + -er", " + -ir"))
+        if x["analysis_status"] in {"not_analyzed", "multiword_or_variant"}:
+            assert not x["segments"]
+    map_dir=ROOT/"mindmaps"/"morfologia"
+    all_morph_maps=sorted(map_dir.glob("[0-9][0-9]-*.md"))
+    assert len(all_morph_maps)==13
+    for path in all_morph_maps:
+        body=path.read_text(encoding="utf-8")
+        assert body.count("```mermaid")==1 and body.count("```")==2,path
+    assert (map_dir/"README-完整词根词缀系统.md").exists()
+    print("Morphology:",len(affixes["affixes"]),"affix patterns;",len(analyses),"editable examples;",len(coverage),"indexed records;",dict(status_counts))
     print("Validation OK")
     print("Curated teaching entries:", len(master), dict(sorted(by_level.items())))
     print("Provisional lemmas:", len(wordset))
