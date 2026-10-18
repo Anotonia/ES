@@ -11,6 +11,7 @@ const school=JSON.parse(fs.readFileSync(path.join(root,"docs/assets/school-pathw
 const life=JSON.parse(fs.readFileSync(path.join(root,"docs/assets/life-pathways.json"),"utf8"));
 const healthPacks=["health-booking.json","health-consultation.json","health-testing.json","health-pharmacy-path.json","health-family-emergency.json"];
 const healthByFile=Object.fromEntries(healthPacks.map(filename=>[filename,JSON.parse(fs.readFileSync(path.join(root,"docs/assets",filename),"utf8"))]));
+const longCases=Object.fromEntries(["medical-cases-a.json","medical-cases-b.json"].map(f=>[f,JSON.parse(fs.readFileSync(path.join(root,"docs/assets",f),"utf8"))]));
 const elements={};
 function getNode(id){
   if(!elements[id]){
@@ -58,6 +59,7 @@ global.fetch=async url=>{
   }
   if(url==="assets/school-pathways.json")return {ok:true,json:async()=>school};
   if(url==="assets/life-pathways.json")return {ok:true,json:async()=>life};
+  if(String(url).startsWith("assets/") && longCases[String(url).slice(7)])return {ok:true,json:async()=>longCases[String(url).slice(7)]};
   if(String(url).startsWith("assets/") && healthByFile[String(url).slice(7)])return {ok:true,json:async()=>healthByFile[String(url).slice(7)]};
   if(String(url).includes("vocabulary_master.csv")){
     return {ok:true,text:async()=>fs.readFileSync(path.join(root,"data/vocabulary_master.csv"),"utf8")};
@@ -68,8 +70,10 @@ global.fetch=async url=>{
   const source=fs.readFileSync(path.join(root,"docs/assets/app.js"),"utf8");
   const audio=fs.readFileSync(path.join(root,"docs/assets/audio.js"),"utf8");
   const paths=fs.readFileSync(path.join(root,"docs/assets/pathways.js"),"utf8");
+  const longMedical=fs.readFileSync(path.join(root,"docs/assets/medical-deep.js"),"utf8");
   vm.runInThisContext(audio,{filename:"docs/assets/audio.js"});
   vm.runInThisContext(paths,{filename:"docs/assets/pathways.js"});
+  vm.runInThisContext(longMedical,{filename:"docs/assets/medical-deep.js"});
   vm.runInThisContext(source,{filename:"docs/assets/app.js"});
   await new Promise(resolve=>setImmediate(resolve));
   await new Promise(resolve=>setImmediate(resolve));
@@ -95,6 +99,44 @@ global.fetch=async url=>{
       throw Error("Missing live level total "+n);
   }
   console.log("Written vocabulary totals validated: 827 · A1 355 · A2 156 · B1 159 · B2 157.");
+  location.hash="#/medical";fire("window:hashchange");
+  await new Promise(resolve=>setImmediate(resolve));
+  if((getNode("view-medical").innerHTML.match(/med-case-card/g)||[]).length!==6)
+    throw Error("Medical case directory does not contain six case cards");
+  const deep=window.ESMedicalDeep.getCases();
+  const chapters=deep.reduce((n,c)=>n+c.stages.length,0);
+  const turns=deep.reduce((n,c)=>n+c.stages.reduce((m,st)=>m+st.dialogue.length,0),0);
+  if(chapters!==24||turns!==335)throw Error("Medical case counts mismatch");
+  location.hash="#/medical/respiratory-journey/0";fire("window:hashchange");
+  await new Promise(resolve=>setImmediate(resolve));
+  const medicalHTML=getNode("view-medical").innerHTML;
+  if(!medicalHTML.includes("med-transcript")||!medicalHTML.includes("med-choice-list")||
+     !medicalHTML.includes("med-draft")||!medicalHTML.includes("med-timeline"))
+     throw Error("Long-form medical stage did not render all learning sections");
+  if((medicalHTML.match(/class="med-turn"/g)||[]).length<13)throw Error("Insufficient full dialogue turns");
+  const clickDeep=(data)=>fire("doc:click",{target:{
+    dataset:data,closest(selector){
+      return selector.includes("[data-med-play]")?this:null;
+    }
+  }});
+  clickDeep({medChoice:"comprehension",medOption:"0"});
+  clickDeep({medChoice:"decision",medOption:"0"});
+  clickDeep({medReveal:"true"});
+  clickDeep({medSelf:"ready"});
+  if(!window.ESMedicalDeep.completed(deep[0],deep[0].stages[0]))
+     throw Error("Active recall/self-assessment workflow did not save completion");
+  clickDeep({medSetting:"role"});
+  if(!getNode("view-medical").innerHTML.includes("轮到你说"))
+    throw Error("Roleplay mode did not hide patient Spanish");
+  clickDeep({medSetting:"role"});
+  clickDeep({medSetting:"zh"});
+  if(!getNode("view-medical").innerHTML.includes('class="med-zh" hidden'))
+    throw Error("Transcript Chinese hiding failed");
+  clickDeep({medPlay:"normal"});
+  if(!spoken.at(-1)?.text.includes("Centro de salud"))
+    throw Error("Long-form audio sequence did not begin");
+  fire("window:hashchange");
+  console.log("Deep casebook checks passed: six longitudinal cases, 24 stages, 335 turns, roleplay, quiz, recall and audio.");
   console.log("All client views generated successfully.");
   if(getNode("scene-count").textContent!=="61")throw Error("Expected 61 scenarios");
   if(getNode("health-scene-count").textContent!=="26")throw Error("Expected 26 medical scenarios");
