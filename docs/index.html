@@ -7,9 +7,9 @@
   <meta name="description" content="西班牙生活西语学习：A1–B2 词库、学校重点场景、自然口语、词族思维图及主动复习。">
   <title>ES · 西班牙生活西语实验室</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/styles.css?v=5">
+  <link rel="stylesheet" href="assets/styles.css?v=6">
   <script src="assets/audio.js?v=5" defer></script>
-  <script src="assets/app.js?v=5" defer></script>
+  <script src="assets/app.js?v=6" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">跳到主要内容</a>
@@ -68,13 +68,18 @@
             </div>
           </div>
           <div id="metrics" class="metrics">
-            <div class="metric"><strong>13</strong><span>真实生活场景</span></div>
-            <div class="metric"><strong>07</strong><span>学校重点模块</span></div>
+            <div class="metric"><strong id="scene-count">41</strong><span>分级真实场景</span></div>
+            <div class="metric"><strong id="school-scene-count">23</strong><span>学校场景与任务</span></div>
             <div class="metric"><strong>413</strong><span>已编写词汇记录</span></div>
             <div class="metric"><strong>8,000</strong><span>待审候选词元目标</span></div>
           </div>
-          <div class="section-title-block"><div><span class="overline">SITUATIONAL LEARNING</span><h2>选择今天要面对的场景<span class="heading-dash">.</span></h2><p>按真实生活中的交流任务组织，而不是死背孤立单词。</p></div><span class="section-side-note">特别收录 / 学校沟通</span></div>
-          <div class="filter-bar"><div class="seg-tabs" id="domain-filters" aria-label="场景分类"></div><label class="search-box"><span aria-hidden="true">⌕</span><input type="search" id="scenario-search" placeholder="搜索场景、关键字…" aria-label="搜索场景"></label></div>
+          <section id="pathways-section" class="pathways-section" aria-label="由基础到高级的场景学习路径">
+            <div class="pathways-heading"><div><span class="overline">PROGRESSIVE LEARNING PATHS</span><h2>从简单问答，学到复杂沟通<span class="heading-dash">.</span></h2><p>7 条连续路径 · 每条覆盖 A1 → A2 → B1 → B2。先选一条路径，再逐步完成四个真实任务。</p></div></div>
+            <div id="pathways-grid" class="pathways-grid" aria-live="polite"></div>
+          </section>
+          <div class="section-title-block"><div><span class="overline">SITUATIONAL LEARNING</span><h2>进阶与基础场景练习<span class="heading-dash">.</span></h2><p>可按等级筛选独立场景，也可通过上方学习路径完成连续的四级任务。</p></div><span class="section-side-note">特别收录 / 学校沟通</span></div>
+          <div class="curriculum-browse-heading"><strong>所有场景练习</strong><span id="scene-filter-label">按场景、等级筛选</span></div>
+          <div class="filter-bar"><div class="seg-tabs" id="domain-filters" aria-label="场景分类"></div><div class="seg-tabs" id="scene-levels" aria-label="能力等级"></div><label class="search-box"><span aria-hidden="true">⌕</span><input type="search" id="scenario-search" placeholder="搜索场景、关键字…" aria-label="搜索场景"></label></div>
           <div id="scenario-grid" class="scenario-grid" aria-live="polite"></div>
           <div class="footnote-callout"><strong>使用方式</strong>　点开一张场景卡，先读对话，再切换标准／自然表达，最后闭卷练习。学校办事程序与具体材料以学校及政府正式通知为准。</div>
         </section>
