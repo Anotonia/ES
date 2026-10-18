@@ -9,6 +9,8 @@ const root = path.join(__dirname,"..");
 const lesson=JSON.parse(fs.readFileSync(path.join(root,"docs/assets/content.json"),"utf8"));
 const school=JSON.parse(fs.readFileSync(path.join(root,"docs/assets/school-pathways.json"),"utf8"));
 const life=JSON.parse(fs.readFileSync(path.join(root,"docs/assets/life-pathways.json"),"utf8"));
+const healthPacks=["health-booking.json","health-consultation.json","health-testing.json","health-pharmacy-path.json","health-family-emergency.json"];
+const healthByFile=Object.fromEntries(healthPacks.map(filename=>[filename,JSON.parse(fs.readFileSync(path.join(root,"docs/assets",filename),"utf8"))]));
 const elements={};
 function getNode(id){
   if(!elements[id]){
@@ -56,6 +58,7 @@ global.fetch=async url=>{
   }
   if(url==="assets/school-pathways.json")return {ok:true,json:async()=>school};
   if(url==="assets/life-pathways.json")return {ok:true,json:async()=>life};
+  if(String(url).startsWith("assets/") && healthByFile[String(url).slice(7)])return {ok:true,json:async()=>healthByFile[String(url).slice(7)]};
   if(String(url).includes("vocabulary_master.csv")){
     return {ok:true,text:async()=>fs.readFileSync(path.join(root,"data/vocabulary_master.csv"),"utf8")};
   }
@@ -93,9 +96,10 @@ global.fetch=async url=>{
   }
   console.log("Written vocabulary totals validated: 827 · A1 355 · A2 156 · B1 159 · B2 157.");
   console.log("All client views generated successfully.");
-  if(getNode("scene-count").textContent!=="41")throw Error("Expected 41 scenarios");
+  if(getNode("scene-count").textContent!=="61")throw Error("Expected 61 scenarios");
+  if(getNode("health-scene-count").textContent!=="26")throw Error("Expected 26 medical scenarios");
   if(getNode("school-scene-count").textContent!=="23")throw Error("Expected 23 school scenarios");
-  if((getNode("pathways-grid").innerHTML.match(/pathway-card/g)||[]).length!==7)throw Error("Expected seven four-stage learning paths");
+  if((getNode("pathways-grid").innerHTML.match(/pathway-card/g)||[]).length!==12)throw Error("Expected twelve four-stage learning paths");
   location.hash="#/detail/entry-04";
   fire("window:hashchange");
   if(!getNode("view-detail").innerHTML.includes("mission-panel"))throw Error("Missing B2 interactive scenario");
@@ -114,7 +118,18 @@ global.fetch=async url=>{
   fire("doc:click",{target:branchButton(1,0)});
   if(!window.ESPathways.sceneComplete(caseItem))throw Error("Interactive mission did not complete");
   if(!window.ESPathways.renderMission(caseItem).includes("TRANSFER CHALLENGE"))throw Error("Missing open-ended transfer task");
-  console.log("Advanced lesson checks OK: 7 paths, 41 scenes, B2 mission, branching feedback, transfer practice.");
+  console.log("Advanced lesson checks OK: 12 paths, 61 scenes, B2 mission, branching feedback, transfer practice.");
+  const appointment=healthByFile["health-booking.json"].scenarios[0];
+  const consult=healthByFile["health-consultation.json"].scenarios[2];
+  const emerg=healthByFile["health-family-emergency.json"].scenarios[3];
+  for(const scene of [appointment,consult,emerg]){
+    location.hash="#/detail/"+scene.id;fire("window:hashchange");
+    const page=getNode("view-detail").innerHTML;
+    if(!page.includes(scene.title)||!page.includes("mission-panel")||!page.includes("speech-dialogue"))
+       throw Error("Healthcare lesson not rendered: "+scene.id);
+    if(!window.ESPathways.renderMission(scene).includes("mission-choice"))throw Error("Missing health branching");
+  }
+  console.log("Healthcare pages validated: appointment, clinical history, 112 emergency and branching.");
   if(getNode("speech-rate").value!=="0.70")throw Error("Default speech rate is not 0.70");
   if(!getNode("speech-voice").innerHTML.includes("es-ES"))throw Error("Spanish voice chooser not populated");
   window.ESAudio.speak("Buenos días");
