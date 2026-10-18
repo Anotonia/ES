@@ -493,6 +493,11 @@
                 "zh": "不适合本情境",
                 "correct": false,
                 "feedback": "不能要求对方保证尚未决定的结果。"
+              },
+              {
+                "es": "¿Cuándo sabremos con seguridad si queda una plaza?",
+                "correct": false,
+                "feedback": "询问结果时间有用，但目前更需要知道官方通知在哪里发布；具体是否有固定通知日期需确认。"
               }
             ],
             "model": "¿En qué canal se publican las notificaciones?"
@@ -512,6 +517,11 @@
                 "zh": "不适合本情境",
                 "correct": false,
                 "feedback": "没有证据的指控不利于问题处理。"
+              },
+              {
+                "es": "¿Puede decirme qué documentación presentaron otras familias?",
+                "correct": false,
+                "feedback": "其他申请人的私人材料不应被要求披露；应先请求核对自己的评定数据。"
               }
             ],
             "model": "Quisiera solicitar una revisión de los datos, si procede."
@@ -659,6 +669,11 @@
                 "zh": "不适合本情境",
                 "correct": false,
                 "feedback": "行政救济类型并非任意互换。"
+              },
+              {
+                "es": "¿Puedo volver a rellenar la solicitud desde el principio?",
+                "correct": false,
+                "feedback": "重新申请不一定能纠正既有决定；应先了解当前决定适用的正式途径。"
               }
             ],
             "model": "¿Qué vía de revisión o recurso corresponde en este caso?"
@@ -678,6 +693,11 @@
                 "zh": "不适合本情境",
                 "correct": false,
                 "feedback": "不应要求前台越权作出正式决定。"
+              },
+              {
+                "es": "¿Puede usted revisar aquí mismo el expediente?",
+                "correct": false,
+                "feedback": "窗口人员未必有权限直接复核；先确定书面申请和主管部门更有效。"
               }
             ],
             "model": "¿Podrían indicarme dónde presentar la solicitud por escrito?"
@@ -1152,6 +1172,11 @@
                 "zh": "不适合本情境",
                 "correct": false,
                 "feedback": "放弃练习不会得到需要的反馈。"
+              },
+              {
+                "es": "¿Podría decirme si tengo que estudiar más?",
+                "correct": false,
+                "feedback": "问是否需要多学比较笼统，不能直接发现具体错误及改进方法。"
               }
             ],
             "model": "¿Podría señalarme un error concreto y cómo corregirlo?"
@@ -1171,6 +1196,11 @@
                 "zh": "不适合本情境",
                 "correct": false,
                 "feedback": "没有步骤难以衡量进展。"
+              },
+              {
+                "es": "Voy a esforzarme cada día y esperar a ver qué pasa.",
+                "correct": false,
+                "feedback": "努力重要，但欠缺明确任务、周期和可检查成果。"
               }
             ],
             "model": "Voy a escribir dos resúmenes a la semana y revisarlos."
@@ -1318,6 +1348,11 @@
                 "zh": "不适合本情境",
                 "correct": false,
                 "feedback": "直接否定教师通常无法促进澄清。"
+              },
+              {
+                "es": "¿Podría subir la nota si explico mejor mis ideas ahora?",
+                "correct": false,
+                "feedback": "当场补充解释不一定符合评分规则；先依据原作业和量表核对评价。"
               }
             ],
             "model": "Entiendo su valoración. ¿Podríamos revisar qué requisito concreto no cumplen?"
@@ -1337,6 +1372,11 @@
                 "zh": "不适合本情境",
                 "correct": false,
                 "feedback": "无依据要求即时改分并不稳妥。"
+              },
+              {
+                "es": "¿Podría decirme cómo mejorar para la próxima entrega?",
+                "correct": false,
+                "feedback": "未来改进是好问题，但当前具体评分争议应先核对已评的案例与指标。"
               }
             ],
             "model": "¿Existe algún procedimiento para solicitar una revisión formal?"
@@ -1806,6 +1846,11 @@
                 "zh": "不适合本情境",
                 "correct": false,
                 "feedback": "对尚未核实的事实做断言可能失真。"
+              },
+              {
+                "es": "Mi hijo está seguro de quién tiene la culpa.",
+                "correct": false,
+                "feedback": "孩子的感受值得重视，但你尚未核实各方事实，应标注信息来源。"
               }
             ],
             "model": "Según me ha contado mi hijo, ocurrió tres veces."
@@ -1825,6 +1870,11 @@
                 "zh": "不适合本情境",
                 "correct": false,
                 "feedback": "直接否定沟通不利于后续合作。"
+              },
+              {
+                "es": "¿Podemos darlo por resuelto si no vuelve a pasar mañana?",
+                "correct": false,
+                "feedback": "一天未发生不代表问题已经解决，建议明确合理的跟进时点。"
               }
             ],
             "model": "¿Podemos acordar una fecha para revisar la situación?"
@@ -1976,6 +2026,11 @@
                 "zh": "不适合本情境",
                 "correct": false,
                 "feedback": "公开未成年人身份信息可能造成严重伤害。"
+              },
+              {
+                "es": "¿Nos puede garantizar que esto no volverá a suceder?",
+                "correct": false,
+                "feedback": "保证零风险通常不现实；与其寻求承诺，不如询问可采取的具体保护措施。"
               }
             ],
             "model": "Entiendo que debe investigarse. Mientras tanto, solicito que se valore la protección de la alumna."
@@ -1995,6 +2050,11 @@
                 "zh": "不适合本情境",
                 "correct": false,
                 "feedback": "社交媒体不是处理敏感未成年人信息的适当渠道。"
+              },
+              {
+                "es": "¿Podría avisarnos cuando termine todo el proceso?",
+                "correct": false,
+                "feedback": "只等待最终结果可能忽视期间风险；应明确当前可用保护和联系人。"
               }
             ],
             "model": "¿Podrían indicarme el canal, el responsable y cómo recibir un acuse de recibo?"
@@ -2469,6 +2529,11 @@
                 "zh": "不适合本情境",
                 "correct": false,
                 "feedback": "熟人关系不是跳过身份核验的理由。"
+              },
+              {
+                "es": "¿Basta con que le mande una foto del documento por WhatsApp?",
+                "correct": false,
+                "feedback": "未经核实不应假定即时通信可替代学校正式授权渠道。"
               }
             ],
             "model": "De acuerdo. ¿Qué documento debe presentar la persona autorizada?"
@@ -2488,6 +2553,11 @@
                 "zh": "不适合本情境",
                 "correct": false,
                 "feedback": "学生不是可靠的正式接送授权渠道。"
+              },
+              {
+                "es": "¿Puedo explicárselo mañana al personal que esté en la puerta?",
+                "correct": false,
+                "feedback": "临时口头解释可能不足以完成身份核验，应提前确认流程。"
               }
             ],
             "model": "Voy a contactar con el centro por el canal urgente indicado."
@@ -2635,6 +2705,11 @@
                 "zh": "不适合本情境",
                 "correct": false,
                 "feedback": "要求无条件认定结论不合理。"
+              },
+              {
+                "es": "¿Me confirma que todos los menús de este mes fueron incorrectos?",
+                "correct": false,
+                "feedback": "没有核查前不宜要求确认全部有误；先提供准确日期与材料。"
               }
             ],
             "model": "Por supuesto. Les facilito los datos para que puedan comprobarlos."
@@ -2654,6 +2729,11 @@
                 "zh": "不适合本情境",
                 "correct": false,
                 "feedback": "公开威胁不利于解决具体问题。"
+              },
+              {
+                "es": "¿Pueden intentar mejorarlo en algún momento?",
+                "correct": false,
+                "feedback": "诉求过于笼统，缺乏可追踪的答复及改进情况。"
               }
             ],
             "model": "Agradecería que nos informaran de las medidas que se adopten tras la revisión."
