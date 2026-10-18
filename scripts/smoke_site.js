@@ -12,6 +12,7 @@ const life=JSON.parse(fs.readFileSync(path.join(root,"docs/assets/life-pathways.
 const healthPacks=["health-booking.json","health-consultation.json","health-testing.json","health-pharmacy-path.json","health-family-emergency.json"];
 const healthByFile=Object.fromEntries(healthPacks.map(filename=>[filename,JSON.parse(fs.readFileSync(path.join(root,"docs/assets",filename),"utf8"))]));
 const longCases=Object.fromEntries(["medical-cases-a.json","medical-cases-b.json"].map(f=>[f,JSON.parse(fs.readFileSync(path.join(root,"docs/assets",f),"utf8"))]));
+const morph=JSON.parse(fs.readFileSync(path.join(root,"docs/assets/morphology.json"),"utf8"));
 const elements={};
 function getNode(id){
   if(!elements[id]){
@@ -59,6 +60,7 @@ global.fetch=async url=>{
   }
   if(url==="assets/school-pathways.json")return {ok:true,json:async()=>school};
   if(url==="assets/life-pathways.json")return {ok:true,json:async()=>life};
+  if(url==="assets/morphology.json")return {ok:true,json:async()=>morph};
   if(String(url).startsWith("assets/") && longCases[String(url).slice(7)])return {ok:true,json:async()=>longCases[String(url).slice(7)]};
   if(String(url).startsWith("assets/") && healthByFile[String(url).slice(7)])return {ok:true,json:async()=>healthByFile[String(url).slice(7)]};
   if(String(url).includes("vocabulary_master.csv")){
@@ -71,9 +73,11 @@ global.fetch=async url=>{
   const audio=fs.readFileSync(path.join(root,"docs/assets/audio.js"),"utf8");
   const paths=fs.readFileSync(path.join(root,"docs/assets/pathways.js"),"utf8");
   const longMedical=fs.readFileSync(path.join(root,"docs/assets/medical-deep.js"),"utf8");
+  const morphologySource=fs.readFileSync(path.join(root,"docs/assets/morphology.js"),"utf8");
   vm.runInThisContext(audio,{filename:"docs/assets/audio.js"});
   vm.runInThisContext(paths,{filename:"docs/assets/pathways.js"});
   vm.runInThisContext(longMedical,{filename:"docs/assets/medical-deep.js"});
+  vm.runInThisContext(morphologySource,{filename:"docs/assets/morphology.js"});
   vm.runInThisContext(source,{filename:"docs/assets/app.js"});
   await new Promise(resolve=>setImmediate(resolve));
   await new Promise(resolve=>setImmediate(resolve));
@@ -92,6 +96,22 @@ global.fetch=async url=>{
     if(!html.includes(needle))throw Error("Failed "+label+" route: "+route);
     process.stdout.write("OK "+label+" ("+html.length+" chars)\n");
   }
+  location.hash="#/morphology";fire("window:hashchange");
+  await new Promise(resolve=>setImmediate(resolve));
+  const morphologyHTML=getNode("view-morphology").innerHTML;
+  if(!morphologyHTML.includes("词根词缀")||!morphologyHTML.includes("morph-word-link")||
+     !morphologyHTML.includes("morph-affix"))throw Error("Morphology list or affix atlas did not render");
+  const mrph=window.ESMorphology.data();
+  if(mrph.words.length!==827||mrph.affixes.length!==53)throw Error("Morphology registry totals incorrect");
+  const edited=mrph.words.find(x=>x.analysis_status==="provisional_editorial_analysis");
+  if(!edited)throw Error("No detailed morpheme analysis examples");
+  location.hash="#/morphology/"+edited.curated_id;fire("window:hashchange");
+  const morphologyDetail=getNode("view-morphology").innerHTML;
+  if(!morphologyDetail.includes("morph-visual")||!morphologyDetail.includes("morph-mermaid-text"))
+    throw Error("Morpheme breakdown page not rendered");
+  if(!window.ESMorphology.mermaid(edited).includes("flowchart LR"))
+    throw Error("Editable Mermaid generator invalid");
+  console.log("Morphology explorer tests OK: 827 indexed entries, 53 affixes, 76 editable analyzed records.");
   if(getNode("curated-count").textContent!=="827")throw Error("Homepage written total is stale");
   if(!getNode("view-vocabulary").innerHTML.includes("vocab-progress-grid"))throw Error("Vocabulary level cards missing");
   for(const n of ["355","156","159","157"]){
