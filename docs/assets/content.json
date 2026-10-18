@@ -16,6 +16,22 @@
       {
         "title": "Banco de España · 账户费用",
         "url": "https://clientebancario.bde.es/pcb/es/menu-horizontal/podemosayudarte/comisiones/que-son-las-comisiones-bancarias/"
+      },
+      {
+        "title": "Comunidad de Madrid · 医疗预约与更改",
+        "url": "https://www.comunidad.madrid/salud/cita-sanitaria"
+      },
+      {
+        "title": "Comunidad de Madrid · 电子医疗卡",
+        "url": "https://www.comunidad.madrid/salud/tarjeta-sanitaria-virtual"
+      },
+      {
+        "title": "Comunidad de Madrid · 医疗报告与健康档案",
+        "url": "https://www.comunidad.madrid/salud/mi-carpeta-salud"
+      },
+      {
+        "title": "Comunidad de Madrid · 急诊与紧急求助 112",
+        "url": "https://www.comunidad.madrid/salud/atencion-urgencias-emergencias-sanitarias"
       }
     ]
   },
