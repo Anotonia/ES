@@ -1,0 +1,746 @@
+{
+  "schema": 2,
+  "description": "预约与改约、号源和转诊预约：西班牙医疗交际教学示例。实际操作以各自治区、医疗中心官方系统为准。",
+  "tracks": [
+    {
+      "id": "clinic-booking",
+      "domain": "health",
+      "title": "预约挂号与改约",
+      "subtitle": "电话预约 → 改约取消 → 无近期号源 → 初诊转诊协调",
+      "description": "从“Quería pedir cita”学到向医院确认预约流程和凭证；不把接待人员当成临床分诊医生。"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "hc-book-01",
+      "domain": "health",
+      "track": "clinic-booking",
+      "level": "A1",
+      "stage": 1,
+      "title": "电话预约家庭医生",
+      "subtitle": "Pedir cita por teléfono",
+      "goal": "能说清想约家庭医生、询问时间并重复确认。",
+      "brief": "你致电 centro de salud，准备说出想约哪类医生；不用在公共页面输入真实医疗卡号。",
+      "vocab": [
+        {
+          "es": "pedir cita",
+          "zh": "预约"
+        },
+        {
+          "es": "el centro de salud",
+          "zh": "社区医疗中心"
+        },
+        {
+          "es": "el médico de familia",
+          "zh": "家庭医生"
+        },
+        {
+          "es": "la enfermera",
+          "zh": "护士"
+        },
+        {
+          "es": "la mañana",
+          "zh": "上午"
+        },
+        {
+          "es": "la tarde",
+          "zh": "下午"
+        },
+        {
+          "es": "el martes",
+          "zh": "星期二"
+        },
+        {
+          "es": "el nombre",
+          "zh": "姓名"
+        },
+        {
+          "es": "disponible",
+          "zh": "有空的；可预约的"
+        },
+        {
+          "es": "confirmar",
+          "zh": "确认"
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "接线员",
+          "es": "Centro de salud, buenos días. ¿En qué puedo ayudarle?",
+          "zh": "您好，这里是社区医疗中心，需要什么帮助？"
+        },
+        {
+          "speaker": "患者",
+          "es": "Buenos días. Quería pedir cita con mi médico de familia.",
+          "zh": "您好。我想约家庭医生。"
+        },
+        {
+          "speaker": "接线员",
+          "es": "¿Prefiere por la mañana o por la tarde?",
+          "zh": "您更希望上午还是下午？"
+        },
+        {
+          "speaker": "患者",
+          "es": "Por la mañana, si es posible.",
+          "zh": "如果可以的话，上午。"
+        },
+        {
+          "speaker": "接线员",
+          "es": "Tenemos una hora disponible el martes.",
+          "zh": "星期二有一个时间段可以约。"
+        },
+        {
+          "speaker": "患者",
+          "es": "¿A qué hora exactamente?",
+          "zh": "具体几点？"
+        },
+        {
+          "speaker": "接线员",
+          "es": "A las diez y media.",
+          "zh": "十点半。"
+        },
+        {
+          "speaker": "患者",
+          "es": "Perfecto. ¿Me confirma que es el martes a las diez y media?",
+          "zh": "好的。您能确认是星期二十点半吗？"
+        },
+        {
+          "speaker": "接线员",
+          "es": "Sí. Revise también los datos de su cita.",
+          "zh": "是的。也请核对您的预约信息。"
+        },
+        {
+          "speaker": "患者",
+          "es": "Muchas gracias. Hasta luego.",
+          "zh": "非常感谢，再见。"
+        }
+      ],
+      "expressions": [
+        {
+          "standard": "Quisiera solicitar una cita con medicina de familia.",
+          "natural": "Quería coger cita con el médico.",
+          "note": "我想约家庭医生。窗口/电话中 coger cita 是常见口语。",
+          "register": "西班牙日常 / 正式语境"
+        },
+        {
+          "standard": "¿Hay alguna cita disponible?",
+          "natural": "¿Tenéis algún hueco?",
+          "note": "有没有空档？hueco 在西班牙非常自然，但初学者可以先用 cita disponible。",
+          "register": "西班牙日常 / 正式语境"
+        }
+      ],
+      "challenges": [
+        {
+          "prompt": "说：我想预约家庭医生。",
+          "answer": "Quería pedir cita con mi médico de familia."
+        },
+        {
+          "prompt": "问：星期二几点？",
+          "answer": "¿A qué hora es el martes?"
+        },
+        {
+          "prompt": "确认：是十点半，对吗？",
+          "answer": "Es a las diez y media, ¿verdad?"
+        }
+      ],
+      "mission": {
+        "setup": "模拟西班牙医疗中心预约流程：先听整段，再针对工作人员的新信息选择下一句话。",
+        "decisions": [
+          {
+            "situation": "接线员只说“星期二有时间”。",
+            "prompt": "如何核对？",
+            "model": "¿A qué hora sería exactamente?",
+            "choices": [
+              {
+                "es": "¿A qué hora sería exactamente?",
+                "correct": true,
+                "feedback": "明确具体时间，比只确定日期更可操作。"
+              },
+              {
+                "es": "Pues ya iré el martes.",
+                "correct": false,
+                "feedback": "这种说法未能明确解决问题，或可能造成误解。"
+              },
+              {
+                "es": "¿Puede decirme el nombre del profesional?",
+                "correct": false,
+                "feedback": "这句话不一定错误，但没有回答当前最关键的实际问题。"
+              }
+            ]
+          },
+          {
+            "situation": "电话听不清时间。",
+            "prompt": "应该怎么说？",
+            "model": "Perdone, ¿puede repetir la hora más despacio?",
+            "choices": [
+              {
+                "es": "Perdone, ¿puede repetir la hora más despacio?",
+                "correct": true,
+                "feedback": "听不清时直接请求慢速重复，避免记错就诊时间。"
+              },
+              {
+                "es": "¿Tiene otra cita más barata?",
+                "correct": false,
+                "feedback": "这种说法未能明确解决问题，或可能造成误解。"
+              },
+              {
+                "es": "Gracias, lo entiendo perfectamente.",
+                "correct": false,
+                "feedback": "这句话不一定错误，但没有回答当前最关键的实际问题。"
+              }
+            ]
+          }
+        ],
+        "transfer": "把“星期二上午十点半”改成“星期四下午四点”，重新打一次预约电话。",
+        "debrief": "用自己的西语复述：我有什么需求、预约情况、下一步与要核对的信息。"
+      }
+    },
+    {
+      "id": "hc-book-02",
+      "domain": "health",
+      "track": "clinic-booking",
+      "level": "A2",
+      "stage": 2,
+      "title": "网上约号、改约及取消",
+      "subtitle": "Cambiar o anular una cita",
+      "goal": "核对线上预约、改时间、区分取消与重新预约。",
+      "brief": "你用电子预约系统预约后发现与工作安排冲突，需要改约。马德里的 Cita Sanitaria 可提供查询、改约及取消等功能，具体以系统显示为准。",
+      "vocab": [
+        {
+          "es": "cambiar una cita",
+          "zh": "更改预约"
+        },
+        {
+          "es": "anular una cita",
+          "zh": "取消预约"
+        },
+        {
+          "es": "consultar una cita",
+          "zh": "查询预约"
+        },
+        {
+          "es": "la fecha",
+          "zh": "日期"
+        },
+        {
+          "es": "el justificante de cita",
+          "zh": "预约凭证"
+        },
+        {
+          "es": "la consulta presencial",
+          "zh": "现场门诊"
+        },
+        {
+          "es": "la consulta telefónica",
+          "zh": "电话问诊"
+        },
+        {
+          "es": "seleccionar",
+          "zh": "选择"
+        },
+        {
+          "es": "el horario disponible",
+          "zh": "可预约时间段"
+        },
+        {
+          "es": "la confirmación",
+          "zh": "确认信息"
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "患者",
+          "es": "Buenos días. Tengo una cita el jueves, pero no puedo acudir.",
+          "zh": "您好。我星期四有预约，但无法到场。"
+        },
+        {
+          "speaker": "工作人员",
+          "es": "¿Quiere cambiarla o anularla?",
+          "zh": "您想改约还是取消？"
+        },
+        {
+          "speaker": "患者",
+          "es": "Preferiría cambiarla, si hay otra fecha disponible.",
+          "zh": "如果有其他时间，我更想改约。"
+        },
+        {
+          "speaker": "工作人员",
+          "es": "Puede consultar las opciones disponibles en el sistema de citas.",
+          "zh": "您可以在预约系统查看可用时间。"
+        },
+        {
+          "speaker": "患者",
+          "es": "¿Tengo que cancelar la cita actual antes de elegir otra?",
+          "zh": "在选新时间前必须取消旧预约吗？"
+        },
+        {
+          "speaker": "工作人员",
+          "es": "Compruebe cómo lo indica la plataforma para evitar perder la cita.",
+          "zh": "请按平台提示操作，以免失去原预约。"
+        },
+        {
+          "speaker": "患者",
+          "es": "Entendido. ¿Puedo elegir una consulta telefónica si está disponible?",
+          "zh": "明白。如果有电话问诊，可以选吗？"
+        },
+        {
+          "speaker": "工作人员",
+          "es": "Dependerá del profesional y del tipo de consulta.",
+          "zh": "这取决于医生和问诊类型。"
+        },
+        {
+          "speaker": "患者",
+          "es": "¿Cómo compruebo que el cambio se ha guardado?",
+          "zh": "如何确认改约已经保存？"
+        },
+        {
+          "speaker": "工作人员",
+          "es": "Revise los datos y guarde el justificante de la nueva cita.",
+          "zh": "请核对信息并保存新预约凭证。"
+        }
+      ],
+      "expressions": [
+        {
+          "standard": "Quisiera modificar la fecha de mi cita.",
+          "natural": "Quería cambiar la cita.",
+          "note": "想改约。更改日期不等于直接取消。",
+          "register": "西班牙日常 / 正式语境"
+        },
+        {
+          "standard": "No puedo acudir a la consulta.",
+          "natural": "No puedo ir ese día.",
+          "note": "那天我去不了。两种说法都常见。",
+          "register": "西班牙日常 / 正式语境"
+        }
+      ],
+      "challenges": [
+        {
+          "prompt": "问：我可以改约而不是取消吗？",
+          "answer": "¿Puedo cambiar la cita en vez de anularla?"
+        },
+        {
+          "prompt": "问：可以电话问诊吗？",
+          "answer": "¿Hay opción de consulta telefónica?"
+        },
+        {
+          "prompt": "说：我想保存新的预约凭证。",
+          "answer": "Quiero guardar el justificante de la nueva cita."
+        }
+      ],
+      "mission": {
+        "setup": "模拟西班牙医疗中心预约流程：先听整段，再针对工作人员的新信息选择下一句话。",
+        "decisions": [
+          {
+            "situation": "你担心取消旧预约后没有新空档。",
+            "prompt": "怎么问更稳妥？",
+            "model": "¿Puedo ver las fechas alternativas antes de anular la actual?",
+            "choices": [
+              {
+                "es": "¿Puedo ver las fechas alternativas antes de anular la actual?",
+                "correct": true,
+                "feedback": "先核实替代日期，避免不必要地丢失原预约。"
+              },
+              {
+                "es": "Anule todo, ya veré después.",
+                "correct": false,
+                "feedback": "这种说法未能明确解决问题，或可能造成误解。"
+              },
+              {
+                "es": "¿Puede decirme dónde está el centro de salud?",
+                "correct": false,
+                "feedback": "这句话不一定错误，但没有回答当前最关键的实际问题。"
+              }
+            ]
+          },
+          {
+            "situation": "系统显示了新的日期，但你不确定是否保存。",
+            "prompt": "应做什么？",
+            "model": "¿Dónde puedo comprobar la confirmación del cambio?",
+            "choices": [
+              {
+                "es": "¿Dónde puedo comprobar la confirmación del cambio?",
+                "correct": true,
+                "feedback": "确认系统已登记变更比凭印象更可靠。"
+              },
+              {
+                "es": "Entonces no importa la hora.",
+                "correct": false,
+                "feedback": "这种说法未能明确解决问题，或可能造成误解。"
+              },
+              {
+                "es": "¿Se puede hacer con otra persona?",
+                "correct": false,
+                "feedback": "这句话不一定错误，但没有回答当前最关键的实际问题。"
+              }
+            ]
+          }
+        ],
+        "transfer": "模拟：先约的现场门诊因上班冲突，希望改为电话问诊；追问是否适用和如何确认。",
+        "debrief": "用自己的西语复述：我有什么需求、预约情况、下一步与要核对的信息。"
+      }
+    },
+    {
+      "id": "hc-book-03",
+      "domain": "health",
+      "track": "clinic-booking",
+      "level": "B1",
+      "stage": 3,
+      "title": "最早号源、候补及及时就诊需求",
+      "subtitle": "No hay citas próximas",
+      "goal": "能客观说明情况、询问最早可用时间和合适的官方分流途径。",
+      "brief": "预约系统没有近期空档，你希望工作人员根据情况告知可用的正式咨询渠道，而不是自行认定病情紧急程度。",
+      "vocab": [
+        {
+          "es": "la disponibilidad",
+          "zh": "可预约情况"
+        },
+        {
+          "es": "la primera cita disponible",
+          "zh": "最早可约时间"
+        },
+        {
+          "es": "la atención primaria",
+          "zh": "基层医疗"
+        },
+        {
+          "es": "la consulta no demorable",
+          "zh": "不宜延后的就诊（需机构评估）"
+        },
+        {
+          "es": "la valoración sanitaria",
+          "zh": "医护评估"
+        },
+        {
+          "es": "la incidencia",
+          "zh": "异常情况"
+        },
+        {
+          "es": "el seguimiento",
+          "zh": "后续跟进"
+        },
+        {
+          "es": "la prioridad clínica",
+          "zh": "临床优先程度"
+        },
+        {
+          "es": "la consulta telefónica",
+          "zh": "电话咨询"
+        },
+        {
+          "es": "orientar",
+          "zh": "指引"
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "患者",
+          "es": "Buenas tardes. He intentado pedir cita, pero no encuentro ninguna para esta semana.",
+          "zh": "您好。我尝试预约，但这周没有可用时间。"
+        },
+        {
+          "speaker": "接待员",
+          "es": "Ahora mismo la primera cita que aparece es para la semana siguiente.",
+          "zh": "目前显示最早的预约是下周。"
+        },
+        {
+          "speaker": "患者",
+          "es": "Entiendo. Mi preocupación es que los síntomas han cambiado desde ayer.",
+          "zh": "我理解。但我担心症状从昨天起有了变化。"
+        },
+        {
+          "speaker": "接待员",
+          "es": "No puedo valorar síntomas clínicos desde recepción.",
+          "zh": "接待台无法做临床评估。"
+        },
+        {
+          "speaker": "患者",
+          "es": "Por supuesto. ¿Podría indicarme qué canal existe para solicitar orientación sanitaria?",
+          "zh": "当然。您可以告诉我有什么渠道能向医护人员咨询吗？"
+        },
+        {
+          "speaker": "接待员",
+          "es": "Le informaremos de las opciones de atención disponibles en su centro.",
+          "zh": "我们会说明本中心可用的就医方式。"
+        },
+        {
+          "speaker": "患者",
+          "es": "¿Debería comunicar que los síntomas han empeorado para que lo valore un profesional?",
+          "zh": "我应该告知症状加重，请专业人员评估吗？"
+        },
+        {
+          "speaker": "接待员",
+          "es": "Sí, explique la evolución de los síntomas por el canal indicado.",
+          "zh": "是的，请通过指定渠道说明症状的变化。"
+        },
+        {
+          "speaker": "患者",
+          "es": "Gracias. ¿Cómo puedo dejar constancia de la consulta y de la cita solicitada?",
+          "zh": "谢谢。我怎样记录这次咨询及预约需求？"
+        }
+      ],
+      "expressions": [
+        {
+          "standard": "Quisiera conocer la primera cita disponible.",
+          "natural": "¿Cuál es el primer hueco que tenéis?",
+          "note": "问最早号源时，hueco 非常自然。",
+          "register": "西班牙日常 / 正式语境"
+        },
+        {
+          "standard": "Necesito orientación sobre el cauce asistencial adecuado.",
+          "natural": "¿A quién puedo preguntar qué hacer ahora?",
+          "note": "不要要求前台代替医生判断病情。",
+          "register": "西班牙日常 / 正式语境"
+        }
+      ],
+      "challenges": [
+        {
+          "prompt": "说：预约系统这周没有号。",
+          "answer": "No encuentro citas disponibles para esta semana."
+        },
+        {
+          "prompt": "问：如何联系医护人员进行评估？",
+          "answer": "¿Cómo puedo contactar con un profesional sanitario para que valore la situación?"
+        },
+        {
+          "prompt": "说：我的症状从昨天开始变严重。",
+          "answer": "Mis síntomas han empeorado desde ayer."
+        }
+      ],
+      "mission": {
+        "setup": "模拟西班牙医疗中心预约流程：先听整段，再针对工作人员的新信息选择下一句话。",
+        "decisions": [
+          {
+            "situation": "接待员无法判断是否应该紧急就诊。",
+            "prompt": "最合适的回应？",
+            "model": "Entiendo. ¿Cómo puedo trasladar los síntomas a un profesional sanitario para que me oriente?",
+            "choices": [
+              {
+                "es": "Entiendo. ¿Cómo puedo trasladar los síntomas a un profesional sanitario para que me oriente?",
+                "correct": true,
+                "feedback": "临床紧急程度应由医护人员评估。"
+              },
+              {
+                "es": "¿Puede garantizarme que no es urgente?",
+                "correct": false,
+                "feedback": "这种说法未能明确解决问题，或可能造成误解。"
+              },
+              {
+                "es": "Entonces simplemente esperaré, aunque cambie todo.",
+                "correct": false,
+                "feedback": "这句话不一定错误，但没有回答当前最关键的实际问题。"
+              }
+            ]
+          },
+          {
+            "situation": "最早可预约时间是下周，你担心症状变化。",
+            "prompt": "应该询问什么？",
+            "model": "¿Qué recurso asistencial me recomienda consultar si los síntomas cambian o empeoran?",
+            "choices": [
+              {
+                "es": "¿Qué recurso asistencial me recomienda consultar si los síntomas cambian o empeoran?",
+                "correct": true,
+                "feedback": "要求合适的分流指引，同时留意症状变化；严重急症及时求助。"
+              },
+              {
+                "es": "¿Me reserva cualquier día sin decirme cuál?",
+                "correct": false,
+                "feedback": "这种说法未能明确解决问题，或可能造成误解。"
+              },
+              {
+                "es": "¿Cuántas personas tienen cita esta semana?",
+                "correct": false,
+                "feedback": "这句话不一定错误，但没有回答当前最关键的实际问题。"
+              }
+            ]
+          }
+        ],
+        "transfer": "电话复述 60 秒：何时出现症状、发生了什么变化、预约遇到的困难、希望咨询的渠道。",
+        "debrief": "用自己的西语复述：我有什么需求、预约情况、下一步与要核对的信息。"
+      }
+    },
+    {
+      "id": "hc-book-04",
+      "domain": "health",
+      "track": "clinic-booking",
+      "level": "B2",
+      "stage": 4,
+      "title": "预约权限与跨机构协调",
+      "subtitle": "Coordinar atención primaria y hospital",
+      "goal": "理解基层门诊和专科预约的差异，询问转诊单、渠道、复诊安排。",
+      "brief": "已有家庭医生转诊建议，但医院端未出现预约记录；你需要精准厘清流程，不要求泄露他人的信息。",
+      "vocab": [
+        {
+          "es": "la derivación",
+          "zh": "转诊"
+        },
+        {
+          "es": "la petición de cita",
+          "zh": "预约申请"
+        },
+        {
+          "es": "la atención hospitalaria",
+          "zh": "医院专科服务"
+        },
+        {
+          "es": "el justificante de petición",
+          "zh": "预约申请凭证"
+        },
+        {
+          "es": "la revisión",
+          "zh": "复诊"
+        },
+        {
+          "es": "la agenda abierta",
+          "zh": "开放的预约排期"
+        },
+        {
+          "es": "el centro de referencia",
+          "zh": "负责医院／诊疗机构"
+        },
+        {
+          "es": "el circuito asistencial",
+          "zh": "就医流程"
+        },
+        {
+          "es": "la trazabilidad",
+          "zh": "可追踪性"
+        },
+        {
+          "es": "la coordinación",
+          "zh": "协调"
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "患者",
+          "es": "Buenos días. Mi médica me ha derivado a un especialista, pero no veo ninguna cita asignada.",
+          "zh": "您好。我的家庭医生将我转诊给专科，但我看不到分配的预约。"
+        },
+        {
+          "speaker": "工作人员",
+          "es": "¿Dispone del justificante de petición de cita?",
+          "zh": "您有转诊预约申请凭证吗？"
+        },
+        {
+          "speaker": "患者",
+          "es": "Sí. Me gustaría confirmar si la solicitud consta en el sistema.",
+          "zh": "有。我想确认申请是否在系统中。"
+        },
+        {
+          "speaker": "工作人员",
+          "es": "Debemos comprobar qué circuito de citación corresponde a su caso.",
+          "zh": "我们需要核对您的情况适用哪种预约途径。"
+        },
+        {
+          "speaker": "患者",
+          "es": "¿La primera visita y las revisiones se gestionan por el mismo canal?",
+          "zh": "初诊和复诊通过同一个渠道管理吗？"
+        },
+        {
+          "speaker": "工作人员",
+          "es": "No necesariamente; depende del proceso y del centro.",
+          "zh": "不一定，要看就诊流程和具体医疗中心。"
+        },
+        {
+          "speaker": "患者",
+          "es": "Entendido. ¿Quién puede indicarme cómo consultar la disponibilidad y recibir una confirmación?",
+          "zh": "明白。谁能告诉我如何查号源并确认预约？"
+        },
+        {
+          "speaker": "工作人员",
+          "es": "Podemos orientarle hacia el servicio de gestión de citas correspondiente.",
+          "zh": "我们可以指引您联系对应的预约管理服务。"
+        },
+        {
+          "speaker": "患者",
+          "es": "Agradecería también saber qué justificante debo conservar para el seguimiento.",
+          "zh": "我也想知道应保留什么凭证供后续跟进。"
+        },
+        {
+          "speaker": "工作人员",
+          "es": "Guarde la documentación y consulte los canales oficiales del centro.",
+          "zh": "请保存材料并查看机构的官方联系渠道。"
+        }
+      ],
+      "expressions": [
+        {
+          "standard": "Quisiera verificar el estado de la petición de cita.",
+          "natural": "Quería saber en qué punto está la cita.",
+          "note": "想看看预约进行到哪一步。",
+          "register": "西班牙日常 / 正式语境"
+        },
+        {
+          "standard": "¿Se trata de una primera consulta o de una revisión?",
+          "natural": "¿Es la primera vez que voy o es una revisión?",
+          "note": "区分专科初诊和复诊非常重要。",
+          "register": "西班牙日常 / 正式语境"
+        }
+      ],
+      "challenges": [
+        {
+          "prompt": "正式问：转诊预约申请是否已在系统中？",
+          "answer": "¿Consta en el sistema la petición de cita para el especialista?"
+        },
+        {
+          "prompt": "问：初诊和复诊的流程一样吗？",
+          "answer": "¿Se gestionan por el mismo canal la primera consulta y las revisiones?"
+        },
+        {
+          "prompt": "说：我保留了家庭医生的转诊凭证。",
+          "answer": "Conservo el justificante de derivación de mi médica de familia."
+        }
+      ],
+      "mission": {
+        "setup": "模拟西班牙医疗中心预约流程：先听整段，再针对工作人员的新信息选择下一句话。",
+        "decisions": [
+          {
+            "situation": "医院暂时没有显示转诊预约。",
+            "prompt": "更有用的询问是？",
+            "model": "¿Podrían comprobar si la petición está registrada y cuál es el siguiente paso de citación?",
+            "choices": [
+              {
+                "es": "¿Podrían comprobar si la petición está registrada y cuál es el siguiente paso de citación?",
+                "correct": true,
+                "feedback": "核实是否登记、谁负责通知和下一步，而不是绕过流程。"
+              },
+              {
+                "es": "Entonces voy directamente a la consulta del especialista.",
+                "correct": false,
+                "feedback": "这种说法未能明确解决问题，或可能造成误解。"
+              },
+              {
+                "es": "¿Puedo elegir cualquier día por mi cuenta?",
+                "correct": false,
+                "feedback": "这句话不一定错误，但没有回答当前最关键的实际问题。"
+              }
+            ]
+          },
+          {
+            "situation": "医院说初诊由预约中心管理，复诊另有渠道。",
+            "prompt": "你应该问？",
+            "model": "¿Me puede indicar por escrito el canal aplicable a mi primera visita y qué referencia debo conservar?",
+            "choices": [
+              {
+                "es": "¿Me puede indicar por escrito el canal aplicable a mi primera visita y qué referencia debo conservar?",
+                "correct": true,
+                "feedback": "明确目前所处的流程及凭证，避免混淆初诊与复诊。"
+              },
+              {
+                "es": "¿Me puede asegurar una fecha exacta aunque no haya agenda?",
+                "correct": false,
+                "feedback": "这种说法未能明确解决问题，或可能造成误解。"
+              },
+              {
+                "es": "¿Es muy grande el hospital?",
+                "correct": false,
+                "feedback": "这句话不一定错误，但没有回答当前最关键的实际问题。"
+              }
+            ]
+          }
+        ],
+        "transfer": "写一封正式邮件：列明已完成家庭医生转诊、目前查不到预约、请求确认登记和后续联系渠道，不包含真实医疗卡编号。",
+        "debrief": "用自己的西语复述：我有什么需求、预约情况、下一步与要核对的信息。"
+      }
+    }
+  ]
+}
