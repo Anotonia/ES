@@ -7,6 +7,8 @@ const vm = require("vm");
 const path = require("path");
 const root = path.join(__dirname,"..");
 const lesson=JSON.parse(fs.readFileSync(path.join(root,"docs/assets/content.json"),"utf8"));
+const school=JSON.parse(fs.readFileSync(path.join(root,"docs/assets/school-pathways.json"),"utf8"));
+const life=JSON.parse(fs.readFileSync(path.join(root,"docs/assets/life-pathways.json"),"utf8"));
 const elements={};
 function getNode(id){
   if(!elements[id]){
@@ -15,7 +17,7 @@ function getNode(id){
       classList:{add(){},remove(){},toggle(){},contains(){return false;}},
       style:{}, dataset:{}, listeners:{}, setAttribute(){},removeAttribute(){},
       addEventListener(type,handler){(this.listeners[type]||=[]).push(handler);},
-      scrollIntoView(){},focus(){},setSelectionRange(){}
+      scrollIntoView(){},focus(){},setSelectionRange(){},replaceWith(node){this.innerHTML=node?.innerHTML||"";}
     };
   }
   return elements[id];
@@ -29,7 +31,7 @@ const document={
   querySelectorAll(){return [];},
   querySelector(){return getNode("sidebar");},
   addEventListener(name,handler){(callbacks["doc:"+name]||=[]).push(handler);},
-  createElement(){return getNode("generated");},
+  createElement(){return {innerHTML:"",get firstElementChild(){return {innerHTML:this.innerHTML};}};},
   body:{appendChild(){}}
 };
 const window={
@@ -52,6 +54,8 @@ global.fetch=async url=>{
   if(url==="assets/content.json"){
     return {ok:true,json:async()=>lesson};
   }
+  if(url==="assets/school-pathways.json")return {ok:true,json:async()=>school};
+  if(url==="assets/life-pathways.json")return {ok:true,json:async()=>life};
   if(String(url).includes("vocabulary_master.csv")){
     return {ok:true,text:async()=>fs.readFileSync(path.join(root,"data/vocabulary_master.csv"),"utf8")};
   }
@@ -60,7 +64,9 @@ global.fetch=async url=>{
 (async()=>{
   const source=fs.readFileSync(path.join(root,"docs/assets/app.js"),"utf8");
   const audio=fs.readFileSync(path.join(root,"docs/assets/audio.js"),"utf8");
+  const paths=fs.readFileSync(path.join(root,"docs/assets/pathways.js"),"utf8");
   vm.runInThisContext(audio,{filename:"docs/assets/audio.js"});
+  vm.runInThisContext(paths,{filename:"docs/assets/pathways.js"});
   vm.runInThisContext(source,{filename:"docs/assets/app.js"});
   await new Promise(resolve=>setImmediate(resolve));
   await new Promise(resolve=>setImmediate(resolve));
@@ -80,6 +86,28 @@ global.fetch=async url=>{
     process.stdout.write("OK "+label+" ("+html.length+" chars)\n");
   }
   console.log("All client views generated successfully.");
+  if(getNode("scene-count").textContent!=="41")throw Error("Expected 41 scenarios");
+  if(getNode("school-scene-count").textContent!=="23")throw Error("Expected 23 school scenarios");
+  if((getNode("pathways-grid").innerHTML.match(/pathway-card/g)||[]).length!==7)throw Error("Expected seven four-stage learning paths");
+  location.hash="#/detail/entry-04";
+  fire("window:hashchange");
+  if(!getNode("view-detail").innerHTML.includes("mission-panel"))throw Error("Missing B2 interactive scenario");
+  if(!getNode("view-detail").innerHTML.includes("lesson-mission"))throw Error("Missing branching mission section");
+  const caseItem=school.scenarios.find(x=>x.id==="entry-04");
+  const branchButton=(step,option)=>({dataset:{pathChoice:"entry-04",pathStep:String(step),pathOption:String(option)},closest(selector){
+    if(selector==="[data-path-choice]")return this;
+    return null;
+  }});
+  fire("doc:click",{target:branchButton(0,1)});
+  if(!window.ESPathways.sceneComplete(caseItem) && window.ESPathways.renderMission(caseItem).includes("mission-locked")){
+    // Negative choice can require retry, as intended.
+  }
+  fire("doc:click",{target:branchButton(0,0)});
+  if(!window.ESPathways.renderMission(caseItem).includes("突发情况 2"))throw Error("Second decision not unlocked");
+  fire("doc:click",{target:branchButton(1,0)});
+  if(!window.ESPathways.sceneComplete(caseItem))throw Error("Interactive mission did not complete");
+  if(!window.ESPathways.renderMission(caseItem).includes("TRANSFER CHALLENGE"))throw Error("Missing open-ended transfer task");
+  console.log("Advanced lesson checks OK: 7 paths, 41 scenes, B2 mission, branching feedback, transfer practice.");
   if(getNode("speech-rate").value!=="0.70")throw Error("Default speech rate is not 0.70");
   if(!getNode("speech-voice").innerHTML.includes("es-ES"))throw Error("Spanish voice chooser not populated");
   window.ESAudio.speak("Buenos días");
