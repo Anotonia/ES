@@ -1,0 +1,1741 @@
+{
+  "meta": {
+    "title": "ES · Spanish Living Lab",
+    "version": "2026-10-18",
+    "description": "西班牙生活西语学习实验室：母语自然表达 + 场景互动 + A1–B2 词库",
+    "dataScope": "场景与表达是原创教学示例，不是官方固定办事要求；地方流程请核实。",
+    "sourceLinks": [
+      {
+        "title": "Comunidad de Madrid · 学校入学流程",
+        "url": "https://www.comunidad.madrid/educacion/solicita-tu-admision-educacion-infantil-obligatoria-bachillerato"
+      },
+      {
+        "title": "EducaMadrid · Raíces / ROBLE",
+        "url": "https://site.educa.madrid.org/ies.sannicasio.leganes/index.php/plataforma-raices-roble/"
+      },
+      {
+        "title": "Banco de España · 账户费用",
+        "url": "https://clientebancario.bde.es/pcb/es/menu-horizontal/podemosayudarte/comisiones/que-son-las-comisiones-bancarias/"
+      }
+    ]
+  },
+  "domains": [
+    {
+      "id": "school",
+      "name": "学校与教育",
+      "es": "Educación",
+      "detail": "入学、班主任、作业、食堂、成人语言学校"
+    },
+    {
+      "id": "health",
+      "name": "医院与药店",
+      "es": "Salud",
+      "detail": "预约医生、药店说明"
+    },
+    {
+      "id": "bank",
+      "name": "银行与金融",
+      "es": "Banco",
+      "detail": "开户、转账与费用"
+    },
+    {
+      "id": "admin",
+      "name": "行政办事",
+      "es": "Trámites",
+      "detail": "预约、住址登记与证明"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "school-admission",
+      "domain": "school",
+      "level": "A2",
+      "featured": true,
+      "title": "入学报名与学位申请",
+      "subtitle": "Admisión y matrícula",
+      "brief": "与学校秘书处确认申请、名额、材料、截止时间；注意 admisión 与 matrícula 并不相同。",
+      "vocab": [
+        {
+          "es": "la admisión",
+          "zh": "入学申请／录取程序",
+          "detail": "常指申请入学阶段"
+        },
+        {
+          "es": "la matrícula",
+          "zh": "注册／正式入学手续",
+          "detail": "与录取申请阶段可能不同"
+        },
+        {
+          "es": "la plaza escolar",
+          "zh": "学位／入学名额",
+          "detail": ""
+        },
+        {
+          "es": "la secretaría",
+          "zh": "学校行政办公室",
+          "detail": ""
+        },
+        {
+          "es": "el curso escolar",
+          "zh": "学年",
+          "detail": ""
+        },
+        {
+          "es": "la solicitud",
+          "zh": "申请表／申请",
+          "detail": ""
+        },
+        {
+          "es": "el plazo",
+          "zh": "截止期限",
+          "detail": ""
+        },
+        {
+          "es": "la documentación",
+          "zh": "材料／文件",
+          "detail": ""
+        },
+        {
+          "es": "el justificante",
+          "zh": "证明／凭证",
+          "detail": ""
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "家长",
+          "es": "Buenos días. Quería información sobre la admisión para el próximo curso.",
+          "zh": "早上好，我想了解下一学年的入学申请。"
+        },
+        {
+          "speaker": "秘书处",
+          "es": "¿Para qué curso necesita solicitar plaza?",
+          "zh": "您想申请哪个年级的名额？"
+        },
+        {
+          "speaker": "家长",
+          "es": "Para primero de Primaria. ¿Qué documentación hace falta?",
+          "zh": "小学一年级。需要哪些材料？"
+        },
+        {
+          "speaker": "秘书处",
+          "es": "Consulte los requisitos y plazos del proceso de admisión.",
+          "zh": "请查阅入学申请流程的材料要求和期限。"
+        },
+        {
+          "speaker": "家长",
+          "es": "De acuerdo. ¿La matrícula se hace después de obtener la plaza?",
+          "zh": "明白。获得学位后再办理正式注册，对吗？"
+        }
+      ],
+      "expressions": [
+        {
+          "standard": "Quisiera solicitar información sobre la admisión.",
+          "natural": "Quería preguntar por las plazas.",
+          "zh": "我想问问学校是否有学位。",
+          "register": "自然口语",
+          "note": "适合日常交流；正式邮件宜使用标准表达。"
+        },
+        {
+          "standard": "¿Qué documentos debo presentar?",
+          "natural": "¿Qué papeles tengo que traer?",
+          "zh": "我需要带什么材料？",
+          "register": "日常口语",
+          "note": "papeles 是文件材料的自然口语；书面申请仍用 documentación。"
+        }
+      ],
+      "challenges": [
+        {
+          "prompt": "礼貌地说：我想了解下一学年的报名。",
+          "answer": "Quería información sobre la admisión para el próximo curso.",
+          "hint": ""
+        },
+        {
+          "prompt": "问：需要带哪些材料？",
+          "answer": "¿Qué documentación hace falta?",
+          "hint": ""
+        }
+      ]
+    },
+    {
+      "id": "school-tutor",
+      "domain": "school",
+      "level": "A2",
+      "featured": true,
+      "title": "与班主任约谈",
+      "subtitle": "Tutoría con el profesor",
+      "brief": "与 tutor/a 谈课堂表现、学习进度、困难、在家如何配合。",
+      "vocab": [
+        {
+          "es": "el tutor / la tutora",
+          "zh": "班主任／负责学生跟进的教师",
+          "detail": ""
+        },
+        {
+          "es": "la tutoría",
+          "zh": "导师面谈／师生家长沟通时间",
+          "detail": ""
+        },
+        {
+          "es": "la reunión",
+          "zh": "会议／面谈",
+          "detail": ""
+        },
+        {
+          "es": "el rendimiento académico",
+          "zh": "学习表现",
+          "detail": ""
+        },
+        {
+          "es": "la evaluación",
+          "zh": "评估",
+          "detail": ""
+        },
+        {
+          "es": "el progreso",
+          "zh": "进步",
+          "detail": ""
+        },
+        {
+          "es": "la dificultad",
+          "zh": "困难",
+          "detail": ""
+        },
+        {
+          "es": "la asignatura",
+          "zh": "学科",
+          "detail": ""
+        },
+        {
+          "es": "la nota",
+          "zh": "分数／成绩",
+          "detail": ""
+        },
+        {
+          "es": "el apoyo",
+          "zh": "支持／辅助",
+          "detail": ""
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "家长",
+          "es": "Buenos días, ¿podríamos concertar una tutoría?",
+          "zh": "您好，我们能约一次班主任面谈吗？"
+        },
+        {
+          "speaker": "教师",
+          "es": "Claro. ¿Hay algún tema que le preocupe?",
+          "zh": "当然。您有什么担心的事情吗？"
+        },
+        {
+          "speaker": "家长",
+          "es": "Quisiera saber cómo va en clase y qué podemos reforzar en casa.",
+          "zh": "我想知道孩子在课堂上表现如何，我们在家可以加强什么。"
+        },
+        {
+          "speaker": "教师",
+          "es": "En general va bien, pero necesita practicar la lectura.",
+          "zh": "总体很好，不过需要加强阅读练习。"
+        },
+        {
+          "speaker": "家长",
+          "es": "Muchas gracias. ¿Nos recomienda algún material?",
+          "zh": "谢谢您。能给我们推荐一些学习资料吗？"
+        }
+      ],
+      "expressions": [
+        {
+          "standard": "Mi hijo tiene dificultades en matemáticas.",
+          "natural": "Le cuestan las mates.",
+          "zh": "孩子学数学比较吃力。",
+          "register": "熟人／非正式",
+          "note": "mates 是 matemáticas 的常见口语缩略；与教师面对面说也可能自然，但正式邮件用完整词。"
+        },
+        {
+          "standard": "¿Podemos concertar una reunión?",
+          "natural": "¿Podemos quedar un día para hablar?",
+          "zh": "我们找一天聊聊，好吗？",
+          "register": "自然口语",
+          "note": "适合日常交流；正式邮件宜使用标准表达。"
+        }
+      ],
+      "challenges": [
+        {
+          "prompt": "说：我想和班主任约一个时间。",
+          "answer": "Quisiera concertar una tutoría con el tutor.",
+          "hint": ""
+        },
+        {
+          "prompt": "问：在家可以加强什么？",
+          "answer": "¿Qué podemos reforzar en casa?",
+          "hint": ""
+        }
+      ]
+    },
+    {
+      "id": "school-absence",
+      "domain": "school",
+      "level": "A2",
+      "featured": true,
+      "title": "请假、迟到与补交证明",
+      "subtitle": "Faltas de asistencia y justificantes",
+      "brief": "学会说明缺课原因、通知老师、询问证明材料；平台和流程由各学校决定。",
+      "vocab": [
+        {
+          "es": "la falta de asistencia",
+          "zh": "缺课／缺勤",
+          "detail": ""
+        },
+        {
+          "es": "justificar una falta",
+          "zh": "说明并证明缺课原因",
+          "detail": ""
+        },
+        {
+          "es": "el justificante médico",
+          "zh": "医疗就诊证明",
+          "detail": ""
+        },
+        {
+          "es": "llegar tarde",
+          "zh": "迟到",
+          "detail": ""
+        },
+        {
+          "es": "la ausencia",
+          "zh": "缺席",
+          "detail": ""
+        },
+        {
+          "es": "avisar al tutor",
+          "zh": "通知班主任",
+          "detail": ""
+        },
+        {
+          "es": "la plataforma escolar",
+          "zh": "学校平台",
+          "detail": ""
+        },
+        {
+          "es": "la reincorporación",
+          "zh": "返校／重新参加活动",
+          "detail": ""
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "家长",
+          "es": "Buenos días. Mi hija no podrá ir al cole hoy porque tiene fiebre.",
+          "zh": "您好，我女儿今天发烧，不能去学校。"
+        },
+        {
+          "speaker": "学校",
+          "es": "De acuerdo. Por favor, avise también a su tutora.",
+          "zh": "好的，也请通知她的班主任。"
+        },
+        {
+          "speaker": "家长",
+          "es": "¿Hace falta enviar un justificante?",
+          "zh": "需要发送证明吗？"
+        },
+        {
+          "speaker": "学校",
+          "es": "Siga las indicaciones del centro para justificar la falta.",
+          "zh": "请按照学校的规定说明缺课原因。"
+        }
+      ],
+      "expressions": [
+        {
+          "standard": "Mi hija no asistirá a clase hoy.",
+          "natural": "Mi hija hoy no va al cole.",
+          "zh": "我女儿今天不上学。",
+          "register": "日常口语",
+          "note": "cole 是 colegio 的口语形式，聊天中自然，书面通知建议用 clase / centro。"
+        },
+        {
+          "standard": "¿Es necesario presentar un justificante?",
+          "natural": "¿Hace falta llevar algún papel?",
+          "zh": "需要交证明材料吗？",
+          "register": "自然口语",
+          "note": "适合日常交流；正式邮件宜使用标准表达。"
+        }
+      ],
+      "challenges": [
+        {
+          "prompt": "说：我儿子今天发烧，不能去学校。",
+          "answer": "Mi hijo no puede ir al colegio hoy porque tiene fiebre.",
+          "hint": ""
+        },
+        {
+          "prompt": "问：需要证明吗？",
+          "answer": "¿Hace falta un justificante?",
+          "hint": ""
+        }
+      ]
+    },
+    {
+      "id": "school-homework",
+      "domain": "school",
+      "level": "A1",
+      "featured": true,
+      "title": "作业、考试与成绩",
+      "subtitle": "Deberes, exámenes y notas",
+      "brief": "适合学生本人或家长询问作业、测验日期、成绩和学习方式。",
+      "vocab": [
+        {
+          "es": "los deberes",
+          "zh": "家庭作业",
+          "detail": ""
+        },
+        {
+          "es": "el examen",
+          "zh": "考试",
+          "detail": ""
+        },
+        {
+          "es": "las notas",
+          "zh": "成绩",
+          "detail": ""
+        },
+        {
+          "es": "aprobar",
+          "zh": "通过考试",
+          "detail": ""
+        },
+        {
+          "es": "suspender",
+          "zh": "考试不及格／挂科",
+          "detail": ""
+        },
+        {
+          "es": "la asignatura",
+          "zh": "科目",
+          "detail": ""
+        },
+        {
+          "es": "repasar",
+          "zh": "复习",
+          "detail": ""
+        },
+        {
+          "es": "entregar un trabajo",
+          "zh": "交作业／报告",
+          "detail": ""
+        },
+        {
+          "es": "la fecha de entrega",
+          "zh": "交付日期",
+          "detail": ""
+        },
+        {
+          "es": "las matemáticas",
+          "zh": "数学",
+          "detail": ""
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "学生",
+          "es": "Profe, ¿qué deberes tenemos para mañana?",
+          "zh": "老师，我们明天有什么作业？"
+        },
+        {
+          "speaker": "老师",
+          "es": "Tenéis que terminar los ejercicios de la página veinte.",
+          "zh": "你们要完成第20页的练习。"
+        },
+        {
+          "speaker": "学生",
+          "es": "¿Y cuándo es el examen de mates?",
+          "zh": "那数学考试是什么时候？"
+        },
+        {
+          "speaker": "老师",
+          "es": "El jueves. Repasad los temas dos y tres.",
+          "zh": "周四。复习第二、第三单元。"
+        }
+      ],
+      "expressions": [
+        {
+          "standard": "Profesor, ¿cuándo es el examen de matemáticas?",
+          "natural": "Profe, ¿cuándo es el examen de mates?",
+          "zh": "老师，数学考试什么时候？",
+          "register": "非正式，校园",
+          "note": "profe、mates 都是西班牙常见校园口语。"
+        },
+        {
+          "standard": "No entiendo este ejercicio.",
+          "natural": "Me he quedado en blanco.",
+          "zh": "我脑子一片空白。",
+          "register": "口语习语",
+          "note": "这句专指一时什么都想不起来，不完全等于“不明白题目”。"
+        }
+      ],
+      "challenges": [
+        {
+          "prompt": "问老师：明天有什么作业？",
+          "answer": "¿Qué deberes tenemos para mañana?",
+          "hint": ""
+        },
+        {
+          "prompt": "问：什么时候交作业？",
+          "answer": "¿Cuándo hay que entregar el trabajo?",
+          "hint": ""
+        }
+      ]
+    },
+    {
+      "id": "school-lunch",
+      "domain": "school",
+      "level": "A2",
+      "featured": true,
+      "title": "食堂、接送与课外活动",
+      "subtitle": "Comedor, recogida y extraescolares",
+      "brief": "询问午餐服务、课后活动及孩子的接送安排。",
+      "vocab": [
+        {
+          "es": "el comedor escolar",
+          "zh": "学校食堂／午餐服务",
+          "detail": ""
+        },
+        {
+          "es": "el menú",
+          "zh": "菜单",
+          "detail": ""
+        },
+        {
+          "es": "la alergia alimentaria",
+          "zh": "食物过敏",
+          "detail": ""
+        },
+        {
+          "es": "la recogida",
+          "zh": "接孩子／领取",
+          "detail": ""
+        },
+        {
+          "es": "las actividades extraescolares",
+          "zh": "课外活动",
+          "detail": ""
+        },
+        {
+          "es": "el horario",
+          "zh": "时间安排",
+          "detail": ""
+        },
+        {
+          "es": "la autorización",
+          "zh": "授权同意",
+          "detail": ""
+        },
+        {
+          "es": "la persona autorizada",
+          "zh": "获授权接送人",
+          "detail": ""
+        },
+        {
+          "es": "el monitor / la monitora",
+          "zh": "活动辅导人员",
+          "detail": ""
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "家长",
+          "es": "Quería preguntar por el comedor escolar.",
+          "zh": "我想咨询学校食堂。"
+        },
+        {
+          "speaker": "学校",
+          "es": "¿Qué necesita saber?",
+          "zh": "您想了解哪方面？"
+        },
+        {
+          "speaker": "家长",
+          "es": "¿Qué horario tiene y cómo se comunica una alergia alimentaria?",
+          "zh": "食堂是什么时间？如何申报食物过敏？"
+        },
+        {
+          "speaker": "学校",
+          "es": "Le explicamos el procedimiento del centro.",
+          "zh": "我们会向您说明学校的办理流程。"
+        },
+        {
+          "speaker": "家长",
+          "es": "¿Y dónde se inscribe a los niños en las extraescolares?",
+          "zh": "那课外活动去哪里报名？"
+        }
+      ],
+      "expressions": [
+        {
+          "standard": "¿A qué hora puedo recoger a mi hijo?",
+          "natural": "¿A qué hora puedo pasar a por el peque?",
+          "zh": "几点可以接孩子？",
+          "register": "亲近口语",
+          "note": "el peque 亲切地指小孩子，不适合所有正式场合。"
+        },
+        {
+          "standard": "Quisiera información sobre las actividades extraescolares.",
+          "natural": "Quería preguntar por las extraescolares.",
+          "zh": "我想咨询课外活动。",
+          "register": "自然口语",
+          "note": "适合日常交流；正式邮件宜使用标准表达。"
+        }
+      ],
+      "challenges": [
+        {
+          "prompt": "问：食堂的时间是什么？",
+          "answer": "¿Qué horario tiene el comedor escolar?",
+          "hint": ""
+        },
+        {
+          "prompt": "问：接送人需要授权吗？",
+          "answer": "¿Hace falta una autorización para recoger al niño?",
+          "hint": ""
+        }
+      ]
+    },
+    {
+      "id": "school-classmates",
+      "domain": "school",
+      "level": "B1",
+      "featured": true,
+      "title": "同学交往与学校问题",
+      "subtitle": "Convivencia y relaciones",
+      "brief": "描述同学之间的不愉快、询问学校如何跟进，使用不指责的中性表达。",
+      "vocab": [
+        {
+          "es": "la convivencia",
+          "zh": "相处；校园共处",
+          "detail": ""
+        },
+        {
+          "es": "los compañeros de clase",
+          "zh": "同班同学",
+          "detail": ""
+        },
+        {
+          "es": "el conflicto",
+          "zh": "冲突",
+          "detail": ""
+        },
+        {
+          "es": "el malentendido",
+          "zh": "误会",
+          "detail": ""
+        },
+        {
+          "es": "el acoso escolar",
+          "zh": "校园霸凌／欺凌",
+          "detail": ""
+        },
+        {
+          "es": "el protocolo",
+          "zh": "处理程序",
+          "detail": ""
+        },
+        {
+          "es": "la orientación educativa",
+          "zh": "教育辅导／学校支持",
+          "detail": ""
+        },
+        {
+          "es": "el respeto",
+          "zh": "尊重",
+          "detail": ""
+        },
+        {
+          "es": "la preocupación",
+          "zh": "担心",
+          "detail": ""
+        },
+        {
+          "es": "resolver",
+          "zh": "解决",
+          "detail": ""
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "家长",
+          "es": "Quería comentar una situación que preocupa a mi hijo.",
+          "zh": "我想反映一件让孩子担心的事情。"
+        },
+        {
+          "speaker": "老师",
+          "es": "Claro, cuénteme qué ha ocurrido.",
+          "zh": "当然，您说说发生了什么。"
+        },
+        {
+          "speaker": "家长",
+          "es": "Ha tenido varios problemas con unos compañeros y no quiere ir a clase.",
+          "zh": "他和几位同学有过几次问题，现在不想去上学。"
+        },
+        {
+          "speaker": "老师",
+          "es": "Gracias por avisar. Vamos a recoger la información y seguir el procedimiento del centro.",
+          "zh": "感谢告知。我们会了解情况并依照学校程序处理。"
+        }
+      ],
+      "expressions": [
+        {
+          "standard": "Ha tenido dificultades con sus compañeros.",
+          "natural": "Ha tenido algún roce con sus compañeros.",
+          "zh": "他和同学之间有些摩擦。",
+          "register": "自然口语",
+          "note": "roce 适合轻微摩擦；如果涉及持续伤害，不要弱化为小矛盾。"
+        },
+        {
+          "standard": "Me preocupa su bienestar en el centro.",
+          "natural": "Me tiene bastante preocupado lo que está pasando.",
+          "zh": "我很担心正在发生的事。",
+          "register": "自然口语",
+          "note": "适合日常交流；正式邮件宜使用标准表达。"
+        }
+      ],
+      "challenges": [
+        {
+          "prompt": "说：我想谈谈孩子与同学相处的问题。",
+          "answer": "Quería hablar de un problema de convivencia con sus compañeros.",
+          "hint": ""
+        },
+        {
+          "prompt": "问：学校有什么处理程序？",
+          "answer": "¿Qué protocolo tiene el centro para estos casos?",
+          "hint": ""
+        }
+      ]
+    },
+    {
+      "id": "school-adult",
+      "domain": "school",
+      "level": "A2",
+      "featured": true,
+      "title": "语言学校与成人学习",
+      "subtitle": "Escuela de idiomas y cursos",
+      "brief": "适合成人报西语班、询问分班、学费、上课安排与课程要求。",
+      "vocab": [
+        {
+          "es": "la escuela de idiomas",
+          "zh": "语言学校",
+          "detail": ""
+        },
+        {
+          "es": "la prueba de nivel",
+          "zh": "分级测试",
+          "detail": ""
+        },
+        {
+          "es": "la inscripción",
+          "zh": "报名",
+          "detail": ""
+        },
+        {
+          "es": "la matrícula",
+          "zh": "注册；学籍／注册费用（依语境）",
+          "detail": ""
+        },
+        {
+          "es": "la cuota",
+          "zh": "费用／缴费额度",
+          "detail": ""
+        },
+        {
+          "es": "la beca",
+          "zh": "奖学金／助学金",
+          "detail": ""
+        },
+        {
+          "es": "el certificado",
+          "zh": "证书",
+          "detail": ""
+        },
+        {
+          "es": "la asistencia",
+          "zh": "出勤",
+          "detail": ""
+        },
+        {
+          "es": "el grupo",
+          "zh": "班级／小组",
+          "detail": ""
+        },
+        {
+          "es": "el horario de tarde",
+          "zh": "下午／傍晚课程时间",
+          "detail": ""
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "学员",
+          "es": "Hola, me gustaría apuntarme a un curso de español.",
+          "zh": "您好，我想报一个西班牙语课程。"
+        },
+        {
+          "speaker": "前台",
+          "es": "¿Ha estudiado español antes?",
+          "zh": "您以前学过西语吗？"
+        },
+        {
+          "speaker": "学员",
+          "es": "Sí, pero no sé qué nivel tengo. ¿Hay prueba de nivel?",
+          "zh": "学过，但不知道自己的水平。有分级考试吗？"
+        },
+        {
+          "speaker": "前台",
+          "es": "Sí. Después podrá consultar los grupos y horarios disponibles.",
+          "zh": "有。之后您可以了解现有班级和时间。"
+        },
+        {
+          "speaker": "学员",
+          "es": "Perfecto. ¿Cuánto cuesta la matrícula?",
+          "zh": "太好了。注册费多少钱？"
+        }
+      ],
+      "expressions": [
+        {
+          "standard": "Me gustaría inscribirme en un curso.",
+          "natural": "Quiero apuntarme a un curso.",
+          "zh": "我想报个课程。",
+          "register": "日常中性",
+          "note": "apuntarse 是西班牙非常常见的自然表达，正式表单多用 inscribirse。"
+        },
+        {
+          "standard": "No conozco mi nivel de español.",
+          "natural": "No tengo ni idea de qué nivel tengo.",
+          "zh": "我完全不知道自己是什么水平。",
+          "register": "非正式",
+          "note": "ni idea 带一点强调，熟人聊天自然；正式申请避免。"
+        }
+      ],
+      "challenges": [
+        {
+          "prompt": "说：我想报名一个西语课程。",
+          "answer": "Quiero apuntarme a un curso de español.",
+          "hint": ""
+        },
+        {
+          "prompt": "问：有分级考试吗？",
+          "answer": "¿Hay una prueba de nivel?",
+          "hint": ""
+        }
+      ]
+    },
+    {
+      "id": "health-appointment",
+      "domain": "health",
+      "level": "A2",
+      "title": "预约家庭医生",
+      "subtitle": "Pedir cita médica",
+      "brief": "确认 centro de salud、预约、携带材料，以及当下症状。流程随医疗服务及地区变化。",
+      "vocab": [
+        {
+          "es": "el centro de salud",
+          "zh": "社区医疗中心",
+          "detail": ""
+        },
+        {
+          "es": "la cita médica",
+          "zh": "就诊预约",
+          "detail": ""
+        },
+        {
+          "es": "el médico de familia",
+          "zh": "家庭医生",
+          "detail": ""
+        },
+        {
+          "es": "la tarjeta sanitaria",
+          "zh": "医疗卡",
+          "detail": ""
+        },
+        {
+          "es": "el síntoma",
+          "zh": "症状",
+          "detail": ""
+        },
+        {
+          "es": "la fiebre",
+          "zh": "发烧",
+          "detail": ""
+        },
+        {
+          "es": "la tos",
+          "zh": "咳嗽",
+          "detail": ""
+        },
+        {
+          "es": "el dolor de garganta",
+          "zh": "喉咙痛",
+          "detail": ""
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "患者",
+          "es": "Buenos días. Quisiera pedir cita con mi médico de familia.",
+          "zh": "您好，我想预约家庭医生。"
+        },
+        {
+          "speaker": "接待",
+          "es": "¿Para qué día necesita la cita?",
+          "zh": "您想约哪一天？"
+        },
+        {
+          "speaker": "患者",
+          "es": "Lo antes posible, si puede ser. Tengo fiebre y dolor de garganta.",
+          "zh": "如果可以的话越快越好。我发烧而且喉咙痛。"
+        },
+        {
+          "speaker": "接待",
+          "es": "Le indicaremos las opciones de cita disponibles.",
+          "zh": "我们会告知可预约的时间。"
+        }
+      ],
+      "expressions": [
+        {
+          "standard": "Me encuentro bastante mal.",
+          "natural": "Estoy hecho polvo.",
+          "zh": "我现在很难受／累坏了。",
+          "register": "熟人非正式",
+          "note": "口语能表达身体很差，但医生询问病情时应补充具体症状。"
+        },
+        {
+          "standard": "Quisiera solicitar una cita.",
+          "natural": "Quería pedir cita.",
+          "zh": "我想预约。",
+          "register": "自然口语",
+          "note": "适合日常交流；正式邮件宜使用标准表达。"
+        }
+      ],
+      "challenges": [
+        {
+          "prompt": "说：我想预约家庭医生。",
+          "answer": "Quisiera pedir cita con mi médico de familia.",
+          "hint": ""
+        },
+        {
+          "prompt": "说：我喉咙痛。",
+          "answer": "Me duele la garganta.",
+          "hint": ""
+        }
+      ]
+    },
+    {
+      "id": "health-pharmacy",
+      "domain": "health",
+      "level": "A2",
+      "title": "药店咨询",
+      "subtitle": "En la farmacia",
+      "brief": "描述简单症状、询问非处方产品和使用说明；诊断与用药由专业人员决定。",
+      "vocab": [
+        {
+          "es": "la farmacia",
+          "zh": "药房",
+          "detail": ""
+        },
+        {
+          "es": "el farmacéutico / la farmacéutica",
+          "zh": "药剂师",
+          "detail": ""
+        },
+        {
+          "es": "la receta",
+          "zh": "处方",
+          "detail": ""
+        },
+        {
+          "es": "sin receta",
+          "zh": "无需处方",
+          "detail": ""
+        },
+        {
+          "es": "la dosis",
+          "zh": "剂量",
+          "detail": ""
+        },
+        {
+          "es": "los efectos secundarios",
+          "zh": "副作用",
+          "detail": ""
+        },
+        {
+          "es": "el prospecto",
+          "zh": "药品说明书",
+          "detail": ""
+        },
+        {
+          "es": "estar resfriado/a",
+          "zh": "感冒了",
+          "detail": ""
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "顾客",
+          "es": "Hola, estoy resfriado y tengo mucha tos.",
+          "zh": "您好，我感冒了，咳嗽得厉害。"
+        },
+        {
+          "speaker": "药剂师",
+          "es": "¿Desde cuándo tiene esos síntomas?",
+          "zh": "您这些症状出现多久了？"
+        },
+        {
+          "speaker": "顾客",
+          "es": "Desde hace dos días. ¿Me puede orientar?",
+          "zh": "两天了。您能给我一些建议吗？"
+        },
+        {
+          "speaker": "药剂师",
+          "es": "Le haré unas preguntas para poder orientarle.",
+          "zh": "我需要先问您几个问题。"
+        }
+      ],
+      "expressions": [
+        {
+          "standard": "Tengo un resfriado.",
+          "natural": "He pillado un catarro.",
+          "zh": "我感冒了。",
+          "register": "西班牙日常口语",
+          "note": "pillar un catarro 是口语表达，不应代替医学评估。"
+        }
+      ],
+      "challenges": [
+        {
+          "prompt": "问：需要处方吗？",
+          "answer": "¿Hace falta receta?",
+          "hint": ""
+        },
+        {
+          "prompt": "问：有哪些副作用？",
+          "answer": "¿Qué efectos secundarios tiene?",
+          "hint": ""
+        }
+      ]
+    },
+    {
+      "id": "bank-account",
+      "domain": "bank",
+      "level": "A2",
+      "title": "开户与账户信息",
+      "subtitle": "Abrir una cuenta bancaria",
+      "brief": "询问开户材料、账户费用、IBAN 与借记卡；不要在练习页面输入真实账户信息。",
+      "vocab": [
+        {
+          "es": "la cuenta bancaria",
+          "zh": "银行账户",
+          "detail": ""
+        },
+        {
+          "es": "abrir una cuenta",
+          "zh": "开户",
+          "detail": ""
+        },
+        {
+          "es": "el IBAN",
+          "zh": "国际银行账户号码",
+          "detail": ""
+        },
+        {
+          "es": "la tarjeta de débito",
+          "zh": "借记卡",
+          "detail": ""
+        },
+        {
+          "es": "la comisión",
+          "zh": "手续费",
+          "detail": ""
+        },
+        {
+          "es": "el mantenimiento de la cuenta",
+          "zh": "账户维护",
+          "detail": ""
+        },
+        {
+          "es": "el titular",
+          "zh": "账户持有人",
+          "detail": ""
+        },
+        {
+          "es": "el extracto bancario",
+          "zh": "银行流水／对账单",
+          "detail": ""
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "客户",
+          "es": "Quería abrir una cuenta bancaria.",
+          "zh": "我想开一个银行账户。"
+        },
+        {
+          "speaker": "银行职员",
+          "es": "¿Qué tipo de cuenta necesita?",
+          "zh": "您需要什么类型的账户？"
+        },
+        {
+          "speaker": "客户",
+          "es": "Una cuenta para recibir la nómina y pagar recibos.",
+          "zh": "用于收工资和支付账单的账户。"
+        },
+        {
+          "speaker": "客户",
+          "es": "¿Tiene comisiones de mantenimiento?",
+          "zh": "有账户维护费吗？"
+        },
+        {
+          "speaker": "银行职员",
+          "es": "Le explico las condiciones y las comisiones aplicables.",
+          "zh": "我向您说明条件和适用手续费。"
+        }
+      ],
+      "expressions": [
+        {
+          "standard": "¿Qué comisiones se aplican?",
+          "natural": "¿Me cobran por mantener la cuenta?",
+          "zh": "维护这个账户收费吗？",
+          "register": "自然口语",
+          "note": "适合日常交流；正式邮件宜使用标准表达。"
+        }
+      ],
+      "challenges": [
+        {
+          "prompt": "问：有账户维护费吗？",
+          "answer": "¿Tiene comisiones de mantenimiento?",
+          "hint": ""
+        },
+        {
+          "prompt": "说：我想开一个账户。",
+          "answer": "Quería abrir una cuenta bancaria.",
+          "hint": ""
+        }
+      ]
+    },
+    {
+      "id": "bank-transfer",
+      "domain": "bank",
+      "level": "B1",
+      "title": "转账与扣款问题",
+      "subtitle": "Transferencias y recibos",
+      "brief": "学习交易、扣费、自动扣款和客服处理，避免在公共仓库记录个人交易。",
+      "vocab": [
+        {
+          "es": "la transferencia",
+          "zh": "银行转账",
+          "detail": ""
+        },
+        {
+          "es": "domiciliar un recibo",
+          "zh": "设置账单自动扣款",
+          "detail": ""
+        },
+        {
+          "es": "el cargo",
+          "zh": "扣款",
+          "detail": ""
+        },
+        {
+          "es": "el recibo",
+          "zh": "账单／收据（依场景）",
+          "detail": ""
+        },
+        {
+          "es": "devolver un recibo",
+          "zh": "退回／拒付已扣款账单",
+          "detail": ""
+        },
+        {
+          "es": "la incidencia",
+          "zh": "异常／问题",
+          "detail": ""
+        },
+        {
+          "es": "el beneficiario",
+          "zh": "收款方",
+          "detail": ""
+        },
+        {
+          "es": "reclamar un cargo",
+          "zh": "对扣款提出异议",
+          "detail": ""
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "客户",
+          "es": "He visto un cargo que no reconozco en mi cuenta.",
+          "zh": "我的账户有一笔不认识的扣款。"
+        },
+        {
+          "speaker": "客服",
+          "es": "Vamos a revisar el movimiento.",
+          "zh": "我们来查看这笔交易。"
+        },
+        {
+          "speaker": "客户",
+          "es": "¿Cómo puedo presentar una reclamación?",
+          "zh": "我该怎么提交申诉？"
+        },
+        {
+          "speaker": "客服",
+          "es": "Le informaremos del procedimiento correspondiente.",
+          "zh": "我们会告知相应处理程序。"
+        }
+      ],
+      "expressions": [
+        {
+          "standard": "No reconozco este movimiento.",
+          "natural": "Este cargo no me suena.",
+          "zh": "这笔扣款我没印象。",
+          "register": "日常口语",
+          "note": "no me suena 是觉得不熟悉的自然表达，正式投诉应明确写 no reconozco。"
+        }
+      ],
+      "challenges": [
+        {
+          "prompt": "说：有一笔我不认识的扣款。",
+          "answer": "Hay un cargo que no reconozco.",
+          "hint": ""
+        },
+        {
+          "prompt": "问：如何提出投诉？",
+          "answer": "¿Cómo puedo presentar una reclamación?",
+          "hint": ""
+        }
+      ]
+    },
+    {
+      "id": "admin-appointment",
+      "domain": "admin",
+      "level": "A2",
+      "title": "行政办事预约",
+      "subtitle": "Cita previa y trámites",
+      "brief": "询问是否需要 cita previa、材料、受理方式与办理期限。",
+      "vocab": [
+        {
+          "es": "la cita previa",
+          "zh": "提前预约",
+          "detail": ""
+        },
+        {
+          "es": "el trámite",
+          "zh": "行政手续",
+          "detail": ""
+        },
+        {
+          "es": "la sede electrónica",
+          "zh": "政务电子平台",
+          "detail": ""
+        },
+        {
+          "es": "el formulario",
+          "zh": "表格",
+          "detail": ""
+        },
+        {
+          "es": "el documento original",
+          "zh": "文件原件",
+          "detail": ""
+        },
+        {
+          "es": "la copia",
+          "zh": "复印件",
+          "detail": ""
+        },
+        {
+          "es": "el resguardo",
+          "zh": "回执／凭证",
+          "detail": ""
+        },
+        {
+          "es": "el plazo de presentación",
+          "zh": "提交期限",
+          "detail": ""
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "申请人",
+          "es": "Hola, quería hacer un trámite. ¿Necesito cita previa?",
+          "zh": "您好，我想办理一项手续，需要预约吗？"
+        },
+        {
+          "speaker": "工作人员",
+          "es": "Depende del trámite y de la oficina.",
+          "zh": "取决于业务和办事地点。"
+        },
+        {
+          "speaker": "申请人",
+          "es": "¿Puedo presentarlo por la sede electrónica?",
+          "zh": "能通过电子平台提交吗？"
+        },
+        {
+          "speaker": "工作人员",
+          "es": "Consulte las instrucciones del procedimiento correspondiente.",
+          "zh": "请查阅相应程序的说明。"
+        }
+      ],
+      "expressions": [
+        {
+          "standard": "¿Qué documentación debo aportar?",
+          "natural": "¿Qué papeles tengo que llevar?",
+          "zh": "我需要带什么材料？",
+          "register": "自然口语",
+          "note": "适合日常交流；正式邮件宜使用标准表达。"
+        }
+      ],
+      "challenges": [
+        {
+          "prompt": "问：需要提前预约吗？",
+          "answer": "¿Hace falta pedir cita previa?",
+          "hint": ""
+        },
+        {
+          "prompt": "问：能网上提交吗？",
+          "answer": "¿Puedo presentarlo por internet?",
+          "hint": ""
+        }
+      ]
+    },
+    {
+      "id": "admin-patron",
+      "domain": "admin",
+      "level": "A2",
+      "title": "住址登记与证明",
+      "subtitle": "Empadronamiento y certificados",
+      "brief": "掌握 padrón、empadronarse、certificado 与 volante 等词；具体条件以所属市政府为准。",
+      "vocab": [
+        {
+          "es": "empadronarse",
+          "zh": "办理市政住址登记",
+          "detail": ""
+        },
+        {
+          "es": "el padrón municipal",
+          "zh": "市政住址登记册",
+          "detail": ""
+        },
+        {
+          "es": "el certificado de empadronamiento",
+          "zh": "住址登记证明",
+          "detail": ""
+        },
+        {
+          "es": "el volante de empadronamiento",
+          "zh": "住址登记信息凭单",
+          "detail": ""
+        },
+        {
+          "es": "el domicilio",
+          "zh": "住所；住址",
+          "detail": ""
+        },
+        {
+          "es": "el ayuntamiento",
+          "zh": "市政府",
+          "detail": ""
+        },
+        {
+          "es": "la acreditación",
+          "zh": "证明／认证",
+          "detail": ""
+        },
+        {
+          "es": "la oficina de atención",
+          "zh": "服务窗口／办事处",
+          "detail": ""
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "居民",
+          "es": "Quiero empadronarme en este municipio.",
+          "zh": "我想在这个市镇办理住址登记。"
+        },
+        {
+          "speaker": "办事员",
+          "es": "Consulte los documentos necesarios según su situación.",
+          "zh": "请根据您的情况查询所需文件。"
+        },
+        {
+          "speaker": "居民",
+          "es": "¿Puedo obtener un certificado después?",
+          "zh": "之后能获取登记证明吗？"
+        },
+        {
+          "speaker": "办事员",
+          "es": "Le indicaremos cómo solicitarlo.",
+          "zh": "我们会告诉您如何申请。"
+        }
+      ],
+      "expressions": [
+        {
+          "standard": "Deseo realizar el empadronamiento.",
+          "natural": "Quería empadronarme.",
+          "zh": "我想办理住址登记。",
+          "register": "自然口语",
+          "note": "适合日常交流；正式邮件宜使用标准表达。"
+        }
+      ],
+      "challenges": [
+        {
+          "prompt": "说：我想办理住址登记。",
+          "answer": "Quiero empadronarme.",
+          "hint": ""
+        },
+        {
+          "prompt": "问：可以开住址登记证明吗？",
+          "answer": "¿Puedo pedir un certificado de empadronamiento?",
+          "hint": ""
+        }
+      ]
+    }
+  ],
+  "colloquial": [
+    {
+      "es": "el cole",
+      "zh": "学校（通常指小学／学校）",
+      "neutral": "el colegio",
+      "register": "熟人口语",
+      "use": "家长、朋友聊天",
+      "avoid": "正式申请表",
+      "example": "Hoy no hay cole.",
+      "topic": "school"
+    },
+    {
+      "es": "el insti",
+      "zh": "中学",
+      "neutral": "el instituto",
+      "register": "熟人口语",
+      "use": "学生和家长日常聊天",
+      "avoid": "正式申诉材料",
+      "example": "Mañana tengo clase en el insti.",
+      "topic": "school"
+    },
+    {
+      "es": "profe",
+      "zh": "老师",
+      "neutral": "profesor / profesora",
+      "register": "校园口语",
+      "use": "同学说话；部分师生之间",
+      "avoid": "严肃正式邮件开头",
+      "example": "Profe, no entiendo este ejercicio.",
+      "topic": "school"
+    },
+    {
+      "es": "mates",
+      "zh": "数学",
+      "neutral": "matemáticas",
+      "register": "校园口语",
+      "use": "学校闲聊",
+      "avoid": "书面正式材料",
+      "example": "Tengo examen de mates.",
+      "topic": "school"
+    },
+    {
+      "es": "apuntarse",
+      "zh": "报名参加",
+      "neutral": "inscribirse",
+      "register": "自然口语",
+      "use": "课程、活动报名",
+      "avoid": "正式申请文本可用 inscribirse",
+      "example": "Me quiero apuntar a un curso.",
+      "topic": "school"
+    },
+    {
+      "es": "qué rollo",
+      "zh": "真烦人／真无聊",
+      "neutral": "qué aburrido / qué pesado",
+      "register": "俚语",
+      "use": "朋友间抱怨枯燥的事",
+      "avoid": "向老师抱怨学科或在严肃会议上",
+      "example": "Otra vez deberes, ¡qué rollo!",
+      "topic": "school"
+    },
+    {
+      "es": "me quedé en blanco",
+      "zh": "我一时脑子空白",
+      "neutral": "no me acordé de nada en ese momento",
+      "register": "口语习语",
+      "use": "考试、演讲失忆",
+      "avoid": "用于描述不了解内容时不准确",
+      "example": "En el examen me quedé en blanco.",
+      "topic": "school"
+    },
+    {
+      "es": "un montón",
+      "zh": "大量；非常多",
+      "neutral": "mucho / muchísimos",
+      "register": "自然口语",
+      "use": "工作量、作业量",
+      "avoid": "正式书面数据叙述",
+      "example": "Tengo un montón de deberes.",
+      "topic": "school"
+    },
+    {
+      "es": "vale",
+      "zh": "好的；行",
+      "neutral": "de acuerdo",
+      "register": "自然口语",
+      "use": "西班牙日常沟通",
+      "avoid": "某些非常正式公文场合",
+      "example": "Vale, nos vemos mañana.",
+      "topic": "general"
+    },
+    {
+      "es": "venga",
+      "zh": "好啦；那就这样／加油（依语气）",
+      "neutral": "de acuerdo / vamos",
+      "register": "自然口语",
+      "use": "熟人或轻松交流",
+      "avoid": "不确定语气时用于正式沟通",
+      "example": "Venga, hablamos luego.",
+      "topic": "general"
+    },
+    {
+      "es": "qué guay",
+      "zh": "太棒了",
+      "neutral": "qué bien / estupendo",
+      "register": "俚语／非正式",
+      "use": "朋友、同学",
+      "avoid": "正式申诉和公务邮件",
+      "example": "¡Qué guay que hayas aprobado!",
+      "topic": "school"
+    },
+    {
+      "es": "ni idea",
+      "zh": "完全不知道",
+      "neutral": "no lo sé",
+      "register": "非正式",
+      "use": "熟人闲聊",
+      "avoid": "严肃服务沟通中容易显得随意",
+      "example": "Ni idea de cuándo es la prueba.",
+      "topic": "school"
+    },
+    {
+      "es": "estar liado/a",
+      "zh": "忙得脱不开身",
+      "neutral": "estar ocupado/a",
+      "register": "自然口语",
+      "use": "熟人谈工作和安排",
+      "avoid": "需要明确时间与责任时",
+      "example": "Hoy estoy liadísima.",
+      "topic": "general"
+    },
+    {
+      "es": "dar un toque",
+      "zh": "打个电话／联系一下",
+      "neutral": "llamar / avisar",
+      "register": "非正式",
+      "use": "朋友间协调",
+      "avoid": "正式医疗通知要求",
+      "example": "Te doy un toque luego.",
+      "topic": "general"
+    },
+    {
+      "es": "currar",
+      "zh": "工作；干活",
+      "neutral": "trabajar",
+      "register": "俚语",
+      "use": "同事／朋友聊天",
+      "avoid": "求职信、简历、正式面试",
+      "example": "Mañana me toca currar.",
+      "topic": "general"
+    },
+    {
+      "es": "el curro",
+      "zh": "工作",
+      "neutral": "el trabajo",
+      "register": "俚语",
+      "use": "朋友谈工作",
+      "avoid": "正式工作申请",
+      "example": "Salgo tarde del curro.",
+      "topic": "general"
+    },
+    {
+      "es": "pillar un catarro",
+      "zh": "得了感冒",
+      "neutral": "resfriarse",
+      "register": "口语习语",
+      "use": "亲友谈身体不适",
+      "avoid": "正式病历要具体描述症状",
+      "example": "He pillado un catarro.",
+      "topic": "health"
+    },
+    {
+      "es": "estar hecho/a polvo",
+      "zh": "筋疲力尽／难受得不行",
+      "neutral": "estar agotado/a / encontrarse mal",
+      "register": "俚语／习语",
+      "use": "朋友间表达状态",
+      "avoid": "代替临床症状陈述",
+      "example": "Hoy estoy hecho polvo.",
+      "topic": "health"
+    },
+    {
+      "es": "no me suena",
+      "zh": "我没印象；听着不熟",
+      "neutral": "no lo reconozco",
+      "register": "自然口语",
+      "use": "熟人或口头咨询",
+      "avoid": "正式银行争议材料应说 no reconozco",
+      "example": "Ese cargo no me suena.",
+      "topic": "bank"
+    },
+    {
+      "es": "qué palo",
+      "zh": "真扫兴／真麻烦",
+      "neutral": "qué fastidio",
+      "register": "俚语",
+      "use": "熟人抱怨琐事",
+      "avoid": "正式服务投诉",
+      "example": "Tener que volver mañana, ¡qué palo!",
+      "topic": "general"
+    },
+    {
+      "es": "estar a tope",
+      "zh": "忙得满满当当；状态很满",
+      "neutral": "tener muchísimo trabajo / estar lleno",
+      "register": "非正式",
+      "use": "同学、熟人聊天",
+      "avoid": "需要精确描述容量或进度时",
+      "example": "Esta semana estoy a tope.",
+      "topic": "school"
+    },
+    {
+      "es": "guiri",
+      "zh": "外国游客／看起来像游客的外国人",
+      "neutral": "turista extranjero",
+      "register": "非正式；可能冒犯",
+      "use": "理解他人使用；谨慎",
+      "avoid": "称呼陌生人或职业正式环境，可能带标签意味",
+      "example": "Esa zona está llena de turistas; algunos dirían «guiris».",
+      "topic": "general"
+    }
+  ],
+  "families": [
+    {
+      "base": "aprender",
+      "derived": "el aprendizaje",
+      "relation": "-izaje（名词化，词干变化）",
+      "zh": "学习 → 学习过程",
+      "example": "El aprendizaje requiere práctica.",
+      "group": "school"
+    },
+    {
+      "base": "educar",
+      "derived": "la educación",
+      "relation": "-ción（名词化）",
+      "zh": "教育 → 教育",
+      "example": "La educación es importante.",
+      "group": "school"
+    },
+    {
+      "base": "formar",
+      "derived": "la formación",
+      "relation": "-ción（名词化）",
+      "zh": "培养／培训 → 培训",
+      "example": "Necesito más formación.",
+      "group": "school"
+    },
+    {
+      "base": "evaluar",
+      "derived": "la evaluación",
+      "relation": "-ción（名词化）",
+      "zh": "评估 → 评价",
+      "example": "La evaluación es continua.",
+      "group": "school"
+    },
+    {
+      "base": "inscribir",
+      "derived": "la inscripción",
+      "relation": "-ción（名词化，词干变化）",
+      "zh": "登记报名 → 报名",
+      "example": "La inscripción termina el viernes.",
+      "group": "school"
+    },
+    {
+      "base": "enseñar",
+      "derived": "la enseñanza",
+      "relation": "-anza（名词化）",
+      "zh": "教授 → 教学",
+      "example": "La enseñanza de idiomas me interesa.",
+      "group": "school"
+    },
+    {
+      "base": "informar",
+      "derived": "la información",
+      "relation": "-ción（名词化）",
+      "zh": "告知 → 信息",
+      "example": "Solicito información.",
+      "group": "general"
+    },
+    {
+      "base": "responsable",
+      "derived": "la responsabilidad",
+      "relation": "-idad（名词化）",
+      "zh": "负责的 → 责任",
+      "example": "Asumir la responsabilidad.",
+      "group": "general"
+    },
+    {
+      "base": "correcto",
+      "derived": "incorrecto",
+      "relation": "in-（否定）",
+      "zh": "正确 → 不正确",
+      "example": "La respuesta es incorrecta.",
+      "group": "school"
+    },
+    {
+      "base": "hacer",
+      "derived": "rehacer",
+      "relation": "re-（重新）",
+      "zh": "做 → 重做",
+      "example": "Tengo que rehacer el ejercicio.",
+      "group": "school"
+    },
+    {
+      "base": "seguro",
+      "derived": "inseguro",
+      "relation": "in-（否定）",
+      "zh": "安全／自信 → 不安全／没把握",
+      "example": "Se siente inseguro.",
+      "group": "general"
+    },
+    {
+      "base": "rápido",
+      "derived": "rápidamente",
+      "relation": "-mente（副词）",
+      "zh": "快的 → 快速地",
+      "example": "Aprendo rápidamente.",
+      "group": "general"
+    },
+    {
+      "base": "organizar",
+      "derived": "la organización",
+      "relation": "-ción（名词化）",
+      "zh": "组织 → 组织安排",
+      "example": "La organización del curso.",
+      "group": "school"
+    },
+    {
+      "base": "reclamar",
+      "derived": "la reclamación",
+      "relation": "-ción（名词化）",
+      "zh": "投诉／索赔 → 申诉",
+      "example": "Presentar una reclamación.",
+      "group": "bank"
+    },
+    {
+      "base": "autorizar",
+      "derived": "la autorización",
+      "relation": "-ción（名词化）",
+      "zh": "授权 → 授权书／授权",
+      "example": "Necesito una autorización.",
+      "group": "school"
+    }
+  ]
+}
