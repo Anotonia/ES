@@ -41,3 +41,62 @@
 @media(max-width:1150px){.audio-status{flex-basis:100%;text-align:left}.audio-toolbar-sub{display:none}}
 @media(max-width:780px){.audio-toolbar{gap:11px;padding:12px 17px}.audio-rate-control{min-width:160px}.audio-rate-control input{width:90px}.audio-voice-control select{width:160px}.audio-status{flex-basis:100%}}
 @media(max-width:560px){.audio-toolbar-label{width:100%}.audio-rate-control{flex:1 1 155px}.audio-rate-control input{flex:1;min-width:65px}.audio-voice-control{flex:1 1 215px}.audio-voice-control select{flex:1;width:100%}.audio-buttons{flex:1;justify-content:flex-end}.audio-status{flex:1 1 100%;text-align:left}}
+
+/* Four-stage learning pathway overview */
+.pathways-section{margin:0 0 50px;padding:0 0 35px;border-bottom:1px solid var(--line)}
+.pathways-heading{margin:0 0 23px}
+.pathways-heading h2{margin:11px 0 8px;font-size:clamp(24px,2.5vw,34px);letter-spacing:-.05em}
+.pathways-heading p{margin:0;font-size:12px;color:#778b7d;line-height:1.8}
+.pathways-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
+.pathway-card{border:1px solid #e3eae2;background:#fff;border-radius:17px;padding:22px;min-width:0;display:flex;flex-direction:column}
+.pathway-card.path-school{background:#f8faf5}
+.pathway-card:hover{border-color:#b9ceb9;box-shadow:0 9px 24px rgba(44,78,51,.05)}
+.pathway-top{display:flex;justify-content:space-between;gap:9px;align-items:center}
+.pathway-index{font-size:10px;font-weight:800;letter-spacing:.1em;color:#819581}
+.pathway-progress{font-size:10px;color:#598463}
+.pathway-card h3{font-size:18px;letter-spacing:-.03em;margin:17px 0 7px}
+.pathway-subtitle{font-size:11px;font-weight:700;color:#5d8064;line-height:1.6;margin:0 0 8px}
+.pathway-desc{font-size:11px;color:#87968a;line-height:1.65;margin:0 0 18px;flex:1}
+.pathway-levels{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+.pathway-level{border-radius:10px;border:1px solid #dce9dc;background:white;display:flex;flex-direction:column;align-items:flex-start;padding:11px 8px;gap:7px;min-height:88px;position:relative;transition:background .15s,border-color .15s;min-width:0}
+.pathway-level:hover{background:#e4f0e2;border-color:#a5c3a7}
+.pathway-level strong{font-size:13px;color:#36583d}
+.pathway-level small{font-size:9px;line-height:1.45;color:#718975;overflow-wrap:anywhere}
+.pathway-level span{font-size:11px;color:#779c79;margin-top:auto;align-self:flex-end}
+.pathway-level.completed{background:#e3f1db;border-color:#b6d5b4}
+.pathway-level.unavailable{font-size:10px;color:#aaa}
+.curriculum-browse-heading{display:flex;align-items:center;gap:13px;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:12px;margin:0 0 18px}
+.curriculum-browse-heading strong{font-size:14px}
+.curriculum-browse-heading span{font-size:11px;color:#899989}
+#scene-levels{margin-left:auto}
+#scene-filter-label{font-size:11px;color:#849688}
+.scenario-card .card-bottom{align-items:flex-end}
+.scenario-card .card-bottom small{max-width:72%;line-height:1.6}
+.mission-panel{border-color:#d4e3d2;background:linear-gradient(130deg,#fff 0%,#fbfdf9 100%)}
+.mission-goal{padding:14px 16px;background:#e9f2e4;border-left:3px solid #709977;border-radius:10px;margin-bottom:19px;display:grid;gap:5px}
+.mission-goal span{font-size:10px;color:#759078;font-weight:750}
+.mission-goal strong{font-size:13px;color:#3a5d43;line-height:1.8}
+.mission-progress{display:grid;gap:9px;margin:0 0 19px;color:#6e8572;font-size:11px}
+.mission-meter{height:6px;border-radius:99px;background:#e5efe1;overflow:hidden}
+.mission-meter>div{height:100%;background:#74a379;border-radius:99px;transition:width .2s}
+.mission-turn{padding:21px 18px;border:1px solid #e1ebe0;background:white;border-radius:14px;margin-bottom:14px}
+.mission-step{font-size:10px;letter-spacing:.11em;color:#6f936f;font-weight:850}
+.mission-situation{font-size:12px;color:#708576;line-height:1.75;margin:12px 0}
+.mission-turn h4{font-size:14px;font-weight:800;margin:10px 0 14px;color:#2e5036}
+.mission-choices{display:grid;gap:9px}
+.mission-choice{border-radius:10px;border:1px solid #dfe7dc;background:#f8faf7;color:#3e5c44;font-weight:650;font-size:12px;text-align:left;line-height:1.75;padding:12px 14px}
+.mission-choice:hover{background:#eef5e9;border-color:#bdd3b9}
+.mission-choice.chosen-right{border-color:#8bae90;background:#e3f2df}
+.mission-choice.chosen-wrong{border-color:#d7aa91;background:#fff5ed}
+.mission-feedback{margin-top:12px;background:#ecf6e9;color:#436c49;border-radius:11px;padding:13px;font-size:12px;line-height:1.8}
+.mission-feedback.warning{background:#fff4e9;color:#986b51}
+.mission-feedback strong{font-size:12px}
+.mission-feedback p{margin:6px 0 0}
+.mission-locked{padding:16px;text-align:center;border:1px dashed #d8e1d7;border-radius:12px;color:#93a197;font-size:11px;margin:13px 0}
+.mission-transfer{background:#e7f0e1;border-radius:14px;padding:20px;margin:20px 0 5px}
+.mission-transfer h4{font-size:17px;margin:11px 0}
+.mission-transfer p{font-size:12px;color:#536f5b;line-height:1.8}
+@media(max-width:1180px){.pathways-grid{grid-template-columns:1fr}}
+@media(max-width:780px){.pathways-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.pathway-levels{grid-template-columns:repeat(2,minmax(0,1fr))}#scene-levels{margin-left:0}}
+@media(max-width:620px){.pathways-grid{grid-template-columns:1fr}.pathway-levels{grid-template-columns:repeat(4,minmax(0,1fr))}.mission-turn{padding:16px}.pathway-card{padding:17px}}
+@media(max-width:380px){.pathway-levels{grid-template-columns:repeat(2,minmax(0,1fr))}}
