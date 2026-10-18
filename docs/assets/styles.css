@@ -100,3 +100,11 @@
 @media(max-width:780px){.pathways-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.pathway-levels{grid-template-columns:repeat(2,minmax(0,1fr))}#scene-levels{margin-left:0}}
 @media(max-width:620px){.pathways-grid{grid-template-columns:1fr}.pathway-levels{grid-template-columns:repeat(4,minmax(0,1fr))}.mission-turn{padding:16px}.pathway-card{padding:17px}}
 @media(max-width:380px){.pathway-levels{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Written vocabulary counts are separate from frequency-candidate targets. */
+.vocab-progress-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:11px;margin:15px 0 13px}
+.vocab-progress-card{border:1px solid #dfe9dc;background:#f7faf5;border-radius:13px;padding:16px;display:flex;flex-direction:column;gap:7px;min-width:0}
+.vocab-progress-card span{font-size:11px;letter-spacing:.05em;color:#718675;font-weight:700}
+.vocab-progress-card strong{font-size:26px;line-height:1.2;color:#2f533a;font-weight:800;font-variant-numeric:tabular-nums}
+.vocab-progress-card small{font-size:10px;line-height:1.6;color:#839285}
+@media(max-width:900px){.vocab-progress-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
