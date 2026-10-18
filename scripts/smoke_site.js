@@ -13,25 +13,32 @@ function getNode(id){
     elements[id]={
       id,innerHTML:"",textContent:"",value:"",hidden:false,
       classList:{add(){},remove(){},toggle(){},contains(){return false;}},
-      style:{}, dataset:{}, setAttribute(){},removeAttribute(){},
-      addEventListener(){},scrollIntoView(){},focus(){},setSelectionRange(){}
+      style:{}, dataset:{}, listeners:{}, setAttribute(){},removeAttribute(){},
+      addEventListener(type,handler){(this.listeners[type]||=[]).push(handler);},
+      scrollIntoView(){},focus(){},setSelectionRange(){}
     };
   }
   return elements[id];
 }
 const callbacks={};
+const fire=(key,event)=>(callbacks[key]||[]).forEach(handler=>handler(event));
+const spoken=[];
+let paused=0,resumed=0;
 const document={
   getElementById:getNode,
   querySelectorAll(){return [];},
   querySelector(){return getNode("sidebar");},
-  addEventListener(name,handler){callbacks["doc:"+name]=handler;},
+  addEventListener(name,handler){(callbacks["doc:"+name]||=[]).push(handler);},
   createElement(){return getNode("generated");},
   body:{appendChild(){}}
 };
 const window={
-  addEventListener(name,handler){callbacks["window:"+name]=handler;},
+  addEventListener(name,handler){(callbacks["window:"+name]||=[]).push(handler);},
   scrollTo(){},setTimeout(){return 1},clearTimeout(){},
-  speechSynthesis:{cancel(){},speak(){}}
+  speechSynthesis:{cancel(){},speak(u){spoken.push(u);},pause(){paused++;},resume(){resumed++;},getVoices(){return [
+    {voiceURI:"es-MX-A",name:"Voz mexicana",lang:"es-MX",localService:true},
+    {voiceURI:"es-ES-A",name:"Voz española",lang:"es-ES",localService:true}
+  ];},addEventListener(){}}
 };
 let currentHash="#/scenarios";
 const location={get hash(){return currentHash;},set hash(v){currentHash=v}};
@@ -40,7 +47,7 @@ global.window=window;
 global.location=location;
 global.localStorage={getItem(){return null},setItem(){}};
 Object.defineProperty(global,"navigator",{value:{clipboard:{writeText:async()=>{}}},configurable:true});
-global.SpeechSynthesisUtterance=function(){};
+global.SpeechSynthesisUtterance=function(text){this.text=text;};
 global.fetch=async url=>{
   if(url==="assets/content.json"){
     return {ok:true,json:async()=>lesson};
@@ -52,6 +59,8 @@ global.fetch=async url=>{
 };
 (async()=>{
   const source=fs.readFileSync(path.join(root,"docs/assets/app.js"),"utf8");
+  const audio=fs.readFileSync(path.join(root,"docs/assets/audio.js"),"utf8");
+  vm.runInThisContext(audio,{filename:"docs/assets/audio.js"});
   vm.runInThisContext(source,{filename:"docs/assets/app.js"});
   await new Promise(resolve=>setImmediate(resolve));
   await new Promise(resolve=>setImmediate(resolve));
@@ -65,10 +74,37 @@ global.fetch=async url=>{
   ];
   for(const [route,target,needle,label] of routes){
     location.hash=route;
-    callbacks["window:hashchange"]();
+    fire("window:hashchange");
     const html=getNode(target).innerHTML;
     if(!html.includes(needle))throw Error("Failed "+label+" route: "+route);
     process.stdout.write("OK "+label+" ("+html.length+" chars)\n");
   }
   console.log("All client views generated successfully.");
+  if(getNode("speech-rate").value!=="0.70")throw Error("Default speech rate is not 0.70");
+  if(!getNode("speech-voice").innerHTML.includes("es-ES"))throw Error("Spanish voice chooser not populated");
+  window.ESAudio.speak("Buenos días");
+  let spokenFirst=spoken.at(-1);
+  if(spokenFirst.rate!==0.70||spokenFirst.voice.lang!=="es-ES")throw Error("Wrong default rate or regional voice");
+  if(spokenFirst.text!=="Buenos días")throw Error("Wrong spoken text");
+  const slider=getNode("speech-rate");slider.value="0.60";
+  for(const handler of slider.listeners.input||[])handler({target:slider});
+  window.ESAudio.speak("Hola");
+  if(spoken.at(-1).rate!==0.60)throw Error("Speed slider did not update spoken rate");
+  location.hash="#/detail/school-admission";
+  fire("window:hashchange");
+  const button=(action,value="")=>({dataset:{action,value},closest(){return this;}});
+  fire("doc:click",{target:button("speech-dialogue","school-admission")});
+  const first=spoken.at(-1);
+  if(!first.text.includes("Buenos días.")||first.rate!==0.60)throw Error("Dialogue did not begin at slider rate");
+  first.onend();
+  if(!spoken.at(-1).text.includes("¿Para qué curso"))throw Error("Dialogue sentence sequencing failed");
+  fire("doc:click",{target:button("speech-pause")});
+  fire("doc:click",{target:button("speech-pause")});
+  if(paused!==1||resumed!==1)throw Error("Dialogue pause/resume failed");
+  fire("doc:click",{target:button("speech-follow")});
+  if(spoken.at(-1).rate>0.60)throw Error("Slow follow-along rate exceeds 0.60");
+  fire("doc:click",{target:button("speech-repeat")});
+  if(!spoken.at(-1).text.includes("Buenos días."))throw Error("Repeat did not restart dialogue");
+  fire("doc:click",{target:button("speech-stop")});
+  console.log("Audio smoke checks OK: default speed, es-ES choice, slider, dialogue, pause, repeat, stop.");
 })().catch(e=>{console.error(e);process.exitCode=1});
