@@ -56,10 +56,10 @@
 
 | 等级 | 教学词表 | 频率候选池（待人工审校） |
 |---|---|---|
-| A1 · [学校日常新词](levels/A1/03-学校日常基础词汇.md) | [原有 60 条](levels/A1/00-基础核心词汇.md) · [咖啡馆 24 条](levels/A1/01-咖啡馆点单.md) · [基础功能词 149 条](levels/A1/02-高频功能词与表达.md) · [最新新增素材 117 条（净增 115）](data/expansions/2026-10-A1-school-daily.csv) | [1,000 候选词元](data/candidates/candidate-A1.csv) |
-| A2 · [学校服务新词](levels/A2/01-学校服务与生活词汇.md) | [原有 60 条](levels/A2/00-基础核心词汇.md) · [新增素材 80 条](data/expansions/2026-10-A2-school-services.csv) | [1,500 候选词元](data/candidates/candidate-A2.csv) |
-| B1 · [问题处理新词](levels/B1/01-学校沟通与问题处理.md) | [原有 60 条](levels/B1/00-基础核心词汇.md) · [新增素材 92 条](data/expansions/2026-10-B1-school-problems.csv) | [3,000 候选词元](data/candidates/candidate-B1.csv) |
-| B2 · [论证正式表达](levels/B2/01-正式交流与论证词汇.md) | [原有 60 条](levels/B2/00-基础核心词汇.md) · [新增素材 90 条](data/expansions/2026-10-B2-argument-institutions.csv) | [2,500 候选词元](data/candidates/candidate-B2.csv) |
+| A1 | [原有 60 条](levels/A1/00-基础核心词汇.md) · [咖啡馆 24 条](levels/A1/01-咖啡馆点单.md) · [基础功能词 149 条](levels/A1/02-高频功能词与表达.md) · [最新新增素材 117 条（净增 115）](data/expansions/2026-10-A1-school-daily.csv) · [学校日常新词](levels/A1/03-学校日常基础词汇.md) | [1,000 候选词元](data/candidates/candidate-A1.csv) |
+| A2 | [原有 60 条](levels/A2/00-基础核心词汇.md) · [新增素材 80 条](data/expansions/2026-10-A2-school-services.csv) · [学校服务新词](levels/A2/01-学校服务与生活词汇.md) | [1,500 候选词元](data/candidates/candidate-A2.csv) |
+| B1 | [原有 60 条](levels/B1/00-基础核心词汇.md) · [新增素材 92 条](data/expansions/2026-10-B1-school-problems.csv) · [问题处理新词](levels/B1/01-学校沟通与问题处理.md) | [3,000 候选词元](data/candidates/candidate-B1.csv) |
+| B2 | [原有 60 条](levels/B2/00-基础核心词汇.md) · [新增素材 90 条](data/expansions/2026-10-B2-argument-institutions.csv) · [论证正式表达](levels/B2/01-正式交流与论证词汇.md) | [2,500 候选词元](data/candidates/candidate-B2.csv) |
 
 另从既有双语场景中提取 [39 条真实出现的表达](data/expansions/2026-10-scene-attested.csv)，经去重后净增 38 条；全部整合进 [vocabulary_master.csv](data/vocabulary_master.csv)。本轮 379 条新写素材和 39 条场景素材中有 4 条与原主库重复，故净新增为 414 条。
 
