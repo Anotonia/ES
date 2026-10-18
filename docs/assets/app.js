@@ -275,6 +275,7 @@
       const rows = parseCSV(await result.text());
       if (!rows.length) throw new Error("词库为空");
       state.vocab = rows;
+      if (el("curated-count")) el("curated-count").textContent = rows.length.toLocaleString("en-US");
       el("sync-label").textContent = "正式词库 · " + rows.length + " 条";
     } catch (error) { state.vocabError = "暂时无法加载 GitHub 主词库（" + error.message + "）。仍可学习当前页面的场景词汇。"; }
     if (location.hash.startsWith("#/vocabulary")) renderVocabulary();
@@ -290,11 +291,20 @@
       normalize([row.spanish,row.meaning_zh,row.unit,row.example_es].join(" ")).includes(normalize(state.vocabSearch))
     );
     const rows = filtered.slice(0,state.vocabLimit);
+    const bandTargets={A1:1000,A2:1500,B1:3000,B2:2500};
+    const levelStats=state.vocab ? '<div class="vocab-progress-grid">' +
+      Object.keys(bandTargets).map(level=>{
+        const count=data.filter(row=>row.level===level).length;
+        return '<div class="vocab-progress-card"><span>'+esc(level)+' · 本阶段</span><strong>'+
+          count+'</strong><small>已编写词汇记录 · 候选词元 '+bandTargets[level].toLocaleString("en-US")+'</small></div>';
+      }).join("")+
+      '</div><p class="small-note" style="margin-bottom:22px">说明：已编写记录包含词组，候选目标按词元统计；两者单位不同，不能直接作为 CEFR 掌握率或官方分级进度。</p>':"";
     view.innerHTML = sectionTitle("VOCABULARY DATABASE", "分级核心词库", "直接检索 GitHub 主词库的正式词条；8,000 个频率候选词元尚待审核，不算作已编写的学习词。") +
       '<div class="accent-block"><strong>' + (state.vocab ? data.length + ' 条已编写记录' : '当前离线场景词汇 ' + localCount + ' 条') +
       '</strong>　·　A1–B2 分级筛选 · 中文检索 · 西语例句。' +
       (state.vocabError ? '<br>' + esc(state.vocabError) : "") +
       '<br><a href="https://github.com/Anotonia/ES/blob/main/data/vocabulary_master.csv" target="_blank" rel="noopener noreferrer">查看 GitHub 完整 CSV ↗</a></div>' +
+      levelStats +
       '<div class="toolbar"><input type="search" id="vocab-search" aria-label="搜索西语、中文或例句" placeholder="输入西语 / 中文释义 / 场景…" value="' +
       esc(state.vocabSearch) + '"><select id="vocab-level" aria-label="筛选 CEFR 等级">' +
       ['all','A1','A2','B1','B2'].map(v => '<option value="' + v + '" ' +
