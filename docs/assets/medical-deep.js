@@ -4,7 +4,7 @@
   const FILES = ["assets/medical-cases-a.json","assets/medical-cases-b.json"];
   const STORAGE_KEY = "eslab-medical-journeys-v1";
   let cases=null,loading=null,active=null,renderSerial=0;
-  const ui={hideZh:false,roleMode:false,draft:"",showModel:false};
+  const ui={hideZh:false,roleMode:false,roleStep:0,draft:"",showModel:false};
   let results={};
   try {
     const raw=JSON.parse(localStorage.getItem(STORAGE_KEY)||"{}");
@@ -78,24 +78,32 @@
       }).join("")+'</div>'+
       '<p class="med-note">这里的学习完成数来自你的自评与选择题结果，不是语音识别评分，也不是 CEFR 认证。开放式西语作文只提供参考与要点。</p>';
   }
+  function isLearner(speaker) {return /患者|家长|顾客|来电者/.test(speaker);}
+  function askLines(chapter) {return chapter.dialogue.filter(line=>!isLearner(line.speaker));}
   function transcript(item,chapter){
     return '<section class="med-panel"><div class="med-panel-title"><div><span class="overline">01 · DEEP LISTENING</span>'+
       '<h2>连贯对话 · '+chapter.dialogue.length+' 轮</h2></div>'+
-      '<div class="med-toolbar"><button type="button" data-med-play="normal">▶ 连续播放</button>'+
+      '<div class="med-toolbar"><button type="button" data-med-play="normal">▶ '+(ui.roleMode?"连续听医护提问":"连续播放")+'</button>'+
       '<button type="button" data-med-play="slow">▷ 慢速跟读</button></div></div>'+
       '<div class="med-toolbar med-options"><button type="button" data-med-setting="zh" aria-pressed="'+ui.hideZh+'">'+
       (ui.hideZh?"显示中文":"遮住中文")+'</button>'+
       '<button type="button" data-med-setting="role" aria-pressed="'+ui.roleMode+'">'+
       (ui.roleMode?"退出角色代入":"角色代入：遮住自己的西语")+'</button></div>'+
       '<p class="med-hint">你可以跟着工作人员的提问扮演患者／家长；逐句点击「听」可以重播。语速由网页顶部控制。</p>'+
+      (ui.roleMode?'<div class="med-role-controls"><strong>模拟问诊 · '+Math.min(ui.roleStep,askLines(chapter).length)+' / '+askLines(chapter).length+' 道已播放</strong>'+
+        '<div class="med-toolbar"><button type="button" data-med-role="next">▶ 听下一道医护提问</button>'+
+        '<button type="button" data-med-role="replay">↻ 重听上一问</button>'+
+        '<button type="button" data-med-role="reset">从第一问重新开始</button></div>'+
+        '<p>听完后暂停，自己用西语回应，再点击下一问。回答不会被自动录音或评分。</p></div>':'')+
       '<div class="med-transcript">'+chapter.dialogue.map((turn,index)=>{
-        const learner=/患者|家长|顾客|来电者/.test(turn.speaker);
+        const learner=isLearner(turn.speaker);
         const blank=ui.roleMode&&learner;
         return '<div class="med-turn"><span class="med-speaker">'+esc(turn.speaker)+'</span>'+
           '<div class="med-turn-body"><div class="med-es">'+
           (blank?'<span class="med-placeholder">轮到你说：请先尝试独立表达</span>':esc(turn.es))+
           '</div><div class="med-zh" '+(ui.hideZh?'hidden':'')+'>'+esc(turn.zh)+'</div></div>'+
-          '<button type="button" class="med-listen" data-med-say="'+index+'" aria-label="听第'+(index+1)+'句">▶ 听</button></div>';
+          (blank?'<span class="med-cue">请你开口</span>':
+          '<button type="button" class="med-listen" data-med-say="'+index+'" aria-label="听第'+(index+1)+'句">▶ 听</button>')+'</div>';
       }).join("")+'</div>'+
       (ui.roleMode?'<p class="med-note">若想核对自己的句子，请退出角色代入模式。角色代入隐藏患者/家长一方的西语，不会自动判断你的发音。</p>':'')+
       '</section>';
@@ -182,7 +190,7 @@
     const caseId=parts[0]||null;
     const index=Math.max(0,Number.parseInt(parts[1]||"0",10)||0);
     active=caseId?{caseId,index}:null;
-    ui.hideZh=false;ui.roleMode=false;ui.draft="";ui.showModel=false;
+    ui.hideZh=false;ui.roleMode=false;ui.roleStep=0;ui.draft="";ui.showModel=false;
     print();
     try {
       await load();
@@ -202,13 +210,14 @@
     if(event.target?.id==="med-draft")ui.draft=String(event.target.value||"");
   });
   document.addEventListener("click",event=>{
-    const button=event.target?.closest?.("[data-med-play],[data-med-say],[data-med-setting],[data-med-choice],[data-med-reveal],[data-med-self]");
+    const button=event.target?.closest?.("[data-med-play],[data-med-say],[data-med-role],[data-med-setting],[data-med-choice],[data-med-reveal],[data-med-self]");
     if(!button)return;
     const current=findCurrent();if(!current)return;
     const {item,chapter}=current;
     if(button.dataset.medPlay){
       if(window.ESAudio){
-        window.ESAudio.setDialogue(chapter.dialogue.map(x=>x.es),chapter.title);
+        const audioLines=ui.roleMode?askLines(chapter):chapter.dialogue;
+        window.ESAudio.setDialogue(audioLines.map(x=>x.es),chapter.title);
         window.ESAudio.playDialogue(button.dataset.medPlay==="slow");
       }return;
     }
@@ -217,9 +226,18 @@
       if(line && window.ESAudio)window.ESAudio.speak(line.es);
       return;
     }
+    if(button.dataset.medRole){
+      const lines=askLines(chapter);
+      const action=button.dataset.medRole;
+      if(action==="reset"){ui.roleStep=0;print();return;}
+      const at=action==="replay"?Math.max(0,ui.roleStep-1):ui.roleStep;
+      if(at<lines.length && window.ESAudio)window.ESAudio.speak(lines[at].es);
+      if(action==="next")ui.roleStep=Math.min(lines.length,ui.roleStep+1);
+      print();return;
+    }
     if(button.dataset.medSetting){
       if(button.dataset.medSetting==="zh")ui.hideZh=!ui.hideZh;
-      if(button.dataset.medSetting==="role")ui.roleMode=!ui.roleMode;
+      if(button.dataset.medSetting==="role"){ui.roleMode=!ui.roleMode;ui.roleStep=0;}
       print();return;
     }
     if(button.dataset.medChoice){
