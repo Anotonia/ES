@@ -170,6 +170,7 @@
     return {passed, total: keys.length, ratio: keys.length ? Math.round(100*passed/keys.length) : 0};
   }
   function renderDetail(s) {
+    if (window.ESAudio) window.ESAudio.setDialogue(s.dialogue.map(line=>line.es),s.title);
     const p = percent(s);
     const intro = '<div class="page-heading"><div><button class="back-btn" data-action="back" type="button">← 返回场景列表</button>' +
       '<span class="overline">' + esc(domainLabel(s.domain)) + ' · ' + esc(s.level) +
