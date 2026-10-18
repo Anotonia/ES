@@ -7,8 +7,8 @@
   <meta name="description" content="西班牙生活西语学习：A1–B2 词库、学校重点场景、自然口语、词族思维图及主动复习。">
   <title>ES · 西班牙生活西语实验室</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/styles.css?v=4">
-  <script src="assets/app.js?v=4" defer></script>
+  <link rel="stylesheet" href="assets/styles.css?v=5">
+  <script src="assets/app.js?v=5" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">跳到主要内容</a>
@@ -37,6 +37,19 @@
         <div class="topbar-breadcrumb">Spanish Living Lab <span>/</span> <strong id="page-crumb">生活场景</strong></div>
         <div class="topbar-right"><span class="live-dot"></span><span id="sync-label">场景教学资料已就绪</span><span class="topbar-sep"></span><span class="small-date">ESP · PRACTICE</span></div>
       </header>
+      <section class="audio-toolbar" id="audio-toolbar" aria-label="西班牙语朗读设置">
+        <div class="audio-toolbar-label"><span class="audio-toolbar-mark" aria-hidden="true">♫</span><span>语音练习</span><span class="audio-toolbar-sub">Español · España</span></div>
+        <div class="audio-rate-control">
+          <label for="speech-rate">语速 <strong id="speech-rate-value">0.70×</strong></label>
+          <input id="speech-rate" type="range" min="0.55" max="1.20" step="0.05" value="0.70" aria-label="西班牙语朗读速度" aria-valuetext="0.70 倍速">
+        </div>
+        <div class="audio-voice-control"><label for="speech-voice">朗读声音</label>
+          <select id="speech-voice" aria-label="朗读声音"><option value="auto">优先西班牙口音 · 自动</option></select>
+        </div>
+        <div class="audio-buttons"><button id="speech-repeat" type="button" class="audio-small-button" data-action="speech-repeat" title="重听上一次朗读">↻ 重听</button>
+          <button id="speech-stop" type="button" class="audio-small-button audio-stop" data-action="speech-stop" title="停止朗读">■ 停止</button></div>
+        <span id="speech-status" class="audio-status" role="status" aria-live="polite">点击西语旁的播放按钮即可朗读</span>
+      </section>
       <main id="main" class="main" tabindex="-1">
         <section id="view-scenarios" class="view is-visible" aria-labelledby="hero-title">
           <div class="hero">
