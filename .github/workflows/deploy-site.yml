@@ -7,6 +7,7 @@ on:
       - "docs/index.html"
       - "docs/assets/**"
       - "scripts/validate_site.py"
+      - "scripts/smoke_site.js"
       - ".github/workflows/deploy-site.yml"
   workflow_dispatch:
 
@@ -32,6 +33,8 @@ jobs:
         run: python3 scripts/validate_site.py
       - name: Validate client JavaScript syntax
         run: node --check docs/assets/app.js
+      - name: Smoke-test rendered learning pages
+        run: node scripts/smoke_site.js
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload website files
