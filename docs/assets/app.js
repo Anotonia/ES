@@ -4,6 +4,7 @@
   const DATA_URL = "assets/content.json";
   const VOCAB_URL = "https://raw.githubusercontent.com/Anotonia/ES/main/data/vocabulary_master.csv";
   const STORAGE_KEY = "eslab-review-v1";
+  const CUSTOM_KEY = "eslab-mindmap-v1";
   const DAYS = [1, 3, 7, 14, 30, 60];
   const viewNames = {
     scenarios: "生活场景",
@@ -18,7 +19,7 @@
     domain: "all", scenarioSearch: "", level: "all", vocabSearch: "", vocabLimit: 60,
     slangTopic: "all", slangSearch: "", mapDomain: "school",
     hideTranslations: false, reviewRevealed: false, reviewOffset: 0,
-    progress: loadProgress()
+    progress: loadProgress(), customMap: loadCustomMap()
   };
 
   function el(id) { return document.getElementById(id); }
@@ -45,6 +46,39 @@
       return value && typeof value === "object" && !Array.isArray(value) ? value : {};
     } catch (error) { return {}; }
   }
+  function loadCustomMap() {
+    try {
+      const obj=JSON.parse(localStorage.getItem(CUSTOM_KEY)||"[]");
+      return Array.isArray(obj)?obj.filter(x=>x&&typeof x.es==="string"&&typeof x.zh==="string"&&typeof x.domain==="string").slice(0,80):[];
+    } catch (_) {return [];}
+  }
+  function saveCustomMap() {
+    try {localStorage.setItem(CUSTOM_KEY,JSON.stringify(state.customMap));}
+    catch (_) {toast("浏览器无法保存自建导图。");}
+  }
+  function exportMermaid(domain) {
+    const clean=x=>String(x).replace(/["\\\r\n]/g,"");
+    const lines=["flowchart LR",'  ROOT["'+clean(domainLabel(domain))+'"]'];
+    state.data.scenarios.filter(s=>s.domain===domain).forEach((sc,i)=>{
+      lines.push('  ROOT --> S'+i+'["'+clean(sc.title)+'"]');
+      sc.vocab.slice(0,3).forEach((v,j)=>{
+        lines.push('  S'+i+' --> W'+i+'_'+j+'["'+clean(v.es+" · "+v.zh)+'"]');
+      });
+    });
+    state.customMap.filter(x=>x.domain===domain).forEach((x,i)=>{
+      lines.push('  ROOT --> C'+i+'["'+clean(x.es+" · "+x.zh)+'"]');
+    });
+    return String.fromCharCode(96).repeat(3)+"mermaid\n"+lines.join("\n")+"\n"+String.fromCharCode(96).repeat(3);
+  }
+  async function copyMermaid(domain) {
+    const value=exportMermaid(domain);
+    try {
+      if(!navigator.clipboard?.writeText)throw Error("no clipboard");
+      await navigator.clipboard.writeText(value);
+      toast("Mermaid 导图已复制，可粘贴进 GitHub Markdown。");
+    } catch (_) {toast("复制需要 HTTPS 页面及浏览器剪贴板权限。");}
+  }
+
   function saveProgress() {
     try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state.progress)); }
     catch (error) { toast("浏览器拒绝保存本地记录；练习仍可继续。"); }
@@ -275,6 +309,9 @@
   function renderMaps() {
     const domain = state.data.domains.find(d => d.id === state.mapDomain) || state.data.domains[0];
     const sc = state.data.scenarios.filter(s=>s.domain === domain.id);
+    const personal=state.customMap.filter(x=>x.domain===domain.id);
+    const personalBranches=personal.map(x=>
+      '<div class="mind-row"><span class="mind-arrow">⟶</span><div class="mind-node">我的关联<small>PERSONAL</small></div><span class="mind-arrow">⟶</span><div class="mind-leaves"><div class="mind-leaf">'+esc(x.es)+' · '+esc(x.zh)+'</div></div></div>').join("");
     const branches = sc.map(s =>
       '<div class="mind-row"><span class="mind-arrow">⟶</span><div class="mind-node">' + esc(s.title) +
       '<small>' + esc(s.subtitle) + '</small></div><span class="mind-arrow">⟶</span>' +
@@ -284,13 +321,18 @@
       '</div></div>').join("");
     const family = state.data.families.filter(f=>state.mapDomain === "school" ? f.group === "school" :
       f.group === state.mapDomain || f.group === "general");
+    const builderHTML='<div class="panel map-builder"><div class="panel-head"><h3 class="panel-title">自建词汇关系节点</h3><span class="panel-caption">LOCAL / EDITABLE</span></div>'+
+      '<p class="panel-intro">把新学到的词加入当前主题。仅保存在当前浏览器；可复制 Mermaid 后提交 GitHub。</p>'+
+      '<div class="toolbar"><input id="map-custom-es" maxlength="55" placeholder="西班牙语表达" aria-label="自建西语词"><input id="map-custom-zh" maxlength="55" placeholder="中文释义／关联" aria-label="自建中文释义"><button type="button" class="secondary-btn" data-action="map-add">+ 添加节点</button><button type="button" class="outline-btn" data-action="map-copy">复制 Mermaid ↗</button></div>'+
+      (personal.length?'<div class="custom-node-list">'+personal.map((x,i)=>'<span class="custom-node">'+esc(x.es)+' · '+esc(x.zh)+' <button type="button" aria-label="移除自建节点" data-action="map-remove" data-value="'+i+'">×</button></span>').join("")+'</div>':'<p class="small-note">这个分类尚无自建节点。</p>')+
+      '</div>';
     el("view-maps").innerHTML = sectionTitle("SEMANTIC NETWORKS / WORD FAMILIES", "不是词表，是有联系的语言。", "点击右侧词汇进入对应生活场景；词族关系帮助扩词，但构词并不是任意套用的公式。") +
       '<div class="map-layout"><div class="map-sidebar">' + state.data.domains.map(d =>
       '<button type="button" class="' + (d.id === domain.id ? "active" : "") +
       '" data-action="map-domain" data-value="' + esc(d.id) + '">' + esc(d.name) + '</button>').join("") +
       '</div><div><div class="map-canvas"><div class="mind-root"><div class="mind-center">' + esc(domain.name) +
       '<small>' + esc(domain.es) + '</small></div><div class="mind-branches">' +
-      branches + '</div></div></div><p class="legend">思维导图用于归纳与联想；记忆训练请关掉图后，回忆每条分支并自己造句。点击词汇可以打开相关场景。</p></div></div>' +
+      branches + personalBranches + '</div></div></div><p class="legend">思维导图用于归纳与联想；记忆训练请关掉图后，回忆每条分支并自己造句。点击词汇可以打开相关场景。</p></div></div>' +
       '<div class="section-title-block" style="margin-top:40px"><div><span class="overline">MORPHOLOGY CONNECTIONS</span>' +
       '<h2>真实的词根词缀与词族<span class="heading-dash">.</span></h2><p>从一个词扩展到一组相关词，和实际使用的句子绑定记忆。</p></div></div>' +
       '<div class="family-grid">' + family.map(f =>
@@ -298,7 +340,7 @@
       ' ↓</div><div class="derived">' + esc(f.derived) + ' ' + buttonSpeech(f.derived) +
       '</div><div class="relation">' + esc(f.relation) + '</div><small>' + esc(f.zh) +
       '</small><small><em>' + esc(f.example) + '</em></small></article>').join("") +
-      '</div><div class="footnote-callout">更多 Mermaid 可编辑脑图已提交到 <a href="https://github.com/Anotonia/ES/tree/main/mindmaps" target="_blank" rel="noopener noreferrer">GitHub / mindmaps ↗</a>。</div>';
+      '</div><div class="footnote-callout">更多 Mermaid 可编辑脑图已提交到 <a href="https://github.com/Anotonia/ES/tree/main/mindmaps" target="_blank" rel="noopener noreferrer">GitHub / mindmaps ↗</a>。</div>' + builderHTML;
   }
   function allReviewItems() {
     return state.data.scenarios.flatMap(s => s.challenges.map((q,i)=> ({
@@ -396,6 +438,19 @@
       if (action === "open-map") {state.mapDomain=value;location.hash="#/maps";}
       if (action === "slang-filter") {state.slangTopic=value;renderColloquial();}
       if (action === "map-domain") {state.mapDomain=value;renderMaps();}
+      if (action === "map-add") {
+        const es=String(el("map-custom-es")?.value||"").trim();
+        const zh=String(el("map-custom-zh")?.value||"").trim();
+        if(!es||!zh){toast("请填写西语和中文说明。");return;}
+        if(es.length>55||zh.length>55||state.customMap.length>=80){toast("最多80个节点；每项不得超过55字。");return;}
+        state.customMap.push({domain:state.mapDomain,es,zh});saveCustomMap();renderMaps();toast("节点已加入脑图。");return;
+      }
+      if(action === "map-copy"){copyMermaid(state.mapDomain);return;}
+      if(action === "map-remove"){
+        const node=state.customMap.filter(x=>x.domain===state.mapDomain)[Number(value)];
+        if(node){state.customMap.splice(state.customMap.indexOf(node),1);saveCustomMap();renderMaps();}
+        return;
+      }
       if (action === "load-more") {state.vocabLimit+=60;renderVocabulary();}
       if (action === "reveal-detail") {
         const [scenario,idx]=value.split("#");
