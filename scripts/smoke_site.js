@@ -39,7 +39,7 @@ global.document=document;
 global.window=window;
 global.location=location;
 global.localStorage={getItem(){return null},setItem(){}};
-global.navigator={clipboard:{writeText:async()=>{}}};
+Object.defineProperty(global,"navigator",{value:{clipboard:{writeText:async()=>{}}},configurable:true});
 global.SpeechSynthesisUtterance=function(){};
 global.fetch=async url=>{
   if(url==="assets/content.json"){
