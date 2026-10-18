@@ -9,6 +9,7 @@
   const viewNames = {
     scenarios: "生活场景",
     detail: "场景课程",
+    medical: "医疗深度课程",
     vocabulary: "分级词库",
     colloquial: "地道口语",
     maps: "语义与词族图",
