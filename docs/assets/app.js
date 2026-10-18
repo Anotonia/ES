@@ -236,10 +236,16 @@
       '<div class="panel"><h3 class="panel-title" style="margin-bottom:10px">本课导航</h3><div class="aside-links">' +
       '<button class="lesson-link" type="button" data-action="lesson-jump" data-value="lesson-vocab">01 场景词汇 ↗</button><button class="lesson-link" type="button" data-action="lesson-jump" data-value="lesson-dialogue">02 情景对话 ↗</button>' +
       '<button class="lesson-link" type="button" data-action="lesson-jump" data-value="lesson-native">03 母语自然表达 ↗</button>' + (s.mission ? '<button class="lesson-link" type="button" data-action="lesson-jump" data-value="lesson-mission">04 情境分支 ↗</button>' : '') + '<button class="lesson-link" type="button" data-action="lesson-jump" data-value="lesson-practice">'+(s.mission?'05':'04')+' 闭卷回忆 ↗</button></div></div>' +
-      '<div class="panel"><span class="aside-kicker">IMPORTANT</span><div class="tip-list"><p>真实办事的材料、收费、申请期限随地区、机构及年份变化；本页只教授交流表达。</p>' +
+      '<div class="panel"><span class="aside-kicker">IMPORTANT</span><div class="tip-list"><p>' + (s.domain==="health" ?
+      "医疗内容仅用于语言练习。预约渠道依所在自治区/医院而异；诊断、检查准备、具体用药与紧急处置请遵循医护人员指示。遇到紧急危险请立即求助，西班牙可拨 112。" :
+      "真实办事的材料、收费、申请期限随地区、机构及年份变化；本页只教授交流表达。") + '</p>' +
       '<p>自然口语不一定适用于正式书信或严肃场合，留意每条的语域标注。</p></div></div></aside>';
     const officialLinks = s.domain === "school" ? state.data.meta.sourceLinks.slice(0,2) :
-      s.domain === "bank" ? state.data.meta.sourceLinks.slice(2,3) : [];
+      s.domain === "bank" ? state.data.meta.sourceLinks.slice(2,3) :
+      s.domain === "health" ? (s.track==="clinic-family-emergency" ?
+        state.data.meta.sourceLinks.slice(6,7) :
+        s.track==="clinic-testing" ? state.data.meta.sourceLinks.slice(3,4).concat(state.data.meta.sourceLinks.slice(5,6)) :
+        state.data.meta.sourceLinks.slice(3,6)) : [];
     const references = officialLinks.length ? '<div class="footnote-callout"><strong>办事信息核实：</strong> ' +
       officialLinks.map(link => '<a href="' + esc(link.url) + '" target="_blank" rel="noopener noreferrer">' +
       esc(link.title) + ' ↗</a>').join('　 ·　 ') +
