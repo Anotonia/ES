@@ -42,8 +42,8 @@
   }
   function orderedChoices(decision,sceneId,decisionIndex) {
     const choices=decision.choices.map((choice,index)=>({...choice,_choiceIndex:index}));
-    if ((sceneId.length + decisionIndex) % 2 === 0) choices.reverse();
-    return choices;
+    const offset=(sceneId.length+decisionIndex)%choices.length;
+    return choices.slice(offset).concat(choices.slice(0,offset));
   }
   function renderMission(scene) {
     if (!scene.mission?.decisions?.length) return "";
