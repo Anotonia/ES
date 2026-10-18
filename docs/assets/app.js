@@ -135,6 +135,7 @@
       if (!item) { location.hash = "#/scenarios"; return; }
       showView("detail"); renderDetail(item);
     }
+    else if (view === "medical") { showView(view); if(window.ESMedicalDeep)window.ESMedicalDeep.render(parts.slice(1)); }
     else if (view === "vocabulary") { showView(view); renderVocabulary(); }
     else if (view === "colloquial") { showView(view); renderColloquial(); }
     else if (view === "maps") { showView(view); renderMaps(); }
