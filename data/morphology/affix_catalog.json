@@ -1,0 +1,734 @@
+{
+  "schema": 1,
+  "meta": {
+    "purpose": "西班牙语词根词缀规则目录，严格区分现代构词、历史词源和字母表面匹配。",
+    "authority": "RAE/ASALE Nueva gramática; educational examples require lexical verification",
+    "notes": "一组词缀不是一条可在任意单词上自由使用的公式",
+    "refs": [
+      "https://www.rae.es/gram%C3%A1tica/morfolog%C3%ADa/la-conjugaci%C3%B3n-regular-i-caracter%C3%ADsticas-generales",
+      "https://www.fundeu.es/consulta/mento-miento-sufijos-1570/"
+    ]
+  },
+  "affixes": [
+    {
+      "form": "des-",
+      "type": "prefix",
+      "meaning": "否定、取消、反向或去除",
+      "rule": "常接名词、形容词或动词词基",
+      "examples": [
+        "deshacer",
+        "desigualdad",
+        "desinformación"
+      ],
+      "caution": "词义具体化明显，并非每个动词都能加 des-。",
+      "learning_level": "A2"
+    },
+    {
+      "form": "in- / im- / i- / il- / ir-",
+      "type": "prefix",
+      "meaning": "否定",
+      "rule": "典型同化变体：im- 在 p、b、m 前，il- 在 l 前，ir- 在 r 前；i- 在部分辅音组合中",
+      "examples": [
+        "inútil",
+        "imposible",
+        "ilegal",
+        "irresponsable"
+      ],
+      "caution": "不要把 iniciar 的 in- 或 invierno 的 in- 都当否定前缀。",
+      "learning_level": "A2"
+    },
+    {
+      "form": "re-",
+      "type": "prefix",
+      "meaning": "重新、反复，也可表示加强",
+      "rule": "主要形成动词和相关派生词",
+      "examples": [
+        "rehacer",
+        "releer",
+        "reorganizar"
+      ],
+      "caution": "receta、reloj、recurso 的 re 不可仅凭字母判定为可分离前缀。",
+      "learning_level": "A2"
+    },
+    {
+      "form": "pre-",
+      "type": "prefix",
+      "meaning": "预先、在前",
+      "rule": "常表示时间或逻辑先后",
+      "examples": [
+        "preescolar",
+        "preparar",
+        "preinscripción"
+      ],
+      "caution": "preparar 虽有历史词源背景，不宜等同于任意现代自由组合 pre- + parar。",
+      "learning_level": "B1"
+    },
+    {
+      "form": "anti-",
+      "type": "prefix",
+      "meaning": "反对、抵御",
+      "rule": "常形成名词或形容词",
+      "examples": [
+        "antibiótico",
+        "antivirus",
+        "antirrobo"
+      ],
+      "caution": "词项需要逐一核查，antibiótico 不是‘反对所有生命’。",
+      "learning_level": "B1"
+    },
+    {
+      "form": "auto-",
+      "type": "prefix",
+      "meaning": "自己、自主",
+      "rule": "往往来自希腊 auto- 的构词成分",
+      "examples": [
+        "autoevaluación",
+        "autogestión",
+        "autoprotección"
+      ],
+      "caution": "autobús 不能解作‘自己 + bus’的现代透明构词规则。",
+      "learning_level": "B1"
+    },
+    {
+      "form": "co- / con-",
+      "type": "prefix",
+      "meaning": "共同、协作",
+      "rule": "构成表达共同参与的词汇",
+      "examples": [
+        "coautor",
+        "colaborar",
+        "coordinar"
+      ],
+      "caution": "comer、conocer 不应被当作 co- + 单词的透明派生。",
+      "learning_level": "B1"
+    },
+    {
+      "form": "sub-",
+      "type": "prefix",
+      "meaning": "下级、位于下方、次一级",
+      "rule": "常见于专门领域和行政词汇",
+      "examples": [
+        "subdirector",
+        "subsuelo",
+        "subgrupo"
+      ],
+      "caution": "subir 并不是 sub- + ir 的生产性派生。",
+      "learning_level": "B1"
+    },
+    {
+      "form": "super-",
+      "type": "prefix",
+      "meaning": "上级、超过、程度很高",
+      "rule": "名词形容词与动词构词",
+      "examples": [
+        "supermercado",
+        "superponer",
+        "superpoblación"
+      ],
+      "caution": "supermercado 可作记忆构词，不代表 super- 总有赞美义。",
+      "learning_level": "A2"
+    },
+    {
+      "form": "inter-",
+      "type": "prefix",
+      "meaning": "之间、相互",
+      "rule": "关系型构词",
+      "examples": [
+        "internacional",
+        "intercambio",
+        "interdisciplinar"
+      ],
+      "caution": "不能把 interesa 的 inter- 直接机械分解。",
+      "learning_level": "B1"
+    },
+    {
+      "form": "intra-",
+      "type": "prefix",
+      "meaning": "内部、之内",
+      "rule": "常见于医学及机构性用语",
+      "examples": [
+        "intramuscular",
+        "intraescolar",
+        "intravenoso"
+      ],
+      "caution": "与 inter- 对照记，不等于可自由附加所有名词。",
+      "learning_level": "B2"
+    },
+    {
+      "form": "extra-",
+      "type": "prefix",
+      "meaning": "外面、额外",
+      "rule": "空间或超出范围",
+      "examples": [
+        "extraescolar",
+        "extracurricular",
+        "extraoficial"
+      ],
+      "caution": "有时形态和语义不完全透明。",
+      "learning_level": "B1"
+    },
+    {
+      "form": "trans- / tras-",
+      "type": "prefix",
+      "meaning": "横跨、穿越、转移",
+      "rule": "存在历史变体 trans- 与 tras-",
+      "examples": [
+        "transporte",
+        "transformar",
+        "traspaso"
+      ],
+      "caution": "transporte 的现代内部结构不一定等于‘跨越 + porte’的自由拼接。",
+      "learning_level": "B1"
+    },
+    {
+      "form": "pos- / post-",
+      "type": "prefix",
+      "meaning": "之后",
+      "rule": "表示时间或事件之后",
+      "examples": [
+        "posoperatorio",
+        "postgrado",
+        "posponer"
+      ],
+      "caution": "词项的标准拼写要按正字法检查。",
+      "learning_level": "B1"
+    },
+    {
+      "form": "multi-",
+      "type": "prefix",
+      "meaning": "多",
+      "rule": "数量与多领域",
+      "examples": [
+        "multicultural",
+        "multilingüe",
+        "multinacional"
+      ],
+      "caution": "不能等于语法中的复数词尾。",
+      "learning_level": "B1"
+    },
+    {
+      "form": "mono-",
+      "type": "prefix",
+      "meaning": "单一",
+      "rule": "数量或结构",
+      "examples": [
+        "monolingüe",
+        "monocultural",
+        "monólogo"
+      ],
+      "caution": "不能把所有 mo- 开头单词判作 mono-。",
+      "learning_level": "B1"
+    },
+    {
+      "form": "micro-",
+      "type": "prefix",
+      "meaning": "微小",
+      "rule": "尺度，科技与医学常见",
+      "examples": [
+        "microorganismo",
+        "microcirugía",
+        "microcrédito"
+      ],
+      "caution": "microondas 有固定词义，不宜字面计算。",
+      "learning_level": "B1"
+    },
+    {
+      "form": "macro-",
+      "type": "prefix",
+      "meaning": "大尺度、宏观",
+      "rule": "常与 micro- 对照",
+      "examples": [
+        "macroeconomía",
+        "macromolécula",
+        "macroestructura"
+      ],
+      "caution": "应用领域需看搭配。",
+      "learning_level": "B2"
+    },
+    {
+      "form": "semi-",
+      "type": "prefix",
+      "meaning": "半、部分",
+      "rule": "不完整或部分程度",
+      "examples": [
+        "semicírculo",
+        "semipresencial",
+        "semiautomático"
+      ],
+      "caution": "比‘一半’广，也可指部分。",
+      "learning_level": "B1"
+    },
+    {
+      "form": "sobre-",
+      "type": "prefix",
+      "meaning": "在上、过度",
+      "rule": "空间或程度",
+      "examples": [
+        "sobrecarga",
+        "sobrecoste",
+        "sobreproteger"
+      ],
+      "caution": "并非所有 sobre- 起始的词都容易按现代结构拆分。",
+      "learning_level": "B1"
+    },
+    {
+      "form": "contra-",
+      "type": "prefix",
+      "meaning": "相反、反对、对抗",
+      "rule": "反向关系",
+      "examples": [
+        "contraargumento",
+        "contradecir",
+        "contrapropuesta"
+      ],
+      "caution": "反向含义取决于基础词和具体上下文。",
+      "learning_level": "B1"
+    },
+    {
+      "form": "bien- / mal-",
+      "type": "prefix",
+      "meaning": "好／坏、评价",
+      "rule": "主要形成表示好坏方式或评价的词",
+      "examples": [
+        "bienestar",
+        "malentendido",
+        "malestar"
+      ],
+      "caution": "部分形式已高度词汇化，不要过度逐词直译。",
+      "learning_level": "A2"
+    },
+    {
+      "form": "-ción / -ación / -ición",
+      "type": "derivational_suffix",
+      "meaning": "动作、过程、结果名词化",
+      "rule": "常由动词形成抽象名词，可能出现词干/拼写变化",
+      "examples": [
+        "evaluación",
+        "reparación",
+        "comunicación",
+        "participación"
+      ],
+      "caution": "不是所有 -ción 结尾都能通过删去词尾还原现代动词。",
+      "learning_level": "A2"
+    },
+    {
+      "form": "-sión",
+      "type": "derivational_suffix",
+      "meaning": "动作、结果名词化",
+      "rule": "与 -ción 不同的名词化形式，常涉及词干交替",
+      "examples": [
+        "decisión",
+        "comprensión",
+        "admisión",
+        "inversión"
+      ],
+      "caution": "不能把 -sión / -ción 随意互换。",
+      "learning_level": "B1"
+    },
+    {
+      "form": "-miento / -amiento / -imiento",
+      "type": "derivational_suffix",
+      "meaning": "动作、过程、结果",
+      "rule": "常形成动词来源的名词",
+      "examples": [
+        "seguimiento",
+        "razonamiento",
+        "mantenimiento",
+        "vencimiento"
+      ],
+      "caution": "是否使用 -miento 或其他名词化后缀，须以实际词条为准。",
+      "learning_level": "B1"
+    },
+    {
+      "form": "-dad / -idad / -edad",
+      "type": "derivational_suffix",
+      "meaning": "性质、状态、特征",
+      "rule": "通常由形容词或名词派生抽象名词",
+      "examples": [
+        "seguridad",
+        "responsabilidad",
+        "diversidad",
+        "accesibilidad"
+      ],
+      "caution": "ciudad 和 edad 不能按表面结尾一律解释为可产出的派生词。",
+      "learning_level": "B1"
+    },
+    {
+      "form": "-encia / -ancia",
+      "type": "derivational_suffix",
+      "meaning": "性质、状态、过程",
+      "rule": "常见于抽象名词",
+      "examples": [
+        "convivencia",
+        "confidencia",
+        "dependencia",
+        "competencia"
+      ],
+      "caution": "字尾重合不等于派生关系一定透明。",
+      "learning_level": "B2"
+    },
+    {
+      "form": "-anza",
+      "type": "derivational_suffix",
+      "meaning": "结果、状态、行为",
+      "rule": "名词化后缀",
+      "examples": [
+        "confianza",
+        "esperanza",
+        "enseñanza",
+        "mudanza"
+      ],
+      "caution": "词干可能变化，不能自由类推。",
+      "learning_level": "B1"
+    },
+    {
+      "form": "-dor / -dora",
+      "type": "derivational_suffix",
+      "meaning": "动作执行者、工具或性质",
+      "rule": "动词相关的施事/工具名词和形容词",
+      "examples": [
+        "trabajador",
+        "lavadora",
+        "vendedor",
+        "indicador"
+      ],
+      "caution": "高度词汇化的词如 ordenador 应按历史与词典具体解释。",
+      "learning_level": "A2"
+    },
+    {
+      "form": "-ero / -era",
+      "type": "derivational_suffix",
+      "meaning": "职业、容器、场所、关系",
+      "rule": "由名词派生名词/形容词",
+      "examples": [
+        "panadero",
+        "fontanero",
+        "compañero",
+        "cartero"
+      ],
+      "caution": "不一定每个 -ero 都能还原现代基础词。",
+      "learning_level": "A2"
+    },
+    {
+      "form": "-ería",
+      "type": "derivational_suffix",
+      "meaning": "场所、行业、活动",
+      "rule": "通常表示商店或集合性领域",
+      "examples": [
+        "panadería",
+        "librería",
+        "peluquería",
+        "ferretería"
+      ],
+      "caution": "不是一切 -ería 都表示商店，如 tontería。",
+      "learning_level": "A2"
+    },
+    {
+      "form": "-ista",
+      "type": "derivational_suffix",
+      "meaning": "职业、立场或习惯",
+      "rule": "表示从业人员、追随者",
+      "examples": [
+        "dentista",
+        "electricista",
+        "periodista",
+        "artista"
+      ],
+      "caution": "不是任意名词都可加 -ista 得到现实职业。",
+      "learning_level": "A2"
+    },
+    {
+      "form": "-ismo",
+      "type": "derivational_suffix",
+      "meaning": "主义、现象、习惯或运动",
+      "rule": "常形成思想运动/状态名词",
+      "examples": [
+        "realismo",
+        "turismo",
+        "periodismo",
+        "optimismo"
+      ],
+      "caution": "与 -ista 的词族关联并非必然单向派生。",
+      "learning_level": "B1"
+    },
+    {
+      "form": "-ble / -able / -ible",
+      "type": "derivational_suffix",
+      "meaning": "可……的、有可能……的",
+      "rule": "形成具有潜在性意义的形容词",
+      "examples": [
+        "aceptable",
+        "comprensible",
+        "accesible",
+        "disponible"
+      ],
+      "caution": "disponible 的词源关系不同于机械的 dispon + -ible。",
+      "learning_level": "B1"
+    },
+    {
+      "form": "-mente",
+      "type": "derivational_suffix",
+      "meaning": "形容词来源的方式副词",
+      "rule": "通常依形容词阴性形式接 -mente",
+      "examples": [
+        "rápidamente",
+        "claramente",
+        "finalmente",
+        "fácilmente"
+      ],
+      "caution": "-mente 的用法有语义限制，且注意阴性形式及原形重音。",
+      "learning_level": "A2"
+    },
+    {
+      "form": "-oso / -osa",
+      "type": "derivational_suffix",
+      "meaning": "具有某性质、很多某物",
+      "rule": "性质形容词",
+      "examples": [
+        "peligroso",
+        "ruidoso",
+        "doloroso",
+        "curioso"
+      ],
+      "caution": "curioso 的含义不能机械推出‘充满 cura’。",
+      "learning_level": "A2"
+    },
+    {
+      "form": "-al",
+      "type": "derivational_suffix",
+      "meaning": "相关的、属于……的",
+      "rule": "可由名词词基形成形容词",
+      "examples": [
+        "escolar",
+        "laboral",
+        "personal",
+        "institucional"
+      ],
+      "caution": "hospital 不等于 hospit + -al 的现代自由构词。",
+      "learning_level": "B1"
+    },
+    {
+      "form": "-ico / -ica",
+      "type": "derivational_suffix",
+      "meaning": "相关的、具有某性质",
+      "rule": "常见形容词派生",
+      "examples": [
+        "médico",
+        "académico",
+        "científico",
+        "práctico"
+      ],
+      "caution": "一些词含希腊/拉丁词源，不能直接按现代词根复原。",
+      "learning_level": "B1"
+    },
+    {
+      "form": "-ivo / -iva",
+      "type": "derivational_suffix",
+      "meaning": "倾向、能力、关系",
+      "rule": "形成形容词",
+      "examples": [
+        "preventivo",
+        "comunicativo",
+        "educativo",
+        "productivo"
+      ],
+      "caution": "perspectiva 不适合根据末尾直接当作透明派生。",
+      "learning_level": "B1"
+    },
+    {
+      "form": "-izar",
+      "type": "derivational_suffix",
+      "meaning": "使……化、实施某种过程",
+      "rule": "形成动词",
+      "examples": [
+        "organizar",
+        "priorizar",
+        "sensibilizar",
+        "modernizar"
+      ],
+      "caution": "不能凭以 -izar 结尾断定基础词现代独立存在。",
+      "learning_level": "B1"
+    },
+    {
+      "form": "-ificar",
+      "type": "derivational_suffix",
+      "meaning": "使……化、转变",
+      "rule": "形成动词",
+      "examples": [
+        "clarificar",
+        "identificar",
+        "justificar",
+        "rectificar"
+      ],
+      "caution": "可能有词根交替与词汇化，慎用任意类推。",
+      "learning_level": "B1"
+    },
+    {
+      "form": "-ear",
+      "type": "derivational_suffix",
+      "meaning": "表示活动、反复行为等",
+      "rule": "形成动词",
+      "examples": [
+        "pasear",
+        "telefonear",
+        "bloquear",
+        "parpadear"
+      ],
+      "caution": "部分 -ear 词不是简单可预测的派生。",
+      "learning_level": "A2"
+    },
+    {
+      "form": "-ecer",
+      "type": "derivational_suffix",
+      "meaning": "变得、使……发生某种变化",
+      "rule": "部分形容词派生的变化动词",
+      "examples": [
+        "enriquecer",
+        "envejecer",
+        "oscurecer",
+        "fortalecer"
+      ],
+      "caution": "含不规则变化及前后缀共同作用的结构。",
+      "learning_level": "B2"
+    },
+    {
+      "form": "-ito / -ita",
+      "type": "derivational_suffix",
+      "meaning": "小称、亲昵、缓和语气",
+      "rule": "评价性后缀",
+      "examples": [
+        "casita",
+        "perrito",
+        "ratito",
+        "abuelita"
+      ],
+      "caution": "小称常表达亲昵而非真实体积。",
+      "learning_level": "A2"
+    },
+    {
+      "form": "-illo / -illa",
+      "type": "derivational_suffix",
+      "meaning": "小称、亲昵、习惯词汇",
+      "rule": "另一类评价后缀",
+      "examples": [
+        "ventanilla",
+        "mesilla",
+        "chiquillo",
+        "bolsillo"
+      ],
+      "caution": "某些词已词汇化，不意味着实际‘小’。",
+      "learning_level": "A2"
+    },
+    {
+      "form": "-ón / -ona",
+      "type": "derivational_suffix",
+      "meaning": "增大、强度、倾向等",
+      "rule": "评价性/有时名词化",
+      "examples": [
+        "grandullón",
+        "cabezón",
+        "llorón",
+        "empujón"
+      ],
+      "caution": "词义差别大，别把所有 -ón 当大称。",
+      "learning_level": "B1"
+    },
+    {
+      "form": "-azo / -aza",
+      "type": "derivational_suffix",
+      "meaning": "打击、增大或强烈评价",
+      "rule": "评价性后缀",
+      "examples": [
+        "portazo",
+        "cochazo",
+        "golpazo",
+        "manotazo"
+      ],
+      "caution": "西班牙口语中评价意义丰富，不必然表示打击。",
+      "learning_level": "B1"
+    },
+    {
+      "form": "-aje",
+      "type": "derivational_suffix",
+      "meaning": "动作/集合/费用等",
+      "rule": "多类别名词后缀",
+      "examples": [
+        "aprendizaje",
+        "equipaje",
+        "peaje",
+        "aterrizaje"
+      ],
+      "caution": "具体词义不能仅靠 -aje 推出。",
+      "learning_level": "B1"
+    },
+    {
+      "form": "-ario / -aria",
+      "type": "derivational_suffix",
+      "meaning": "职业/关联/集合",
+      "rule": "名词或形容词派生",
+      "examples": [
+        "funcionario",
+        "voluntario",
+        "secretaria",
+        "comunitario"
+      ],
+      "caution": "不等于一切 -ario 末尾可以自由拆分。",
+      "learning_level": "B1"
+    },
+    {
+      "form": "-ante / -ente / -iente",
+      "type": "derivational_suffix",
+      "meaning": "参与者或性质",
+      "rule": "历史现在分词相关、也可能词汇化",
+      "examples": [
+        "estudiante",
+        "cantante",
+        "dependiente",
+        "asistente"
+      ],
+      "caution": "-ante/-ente 是词族线索，但不等于现代时态的屈折词尾。",
+      "learning_level": "B1"
+    },
+    {
+      "form": "-ura",
+      "type": "derivational_suffix",
+      "meaning": "性质、状态、结果",
+      "rule": "常见抽象名词后缀",
+      "examples": [
+        "altura",
+        "anchura",
+        "apertura",
+        "lectura"
+      ],
+      "caution": "-tura 等相关形式词形变化需单独说明。",
+      "learning_level": "B1"
+    },
+    {
+      "form": "-ez / -eza",
+      "type": "derivational_suffix",
+      "meaning": "性质、状态",
+      "rule": "由形容词或其他词基派生",
+      "examples": [
+        "tristeza",
+        "riqueza",
+        "rapidez",
+        "vejez"
+      ],
+      "caution": "词干拼写有变化，不能完全以拼接规则理解。",
+      "learning_level": "B1"
+    },
+    {
+      "form": "-ción + -al",
+      "type": "derivational_suffix",
+      "meaning": "从名词转成性质形容词",
+      "rule": "两步构词关系",
+      "examples": [
+        "educación→educacional",
+        "institución→institucional",
+        "administración→administracional"
+      ],
+      "caution": "链条只用确实存在的词说明，不能自动创造不常用形式。",
+      "learning_level": "B2"
+    }
+  ]
+}
