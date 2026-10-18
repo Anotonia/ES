@@ -1,0 +1,43 @@
+name: Deploy Spanish Learning Website
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "docs/index.html"
+      - "docs/assets/**"
+      - "scripts/validate_site.py"
+      - ".github/workflows/deploy-site.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Validate lesson content
+        run: python3 scripts/validate_site.py
+      - name: Validate client JavaScript syntax
+        run: node --check docs/assets/app.js
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+      - name: Upload website files
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./docs
+      - id: deployment
+        name: Deploy Pages
+        uses: actions/deploy-pages@v4
