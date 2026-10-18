@@ -16,7 +16,7 @@
   };
   const state = {
     data: null, vocab: null, vocabError: "",
-    domain: "all", scenarioSearch: "", level: "all", vocabSearch: "", vocabLimit: 60,
+    domain: "all", scenarioSearch: "", sceneLevel: "all", level: "all", vocabSearch: "", vocabLimit: 60,
     slangTopic: "all", slangSearch: "", mapDomain: "school",
     hideTranslations: false, reviewRevealed: false, reviewOffset: 0,
     progress: loadProgress(), customMap: loadCustomMap()
@@ -148,21 +148,35 @@
       String(active === d.id) + '">' + esc(d.name) + '</button>').join("");
   }
   function renderScenarios() {
-    el("domain-filters").innerHTML = domainButtons(state.domain, "domain-filter");
-    el("scenario-search").value = state.scenarioSearch;
-    const terms = normalize(state.scenarioSearch);
-    const filtered = state.data.scenarios.filter(s =>
-      (state.domain === "all" || s.domain === state.domain) &&
-      normalize([s.title,s.subtitle,s.brief,...s.vocab.map(v => v.es + " " + v.zh)].join(" ")).includes(terms)
+    el("domain-filters").innerHTML=domainButtons(state.domain,"domain-filter");
+    const levelButtons=el("scene-levels");
+    if (levelButtons) levelButtons.innerHTML=["all","A1","A2","B1","B2"].map(level=>
+      '<button type="button" class="seg-btn '+(state.sceneLevel===level?"active":"")+
+      '" data-action="scene-level-filter" data-value="'+level+'" aria-pressed="'+(state.sceneLevel===level)+'">'+
+      (level==="all"?"全部等级":level)+'</button>').join("");
+    el("scenario-search").value=state.scenarioSearch;
+    if (el("scene-count")) el("scene-count").textContent=String(state.data.scenarios.length);
+    if (el("school-scene-count")) el("school-scene-count").textContent=String(state.data.scenarios.filter(s=>s.domain==="school").length);
+    if (el("pathways-grid")) {
+      el("pathways-grid").innerHTML=window.ESPathways ?
+        window.ESPathways.renderTracks(state.data.tracks||[],state.data.scenarios) :
+        '<p class="small-note">课程关系视图加载中</p>';
+    }
+    const terms=normalize(state.scenarioSearch);
+    const filtered=state.data.scenarios.filter(s=>
+      (state.domain==="all"||s.domain===state.domain) &&
+      (state.sceneLevel==="all"||s.level===state.sceneLevel) &&
+      normalize([s.title,s.subtitle,s.brief,s.goal||"", ...s.vocab.map(v=>v.es+" "+v.zh)].join(" ")).includes(terms)
     );
-    el("scenario-grid").innerHTML = filtered.length ? filtered.map((s,i) =>
-      '<button type="button" class="scenario-card" data-action="open-scenario" data-value="' + esc(s.id) + '">' +
-      '<div class="sc-head"><span class="number-label">SCENE ' + String(i+1).padStart(2,"0") +
-      '</span><span class="domain-pill ' + esc(s.domain) + '">' + esc(domainLabel(s.domain)) + '</span></div>' +
-      '<h3>' + esc(s.title) + '</h3><span class="spanish-caption">' + esc(s.subtitle) + '</span><p>' +
-      esc(s.brief) + '</p><div class="card-bottom"><small>' + esc(s.level) + ' · ' +
-      s.vocab.length + ' 词汇 · ' + s.dialogue.length + ' 句对话</small><strong>开始练习 ↗</strong></div></button>'
-    ).join("") : '<div class="empty-state">暂无符合条件的场景。试试不同的关键词。</div>';
+    if(el("scene-filter-label"))el("scene-filter-label").textContent="当前筛选 "+filtered.length+" 个场景";
+    el("scenario-grid").innerHTML=filtered.length ? filtered.map((s,i)=>
+      '<button type="button" class="scenario-card" data-action="open-scenario" data-value="'+esc(s.id)+'">'+
+      '<div class="sc-head"><span class="number-label">'+(s.mission?"LEVEL "+esc(s.level):"SCENE "+String(i+1).padStart(2,"0"))+
+      '</span><span class="domain-pill '+esc(s.domain)+'">'+esc(domainLabel(s.domain))+'</span></div>'+
+      '<h3>'+esc(s.title)+'</h3><span class="spanish-caption">'+esc(s.subtitle)+'</span><p>'+esc(s.brief)+'</p>'+
+      '<div class="card-bottom"><small>'+esc(s.level)+' · '+s.vocab.length+' 词汇 · '+s.dialogue.length+' 句对话'+
+      (s.mission?' · '+s.mission.decisions.length+' 个情境决策':'')+'</small><strong>进入课程 ↗</strong></div></button>'
+    ).join(""):'<div class="empty-state">暂无符合条件的场景。调整等级、主题或关键词。</div>';
   }
   function percent(s) {
     const keys = s.challenges.map((_,i) => s.id + "#" + i);
@@ -172,6 +186,7 @@
   function renderDetail(s) {
     if (window.ESAudio) window.ESAudio.setDialogue(s.dialogue.map(line=>line.es),s.title);
     const p = percent(s);
+    const missionHTML=window.ESPathways?window.ESPathways.renderMission(s):"";
     const intro = '<div class="page-heading"><div><button class="back-btn" data-action="back" type="button">← 返回场景列表</button>' +
       '<span class="overline">' + esc(domainLabel(s.domain)) + ' · ' + esc(s.level) +
       ' · SCENARIO</span><h1 class="page-title">' + esc(s.title) + '<span class="es">' +
@@ -202,7 +217,7 @@
       '<div><label>规范 / 标准表达</label><p>' + esc(e.standard) + ' ' + buttonSpeech(e.standard) + '</p></div>' +
       '<div><label>当地自然表达</label><p>' + esc(e.natural) + ' ' + buttonSpeech(e.natural) +
       '</p></div></div><p>使用说明：' + esc(e.note) + '</p></div>').join("") + '</div></section>';
-    const challenges = '<section id="lesson-practice" class="panel"><div class="panel-head"><h2 class="panel-title">04. 闭卷主动回忆</h2>' +
+    const challenges = '<section id="lesson-practice" class="panel"><div class="panel-head"><h2 class="panel-title">'+(s.mission?'05':'04')+'. 闭卷主动回忆</h2>' +
       '<span class="panel-caption">RETRIEVAL PRACTICE</span></div><p class="panel-intro">先尝试在心里或口头用西语表达，再揭晓参考答案；相同意思的自然变体也可能正确，请自行判断。</p>' +
       s.challenges.map((q,i) => '<div class="review-question"><div class="prompt">题 ' + (i+1) + ' · ' + esc(q.prompt) +
       '</div><button class="secondary-btn" type="button" data-action="reveal-detail" data-value="' +
@@ -219,7 +234,7 @@
       '<p class="small-note">只根据你手动标记的结果统计，保存在当前浏览器。</p></div>' +
       '<div class="panel"><h3 class="panel-title" style="margin-bottom:10px">本课导航</h3><div class="aside-links">' +
       '<button class="lesson-link" type="button" data-action="lesson-jump" data-value="lesson-vocab">01 场景词汇 ↗</button><button class="lesson-link" type="button" data-action="lesson-jump" data-value="lesson-dialogue">02 情景对话 ↗</button>' +
-      '<button class="lesson-link" type="button" data-action="lesson-jump" data-value="lesson-native">03 母语自然表达 ↗</button><button class="lesson-link" type="button" data-action="lesson-jump" data-value="lesson-practice">04 闭卷回忆 ↗</button></div></div>' +
+      '<button class="lesson-link" type="button" data-action="lesson-jump" data-value="lesson-native">03 母语自然表达 ↗</button>' + (s.mission ? '<button class="lesson-link" type="button" data-action="lesson-jump" data-value="lesson-mission">04 情境分支 ↗</button>' : '') + '<button class="lesson-link" type="button" data-action="lesson-jump" data-value="lesson-practice">'+(s.mission?'05':'04')+' 闭卷回忆 ↗</button></div></div>' +
       '<div class="panel"><span class="aside-kicker">IMPORTANT</span><div class="tip-list"><p>真实办事的材料、收费、申请期限随地区、机构及年份变化；本页只教授交流表达。</p>' +
       '<p>自然口语不一定适用于正式书信或严肃场合，留意每条的语域标注。</p></div></div></aside>';
     const officialLinks = s.domain === "school" ? state.data.meta.sourceLinks.slice(0,2) :
@@ -229,7 +244,7 @@
       esc(link.title) + ' ↗</a>').join('　 ·　 ') +
       '<p class="small-note">以上链接用于确认最新的机构规则；本课对话仅为语言练习。</p></div>' : '';
     el("view-detail").innerHTML = intro + '<div class="detail-layout"><div class="learning-main">' +
-      vocab + dialogue + expressions + challenges + references + '</div>' + aside + '</div>';
+      vocab + dialogue + expressions + missionHTML + challenges + references + '</div>' + aside + '</div>';
   }
   function parseCSV(text) {
     const rows = []; let row = []; let field = ""; let quoted = false;
@@ -407,7 +422,7 @@
     window.addEventListener("hashchange", route);
     el("start-school").addEventListener("click", () => {
       state.domain="school";location.hash="#/scenarios";renderScenarios();
-      el("scenario-grid").scrollIntoView({behavior:"smooth",block:"start"});
+      el("pathways-section").scrollIntoView({behavior:"smooth",block:"start"});
     });
     el("menu-toggle").addEventListener("click", () => {
       const side = document.querySelector(".sidebar");
@@ -444,6 +459,7 @@
       if (action === "speak") return speak(b.dataset.speak);
       if (action === "lesson-jump") { const destination = el(value); if (destination) destination.scrollIntoView({behavior:"smooth",block:"start"}); return; }
       if (action === "domain-filter") { state.domain=value;renderScenarios(); }
+      if (action === "scene-level-filter") {state.sceneLevel=value;renderScenarios();}
       if (action === "open-scenario") location.hash="#/detail/"+value;
       if (action === "back") location.hash="#/scenarios";
       if (action === "open-map") {state.mapDomain=value;location.hash="#/maps";}
@@ -491,6 +507,21 @@
       if(!response.ok)throw new Error("HTTP "+response.status);
       const obj=await response.json();
       if(!Array.isArray(obj.scenarios)||!Array.isArray(obj.domains))throw new Error("内容结构错误");
+      const packs=await Promise.all(["assets/school-pathways.json","assets/life-pathways.json"].map(async path=>{
+        const result=await fetch(path,{cache:"no-cache"});
+        if(!result.ok)throw new Error("课程包加载失败："+path);
+        const data=await result.json();
+        if(data.schema!==2||!Array.isArray(data.scenarios)||!Array.isArray(data.tracks))throw new Error("课程包格式错误："+path);
+        return data;
+      }));
+      const ids=new Set(obj.scenarios.map(s=>s.id));
+      for (const pack of packs) {
+        for(const scene of pack.scenarios) {
+          if(ids.has(scene.id))throw new Error("场景编号重复："+scene.id);
+          ids.add(scene.id);obj.scenarios.push(scene);
+        }
+      }
+      obj.tracks=packs.flatMap(pack=>pack.tracks);
       state.data=obj;
       route();fetchVocab();
     } catch (error) {
