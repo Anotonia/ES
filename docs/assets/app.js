@@ -217,8 +217,14 @@
       '<button class="lesson-link" type="button" data-action="lesson-jump" data-value="lesson-native">03 母语自然表达 ↗</button><button class="lesson-link" type="button" data-action="lesson-jump" data-value="lesson-practice">04 闭卷回忆 ↗</button></div></div>' +
       '<div class="panel"><span class="aside-kicker">IMPORTANT</span><div class="tip-list"><p>真实办事的材料、收费、申请期限随地区、机构及年份变化；本页只教授交流表达。</p>' +
       '<p>自然口语不一定适用于正式书信或严肃场合，留意每条的语域标注。</p></div></div></aside>';
+    const officialLinks = s.domain === "school" ? state.data.meta.sourceLinks.slice(0,2) :
+      s.domain === "bank" ? state.data.meta.sourceLinks.slice(2,3) : [];
+    const references = officialLinks.length ? '<div class="footnote-callout"><strong>办事信息核实：</strong> ' +
+      officialLinks.map(link => '<a href="' + esc(link.url) + '" target="_blank" rel="noopener noreferrer">' +
+      esc(link.title) + ' ↗</a>').join('　 ·　 ') +
+      '<p class="small-note">以上链接用于确认最新的机构规则；本课对话仅为语言练习。</p></div>' : '';
     el("view-detail").innerHTML = intro + '<div class="detail-layout"><div class="learning-main">' +
-      vocab + dialogue + expressions + challenges + '</div>' + aside + '</div>';
+      vocab + dialogue + expressions + challenges + references + '</div>' + aside + '</div>';
   }
   function parseCSV(text) {
     const rows = []; let row = []; let field = ""; let quoted = false;
