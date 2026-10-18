@@ -22,7 +22,7 @@ CANDIDATE_COLUMNS = (
     "frequency_count", "curated_meaning_zh", "curated_example_es",
     "linked_curated_id", "review_status", "source", "quality_note",
 )
-VALID_STATUS = {"pending_manual_review", "initial_curated_match"}
+VALID_STATUS = {"pending_manual_review", "initial_curated_match", "curated_other_level"}
 MAPS = (
     "00-A1-B2-词汇知识地图.md",
     "A1-生活核心语义图.md",
@@ -78,12 +78,26 @@ def main() -> None:
                 raise ValueError(f"wrong provisional bucket: {cid}")
             if row["review_status"] not in VALID_STATUS:
                 raise ValueError(f"unexpected status: {cid}")
-            if row["review_status"] == "initial_curated_match":
+            if row["review_status"] in {"initial_curated_match", "curated_other_level"}:
                 linked += 1
                 if row["linked_curated_id"] not in known_ids:
                     raise ValueError(f"invalid curated link: {cid}")
             if not row["source"]:
                 raise ValueError(f"missing source: {cid}")
+
+    # All new expansion rows must include both bilingual examples and a contextual chunk.
+    from glob import glob
+    expansion_files = sorted(glob(str(ROOT / "data" / "expansions" / "2026-10-*.csv")))
+    for expansion_file in expansion_files:
+        with open(expansion_file, "r", encoding="utf-8-sig", newline="") as input_stream:
+            expansion = csv.DictReader(input_stream)
+            required = {"level", "unit", "spanish", "part_of_speech", "meaning_zh",
+                        "chunk", "example_es", "example_zh"}
+            if set(expansion.fieldnames or []) != required:
+                raise ValueError(f"wrong expansion schema: {expansion_file}")
+            for n, record in enumerate(expansion, 2):
+                if not all(record.get(field, "").strip() for field in required):
+                    raise ValueError(f"missing bilingual entry: {expansion_file}, row {n}")
 
     for filename in MAPS:
         path = ROOT / "mindmaps" / filename
