@@ -1,0 +1,736 @@
+{
+  "schema": 2,
+  "description": "药房取药与用药沟通：语言教学示例，不包含任何具体药物剂量或自我调整建议。",
+  "tracks": [
+    {
+      "id": "clinic-pharmacy",
+      "domain": "health",
+      "title": "药房、处方与用药沟通",
+      "subtitle": "取药 → 读懂说明 → 缺货与替代 → 多种药物核对",
+      "description": "优先学习核对处方和说明、正确说明不确定之处，并与医生/药师确认任何药物变化。"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "hc-med-01",
+      "domain": "health",
+      "track": "clinic-pharmacy",
+      "level": "A1",
+      "stage": 1,
+      "title": "药房取药与出示处方",
+      "subtitle": "En la farmacia",
+      "goal": "描述有处方、询问药是否有货并理解下次行动。",
+      "brief": "你到药房领取医生开的药物，不需要公开真实个人信息。",
+      "vocab": [
+        {
+          "es": "la farmacia",
+          "zh": "药房"
+        },
+        {
+          "es": "la receta",
+          "zh": "处方"
+        },
+        {
+          "es": "el medicamento",
+          "zh": "药物"
+        },
+        {
+          "es": "la tarjeta sanitaria",
+          "zh": "医疗卡"
+        },
+        {
+          "es": "la caja",
+          "zh": "一盒"
+        },
+        {
+          "es": "disponible",
+          "zh": "有货的"
+        },
+        {
+          "es": "recoger",
+          "zh": "领取"
+        },
+        {
+          "es": "el precio",
+          "zh": "价格"
+        },
+        {
+          "es": "el nombre del medicamento",
+          "zh": "药名"
+        },
+        {
+          "es": "esperar",
+          "zh": "等待"
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "顾客",
+          "es": "Buenos días. Vengo a recoger un medicamento.",
+          "zh": "您好，我来取药。"
+        },
+        {
+          "speaker": "药师",
+          "es": "Buenos días. ¿Tiene receta?",
+          "zh": "您好。您有处方吗？"
+        },
+        {
+          "speaker": "顾客",
+          "es": "Sí, tengo receta electrónica.",
+          "zh": "有，我有电子处方。"
+        },
+        {
+          "speaker": "药师",
+          "es": "¿Tiene la tarjeta sanitaria?",
+          "zh": "您有医疗卡吗？"
+        },
+        {
+          "speaker": "顾客",
+          "es": "Sí, aquí está.",
+          "zh": "有，在这里。"
+        },
+        {
+          "speaker": "药师",
+          "es": "Voy a comprobar si está disponible.",
+          "zh": "我确认一下有没有货。"
+        },
+        {
+          "speaker": "顾客",
+          "es": "Gracias. ¿Me puede decir el nombre del medicamento?",
+          "zh": "谢谢。您能告诉我药名吗？"
+        },
+        {
+          "speaker": "药师",
+          "es": "Le confirmaré cuál figura en la receta.",
+          "zh": "我会确认处方中记录的是哪种药。"
+        },
+        {
+          "speaker": "顾客",
+          "es": "Perfecto. Muchas gracias.",
+          "zh": "好的，非常感谢。"
+        }
+      ],
+      "expressions": [
+        {
+          "standard": "Vengo a retirar un medicamento prescrito.",
+          "natural": "Vengo a por el medicamento que me han recetado.",
+          "note": "我来取医生开的药；vengo a por 是西班牙非常常见的自然表达。",
+          "register": "药房自然口语与正式问法"
+        },
+        {
+          "standard": "¿Está disponible este medicamento?",
+          "natural": "¿Os queda este medicamento?",
+          "note": "药还有货吗？os queda 是本地自然问法。",
+          "register": "药房自然口语与正式问法"
+        }
+      ],
+      "challenges": [
+        {
+          "prompt": "说：我来取医生开的药。",
+          "answer": "Vengo a por el medicamento que me han recetado."
+        },
+        {
+          "prompt": "问：药房有这种药吗？",
+          "answer": "¿Tenéis este medicamento?"
+        },
+        {
+          "prompt": "问：要出示医疗卡吗？",
+          "answer": "¿Tengo que mostrar la tarjeta sanitaria?"
+        }
+      ],
+      "mission": {
+        "setup": "药房中的关键任务是确认产品、处方、剂量与疑问。页面不提供药量或具体用药指导。",
+        "decisions": [
+          {
+            "situation": "药师问你是否有处方。",
+            "prompt": "你已有电子处方。该怎么说？",
+            "model": "Sí, tengo receta electrónica y la tarjeta sanitaria.",
+            "choices": [
+              {
+                "es": "Sí, tengo receta electrónica y la tarjeta sanitaria.",
+                "correct": true,
+                "feedback": "清楚说明处方和医疗卡，便于药师核实。"
+              },
+              {
+                "es": "No hace falta ninguna receta, seguro.",
+                "correct": false,
+                "feedback": "无法解决当前疑问，或包含未经确认的用药假设。"
+              },
+              {
+                "es": "Quiero preguntar por otro producto.",
+                "correct": false,
+                "feedback": "有一定相关性，但遗漏当前必须核实的关键信息。"
+              }
+            ]
+          },
+          {
+            "situation": "你没有听清药名。",
+            "prompt": "应该怎么办？",
+            "model": "¿Puede repetirme el nombre del medicamento, por favor?",
+            "choices": [
+              {
+                "es": "¿Puede repetirme el nombre del medicamento, por favor?",
+                "correct": true,
+                "feedback": "确保取对药，比凭颜色、外包装猜测更稳妥。"
+              },
+              {
+                "es": "Da igual, todas las cajas son iguales.",
+                "correct": false,
+                "feedback": "无法解决当前疑问，或包含未经确认的用药假设。"
+              },
+              {
+                "es": "¿Dónde está la caja para pagar?",
+                "correct": false,
+                "feedback": "有一定相关性，但遗漏当前必须核实的关键信息。"
+              }
+            ]
+          }
+        ],
+        "transfer": "模拟药房药品暂时缺货，问什么时候能提供以及该联系谁核实替代方案。",
+        "debrief": "离开练习前，能用西语复述药品名称、医生已确认的服法、自己仍不清楚的问题。"
+      }
+    },
+    {
+      "id": "hc-med-02",
+      "domain": "health",
+      "track": "clinic-pharmacy",
+      "level": "A2",
+      "stage": 2,
+      "title": "问清用法、注意事项和药盒说明",
+      "subtitle": "Confirmar instrucciones de medicación",
+      "goal": "理解处方上的词语并用自己的话复述，不擅自换剂量。",
+      "brief": "你已经领到医生处方药，但不明白 etiqueta / prospecto 上的某句话。",
+      "vocab": [
+        {
+          "es": "la pauta",
+          "zh": "用药方案"
+        },
+        {
+          "es": "la dosis",
+          "zh": "剂量"
+        },
+        {
+          "es": "el prospecto",
+          "zh": "药品说明书"
+        },
+        {
+          "es": "antes de comer",
+          "zh": "饭前"
+        },
+        {
+          "es": "después de comer",
+          "zh": "饭后"
+        },
+        {
+          "es": "cada ocho horas",
+          "zh": "每八小时"
+        },
+        {
+          "es": "los efectos secundarios",
+          "zh": "副作用"
+        },
+        {
+          "es": "olvidar una dosis",
+          "zh": "漏服一剂"
+        },
+        {
+          "es": "consultar al farmacéutico",
+          "zh": "向药师咨询"
+        },
+        {
+          "es": "confirmar",
+          "zh": "核对"
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "顾客",
+          "es": "Perdone, no entiendo bien las instrucciones de la receta.",
+          "zh": "不好意思，我没太理解处方说明。"
+        },
+        {
+          "speaker": "药师",
+          "es": "¿Qué parte quiere aclarar?",
+          "zh": "您想弄清哪一部分？"
+        },
+        {
+          "speaker": "顾客",
+          "es": "No sé qué significa esta indicación de la pauta.",
+          "zh": "我不明白用药方案里的这条指示。"
+        },
+        {
+          "speaker": "药师",
+          "es": "Vamos a revisarla según lo que le han prescrito.",
+          "zh": "我们根据医生开的处方核对一下。"
+        },
+        {
+          "speaker": "顾客",
+          "es": "¿Me podría explicar también si hay indicaciones respecto a las comidas?",
+          "zh": "您能解释是否有与进餐相关的注意事项吗？"
+        },
+        {
+          "speaker": "药师",
+          "es": "Comprobaremos lo indicado para ese medicamento.",
+          "zh": "我们核对该药的具体说明。"
+        },
+        {
+          "speaker": "顾客",
+          "es": "¿Qué debo hacer si olvido una toma?",
+          "zh": "如果我漏服一次该怎么办？"
+        },
+        {
+          "speaker": "药师",
+          "es": "Para esa duda, revise las indicaciones específicas y consúltelo con el profesional.",
+          "zh": "这个问题请查具体说明并向专业人员确认。"
+        },
+        {
+          "speaker": "顾客",
+          "es": "Gracias. ¿Puedo repetirle lo que he entendido para comprobarlo?",
+          "zh": "谢谢。我可以复述一下，确认自己理解正确吗？"
+        }
+      ],
+      "expressions": [
+        {
+          "standard": "Quisiera confirmar la pauta prescrita.",
+          "natural": "Quería saber cómo tengo que tomarlo.",
+          "note": "想核实医生开的用药方式；不能套用别人的服法。",
+          "register": "药房自然口语与正式问法"
+        },
+        {
+          "standard": "¿Qué hago si olvido una dosis?",
+          "natural": "¿Qué pasa si se me olvida una toma?",
+          "note": "漏服怎么办？不同药物处理方式不同，应询问专业人员。",
+          "register": "药房自然口语与正式问法"
+        }
+      ],
+      "challenges": [
+        {
+          "prompt": "问：能解释处方的用药说明吗？",
+          "answer": "¿Me puede explicar las instrucciones de la receta?"
+        },
+        {
+          "prompt": "问：漏服一次怎么办？",
+          "answer": "¿Qué debo hacer si olvido una dosis?"
+        },
+        {
+          "prompt": "说：我想确认我理解正确。",
+          "answer": "Quiero confirmar que lo he entendido bien."
+        }
+      ],
+      "mission": {
+        "setup": "药房中的关键任务是确认产品、处方、剂量与疑问。页面不提供药量或具体用药指导。",
+        "decisions": [
+          {
+            "situation": "你看到说明写 cada ocho horas，却想自行改成每十二小时。",
+            "prompt": "更好的回应？",
+            "model": "¿Podría confirmar conmigo la pauta exacta que me han prescrito?",
+            "choices": [
+              {
+                "es": "¿Podría confirmar conmigo la pauta exacta que me han prescrito?",
+                "correct": true,
+                "feedback": "遵循已开处方并向药师核对，不擅改频率。"
+              },
+              {
+                "es": "Voy a cambiar las horas como me venga mejor.",
+                "correct": false,
+                "feedback": "无法解决当前疑问，或包含未经确认的用药假设。"
+              },
+              {
+                "es": "¿Puedo pagar con tarjeta?",
+                "correct": false,
+                "feedback": "有一定相关性，但遗漏当前必须核实的关键信息。"
+              }
+            ]
+          },
+          {
+            "situation": "你忘记服药一次。",
+            "prompt": "应该怎样向药师咨询？",
+            "model": "He olvidado una toma. ¿Qué indican las instrucciones para este medicamento?",
+            "choices": [
+              {
+                "es": "He olvidado una toma. ¿Qué indican las instrucciones para este medicamento?",
+                "correct": true,
+                "feedback": "漏服处理与具体药物有关，绝不能默认加倍补服。"
+              },
+              {
+                "es": "Tomaré el doble sin preguntar.",
+                "correct": false,
+                "feedback": "无法解决当前疑问，或包含未经确认的用药假设。"
+              },
+              {
+                "es": "¿Tenéis el formato grande?",
+                "correct": false,
+                "feedback": "有一定相关性，但遗漏当前必须核实的关键信息。"
+              }
+            ]
+          }
+        ],
+        "transfer": "角色扮演：你看不懂‘按需服用’的医嘱，请药师解释什么时候服用、何时停止以及需要询问医生的情况。",
+        "debrief": "离开练习前，能用西语复述药品名称、医生已确认的服法、自己仍不清楚的问题。"
+      }
+    },
+    {
+      "id": "hc-med-03",
+      "domain": "health",
+      "track": "clinic-pharmacy",
+      "level": "B1",
+      "stage": 3,
+      "title": "药物缺货、不同包装与处方更新",
+      "subtitle": "Falta de existencias y alternativas",
+      "goal": "区分缺货、包装变化与可否替代，取得专业建议并向开方医生跟进。",
+      "brief": "药房无法提供处方上同一品牌产品，可能有其他选择；你不能自己断言疗效相同。",
+      "vocab": [
+        {
+          "es": "sin existencias",
+          "zh": "缺货"
+        },
+        {
+          "es": "el principio activo",
+          "zh": "活性成分"
+        },
+        {
+          "es": "la presentación",
+          "zh": "剂型／包装规格"
+        },
+        {
+          "es": "la equivalencia",
+          "zh": "等效性"
+        },
+        {
+          "es": "la sustitución",
+          "zh": "替换"
+        },
+        {
+          "es": "la prescripción",
+          "zh": "处方"
+        },
+        {
+          "es": "consultar con el médico",
+          "zh": "联系医生"
+        },
+        {
+          "es": "la disponibilidad",
+          "zh": "供应情况"
+        },
+        {
+          "es": "la continuidad del tratamiento",
+          "zh": "治疗连续性"
+        },
+        {
+          "es": "la fecha de dispensación",
+          "zh": "发药日期"
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "顾客",
+          "es": "Hola. He venido a recoger mi tratamiento habitual, pero me dicen que no hay existencias.",
+          "zh": "您好。我来领取常用药，但听说没有货。"
+        },
+        {
+          "speaker": "药师",
+          "es": "Ahora mismo no disponemos de esa presentación.",
+          "zh": "我们目前没有这一规格。"
+        },
+        {
+          "speaker": "顾客",
+          "es": "¿Hay alguna alternativa autorizada que pueda valorarse?",
+          "zh": "有没有获准的替代产品可以考虑？"
+        },
+        {
+          "speaker": "药师",
+          "es": "Tendríamos que comprobar el principio activo, la presentación y la prescripción.",
+          "zh": "我们需要核对活性成分、规格和处方。"
+        },
+        {
+          "speaker": "顾客",
+          "es": "Entiendo. No quiero cambiar el tratamiento sin confirmarlo.",
+          "zh": "明白。我不想在未确认前更换治疗方案。"
+        },
+        {
+          "speaker": "药师",
+          "es": "Le explicaremos qué opciones de dispensación corresponden en su caso.",
+          "zh": "我们会说明您的情况适用哪些发药选项。"
+        },
+        {
+          "speaker": "顾客",
+          "es": "Si debo consultar con mi médico, ¿qué información sería útil facilitarle?",
+          "zh": "如果需要联系医生，我该向医生提供什么信息？"
+        },
+        {
+          "speaker": "药师",
+          "es": "El medicamento prescrito, la falta de disponibilidad y la propuesta que se esté valorando.",
+          "zh": "提供处方药名、缺货情况以及拟考虑的选项。"
+        },
+        {
+          "speaker": "顾客",
+          "es": "Gracias. ¿Podría anotar esa información para consultarla correctamente?",
+          "zh": "谢谢。您能记下这些内容供我准确咨询吗？"
+        }
+      ],
+      "expressions": [
+        {
+          "standard": "No hay existencias de esta presentación.",
+          "natural": "No os queda este formato.",
+          "note": "这个规格没货；formato、presentación 都常见。",
+          "register": "药房自然口语与正式问法"
+        },
+        {
+          "standard": "¿Existe alguna sustitución autorizada?",
+          "natural": "¿Hay otra opción que se pueda dar con esta receta?",
+          "note": "能否合法替换要由专业人员依情况判断。",
+          "register": "药房自然口语与正式问法"
+        }
+      ],
+      "challenges": [
+        {
+          "prompt": "说：处方对应的规格缺货。",
+          "answer": "No hay existencias de la presentación prescrita."
+        },
+        {
+          "prompt": "问：活性成分和剂型一样吗？",
+          "answer": "¿Coinciden el principio activo y la presentación?"
+        },
+        {
+          "prompt": "说：我不想未经确认自行换药。",
+          "answer": "No quiero cambiar de medicamento sin confirmarlo con un profesional."
+        }
+      ],
+      "mission": {
+        "setup": "药房中的关键任务是确认产品、处方、剂量与疑问。页面不提供药量或具体用药指导。",
+        "decisions": [
+          {
+            "situation": "药师告知有另一个包装，但还没核实是否适用。",
+            "prompt": "你应该问？",
+            "model": "¿Pueden comprobar si esa presentación es adecuada según mi receta?",
+            "choices": [
+              {
+                "es": "¿Pueden comprobar si esa presentación es adecuada según mi receta?",
+                "correct": true,
+                "feedback": "外包装相似不代表用药可以直接替代。"
+              },
+              {
+                "es": "Si la caja se parece, me vale.",
+                "correct": false,
+                "feedback": "无法解决当前疑问，或包含未经确认的用药假设。"
+              },
+              {
+                "es": "¿Tienen un descuento?",
+                "correct": false,
+                "feedback": "有一定相关性，但遗漏当前必须核实的关键信息。"
+              }
+            ]
+          },
+          {
+            "situation": "药师建议联系开方医生。",
+            "prompt": "如何清楚描述问题？",
+            "model": "¿Podría indicarme qué datos debo comunicarle sobre la falta de existencias?",
+            "choices": [
+              {
+                "es": "¿Podría indicarme qué datos debo comunicarle sobre la falta de existencias?",
+                "correct": true,
+                "feedback": "向开方医生提供准确缺货与处方信息。"
+              },
+              {
+                "es": "Lo cambiaré sin avisar para ahorrar tiempo.",
+                "correct": false,
+                "feedback": "无法解决当前疑问，或包含未经确认的用药假设。"
+              },
+              {
+                "es": "¿Puede darme el teléfono del colegio?",
+                "correct": false,
+                "feedback": "有一定相关性，但遗漏当前必须核实的关键信息。"
+              }
+            ]
+          }
+        ],
+        "transfer": "向医生写一条虚构的 70 字西语留言：所缺药品、药房确认结果、提出可否更换的具体问题，不写真实处方细节。",
+        "debrief": "离开练习前，能用西语复述药品名称、医生已确认的服法、自己仍不清楚的问题。"
+      }
+    },
+    {
+      "id": "hc-med-04",
+      "domain": "health",
+      "track": "clinic-pharmacy",
+      "level": "B2",
+      "stage": 4,
+      "title": "多种药物、相互作用与共同核对",
+      "subtitle": "Conciliación de tratamientos",
+      "goal": "向药师或医生准确呈报完整用药清单，询问相互作用与停药调整程序。",
+      "brief": "多科医生开过药，你需要与医护人员核对清单，避免自行停药、加减剂量或忽略非处方产品。",
+      "vocab": [
+        {
+          "es": "la conciliación de la medicación",
+          "zh": "药物核对"
+        },
+        {
+          "es": "la interacción farmacológica",
+          "zh": "药物相互作用"
+        },
+        {
+          "es": "la contraindicación",
+          "zh": "禁忌证"
+        },
+        {
+          "es": "el tratamiento concomitante",
+          "zh": "同时进行的治疗"
+        },
+        {
+          "es": "el medicamento sin receta",
+          "zh": "非处方药"
+        },
+        {
+          "es": "el suplemento",
+          "zh": "补充剂"
+        },
+        {
+          "es": "la duplicidad terapéutica",
+          "zh": "重复治疗"
+        },
+        {
+          "es": "ajustar la pauta",
+          "zh": "调整用药方案"
+        },
+        {
+          "es": "la seguridad del paciente",
+          "zh": "患者安全"
+        },
+        {
+          "es": "la lista actualizada",
+          "zh": "更新的清单"
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "患者",
+          "es": "Quisiera revisar toda la medicación que tomo, porque me atienden varios especialistas.",
+          "zh": "我想核对我服用的全部药物，因为我同时在不同专科就诊。"
+        },
+        {
+          "speaker": "药师",
+          "es": "Es importante contar con una lista completa y actualizada.",
+          "zh": "有一份完整的最新清单很重要。"
+        },
+        {
+          "speaker": "患者",
+          "es": "También utilizo algún producto sin receta, pero no sé si debo incluirlo.",
+          "zh": "我也使用一些非处方产品，不知道是否需要列进去。"
+        },
+        {
+          "speaker": "药师",
+          "es": "Sí, conviene comunicar todos los productos al profesional responsable.",
+          "zh": "是的，最好把所有产品告知负责的专业人员。"
+        },
+        {
+          "speaker": "患者",
+          "es": "¿Cómo se valora si hay posibles interacciones o duplicidades?",
+          "zh": "如何判断是否存在潜在相互作用或重复用药？"
+        },
+        {
+          "speaker": "药师",
+          "es": "Revisaremos los tratamientos y las indicaciones prescritas.",
+          "zh": "我们会核查治疗方案和医嘱。"
+        },
+        {
+          "speaker": "患者",
+          "es": "Si hubiera que modificar alguna pauta, ¿con quién debo confirmarlo antes de hacerlo?",
+          "zh": "如果需要调整某种用法，我应先与谁确认？"
+        },
+        {
+          "speaker": "药师",
+          "es": "Con el profesional que corresponda a su tratamiento.",
+          "zh": "与负责相应治疗的专业人员确认。"
+        },
+        {
+          "speaker": "患者",
+          "es": "Agradecería llevarme una lista revisada para no confundir las indicaciones.",
+          "zh": "希望我能带走一份核对后的清单，避免把医嘱搞混。"
+        },
+        {
+          "speaker": "药师",
+          "es": "De acuerdo, vamos a revisar toda la información disponible.",
+          "zh": "好的，我们核对全部现有信息。"
+        }
+      ],
+      "expressions": [
+        {
+          "standard": "Quisiera realizar una conciliación de la medicación.",
+          "natural": "Quiero repasar todas las medicinas que tomo.",
+          "note": "把所有药物对一遍，口语更简单。",
+          "register": "药房自然口语与正式问法"
+        },
+        {
+          "standard": "¿Existen posibles interacciones farmacológicas?",
+          "natural": "¿Pueden llevarse mal entre ellas?",
+          "note": "药物之间是否会相互影响；口语说法形象，但医药交流需精确。",
+          "register": "药房自然口语与正式问法"
+        }
+      ],
+      "challenges": [
+        {
+          "prompt": "问：这些药物之间可能有相互作用吗？",
+          "answer": "¿Puede haber interacciones entre estos medicamentos?"
+        },
+        {
+          "prompt": "说：我还服用一些非处方药。",
+          "answer": "También tomo algunos medicamentos sin receta."
+        },
+        {
+          "prompt": "问：如果要调整用法，应先找谁确认？",
+          "answer": "¿Con qué profesional debo confirmar cualquier cambio de pauta?"
+        }
+      ],
+      "mission": {
+        "setup": "药房中的关键任务是确认产品、处方、剂量与疑问。页面不提供药量或具体用药指导。",
+        "decisions": [
+          {
+            "situation": "几位医生都开了药，但你不确定是否重复。",
+            "prompt": "最合适的沟通？",
+            "model": "¿Podemos revisar la lista completa para detectar posibles duplicidades o interacciones?",
+            "choices": [
+              {
+                "es": "¿Podemos revisar la lista completa para detectar posibles duplicidades o interacciones?",
+                "correct": true,
+                "feedback": "应先系统核查药单，而不是自行减药。"
+              },
+              {
+                "es": "Voy a dejar la mitad para evitar duplicidades.",
+                "correct": false,
+                "feedback": "无法解决当前疑问，或包含未经确认的用药假设。"
+              },
+              {
+                "es": "¿Me puede conseguir una cita más rápida?",
+                "correct": false,
+                "feedback": "有一定相关性，但遗漏当前必须核实的关键信息。"
+              }
+            ]
+          },
+          {
+            "situation": "对方建议可能需要调整用药。",
+            "prompt": "应如何明确下一步？",
+            "model": "¿Quién coordinará los cambios y cómo recibiré las instrucciones actualizadas por escrito?",
+            "choices": [
+              {
+                "es": "¿Quién coordinará los cambios y cómo recibiré las instrucciones actualizadas por escrito?",
+                "correct": true,
+                "feedback": "要求明确负责人员和最新书面医嘱，减少多科用药混淆。"
+              },
+              {
+                "es": "Lo modificaré en casa según lo que recuerde.",
+                "correct": false,
+                "feedback": "无法解决当前疑问，或包含未经确认的用药假设。"
+              },
+              {
+                "es": "¿Podemos terminar la visita antes?",
+                "correct": false,
+                "feedback": "有一定相关性，但遗漏当前必须核实的关键信息。"
+              }
+            ]
+          }
+        ],
+        "transfer": "准备一份不含真实药名的西语问诊清单：处方药、非处方产品、最近变化、怀疑重复项、书面确认请求。",
+        "debrief": "离开练习前，能用西语复述药品名称、医生已确认的服法、自己仍不清楚的问题。"
+      }
+    }
+  ]
+}
