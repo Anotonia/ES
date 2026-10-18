@@ -126,8 +126,17 @@ global.fetch=async url=>{
   if(!window.ESMedicalDeep.completed(deep[0],deep[0].stages[0]))
      throw Error("Active recall/self-assessment workflow did not save completion");
   clickDeep({medSetting:"role"});
-  if(!getNode("view-medical").innerHTML.includes("轮到你说"))
-    throw Error("Roleplay mode did not hide patient Spanish");
+  if(!getNode("view-medical").innerHTML.includes("轮到你说")||
+     !getNode("view-medical").innerHTML.includes("下一道医护提问"))
+    throw Error("Roleplay mode did not hide patient Spanish or show guided questions");
+  clickDeep({medRole:"next"});
+  if(!spoken.at(-1)?.text.includes("Centro de salud"))
+    throw Error("Guided roleplay did not play first clinician question");
+  if(!getNode("view-medical").innerHTML.includes("1 / "))
+    throw Error("Guided doctor question progress did not advance");
+  clickDeep({medRole:"replay"});
+  if(!spoken.at(-1)?.text.includes("Centro de salud"))
+    throw Error("Guided question replay failed");
   clickDeep({medSetting:"role"});
   clickDeep({medSetting:"zh"});
   if(!getNode("view-medical").innerHTML.includes('class="med-zh" hidden'))
