@@ -1,0 +1,762 @@
+{
+  "schema": 2,
+  "description": "儿科与紧急沟通教学；112 为西班牙有效的紧急联系电话。危险情况必须及时求助，页面示例不替代实时指引。",
+  "tracks": [
+    {
+      "id": "clinic-family-emergency",
+      "domain": "health",
+      "title": "儿科、急诊与紧急沟通",
+      "subtitle": "儿科预约 → 描述孩子症状 → 急诊分诊 → 联系 112",
+      "description": "从家庭儿科预约到需要紧急救援时的信息表达；优先提供事实、位置并遵循专业调度。"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "hc-family-01",
+      "domain": "health",
+      "track": "clinic-family-emergency",
+      "level": "A1",
+      "stage": 1,
+      "title": "为孩子预约儿科",
+      "subtitle": "Pedir cita de pediatría",
+      "goal": "说清楚为孩子预约儿科、年龄和咨询方式。",
+      "brief": "你为孩子预约社区医疗中心儿科；不在公共聊天记录填写姓名或医疗卡编号。",
+      "vocab": [
+        {
+          "es": "la pediatría",
+          "zh": "儿科"
+        },
+        {
+          "es": "el pediatra",
+          "zh": "儿科医生"
+        },
+        {
+          "es": "la pediatra",
+          "zh": "女儿科医生"
+        },
+        {
+          "es": "el niño",
+          "zh": "男孩；孩子"
+        },
+        {
+          "es": "la niña",
+          "zh": "女孩"
+        },
+        {
+          "es": "la edad",
+          "zh": "年龄"
+        },
+        {
+          "es": "la cita",
+          "zh": "预约"
+        },
+        {
+          "es": "el centro de salud",
+          "zh": "医疗中心"
+        },
+        {
+          "es": "acompañar",
+          "zh": "陪同"
+        },
+        {
+          "es": "tener fiebre",
+          "zh": "发烧"
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "家长",
+          "es": "Buenos días. Quería pedir cita de pediatría para mi hija.",
+          "zh": "您好，我想为女儿预约儿科。"
+        },
+        {
+          "speaker": "接线员",
+          "es": "¿Qué edad tiene su hija?",
+          "zh": "您女儿几岁？"
+        },
+        {
+          "speaker": "家长",
+          "es": "Tiene siete años.",
+          "zh": "她七岁。"
+        },
+        {
+          "speaker": "接线员",
+          "es": "¿Quiere consultar una cita disponible?",
+          "zh": "您想查询可预约的时间吗？"
+        },
+        {
+          "speaker": "家长",
+          "es": "Sí, por favor. Está un poco enferma.",
+          "zh": "是的，麻烦您。她有些不舒服。"
+        },
+        {
+          "speaker": "接线员",
+          "es": "Si necesita valoración sanitaria, le indicaremos el canal correspondiente.",
+          "zh": "如果需要医疗评估，我们会说明相应渠道。"
+        },
+        {
+          "speaker": "家长",
+          "es": "Gracias. ¿Puedo acompañarla a la consulta?",
+          "zh": "谢谢。我可以陪她去诊室吗？"
+        },
+        {
+          "speaker": "接线员",
+          "es": "Consulte las indicaciones del centro para acompañantes.",
+          "zh": "请查看医疗中心关于陪同人员的安排。"
+        },
+        {
+          "speaker": "家长",
+          "es": "Entendido. ¿Me repite la hora, por favor?",
+          "zh": "明白。请再说一遍时间好吗？"
+        }
+      ],
+      "expressions": [
+        {
+          "standard": "Quisiera solicitar una cita de pediatría para mi hija.",
+          "natural": "Quería pedir hora para la pediatra de mi hija.",
+          "note": "为女儿约儿科；pedir hora 在当地相当自然。",
+          "register": "正式/西班牙自然口语"
+        },
+        {
+          "standard": "Mi hija se encuentra mal.",
+          "natural": "La peque está pachucha.",
+          "note": "小家伙不舒服；pachucha 是家庭口语，不适合替代具体病情描述。",
+          "register": "正式/西班牙自然口语"
+        }
+      ],
+      "challenges": [
+        {
+          "prompt": "说：我想为女儿预约儿科。",
+          "answer": "Quería pedir cita de pediatría para mi hija."
+        },
+        {
+          "prompt": "说：她七岁。",
+          "answer": "Tiene siete años."
+        },
+        {
+          "prompt": "问：能重复一下预约时间吗？",
+          "answer": "¿Me puede repetir la hora de la cita?"
+        }
+      ],
+      "mission": {
+        "setup": "儿科或紧急情况中要清晰提供已知事实，遵循医护人员指引。不要凭语言课判断医学严重程度。",
+        "decisions": [
+          {
+            "situation": "工作人员问孩子年龄。",
+            "prompt": "合适的回应？",
+            "model": "Mi hija tiene siete años.",
+            "choices": [
+              {
+                "es": "Mi hija tiene siete años.",
+                "correct": true,
+                "feedback": "准确报告年龄，避免混淆岁与月。"
+              },
+              {
+                "es": "Mi hija tiene siete meses, creo.",
+                "correct": false,
+                "feedback": "当前表达可能延误信息传递，或没有回答工作人员的问题。"
+              },
+              {
+                "es": "La clase empieza a las nueve.",
+                "correct": false,
+                "feedback": "只涉及部分信息，还没处理当前最关键的沟通任务。"
+              }
+            ]
+          },
+          {
+            "situation": "电话中你没听懂时间。",
+            "prompt": "如何追问？",
+            "model": "¿Puede repetir la hora, por favor?",
+            "choices": [
+              {
+                "es": "¿Puede repetir la hora, por favor?",
+                "correct": true,
+                "feedback": "清楚确认预约时间，不靠猜测。"
+              },
+              {
+                "es": "Vale, iré cuando pueda.",
+                "correct": false,
+                "feedback": "当前表达可能延误信息传递，或没有回答工作人员的问题。"
+              },
+              {
+                "es": "¿Dónde está el parque?",
+                "correct": false,
+                "feedback": "只涉及部分信息，还没处理当前最关键的沟通任务。"
+              }
+            ]
+          }
+        ],
+        "transfer": "把女儿换为三岁的儿子，再练习电话预约和复述时间。",
+        "debrief": "离开练习前复述年龄、症状、出现时间、已知情况和医护人员给出的下一步。"
+      }
+    },
+    {
+      "id": "hc-family-02",
+      "domain": "health",
+      "track": "clinic-family-emergency",
+      "level": "A2",
+      "stage": 2,
+      "title": "孩子发烧：向儿科描述情况",
+      "subtitle": "Explicar síntomas de un menor",
+      "goal": "准确描述孩子症状、持续时间及变化，不自行判断需要何种治疗。",
+      "brief": "孩子身体不适，你与儿科医师沟通温度测量、进食喝水和症状变化。示例不涉及具体医学阈值。",
+      "vocab": [
+        {
+          "es": "la fiebre",
+          "zh": "发烧"
+        },
+        {
+          "es": "la temperatura",
+          "zh": "体温"
+        },
+        {
+          "es": "el termómetro",
+          "zh": "体温计"
+        },
+        {
+          "es": "desde anoche",
+          "zh": "从昨夜起"
+        },
+        {
+          "es": "beber agua",
+          "zh": "喝水"
+        },
+        {
+          "es": "el apetito",
+          "zh": "胃口"
+        },
+        {
+          "es": "la tos",
+          "zh": "咳嗽"
+        },
+        {
+          "es": "el dolor de oído",
+          "zh": "耳痛"
+        },
+        {
+          "es": "el cansancio",
+          "zh": "疲惫"
+        },
+        {
+          "es": "empeorar",
+          "zh": "恶化"
+        },
+        {
+          "es": "el comportamiento",
+          "zh": "行为状态"
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "儿科医生",
+          "es": "Cuénteme qué le pasa a su hijo.",
+          "zh": "告诉我您儿子的情况。"
+        },
+        {
+          "speaker": "家长",
+          "es": "Desde anoche tiene fiebre y tos.",
+          "zh": "从昨晚起他发烧、咳嗽。"
+        },
+        {
+          "speaker": "儿科医生",
+          "es": "¿Han medido la temperatura? ¿Cuándo?",
+          "zh": "测过体温吗？什么时候测的？"
+        },
+        {
+          "speaker": "家长",
+          "es": "Sí, la medimos esta mañana y lo he apuntado.",
+          "zh": "测过，今天早上测的，我记下来了。"
+        },
+        {
+          "speaker": "儿科医生",
+          "es": "¿Ha comido y bebido con normalidad?",
+          "zh": "进食和喝水正常吗？"
+        },
+        {
+          "speaker": "家长",
+          "es": "Ha comido menos y bebe algo de agua.",
+          "zh": "他吃得少一些，也喝一点水。"
+        },
+        {
+          "speaker": "儿科医生",
+          "es": "¿Ha notado cambios en su comportamiento?",
+          "zh": "有没有注意到他的状态有变化？"
+        },
+        {
+          "speaker": "家长",
+          "es": "Está más cansado de lo habitual.",
+          "zh": "他比平时疲惫。"
+        },
+        {
+          "speaker": "儿科医生",
+          "es": "Gracias. Voy a hacer una valoración completa.",
+          "zh": "谢谢。我会做完整评估。"
+        },
+        {
+          "speaker": "家长",
+          "es": "De acuerdo. ¿Qué otros datos quiere que le explique?",
+          "zh": "好的。您还需要我说明哪些信息？"
+        }
+      ],
+      "expressions": [
+        {
+          "standard": "Le he tomado la temperatura esta mañana.",
+          "natural": "Le he puesto el termómetro esta mañana.",
+          "note": "今早测过体温；自然说法很多，记录准确数值与时间更重要。",
+          "register": "正式/西班牙自然口语"
+        },
+        {
+          "standard": "Está más decaído de lo habitual.",
+          "natural": "Hoy está más apagado.",
+          "note": "孩子比平时没精神。apagado 为家长口语，正式可说 decaído。",
+          "register": "正式/西班牙自然口语"
+        }
+      ],
+      "challenges": [
+        {
+          "prompt": "说：孩子昨晚开始发烧。",
+          "answer": "Mi hijo tiene fiebre desde anoche."
+        },
+        {
+          "prompt": "说：我记录了早上的体温。",
+          "answer": "He apuntado la temperatura de esta mañana."
+        },
+        {
+          "prompt": "说：他比平时疲惫。",
+          "answer": "Está más cansado de lo habitual."
+        }
+      ],
+      "mission": {
+        "setup": "儿科或紧急情况中要清晰提供已知事实，遵循医护人员指引。不要凭语言课判断医学严重程度。",
+        "decisions": [
+          {
+            "situation": "儿科医生问今天是否测量体温，实际上你没有测。",
+            "prompt": "怎么说？",
+            "model": "Hoy no se la he medido; no quiero darle un dato inventado.",
+            "choices": [
+              {
+                "es": "Hoy no se la he medido; no quiero darle un dato inventado.",
+                "correct": true,
+                "feedback": "不要编造体温数值。"
+              },
+              {
+                "es": "Tenía una temperatura muy alta, seguro.",
+                "correct": false,
+                "feedback": "当前表达可能延误信息传递，或没有回答工作人员的问题。"
+              },
+              {
+                "es": "¿Puedo pedir justificante escolar?",
+                "correct": false,
+                "feedback": "只涉及部分信息，还没处理当前最关键的沟通任务。"
+              }
+            ]
+          },
+          {
+            "situation": "医生问孩子喝水情况，你知道他喝得比平时少。",
+            "prompt": "怎样准确表达？",
+            "model": "Ha bebido menos de lo habitual, aunque sí ha tomado algo de agua.",
+            "choices": [
+              {
+                "es": "Ha bebido menos de lo habitual, aunque sí ha tomado algo de agua.",
+                "correct": true,
+                "feedback": "明确变化有助于医疗专业人员评估。"
+              },
+              {
+                "es": "Ha bebido perfectamente, como siempre.",
+                "correct": false,
+                "feedback": "当前表达可能延误信息传递，或没有回答工作人员的问题。"
+              },
+              {
+                "es": "¿Dónde está la sala de espera?",
+                "correct": false,
+                "feedback": "只涉及部分信息，还没处理当前最关键的沟通任务。"
+              }
+            ]
+          }
+        ],
+        "transfer": "改变情境：孩子没有咳嗽但有耳痛。用西语描述开始时间、体温信息和行为变化。",
+        "debrief": "离开练习前复述年龄、症状、出现时间、已知情况和医护人员给出的下一步。"
+      }
+    },
+    {
+      "id": "hc-family-03",
+      "domain": "health",
+      "track": "clinic-family-emergency",
+      "level": "B1",
+      "stage": 3,
+      "title": "去急诊：分诊、等候和病情变化",
+      "subtitle": "En urgencias y triaje",
+      "goal": "理解 urgencias 和 triaje，不把排队顺序当临床优先级，及时报告新变化。",
+      "brief": "在医院急诊接待与分诊环节，练习说明已知症状及变化；所有紧急程度由专业人员评估。",
+      "vocab": [
+        {
+          "es": "las urgencias",
+          "zh": "急诊"
+        },
+        {
+          "es": "el triaje",
+          "zh": "分诊"
+        },
+        {
+          "es": "la valoración inicial",
+          "zh": "初步评估"
+        },
+        {
+          "es": "la prioridad asistencial",
+          "zh": "救治优先级"
+        },
+        {
+          "es": "el empeoramiento",
+          "zh": "病情恶化"
+        },
+        {
+          "es": "el tiempo de espera",
+          "zh": "等待时间"
+        },
+        {
+          "es": "comunicar un cambio",
+          "zh": "报告变化"
+        },
+        {
+          "es": "la sala de observación",
+          "zh": "留观室"
+        },
+        {
+          "es": "la historia clínica",
+          "zh": "病历"
+        },
+        {
+          "es": "la acompañante",
+          "zh": "女陪同者"
+        },
+        {
+          "es": "el personal sanitario",
+          "zh": "医护人员"
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "患者",
+          "es": "Buenas tardes. He venido a urgencias porque mi situación ha cambiado desde esta mañana.",
+          "zh": "您好。我来急诊，因为从早上起情况有变化。"
+        },
+        {
+          "speaker": "接待员",
+          "es": "Explíqueme brevemente qué ha ocurrido.",
+          "zh": "请简要说明发生了什么。"
+        },
+        {
+          "speaker": "患者",
+          "es": "Tengo un dolor nuevo y no sé si debo esperar a mi cita de la semana que viene.",
+          "zh": "我出现了新的疼痛，不知道是否应该等下周的预约。"
+        },
+        {
+          "speaker": "接待员",
+          "es": "Voy a indicarle cómo acceder a la valoración inicial.",
+          "zh": "我会说明如何进行初步评估。"
+        },
+        {
+          "speaker": "患者",
+          "es": "¿Es eso lo que llaman triaje?",
+          "zh": "这就是所谓的分诊吗？"
+        },
+        {
+          "speaker": "接待员",
+          "es": "Sí. La prioridad se determina según la valoración sanitaria, no por el orden de llegada.",
+          "zh": "是的。救治优先级按医护评估决定，不是按到达顺序。"
+        },
+        {
+          "speaker": "患者",
+          "es": "Entiendo. ¿A quién debo avisar si mientras espero noto cambios?",
+          "zh": "明白。等候期间如果情况变化，我该通知谁？"
+        },
+        {
+          "speaker": "接待员",
+          "es": "Comuníquelo de inmediato al personal sanitario.",
+          "zh": "请立即告知医护人员。"
+        },
+        {
+          "speaker": "患者",
+          "es": "Gracias. También puedo explicar qué síntomas han aparecido hoy.",
+          "zh": "谢谢。我还可以说明今天新出现了哪些症状。"
+        },
+        {
+          "speaker": "接待员",
+          "es": "Perfecto. Facilite la información de forma clara y completa.",
+          "zh": "很好。请清楚完整地提供信息。"
+        }
+      ],
+      "expressions": [
+        {
+          "standard": "¿Dónde se realiza el triaje?",
+          "natural": "¿Dónde me tienen que valorar primero?",
+          "note": "在哪里先做分诊评估？",
+          "register": "正式/西班牙自然口语"
+        },
+        {
+          "standard": "He notado un empeoramiento mientras esperaba.",
+          "natural": "Me he puesto peor mientras esperaba.",
+          "note": "等待时感觉更严重了，需立即告知医护人员。",
+          "register": "正式/西班牙自然口语"
+        }
+      ],
+      "challenges": [
+        {
+          "prompt": "说：等待时我感觉更严重了。",
+          "answer": "Me he puesto peor mientras esperaba."
+        },
+        {
+          "prompt": "问：哪里进行初步分诊？",
+          "answer": "¿Dónde se realiza la valoración inicial o el triaje?"
+        },
+        {
+          "prompt": "问：如有新症状该告诉谁？",
+          "answer": "¿A quién debo avisar si aparecen síntomas nuevos?"
+        }
+      ],
+      "mission": {
+        "setup": "儿科或紧急情况中要清晰提供已知事实，遵循医护人员指引。不要凭语言课判断医学严重程度。",
+        "decisions": [
+          {
+            "situation": "你等待期间出现新的明显变化。",
+            "prompt": "你应做什么？",
+            "model": "He notado un cambio mientras esperaba. ¿Puede avisar al personal sanitario?",
+            "choices": [
+              {
+                "es": "He notado un cambio mientras esperaba. ¿Puede avisar al personal sanitario?",
+                "correct": true,
+                "feedback": "出现变化时需及时通知医护人员重新评估。"
+              },
+              {
+                "es": "Esperaré sin comunicarlo, porque ya me registré.",
+                "correct": false,
+                "feedback": "当前表达可能延误信息传递，或没有回答工作人员的问题。"
+              },
+              {
+                "es": "¿Cuánto cuesta el aparcamiento?",
+                "correct": false,
+                "feedback": "只涉及部分信息，还没处理当前最关键的沟通任务。"
+              }
+            ]
+          },
+          {
+            "situation": "有人比你后到却先就诊，你不理解分诊。",
+            "prompt": "最合适的提问？",
+            "model": "Entiendo que la prioridad depende del triaje. ¿A quién aviso si cambia mi estado?",
+            "choices": [
+              {
+                "es": "Entiendo que la prioridad depende del triaje. ¿A quién aviso si cambia mi estado?",
+                "correct": true,
+                "feedback": "分诊依据临床情况，不等于简单排队。"
+              },
+              {
+                "es": "Es injusto porque tienen que atender por orden de llegada.",
+                "correct": false,
+                "feedback": "当前表达可能延误信息传递，或没有回答工作人员的问题。"
+              },
+              {
+                "es": "¿Cuántas personas trabajan aquí?",
+                "correct": false,
+                "feedback": "只涉及部分信息，还没处理当前最关键的沟通任务。"
+              }
+            ]
+          }
+        ],
+        "transfer": "模拟入急诊：简述症状、从什么时候开始、目前发生的变化、是否有随身病历资料及如何通知医生。",
+        "debrief": "离开练习前复述年龄、症状、出现时间、已知情况和医护人员给出的下一步。"
+      }
+    },
+    {
+      "id": "hc-family-04",
+      "domain": "health",
+      "track": "clinic-family-emergency",
+      "level": "B2",
+      "stage": 4,
+      "title": "突发紧急情况：联系 112 并准确报告",
+      "subtitle": "Comunicación con emergencias 112",
+      "goal": "熟练说明位置、发生什么、人数与当前状态，并听从急救调度员指引。",
+      "brief": "在西班牙出现需要紧急救助的情况时，可拨打 112。此课仅训练报告信息，不教授自行处置或判断是否应延误呼救。",
+      "vocab": [
+        {
+          "es": "el 112",
+          "zh": "欧洲通用紧急电话"
+        },
+        {
+          "es": "la emergencia",
+          "zh": "紧急情况"
+        },
+        {
+          "es": "la ubicación exacta",
+          "zh": "准确位置"
+        },
+        {
+          "es": "la dirección",
+          "zh": "地址"
+        },
+        {
+          "es": "el estado de la persona",
+          "zh": "当事人状态"
+        },
+        {
+          "es": "la consciencia",
+          "zh": "意识"
+        },
+        {
+          "es": "respirar",
+          "zh": "呼吸"
+        },
+        {
+          "es": "la ambulancia",
+          "zh": "救护车"
+        },
+        {
+          "es": "el operador / la operadora",
+          "zh": "接线调度员"
+        },
+        {
+          "es": "seguir instrucciones",
+          "zh": "遵循指引"
+        },
+        {
+          "es": "proporcionar información",
+          "zh": "提供信息"
+        },
+        {
+          "es": "el punto de referencia",
+          "zh": "位置参照物"
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "接线员",
+          "es": "Emergencias 112, ¿qué ocurre?",
+          "zh": "112 紧急服务，请问发生了什么？"
+        },
+        {
+          "speaker": "来电者",
+          "es": "Necesito ayuda urgente. Hay una persona que se ha desplomado.",
+          "zh": "我需要紧急帮助。有个人突然倒下了。"
+        },
+        {
+          "speaker": "接线员",
+          "es": "Dígame la dirección exacta donde se encuentra.",
+          "zh": "请告诉我您所在的准确地址。"
+        },
+        {
+          "speaker": "来电者",
+          "es": "Estamos en una calle del centro. Voy a decirle el número y un punto de referencia.",
+          "zh": "我们在市中心的一条街。我会告诉您门牌号和附近标志物。"
+        },
+        {
+          "speaker": "接线员",
+          "es": "¿Cuántas personas están afectadas?",
+          "zh": "有多少人受到影响？"
+        },
+        {
+          "speaker": "来电者",
+          "es": "Una persona. Estoy con ella.",
+          "zh": "一人。我在她身边。"
+        },
+        {
+          "speaker": "接线员",
+          "es": "¿Puede describir su estado actual?",
+          "zh": "您能描述她现在的情况吗？"
+        },
+        {
+          "speaker": "来电者",
+          "es": "No responde cuando le hablo. No estoy seguro de cómo valorar su respiración.",
+          "zh": "我叫她没有反应。我不确定该如何判断她的呼吸。"
+        },
+        {
+          "speaker": "接线员",
+          "es": "Siga mis indicaciones. Voy a hacerle preguntas concretas.",
+          "zh": "请遵循我的指示。我会问您具体问题。"
+        },
+        {
+          "speaker": "来电者",
+          "es": "De acuerdo. Estoy escuchando y seguiré sus instrucciones.",
+          "zh": "好的。我在听，会遵循您的指示。"
+        }
+      ],
+      "expressions": [
+        {
+          "standard": "Necesito asistencia urgente.",
+          "natural": "Necesito ayuda ya.",
+          "note": "我需要立刻帮忙；紧急电话应简洁明确。",
+          "register": "正式/西班牙自然口语"
+        },
+        {
+          "standard": "No responde a estímulos verbales.",
+          "natural": "No contesta cuando le hablo.",
+          "note": "叫他/她没有反应；普通人可以直接描述可观察事实。",
+          "register": "正式/西班牙自然口语"
+        }
+      ],
+      "challenges": [
+        {
+          "prompt": "说：我需要紧急帮助。",
+          "answer": "Necesito ayuda urgente."
+        },
+        {
+          "prompt": "说：有人突然倒下。",
+          "answer": "Una persona se ha desplomado."
+        },
+        {
+          "prompt": "说：他/她听到我讲话没有反应。",
+          "answer": "No responde cuando le hablo."
+        }
+      ],
+      "mission": {
+        "setup": "儿科或紧急情况中要清晰提供已知事实，遵循医护人员指引。不要凭语言课判断医学严重程度。",
+        "decisions": [
+          {
+            "situation": "接线员先问地址，你非常慌张。",
+            "prompt": "应优先回答什么？",
+            "model": "Estamos en esta dirección. Le digo la calle, el número y la localidad.",
+            "choices": [
+              {
+                "es": "Estamos en esta dirección. Le digo la calle, el número y la localidad.",
+                "correct": true,
+                "feedback": "地点是调度救援的关键信息，应尽量给出准确位置。"
+              },
+              {
+                "es": "No sé, vengan cuanto antes a cualquier sitio.",
+                "correct": false,
+                "feedback": "当前表达可能延误信息传递，或没有回答工作人员的问题。"
+              },
+              {
+                "es": "¿Me puede decir cuánto tarda siempre una ambulancia?",
+                "correct": false,
+                "feedback": "只涉及部分信息，还没处理当前最关键的沟通任务。"
+              }
+            ]
+          },
+          {
+            "situation": "调度员问你不确定的身体状态。",
+            "prompt": "正确做法是？",
+            "model": "No sé valorarlo con seguridad. Dígame cómo comprobarlo y seguiré sus indicaciones.",
+            "choices": [
+              {
+                "es": "No sé valorarlo con seguridad. Dígame cómo comprobarlo y seguiré sus indicaciones.",
+                "correct": true,
+                "feedback": "报告可观察事实及不确定性，并遵循调度员实时指引。"
+              },
+              {
+                "es": "Sí, está perfectamente, aunque no lo he comprobado.",
+                "correct": false,
+                "feedback": "当前表达可能延误信息传递，或没有回答工作人员的问题。"
+              },
+              {
+                "es": "¿Por qué pregunta tantas cosas?",
+                "correct": false,
+                "feedback": "只涉及部分信息，还没处理当前最关键的沟通任务。"
+              }
+            ]
+          }
+        ],
+        "transfer": "模拟 112 口头报告：发生什么→具体位置→影响人数→可观察情况→哪些信息不确定。实际紧急情况请立即拨打当地急救电话，不要先练习。",
+        "debrief": "离开练习前复述年龄、症状、出现时间、已知情况和医护人员给出的下一步。"
+      }
+    }
+  ]
+}
