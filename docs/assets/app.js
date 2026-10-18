@@ -87,11 +87,12 @@
     if (!("speechSynthesis" in window)) {
       toast("当前浏览器不支持语音朗读，请阅读西语文本。"); return;
     }
+    if (window.ESAudio) return window.ESAudio.speak(phrase);
     const text = String(phrase || "").slice(0, 250).trim();
     if (!text) return;
     window.speechSynthesis.cancel();
     const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = "es-ES"; utterance.rate = 0.86;
+    utterance.lang = "es-ES"; utterance.rate = 0.70;
     window.speechSynthesis.speak(utterance);
   }
   function buttonSpeech(es) {
@@ -182,10 +183,13 @@
       '</span>' + (v.detail ? '<small>' + esc(v.detail) + '</small>' : '') + '</div>').join("") +
       '</div></section>';
     const dialogue = '<section id="lesson-dialogue" class="panel"><div class="panel-head"><h2 class="panel-title">02. 真实交际对话</h2>' +
+      '<div class="dialogue-audio-controls"><button type="button" class="secondary-btn" data-action="speech-dialogue" data-value="' + esc(s.id) + '">▷ 播放整段</button>' +
+      '<button type="button" class="secondary-btn" data-action="speech-follow" data-value="' + esc(s.id) + '">↺ 慢速跟读</button>' +
+      '<button type="button" class="outline-btn" data-action="speech-pause">Ⅱ 暂停</button></div>' +
       '<label class="switch-label"><input type="checkbox" id="translation-toggle" ' +
       (state.hideTranslations ? 'checked ' : '') + '>隐藏中文，练习听懂</label></div>' +
-      '<div class="dialogue">' + s.dialogue.map(d =>
-      '<div class="dialogue-line"><span class="speaker">' + esc(d.speaker) +
+      '<div class="dialogue">' + s.dialogue.map((d,i) =>
+      '<div class="dialogue-line" data-audio-index="' + i + '"><span class="speaker">' + esc(d.speaker) +
       '</span><div class="bubble"><div class="bubble-es">' + esc(d.es) + ' ' + buttonSpeech(d.es) +
       '</div><div class="bubble-zh" ' + (state.hideTranslations ? 'hidden' : '') + '>' +
       esc(d.zh) + '</div></div></div>').join("") + '</div></section>';
