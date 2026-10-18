@@ -179,8 +179,8 @@
       '<div class="progress-ring"><div class="fill" style="width:' + p.ratio + '%"></div></div>' +
       '<p class="small-note">只根据你手动标记的结果统计，保存在当前浏览器。</p></div>' +
       '<div class="panel"><h3 class="panel-title" style="margin-bottom:10px">本课导航</h3><div class="aside-links">' +
-      '<a href="#lesson-vocab">01 场景词汇 ↗</a><a href="#lesson-dialogue">02 情景对话 ↗</a>' +
-      '<a href="#lesson-native">03 母语自然表达 ↗</a><a href="#lesson-practice">04 闭卷回忆 ↗</a></div></div>' +
+      '<button class="lesson-link" type="button" data-action="lesson-jump" data-value="lesson-vocab">01 场景词汇 ↗</button><button class="lesson-link" type="button" data-action="lesson-jump" data-value="lesson-dialogue">02 情景对话 ↗</button>' +
+      '<button class="lesson-link" type="button" data-action="lesson-jump" data-value="lesson-native">03 母语自然表达 ↗</button><button class="lesson-link" type="button" data-action="lesson-jump" data-value="lesson-practice">04 闭卷回忆 ↗</button></div></div>' +
       '<div class="panel"><span class="aside-kicker">IMPORTANT</span><div class="tip-list"><p>真实办事的材料、收费、申请期限随地区、机构及年份变化；本页只教授交流表达。</p>' +
       '<p>自然口语不一定适用于正式书信或严肃场合，留意每条的语域标注。</p></div></div></aside>';
     el("view-detail").innerHTML = intro + '<div class="detail-layout"><div class="learning-main">' +
@@ -389,6 +389,7 @@
       if (!b) return;
       const action=b.dataset.action, value=b.dataset.value;
       if (action === "speak") return speak(b.dataset.speak);
+      if (action === "lesson-jump") { const destination = el(value); if (destination) destination.scrollIntoView({behavior:"smooth",block:"start"}); return; }
       if (action === "domain-filter") { state.domain=value;renderScenarios(); }
       if (action === "open-scenario") location.hash="#/detail/"+value;
       if (action === "back") location.hash="#/scenarios";
