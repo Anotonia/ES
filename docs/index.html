@@ -7,10 +7,11 @@
   <meta name="description" content="西班牙生活西语学习：A1–B2 词库、学校重点场景、自然口语、词族思维图及主动复习。">
   <title>ES · 西班牙生活西语实验室</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/styles.css?v=8">
+  <link rel="stylesheet" href="assets/styles.css?v=10">
   <script src="assets/audio.js?v=5" defer></script>
   <script src="assets/pathways.js?v=6" defer></script>
-  <script src="assets/app.js?v=9" defer></script>
+  <script src="assets/medical-deep.js?v=1" defer></script>
+  <script src="assets/app.js?v=10" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">跳到主要内容</a>
@@ -23,6 +24,7 @@
       <div class="sidebar-caption">学习空间 / YOUR WORKSPACE</div>
       <nav id="nav" class="site-nav">
         <a class="nav-link is-active" data-route="scenarios" href="#/scenarios"><span class="nav-icon">▦</span><span>生活场景</span><span class="nav-kbd">01</span></a>
+        <a class="nav-link" data-route="medical" href="#/medical"><span class="nav-icon">✚</span><span>医疗深度课程</span><span class="nav-kbd">02</span></a>
         <a class="nav-link" data-route="vocabulary" href="#/vocabulary"><span class="nav-icon">≡</span><span>分级词库</span><span class="nav-kbd">02</span></a>
         <a class="nav-link" data-route="colloquial" href="#/colloquial"><span class="nav-icon">❞</span><span>地道口语</span><span class="nav-kbd">03</span></a>
         <a class="nav-link" data-route="maps" href="#/maps"><span class="nav-icon">⌘</span><span>语义与词族图</span><span class="nav-kbd">04</span></a>
@@ -59,7 +61,7 @@
               <span class="eyebrow"><span class="mini-star">✳</span> IMMERSIVE LANGUAGE LEARNING · 西班牙生活版</span>
               <h1 id="hero-title">真正学会在<span>西班牙生活</span>的西班牙语。</h1>
               <p>从学校、医院、银行到行政办事。先理解场景，再学会自然开口——不仅能翻译，更知道<span class="underline-accent">什么时候该怎么说</span>。</p>
-              <div class="hero-actions"><button class="primary-btn" id="start-school">从学校场景开始 <span>↗</span></button><a href="#/detail/hc-book-01" class="quiet-link">从医院预约开始 <span>→</span></a><a href="#/maps" class="quiet-link">探索词汇网络 <span>→</span></a></div>
+              <div class="hero-actions"><button class="primary-btn" id="start-school">从学校场景开始 <span>↗</span></button><a href="#/medical" class="quiet-link">进入完整医院深度案例 <span>→</span></a><a href="#/maps" class="quiet-link">探索词汇网络 <span>→</span></a></div>
             </div>
             <div class="hero-art" aria-hidden="true">
               <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
@@ -72,9 +74,15 @@
             <div class="metric"><strong id="scene-count">61</strong><span>分级真实场景</span></div>
             <div class="metric"><strong id="school-scene-count">23</strong><span>学校场景与任务</span></div>
             <div class="metric"><strong id="health-scene-count">26</strong><span>医疗与健康场景</span></div>
+            <div class="metric"><strong>6</strong><span>完整纵向就医经历</span></div>
             <div class="metric"><strong id="curated-count">827</strong><span>已编写词汇记录</span></div>
             <div class="metric"><strong>8,000</strong><span>待审候选词元目标</span></div>
           </div>
+          <section class="med-home-banner" aria-label="连续就医经历深度练习">
+            <div><span class="overline">MEDICAL IMMERSION · 超越短对话</span><h2>从预约到复诊，完整经历一次就医</h2>
+            <p>6 条长篇病例 · 24 个连续剧情章节 · 335 轮双语对话。重点是多轮追问、信息传递、角色代入与开放表达。</p></div>
+            <a href="#/medical">查看完整病例课程 ↗</a>
+          </section>
           <section id="pathways-section" class="pathways-section" aria-label="由基础到高级的场景学习路径">
             <div class="pathways-heading"><div><span class="overline">PROGRESSIVE LEARNING PATHS</span><h2>从简单问答，学到复杂沟通<span class="heading-dash">.</span></h2><p>12 条连续路径 · 每条覆盖 A1 → A2 → B1 → B2。先选一条路径，再逐步完成四个真实任务。</p></div></div>
             <div id="pathways-grid" class="pathways-grid" aria-live="polite"></div>
@@ -86,6 +94,7 @@
           <div class="footnote-callout"><strong>使用方式</strong>　点开一张场景卡，先读对话，再切换标准／自然表达，最后闭卷练习。学校办事程序与具体材料以学校及政府正式通知为准。</div>
         </section>
         <section id="view-detail" class="view" aria-label="场景课程详情"></section>
+        <section id="view-medical" class="view" aria-label="完整就医故事与深度对话训练"></section>
         <section id="view-vocabulary" class="view" aria-label="词汇检索"></section>
         <section id="view-colloquial" class="view" aria-label="西班牙日常口语"></section>
         <section id="view-maps" class="view" aria-label="语义思维导图"></section>
