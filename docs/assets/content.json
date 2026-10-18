@@ -1620,7 +1620,7 @@
     {
       "base": "aprender",
       "derived": "el aprendizaje",
-      "relation": "-izaje（名词化，词干变化）",
+      "relation": "相关名词词族（不宜当作可自由套用的后缀规则）",
       "zh": "学习 → 学习过程",
       "example": "El aprendizaje requiere práctica.",
       "group": "school"
