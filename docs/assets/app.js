@@ -157,6 +157,7 @@
     el("scenario-search").value=state.scenarioSearch;
     if (el("scene-count")) el("scene-count").textContent=String(state.data.scenarios.length);
     if (el("school-scene-count")) el("school-scene-count").textContent=String(state.data.scenarios.filter(s=>s.domain==="school").length);
+    if (el("health-scene-count")) el("health-scene-count").textContent=String(state.data.scenarios.filter(s=>s.domain==="health").length);
     if (el("pathways-grid")) {
       el("pathways-grid").innerHTML=window.ESPathways ?
         window.ESPathways.renderTracks(state.data.tracks||[],state.data.scenarios) :
@@ -517,7 +518,7 @@
       if(!response.ok)throw new Error("HTTP "+response.status);
       const obj=await response.json();
       if(!Array.isArray(obj.scenarios)||!Array.isArray(obj.domains))throw new Error("内容结构错误");
-      const packs=await Promise.all(["assets/school-pathways.json","assets/life-pathways.json"].map(async path=>{
+      const packs=await Promise.all(["assets/school-pathways.json","assets/health-booking.json","assets/health-consultation.json","assets/health-testing.json","assets/health-pharmacy-path.json","assets/health-family-emergency.json","assets/life-pathways.json"].map(async path=>{
         const result=await fetch(path,{cache:"no-cache"});
         if(!result.ok)throw new Error("课程包加载失败："+path);
         const data=await result.json();
