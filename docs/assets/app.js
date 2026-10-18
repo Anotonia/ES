@@ -13,6 +13,7 @@
     vocabulary: "分级词库",
     colloquial: "地道口语",
     maps: "语义与词族图",
+    morphology: "词根词缀全索引",
     review: "记忆复习"
   };
   const state = {
@@ -140,6 +141,7 @@
     else if (view === "vocabulary") { showView(view); renderVocabulary(); }
     else if (view === "colloquial") { showView(view); renderColloquial(); }
     else if (view === "maps") { showView(view); renderMaps(); }
+    else if (view === "morphology") { showView(view); if(window.ESMorphology)window.ESMorphology.render(); }
     else if (view === "review") { showView(view); renderReview(); }
     else location.hash = "#/scenarios";
   }
