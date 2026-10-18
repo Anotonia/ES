@@ -477,6 +477,11 @@
                 "es": "He leído algo en internet y ya sé el diagnóstico.",
                 "correct": false,
                 "feedback": "网络检索不能代替专业判断。"
+              },
+              {
+                "es": "¿Quiere decir que el resultado es malo?",
+                "correct": false,
+                "feedback": "‘好坏’二分可能误导；应询问该数值在具体临床情境中的含义。"
               }
             ]
           },
@@ -494,6 +499,11 @@
                 "es": "Ya me acordaré luego.",
                 "correct": false,
                 "feedback": "依赖模糊记忆可能遗漏安排。"
+              },
+              {
+                "es": "¿Le llamo el mes que viene para ver qué hacemos?",
+                "correct": false,
+                "feedback": "不要自己猜测随访时点；请确认医嘱及应采取的下一步。"
               }
             ]
           }
@@ -639,6 +649,11 @@
                 "es": "Elija usted y no me explique nada.",
                 "correct": false,
                 "feedback": "完全跳过解释无法确认自己的理解。"
+              },
+              {
+                "es": "¿Cuál de las opciones suele gustarle más a la gente?",
+                "correct": false,
+                "feedback": "群体偏好不能替代针对个人情况的利弊与限制说明。"
               }
             ]
           },
@@ -656,6 +671,11 @@
                 "es": "No tengo ninguna pregunta aunque no he entendido nada.",
                 "correct": false,
                 "feedback": "不理解时不应假装理解。"
+              },
+              {
+                "es": "¿Cuál es la opción más rápida?",
+                "correct": false,
+                "feedback": "只比较速度忽略风险、长期效果及个人优先事项。"
               }
             ]
           }
@@ -1120,6 +1140,11 @@
                 "es": "Estoy seguro de que el banco me ha robado.",
                 "correct": false,
                 "feedback": "无依据的指控容易偏离解决问题。"
+              },
+              {
+                "es": "No sé quién hizo el cargo, así que seguramente fue un error del banco.",
+                "correct": false,
+                "feedback": "目前没有足够依据确定责任；先陈述可核实信息。"
               }
             ]
           },
@@ -1137,6 +1162,11 @@
                 "es": "Le mando mis claves por este chat público.",
                 "correct": false,
                 "feedback": "公开发送登录凭证存在安全风险。"
+              },
+              {
+                "es": "¿Podría revisarlo mañana cuando tenga más tiempo?",
+                "correct": false,
+                "feedback": "对于可能涉及安全的异常交易，不能随意推定可以延后；应询问官方处理途径。"
               }
             ]
           }
@@ -1282,6 +1312,11 @@
                 "es": "Quiero que lo quiten porque sí.",
                 "correct": false,
                 "feedback": "没有具体依据的要求难以沟通。"
+              },
+              {
+                "es": "¿Puede prometerme que devolverán esta comisión?",
+                "correct": false,
+                "feedback": "核查前不宜要求结果保证；应先请求合同依据和调查。"
               }
             ]
           },
@@ -1299,6 +1334,11 @@
                 "es": "Entonces publico mis datos bancarios para demostrarlo.",
                 "correct": false,
                 "feedback": "泄露私人金融信息会增加风险。"
+              },
+              {
+                "es": "¿Podría decirme si la reclamación tarda mucho normalmente?",
+                "correct": false,
+                "feedback": "了解处理时间有用，但更关键的是正式受理渠道及可追踪编号。"
               }
             ]
           }
@@ -1758,6 +1798,11 @@
                 "es": "La enviaré diez veces sin mirar.",
                 "correct": false,
                 "feedback": "重复提交可能造成混乱。"
+              },
+              {
+                "es": "¿Se puede intentar desde otro navegador?",
+                "correct": false,
+                "feedback": "更换浏览器也许有帮助，但当期限临近时仍需确认已登记状态和正式支持渠道。"
               }
             ]
           },
@@ -1775,6 +1820,11 @@
                 "es": "Ya lo intentaré cuando pase el plazo.",
                 "correct": false,
                 "feedback": "超过期限再处理可能增加风险。"
+              },
+              {
+                "es": "¿Me recomiendan dejarlo para la semana que viene?",
+                "correct": false,
+                "feedback": "若存在截止期限，不宜未经核实就延后提交。"
               }
             ]
           }
@@ -1920,6 +1970,11 @@
                 "es": "Presentaré un recurso cualquiera.",
                 "correct": false,
                 "feedback": "不同通知的回应方式可能不同。"
+              },
+              {
+                "es": "¿Es mejor presentar una nueva solicitud desde cero?",
+                "correct": false,
+                "feedback": "先弄清通知类型及程序阶段，否则重新申请可能无助于回应当前通知。"
               }
             ]
           },
@@ -1937,6 +1992,11 @@
                 "es": "Me da igual el plazo, presentaré cuando pueda.",
                 "correct": false,
                 "feedback": "忽视期限会造成重大程序风险。"
+              },
+              {
+                "es": "¿No puedo simplemente llamarlos por teléfono cuando pueda?",
+                "correct": false,
+                "feedback": "电话咨询可以辅助，但不能假定会替代正式通知要求的提交方式和期限。"
               }
             ]
           }
