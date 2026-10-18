@@ -30,12 +30,13 @@
     }
     return lines.join("\n");
   }
+  const typeName={derivational_prefix:"派生前缀",lexical_base:"词基／已有单词",lexical_stem:"词干",base_with_alternation_or_historical_relation:"历史或变体词干线索",suffix_shape_historical_caution:"后缀形式 · 需词源核对",derivational_suffix:"派生后缀",lexical_stem_heuristic:"动词词干线索",infinitive_inflection:"不定式词尾（屈折）"};
   function graph(word){
     if(!word.segments)return '<div class="morph-unknown"><strong>'+esc(word.lemma_core)+'</strong><span>未做可靠拆分；这不是“不能拆”，而是目前不应猜。</span></div>';
-    const parts=word.segments.split(" + ");
+    const parts=word.components?.length?word.components:word.segments.split(" + ").map(segment=>({segment,role:"lexical_stem"}));
     return '<div class="morph-visual"><div class="morph-whole">'+esc(word.lemma_core)+'</div>'+
       '<div class="morph-vertical-arrow">↓ 结构层</div><div class="morph-parts">'+parts.map((x,i)=>
-      '<div class="morph-part"><strong>'+esc(x)+'</strong><small>'+(word.analysis_status==="infinitive_pattern_only"?(i===parts.length-1?"不定式词尾":"词干线索"):"形式成分 "+(i+1))+'</small></div>').join('<span class="morph-plus">+</span>')+
+      '<div class="morph-part"><strong>'+esc(x.segment)+'</strong><small>'+esc(typeName[x.role]||"词素成分")+'</small></div>').join('<span class="morph-plus">+</span>')+
       '</div></div>';
   }
   function dir(){
