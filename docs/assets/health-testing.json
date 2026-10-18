@@ -1,0 +1,746 @@
+{
+  "schema": 2,
+  "description": "检查、化验、报告与转诊交际课程。请以负责医护人员对检查准备和结果的说明为准。",
+  "tracks": [
+    {
+      "id": "clinic-testing",
+      "domain": "health",
+      "title": "检查化验与专科转诊",
+      "subtitle": "检查地点 → 准备/报告 → 专科转诊 → 复杂报告解释",
+      "description": "学习报告、检查单、转诊和医学不确定性相关表达，避免把检验值自行解读为诊断。"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "hc-test-01",
+      "domain": "health",
+      "track": "clinic-testing",
+      "level": "A1",
+      "stage": 1,
+      "title": "领取化验单和找检查地点",
+      "subtitle": "Ir a una prueba médica",
+      "goal": "说明自己有检查预约、询问地点和时间。",
+      "brief": "你在医院收到检查指引，不知道抽血窗口在哪里。",
+      "vocab": [
+        {
+          "es": "el análisis de sangre",
+          "zh": "血液检查"
+        },
+        {
+          "es": "la prueba",
+          "zh": "检查"
+        },
+        {
+          "es": "el laboratorio",
+          "zh": "化验室"
+        },
+        {
+          "es": "la planta",
+          "zh": "楼层"
+        },
+        {
+          "es": "el pasillo",
+          "zh": "走廊"
+        },
+        {
+          "es": "la sala",
+          "zh": "房间"
+        },
+        {
+          "es": "la hora",
+          "zh": "时间"
+        },
+        {
+          "es": "la cita",
+          "zh": "预约"
+        },
+        {
+          "es": "el volante",
+          "zh": "检查申请单（地区和机构用语不同）"
+        },
+        {
+          "es": "la recepción",
+          "zh": "接待台"
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "患者",
+          "es": "Buenos días. Tengo cita para un análisis de sangre.",
+          "zh": "您好，我约了抽血检查。"
+        },
+        {
+          "speaker": "工作人员",
+          "es": "¿Tiene el volante o la información de la cita?",
+          "zh": "您有检查单或预约信息吗？"
+        },
+        {
+          "speaker": "患者",
+          "es": "Sí, aquí está.",
+          "zh": "有，在这里。"
+        },
+        {
+          "speaker": "工作人员",
+          "es": "Debe ir al laboratorio de la primera planta.",
+          "zh": "您需要去一楼的化验室。"
+        },
+        {
+          "speaker": "患者",
+          "es": "¿Por dónde se sube?",
+          "zh": "从哪里上楼？"
+        },
+        {
+          "speaker": "工作人员",
+          "es": "Por el ascensor, al fondo a la derecha.",
+          "zh": "坐电梯，在尽头右边。"
+        },
+        {
+          "speaker": "患者",
+          "es": "¿Tengo que esperar delante de la puerta?",
+          "zh": "我要在门口等候吗？"
+        },
+        {
+          "speaker": "工作人员",
+          "es": "Siga las indicaciones de la sala de extracción.",
+          "zh": "请遵循采血室的指示。"
+        },
+        {
+          "speaker": "患者",
+          "es": "Gracias, ¿puedo confirmar que es en la primera planta?",
+          "zh": "谢谢，我可以确认是在一楼吗？"
+        }
+      ],
+      "expressions": [
+        {
+          "standard": "Tengo programada una analítica de sangre.",
+          "natural": "Vengo a sacarme sangre.",
+          "note": "来抽血。sacarse sangre 为常见口语。",
+          "register": "正式/西班牙口语"
+        },
+        {
+          "standard": "¿Dónde se encuentra el laboratorio?",
+          "natural": "¿Dónde está el laboratorio?",
+          "note": "询问位置时自然表达即可。",
+          "register": "正式/西班牙口语"
+        }
+      ],
+      "challenges": [
+        {
+          "prompt": "说：我有抽血检查的预约。",
+          "answer": "Tengo cita para un análisis de sangre."
+        },
+        {
+          "prompt": "问：化验室在哪一层？",
+          "answer": "¿En qué planta está el laboratorio?"
+        },
+        {
+          "prompt": "问：我需要在这里等吗？",
+          "answer": "¿Tengo que esperar aquí?"
+        }
+      ],
+      "mission": {
+        "setup": "真实检查流程中常常要确认地点、准备事项、结果获取方式和下一步。练习根据新条件追问。",
+        "decisions": [
+          {
+            "situation": "工作人员说去第一层，你没听清。",
+            "prompt": "怎样确认？",
+            "model": "¿Ha dicho primera planta?",
+            "choices": [
+              {
+                "es": "¿Ha dicho primera planta?",
+                "correct": true,
+                "feedback": "重复关键信息有助于防止走错。"
+              },
+              {
+                "es": "Entonces voy a otra sala.",
+                "correct": false,
+                "feedback": "此回答未能处理当前情况，可能忽略重要信息。"
+              },
+              {
+                "es": "¿Dónde está la cafetería?",
+                "correct": false,
+                "feedback": "有一定关联，但没有确认本环节最关键的事项。"
+              }
+            ]
+          },
+          {
+            "situation": "化验室门口没有队列说明。",
+            "prompt": "怎么问？",
+            "model": "¿Dónde tengo que esperar para la extracción?",
+            "choices": [
+              {
+                "es": "¿Dónde tengo que esperar para la extracción?",
+                "correct": true,
+                "feedback": "先弄清等待流程，不擅自进入检查间。"
+              },
+              {
+                "es": "Entro directamente a cualquier sala.",
+                "correct": false,
+                "feedback": "此回答未能处理当前情况，可能忽略重要信息。"
+              },
+              {
+                "es": "¿Hacen también radiografías?",
+                "correct": false,
+                "feedback": "有一定关联，但没有确认本环节最关键的事项。"
+              }
+            ]
+          }
+        ],
+        "transfer": "把抽血检查改为胸部 X 光，重新问医院哪个科室以及应该在哪里等候。",
+        "debrief": "复述谁安排检查、什么时候做、如何准备、在哪里看结果和何时回诊。"
+      }
+    },
+    {
+      "id": "hc-test-02",
+      "domain": "health",
+      "track": "clinic-testing",
+      "level": "A2",
+      "stage": 2,
+      "title": "检查前准备与结果领取",
+      "subtitle": "Preparación para pruebas y resultados",
+      "goal": "询问检查前是否需要准备、结果多久出、如何领取。",
+      "brief": "医生安排了某项检查，你不应默认任何检查都要空腹，要向医护人员核对具体准备要求。",
+      "vocab": [
+        {
+          "es": "estar en ayunas",
+          "zh": "空腹"
+        },
+        {
+          "es": "la preparación",
+          "zh": "检查前准备"
+        },
+        {
+          "es": "la analítica",
+          "zh": "化验"
+        },
+        {
+          "es": "las indicaciones",
+          "zh": "指引"
+        },
+        {
+          "es": "recoger resultados",
+          "zh": "领取结果"
+        },
+        {
+          "es": "el informe",
+          "zh": "报告"
+        },
+        {
+          "es": "la fecha prevista",
+          "zh": "预计日期"
+        },
+        {
+          "es": "la muestra",
+          "zh": "样本"
+        },
+        {
+          "es": "la prueba de imagen",
+          "zh": "影像检查"
+        },
+        {
+          "es": "la confirmación",
+          "zh": "确认"
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "患者",
+          "es": "Tengo una prueba la semana que viene y quisiera saber cómo prepararme.",
+          "zh": "我下周要做检查，想了解怎么准备。"
+        },
+        {
+          "speaker": "工作人员",
+          "es": "¿De qué prueba se trata?",
+          "zh": "具体是什么检查？"
+        },
+        {
+          "speaker": "患者",
+          "es": "Es una analítica solicitada por mi médico.",
+          "zh": "是医生开的化验。"
+        },
+        {
+          "speaker": "工作人员",
+          "es": "Debe seguir las instrucciones específicas que le hayan entregado.",
+          "zh": "请遵循给您的该项检查的专门指引。"
+        },
+        {
+          "speaker": "患者",
+          "es": "No tengo claro si debo venir en ayunas.",
+          "zh": "我不清楚是否需要空腹来。"
+        },
+        {
+          "speaker": "工作人员",
+          "es": "Vamos a comprobar las indicaciones para esa prueba.",
+          "zh": "我们核对一下这项检查的要求。"
+        },
+        {
+          "speaker": "患者",
+          "es": "Gracias. ¿Dónde podré consultar los resultados?",
+          "zh": "谢谢。结果在哪里查看？"
+        },
+        {
+          "speaker": "工作人员",
+          "es": "Le indicaremos el canal disponible y cuándo podría estar el informe.",
+          "zh": "我们会说明查看渠道及报告可能出具的时间。"
+        },
+        {
+          "speaker": "患者",
+          "es": "¿Debo pedir otra cita para comentarlos con mi médica?",
+          "zh": "要再约医生讨论结果吗？"
+        },
+        {
+          "speaker": "工作人员",
+          "es": "Consúltelo con su equipo asistencial según lo que le indiquen.",
+          "zh": "请根据医护团队的指引确认。"
+        }
+      ],
+      "expressions": [
+        {
+          "standard": "¿Es necesario acudir en ayunas?",
+          "natural": "¿Tengo que venir sin desayunar?",
+          "note": "询问是否空腹；两种表达都自然，不能把‘抽血必空腹’作为通用规则。",
+          "register": "正式/西班牙口语"
+        },
+        {
+          "standard": "¿Dónde se consultan los resultados?",
+          "natural": "¿Dónde miro los resultados?",
+          "note": "查看检查结果。",
+          "register": "正式/西班牙口语"
+        }
+      ],
+      "challenges": [
+        {
+          "prompt": "问：检查前需要空腹吗？",
+          "answer": "¿Es necesario estar en ayunas para esta prueba?"
+        },
+        {
+          "prompt": "问：在哪里查看化验结果？",
+          "answer": "¿Dónde puedo consultar los resultados?"
+        },
+        {
+          "prompt": "问：需要复诊讨论结果吗？",
+          "answer": "¿Tengo que pedir una cita para comentar los resultados?"
+        }
+      ],
+      "mission": {
+        "setup": "真实检查流程中常常要确认地点、准备事项、结果获取方式和下一步。练习根据新条件追问。",
+        "decisions": [
+          {
+            "situation": "你听别人说抽血都要空腹，但医生没有要求。",
+            "prompt": "最合适的问法？",
+            "model": "¿Podrían confirmar si esta prueba requiere ayuno y durante cuánto tiempo?",
+            "choices": [
+              {
+                "es": "¿Podrían confirmar si esta prueba requiere ayuno y durante cuánto tiempo?",
+                "correct": true,
+                "feedback": "应根据具体检查和专业指引确定准备方式。"
+              },
+              {
+                "es": "Seguro que todas las pruebas requieren ayuno.",
+                "correct": false,
+                "feedback": "此回答未能处理当前情况，可能忽略重要信息。"
+              },
+              {
+                "es": "¿Tiene un hueco mañana?",
+                "correct": false,
+                "feedback": "有一定关联，但没有确认本环节最关键的事项。"
+              }
+            ]
+          },
+          {
+            "situation": "系统显示报告已出，但你不明白内容。",
+            "prompt": "怎么办？",
+            "model": "¿Con quién puedo revisar el informe para entender sus resultados?",
+            "choices": [
+              {
+                "es": "¿Con quién puedo revisar el informe para entender sus resultados?",
+                "correct": true,
+                "feedback": "由医护人员结合症状解释结果，避免自我诊断。"
+              },
+              {
+                "es": "Lo interpretaré solo por internet.",
+                "correct": false,
+                "feedback": "此回答未能处理当前情况，可能忽略重要信息。"
+              },
+              {
+                "es": "¿Se puede imprimir en color?",
+                "correct": false,
+                "feedback": "有一定关联，但没有确认本环节最关键的事项。"
+              }
+            ]
+          }
+        ],
+        "transfer": "用四句说明：检查类型、要确认的准备事项、结果领取方式、是否需要复诊。",
+        "debrief": "复述谁安排检查、什么时候做、如何准备、在哪里看结果和何时回诊。"
+      }
+    },
+    {
+      "id": "hc-test-03",
+      "domain": "health",
+      "track": "clinic-testing",
+      "level": "B1",
+      "stage": 3,
+      "title": "转诊专科及复诊流程",
+      "subtitle": "Derivación a especialistas",
+      "goal": "区分转诊、专科初诊和复诊，准确叙述已完成的步骤。",
+      "brief": "家庭医生建议看专科，患者需要确认申请、就诊顺序及需要携带的报告。",
+      "vocab": [
+        {
+          "es": "la derivación",
+          "zh": "转诊"
+        },
+        {
+          "es": "el especialista",
+          "zh": "专科医生"
+        },
+        {
+          "es": "la primera consulta",
+          "zh": "首次问诊"
+        },
+        {
+          "es": "la revisión",
+          "zh": "复诊"
+        },
+        {
+          "es": "el volante de derivación",
+          "zh": "转诊凭证"
+        },
+        {
+          "es": "el historial clínico",
+          "zh": "病历"
+        },
+        {
+          "es": "las pruebas previas",
+          "zh": "既往检查"
+        },
+        {
+          "es": "la cita hospitalaria",
+          "zh": "医院预约"
+        },
+        {
+          "es": "el motivo de consulta",
+          "zh": "就诊原因"
+        },
+        {
+          "es": "hacer seguimiento",
+          "zh": "跟进"
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "患者",
+          "es": "Mi médica de familia me ha recomendado una valoración por un especialista.",
+          "zh": "我的家庭医生建议我去专科做评估。"
+        },
+        {
+          "speaker": "行政人员",
+          "es": "¿Tiene la petición de cita o el documento de derivación?",
+          "zh": "您有预约申请或转诊文件吗？"
+        },
+        {
+          "speaker": "患者",
+          "es": "Sí, lo tengo, pero todavía no he recibido fecha.",
+          "zh": "有，但我还没有收到日期。"
+        },
+        {
+          "speaker": "行政人员",
+          "es": "¿Se trata de una primera consulta?",
+          "zh": "这是专科初诊吗？"
+        },
+        {
+          "speaker": "患者",
+          "es": "Sí, sería la primera vez que visito esta especialidad.",
+          "zh": "是的，我第一次看这个专科。"
+        },
+        {
+          "speaker": "行政人员",
+          "es": "Consultemos qué circuito de citación corresponde.",
+          "zh": "我们看看适用哪种预约流程。"
+        },
+        {
+          "speaker": "患者",
+          "es": "¿Sería útil llevar los resultados de las pruebas anteriores?",
+          "zh": "带之前的检查结果有帮助吗？"
+        },
+        {
+          "speaker": "行政人员",
+          "es": "Puede consultarlo con el servicio asistencial; siga las indicaciones de la cita.",
+          "zh": "您可以向就诊服务询问；请遵循预约指引。"
+        },
+        {
+          "speaker": "患者",
+          "es": "¿A qué servicio puedo llamar si no recibo confirmación?",
+          "zh": "如果没收到确认，我该打哪个部门的电话？"
+        },
+        {
+          "speaker": "行政人员",
+          "es": "Le indicaremos el contacto adecuado para hacer seguimiento.",
+          "zh": "我们会说明适合跟进的联系方式。"
+        }
+      ],
+      "expressions": [
+        {
+          "standard": "Me han derivado a un especialista.",
+          "natural": "Me han mandado al especialista.",
+          "note": "我被转诊到专科；mandar 为日常口语。",
+          "register": "正式/西班牙口语"
+        },
+        {
+          "standard": "Todavía no tengo fecha asignada.",
+          "natural": "Aún no me han dado cita.",
+          "note": "还没收到预约日期。",
+          "register": "正式/西班牙口语"
+        }
+      ],
+      "challenges": [
+        {
+          "prompt": "说：家庭医生建议我看专科。",
+          "answer": "Mi médica de familia me ha derivado a un especialista."
+        },
+        {
+          "prompt": "说：我还没有收到预约日期。",
+          "answer": "Todavía no he recibido una fecha de cita."
+        },
+        {
+          "prompt": "问：需要带以前的检查报告吗？",
+          "answer": "¿Es necesario llevar los informes de pruebas anteriores?"
+        }
+      ],
+      "mission": {
+        "setup": "真实检查流程中常常要确认地点、准备事项、结果获取方式和下一步。练习根据新条件追问。",
+        "decisions": [
+          {
+            "situation": "你有转诊单却尚未收到预约信息。",
+            "prompt": "如何准确描述？",
+            "model": "Dispongo del volante, pero todavía no consta una fecha confirmada.",
+            "choices": [
+              {
+                "es": "Dispongo del volante, pero todavía no consta una fecha confirmada.",
+                "correct": true,
+                "feedback": "区分已有转诊凭证与尚无就诊日期。"
+              },
+              {
+                "es": "No tengo ningún documento.",
+                "correct": false,
+                "feedback": "此回答未能处理当前情况，可能忽略重要信息。"
+              },
+              {
+                "es": "¿Puedo venir mañana sin cita?",
+                "correct": false,
+                "feedback": "有一定关联，但没有确认本环节最关键的事项。"
+              }
+            ]
+          },
+          {
+            "situation": "工作人员问是首次问诊还是复诊。",
+            "prompt": "怎样说明？",
+            "model": "Es la primera consulta de esta especialidad; no he acudido antes.",
+            "choices": [
+              {
+                "es": "Es la primera consulta de esta especialidad; no he acudido antes.",
+                "correct": true,
+                "feedback": "明确初诊和复诊，有利于匹配正确流程。"
+              },
+              {
+                "es": "Es una revisión, aunque nunca he ido.",
+                "correct": false,
+                "feedback": "此回答未能处理当前情况，可能忽略重要信息。"
+              },
+              {
+                "es": "Vine a recoger un medicamento.",
+                "correct": false,
+                "feedback": "有一定关联，但没有确认本环节最关键的事项。"
+              }
+            ]
+          }
+        ],
+        "transfer": "模拟电话追问专科日期：先说明转诊来源与初诊身份，再询问确认渠道、文件准备和后续联系人。",
+        "debrief": "复述谁安排检查、什么时候做、如何准备、在哪里看结果和何时回诊。"
+      }
+    },
+    {
+      "id": "hc-test-04",
+      "domain": "health",
+      "track": "clinic-testing",
+      "level": "B2",
+      "stage": 4,
+      "title": "检查结果异常与专科意见沟通",
+      "subtitle": "Interpretar informes con cautela",
+      "goal": "区分检验值、参考范围、临床含义及下一步行动，不自行诊断。",
+      "brief": "结果报告有一项超出参考范围，但你不清楚其意义，需要向负责医师提出具体问题。",
+      "vocab": [
+        {
+          "es": "el valor de referencia",
+          "zh": "参考值"
+        },
+        {
+          "es": "fuera de rango",
+          "zh": "超出参考范围"
+        },
+        {
+          "es": "la interpretación clínica",
+          "zh": "临床解释"
+        },
+        {
+          "es": "la variación",
+          "zh": "变化；波动"
+        },
+        {
+          "es": "la relevancia",
+          "zh": "重要性；相关性"
+        },
+        {
+          "es": "el contexto clínico",
+          "zh": "临床背景"
+        },
+        {
+          "es": "las pruebas complementarias",
+          "zh": "补充检查"
+        },
+        {
+          "es": "el diagnóstico diferencial",
+          "zh": "鉴别诊断"
+        },
+        {
+          "es": "el seguimiento indicado",
+          "zh": "建议的随访"
+        },
+        {
+          "es": "el grado de incertidumbre",
+          "zh": "不确定程度"
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker": "患者",
+          "es": "He consultado el informe y hay un valor marcado como fuera de rango.",
+          "zh": "我查看了报告，有一个数值标明超出参考范围。"
+        },
+        {
+          "speaker": "专科医生",
+          "es": "Vamos a revisarlo junto con su historial y los síntomas.",
+          "zh": "我们结合您的病史和症状一起看。"
+        },
+        {
+          "speaker": "患者",
+          "es": "¿Ese resultado es necesariamente preocupante o depende del contexto clínico?",
+          "zh": "这个结果一定值得担忧，还是取决于临床背景？"
+        },
+        {
+          "speaker": "专科医生",
+          "es": "La interpretación depende de distintos factores; no basta mirar un valor aislado.",
+          "zh": "解释要考虑多个因素，不能只看单独一个数值。"
+        },
+        {
+          "speaker": "患者",
+          "es": "Entiendo. ¿Qué información adicional sería útil para valorar su relevancia?",
+          "zh": "明白。还需要什么信息才能判断它的重要性？"
+        },
+        {
+          "speaker": "专科医生",
+          "es": "Revisaremos los antecedentes y si procede realizar alguna prueba complementaria.",
+          "zh": "我们会核对既往情况，以及是否需要补充检查。"
+        },
+        {
+          "speaker": "患者",
+          "es": "¿Qué incertidumbres quedan y cómo podemos comprobar la evolución?",
+          "zh": "还有哪些不确定因素，应该怎样跟进变化？"
+        },
+        {
+          "speaker": "专科医生",
+          "es": "Le explicaré el seguimiento indicado para su situación.",
+          "zh": "我会说明适合您情况的后续安排。"
+        },
+        {
+          "speaker": "患者",
+          "es": "Agradecería que dejáramos por escrito qué pasos se han decidido.",
+          "zh": "我希望将商定的下一步记录成书面形式。"
+        },
+        {
+          "speaker": "专科医生",
+          "es": "De acuerdo. Repasemos el plan antes de terminar.",
+          "zh": "好的。结束前我们再核对计划。"
+        }
+      ],
+      "expressions": [
+        {
+          "standard": "El resultado está fuera del intervalo de referencia.",
+          "natural": "Este valor me sale alto o bajo.",
+          "note": "数值偏高或偏低不等于已经患有某种疾病。",
+          "register": "正式/西班牙口语"
+        },
+        {
+          "standard": "¿Cuál es la interpretación en mi caso?",
+          "natural": "¿Qué significa esto para mí?",
+          "note": "结合个人状况请专业人士解释更稳妥。",
+          "register": "正式/西班牙口语"
+        }
+      ],
+      "challenges": [
+        {
+          "prompt": "问：这个单一结果足以说明问题吗？",
+          "answer": "¿Basta este resultado aislado para sacar una conclusión?"
+        },
+        {
+          "prompt": "问：还存在什么不确定性？",
+          "answer": "¿Qué incertidumbres quedan por aclarar?"
+        },
+        {
+          "prompt": "问：有哪些后续步骤？",
+          "answer": "¿Cuáles son los próximos pasos de seguimiento?"
+        }
+      ],
+      "mission": {
+        "setup": "真实检查流程中常常要确认地点、准备事项、结果获取方式和下一步。练习根据新条件追问。",
+        "decisions": [
+          {
+            "situation": "网上说超出参考范围就代表严重疾病。",
+            "prompt": "你应如何向专科医生提问？",
+            "model": "¿Podría explicar cómo se interpreta ese valor junto con el resto de mi información clínica?",
+            "choices": [
+              {
+                "es": "¿Podría explicar cómo se interpreta ese valor junto con el resto de mi información clínica?",
+                "correct": true,
+                "feedback": "单个异常数值需要临床解释，不应机械对照网络结论。"
+              },
+              {
+                "es": "He confirmado por internet que tengo una enfermedad grave.",
+                "correct": false,
+                "feedback": "此回答未能处理当前情况，可能忽略重要信息。"
+              },
+              {
+                "es": "¿A qué hora acaba la consulta?",
+                "correct": false,
+                "feedback": "有一定关联，但没有确认本环节最关键的事项。"
+              }
+            ]
+          },
+          {
+            "situation": "医生提到复查，你没有听懂目的。",
+            "prompt": "怎样追问？",
+            "model": "¿Qué información se espera obtener con la repetición de la prueba?",
+            "choices": [
+              {
+                "es": "¿Qué información se espera obtener con la repetición de la prueba?",
+                "correct": true,
+                "feedback": "询问复查目的比猜测‘上次检查无效’更合适。"
+              },
+              {
+                "es": "Entonces la primera prueba no servía para nada.",
+                "correct": false,
+                "feedback": "此回答未能处理当前情况，可能忽略重要信息。"
+              },
+              {
+                "es": "¿Me puede cambiar la hora de la cita?",
+                "correct": false,
+                "feedback": "有一定关联，但没有确认本环节最关键的事项。"
+              }
+            ]
+          }
+        ],
+        "transfer": "写一段 120 字的提问提纲：报告哪里不懂、哪些信息有待补充、复查是为了什么、如何获得明确后续说明。",
+        "debrief": "复述谁安排检查、什么时候做、如何准备、在哪里看结果和何时回诊。"
+      }
+    }
+  ]
+}
