@@ -7,6 +7,7 @@
 - [交互式词根词缀检索：827 条状态索引 + 53 类词缀](https://anotonia.github.io/ES/#/morphology)
 - [53 组词缀规则与反例 JSON](../../data/morphology/affix_catalog.json)
 - [135 条具体分析 CSV（词基 + 表层分段 + 历史注意事项）](../../data/morphology/curated_analyses.csv)
+- [270 条具名词素成分 CSV（前缀、词干、后缀或历史线索）](../../data/morphology/components.csv)
 - [主词库 827 条完整状态 CSV](../../data/morphology/morphology_master.csv)
 - [主词库原始数据](../../data/vocabulary_master.csv)
 
