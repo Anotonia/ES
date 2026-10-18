@@ -35,7 +35,7 @@ def main():
         assert all(x.get("prompt") and x.get("answer") for x in s["challenges"])
     assert len({x["es"].lower() for x in data["colloquial"]})==len(data["colloquial"])
     assert all(x.get("neutral") and x.get("use") and x.get("avoid") for x in data["colloquial"])
-    for path in ["index.html","assets/content.json","assets/app.js","assets/styles.css","assets/favicon.svg"]:
+    for path in ["index.html","assets/content.json","assets/app.js","assets/audio.js","assets/styles.css","assets/favicon.svg"]:
         assert (DOCS/path).is_file(),path
     checker=HTMLCheck()
     checker.feed((DOCS/"index.html").read_text(encoding="utf-8"))
