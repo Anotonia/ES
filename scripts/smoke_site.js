@@ -85,6 +85,13 @@ global.fetch=async url=>{
     if(!html.includes(needle))throw Error("Failed "+label+" route: "+route);
     process.stdout.write("OK "+label+" ("+html.length+" chars)\n");
   }
+  if(getNode("curated-count").textContent!=="827")throw Error("Homepage written total is stale");
+  if(!getNode("view-vocabulary").innerHTML.includes("vocab-progress-grid"))throw Error("Vocabulary level cards missing");
+  for(const n of ["355","156","159","157"]){
+    if(!getNode("view-vocabulary").innerHTML.includes(">"+n+"</strong>"))
+      throw Error("Missing live level total "+n);
+  }
+  console.log("Written vocabulary totals validated: 827 · A1 355 · A2 156 · B1 159 · B2 157.");
   console.log("All client views generated successfully.");
   if(getNode("scene-count").textContent!=="41")throw Error("Expected 41 scenarios");
   if(getNode("school-scene-count").textContent!=="23")throw Error("Expected 23 school scenarios");
