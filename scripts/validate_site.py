@@ -116,13 +116,20 @@ def main():
             assert len(stage["production"]["checks"]) >= 4
             deep_turns += len(stage["dialogue"])
     assert deep_turns == 335, deep_turns
+    # Morphology viewer is a distinct indexed layer (all 827 items, not all certified analyses).
+    morphology=json.loads((DOCS/"assets/morphology.json").read_text(encoding="utf-8"))
+    assert morphology["schema"]==1
+    assert len(morphology["words"])==827
+    assert len(morphology["affixes"])==53
+    assert sum(w["analysis_status"]=="provisional_editorial_analysis" for w in morphology["words"])==76
+    assert len({w["curated_id"] for w in morphology["words"]})==827
     assert len({x["es"].lower() for x in data["colloquial"]})==len(data["colloquial"])
     assert all(x.get("neutral") and x.get("use") and x.get("avoid") for x in data["colloquial"])
-    for path in ["index.html","assets/content.json","assets/app.js","assets/pathways.js","assets/school-pathways.json","assets/medical-cases-a.json","assets/medical-cases-b.json","assets/medical-deep.js","assets/life-pathways.json","assets/health-booking.json","assets/health-consultation.json","assets/health-testing.json","assets/health-pharmacy-path.json","assets/health-family-emergency.json","assets/audio.js","assets/styles.css","assets/favicon.svg"]:
+    for path in ["index.html","assets/content.json","assets/app.js","assets/pathways.js","assets/school-pathways.json","assets/medical-cases-a.json","assets/medical-cases-b.json","assets/medical-deep.js","assets/morphology.js","assets/morphology.json","assets/life-pathways.json","assets/health-booking.json","assets/health-consultation.json","assets/health-testing.json","assets/health-pharmacy-path.json","assets/health-family-emergency.json","assets/audio.js","assets/styles.css","assets/favicon.svg"]:
         assert (DOCS/path).is_file(),path
     checker=HTMLCheck()
     checker.feed((DOCS/"index.html").read_text(encoding="utf-8"))
-    assert {"view-scenarios","view-detail","view-medical","view-vocabulary","view-colloquial","view-maps","view-review","nav","main"}.issubset(checker.ids)
+    assert {"view-scenarios","view-detail","view-medical","view-morphology","view-vocabulary","view-colloquial","view-maps","view-review","nav","main"}.issubset(checker.ids)
     print("Deep medical casebook:",len(deep_cases),"cases; 24 chapters;",deep_turns,"bilingual dialogue turns")
     print("Validation OK:",len(scenarios),"scenes;",sum(s["domain"]=="school" for s in scenarios),
           "school;",len(all_tracks),"progressive paths;",
