@@ -56,7 +56,7 @@ global.fetch=async url=>{
   await new Promise(resolve=>setImmediate(resolve));
   await new Promise(resolve=>setImmediate(resolve));
   const routes=[
-    ["#/scenarios","view-scenarios","scenario-card","scene list"],
+    ["#/scenarios","scenario-grid","scenario-card","scene list"],
     ["#/detail/school-admission","view-detail","入学报名与学位申请","school lesson"],
     ["#/vocabulary","view-vocabulary","data-table","vocabulary table"],
     ["#/colloquial","view-colloquial","slang-card","colloquial cards"],
