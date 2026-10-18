@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f8f4">
+  <meta name="description" content="西班牙生活西语学习：A1–B2 词库、学校重点场景、自然口语、词族思维图及主动复习。">
+  <title>ES · 西班牙生活西语实验室</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/styles.css?v=3">
+  <script src="assets/app.js?v=3" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <div class="site">
+    <aside class="sidebar" aria-label="主导航">
+      <a class="brand" href="#/scenarios" aria-label="ES 首页">
+        <span class="brand-logo">es<span>.</span></span>
+        <span class="brand-wordmark"><strong>Living Spanish</strong><small>西班牙生活西语实验室</small></span>
+      </a>
+      <div class="sidebar-caption">学习空间 / YOUR WORKSPACE</div>
+      <nav id="nav" class="site-nav">
+        <a class="nav-link is-active" data-route="scenarios" href="#/scenarios"><span class="nav-icon">▦</span><span>生活场景</span><span class="nav-kbd">01</span></a>
+        <a class="nav-link" data-route="vocabulary" href="#/vocabulary"><span class="nav-icon">≡</span><span>分级词库</span><span class="nav-kbd">02</span></a>
+        <a class="nav-link" data-route="colloquial" href="#/colloquial"><span class="nav-icon">❞</span><span>地道口语</span><span class="nav-kbd">03</span></a>
+        <a class="nav-link" data-route="maps" href="#/maps"><span class="nav-icon">⌘</span><span>语义与词族图</span><span class="nav-kbd">04</span></a>
+        <a class="nav-link" data-route="review" href="#/review"><span class="nav-icon">◷</span><span>记忆复习</span><span class="nav-kbd">05</span></a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="spanish-tip"><span class="tag tag-dot">ESPAÑA · ES</span><p>先掌握规范表达，<br>再学当地人的说法。</p><span class="tip-small">Aprende a hablar con naturalidad.</span></div>
+        <a class="repo-link" href="https://github.com/Anotonia/ES" target="_blank" rel="noopener noreferrer">↗ GitHub 知识库 <span>公开仓库</span></a>
+      </div>
+    </aside>
+    <div class="content-shell">
+      <header class="topbar">
+        <button class="menu-toggle" id="menu-toggle" aria-label="打开导航" aria-controls="nav" aria-expanded="false">☰</button>
+        <div class="topbar-breadcrumb">Spanish Living Lab <span>/</span> <strong id="page-crumb">生活场景</strong></div>
+        <div class="topbar-right"><span class="live-dot"></span><span id="sync-label">场景教学资料已就绪</span><span class="topbar-sep"></span><span class="small-date">ESP · PRACTICE</span></div>
+      </header>
+      <main id="main" class="main" tabindex="-1">
+        <section id="view-scenarios" class="view is-visible" aria-labelledby="hero-title">
+          <div class="hero">
+            <div class="hero-copy">
+              <span class="eyebrow"><span class="mini-star">✳</span> IMMERSIVE LANGUAGE LEARNING · 西班牙生活版</span>
+              <h1 id="hero-title">真正学会在<span>西班牙生活</span>的西班牙语。</h1>
+              <p>从学校、医院、银行到行政办事。先理解场景，再学会自然开口——不仅能翻译，更知道<span class="underline-accent">什么时候该怎么说</span>。</p>
+              <div class="hero-actions"><button class="primary-btn" id="start-school">从学校场景开始 <span>↗</span></button><a href="#/maps" class="quiet-link">探索词汇网络 <span>→</span></a></div>
+            </div>
+            <div class="hero-art" aria-hidden="true">
+              <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
+              <div class="art-card art-a"><span class="art-label">表达 / EXPRESSION</span><span class="art-head">¿Qué tal?</span><span class="art-sub">怎么样？/ 还好吗？</span></div>
+              <div class="art-card art-b"><span class="art-label">日常 / NATURAL</span><span class="art-head">¡Vale!</span><span class="art-sub">行，好，就这么说定。</span></div>
+              <div class="art-star star-one">✳</div><div class="art-star star-two">✧</div>
+            </div>
+          </div>
+          <div id="metrics" class="metrics">
+            <div class="metric"><strong>13</strong><span>真实生活场景</span></div>
+            <div class="metric"><strong>07</strong><span>学校重点模块</span></div>
+            <div class="metric"><strong>413</strong><span>已编写词汇记录</span></div>
+            <div class="metric"><strong>8,000</strong><span>待审候选词元目标</span></div>
+          </div>
+          <div class="section-title-block"><div><span class="overline">SITUATIONAL LEARNING</span><h2>选择今天要面对的场景<span class="heading-dash">.</span></h2><p>按真实生活中的交流任务组织，而不是死背孤立单词。</p></div><span class="section-side-note">特别收录 / 学校沟通</span></div>
+          <div class="filter-bar"><div class="seg-tabs" id="domain-filters" aria-label="场景分类"></div><label class="search-box"><span aria-hidden="true">⌕</span><input type="search" id="scenario-search" placeholder="搜索场景、关键字…" aria-label="搜索场景"></label></div>
+          <div id="scenario-grid" class="scenario-grid" aria-live="polite"></div>
+          <div class="footnote-callout"><strong>使用方式</strong>　点开一张场景卡，先读对话，再切换标准／自然表达，最后闭卷练习。学校办事程序与具体材料以学校及政府正式通知为准。</div>
+        </section>
+        <section id="view-detail" class="view" aria-label="场景课程详情"></section>
+        <section id="view-vocabulary" class="view" aria-label="词汇检索"></section>
+        <section id="view-colloquial" class="view" aria-label="西班牙日常口语"></section>
+        <section id="view-maps" class="view" aria-label="语义思维导图"></section>
+        <section id="view-review" class="view" aria-label="主动复习"></section>
+      </main>
+      <footer class="footer"><span>ES / LIVING SPANISH LAB</span><span>场景化学习 · 欧洲西班牙语 · 版本化知识库</span><a href="https://github.com/Anotonia/ES" target="_blank" rel="noopener noreferrer">查看源码 ↗</a></footer>
+    </div>
+  </div>
+  <div class="toast" id="toast" aria-live="polite" role="status"></div>
+</body>
+</html>
