@@ -214,3 +214,9 @@
 @media(max-width:560px){.med-hero{padding:22px}.med-stat-row{gap:15px}.med-panel{padding:16px}.med-intro{padding:17px}.med-chunks{grid-template-columns:1fr}.med-turn{grid-template-columns:53px minmax(0,1fr) 40px;gap:8px}.med-es{font-size:12px}.med-sticky ul{grid-template-columns:1fr}.med-stage-header{padding:19px}.med-timeline-step{padding:12px 9px}}
 
 @media(max-width:1300px){.metrics{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+.med-role-controls{padding:15px;border:1px solid #98c39b;background:#e8f5e6;border-radius:11px;margin:9px 0 16px}
+.med-role-controls strong{color:#376a44;font-size:12px;display:block;margin:0 0 10px}
+.med-role-controls p{font-size:11px;line-height:1.8;color:#5d7b62;margin:10px 0 0}
+.med-role-controls .med-toolbar button{background:white}
+.med-cue{color:#91a493;font-size:10px;font-weight:650;white-space:nowrap;line-height:1.5}
