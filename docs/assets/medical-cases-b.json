@@ -1,0 +1,1984 @@
+{
+  "schema": 1,
+  "description": "三个虚构纵向就医及医疗行政案例。仅用于语言学习，具体临床/保险程序必须向专业机构核实。",
+  "cases": [
+    {
+      "id": "urgent-journey",
+      "title": "手腕意外受伤：急诊、影像检查与后续安排",
+      "subtitle": "接待 · 分诊 · 告知不确定性 · 随访",
+      "focus": "事件时间线—临床分诊—检查沟通",
+      "profile": "虚构人物：一个成年人运动时跌倒，手腕疼痛，选择咨询急诊服务。例句不提供判断骨折的标准或治疗动作。",
+      "stages": [
+        {
+          "id": "urgent-1",
+          "level": "A1",
+          "title": "第一幕｜医院接待处：事故什么时候发生",
+          "setting": "医院急诊接待窗口",
+          "turning": "你需要在有限句子里说清事件和疼痛部位。",
+          "dialogue": [
+            {
+              "speaker": "接待员",
+              "es": "Buenas tardes. ¿Qué ha pasado?",
+              "zh": "您好。发生什么事了？"
+            },
+            {
+              "speaker": "患者",
+              "es": "Me he caído esta mañana.",
+              "zh": "我今天早上摔倒了。"
+            },
+            {
+              "speaker": "接待员",
+              "es": "¿Dónde se ha hecho daño?",
+              "zh": "您哪里受伤了？"
+            },
+            {
+              "speaker": "患者",
+              "es": "En la muñeca derecha.",
+              "zh": "右手腕。"
+            },
+            {
+              "speaker": "接待员",
+              "es": "¿Le duele ahora?",
+              "zh": "现在疼吗？"
+            },
+            {
+              "speaker": "患者",
+              "es": "Sí, me duele al moverla.",
+              "zh": "疼，活动时疼。"
+            },
+            {
+              "speaker": "接待员",
+              "es": "¿Ha venido acompañado?",
+              "zh": "有人陪同您吗？"
+            },
+            {
+              "speaker": "患者",
+              "es": "Sí, ha venido un amigo conmigo.",
+              "zh": "有，一位朋友陪我来了。"
+            },
+            {
+              "speaker": "接待员",
+              "es": "Le indicaremos dónde debe pasar para la valoración.",
+              "zh": "我们会告诉您去哪接受评估。"
+            },
+            {
+              "speaker": "患者",
+              "es": "¿Tengo que esperar aquí?",
+              "zh": "我需要在这里等吗？"
+            },
+            {
+              "speaker": "接待员",
+              "es": "Siga las indicaciones del personal.",
+              "zh": "请遵循工作人员指示。"
+            },
+            {
+              "speaker": "患者",
+              "es": "Perdone, ¿puede repetir el nombre de la sala?",
+              "zh": "不好意思，能重复房间名称吗？"
+            },
+            {
+              "speaker": "接待员",
+              "es": "Claro. Le señalaré dónde está.",
+              "zh": "当然，我会指给您看。"
+            },
+            {
+              "speaker": "患者",
+              "es": "Muchas gracias.",
+              "zh": "非常感谢。"
+            }
+          ],
+          "chunks": [
+            {
+              "es": "me he caído",
+              "zh": "我摔倒了",
+              "note": "现在完成时，西班牙口语常指当天发生的事。"
+            },
+            {
+              "es": "la muñeca",
+              "zh": "手腕",
+              "note": "注意也是“娃娃”，医学部位用语境消歧。"
+            },
+            {
+              "es": "derecha",
+              "zh": "右侧",
+              "note": "izquierda 为左侧。"
+            },
+            {
+              "es": "hacerse daño",
+              "zh": "受伤",
+              "note": "¿Dónde se ha hecho daño? 高效问句。"
+            },
+            {
+              "es": "al moverla",
+              "zh": "移动它的时候",
+              "note": "al + 不定式 + 宾语代词。"
+            },
+            {
+              "es": "acompañado/a",
+              "zh": "有人陪同",
+              "note": "a/o 与性别配合。"
+            }
+          ],
+          "comprehension": {
+            "prompt": "患者伤到哪里？",
+            "options": [
+              {
+                "es": "En la muñeca derecha.",
+                "correct": true,
+                "feedback": "明确是右手腕。"
+              },
+              {
+                "es": "En la rodilla izquierda.",
+                "correct": false,
+                "feedback": "不是左膝。"
+              },
+              {
+                "es": "En la espalda.",
+                "correct": false,
+                "feedback": "不是背部。"
+              }
+            ]
+          },
+          "decision": {
+            "situation": "接待员问在哪里疼，患者只说‘不舒服’。",
+            "prompt": "应怎样具体表达？",
+            "options": [
+              {
+                "es": "Me duele la muñeca derecha desde que me he caído.",
+                "correct": true,
+                "feedback": "部位+事件关联更清楚。"
+              },
+              {
+                "es": "Me pasa algo, ya lo sabrán.",
+                "correct": false,
+                "feedback": "缺少必要信息。"
+              },
+              {
+                "es": "Necesito una radiografía seguro.",
+                "correct": false,
+                "feedback": "是否检查由医护人员判断。"
+              }
+            ]
+          },
+          "production": {
+            "prompt": "自己组织三句：什么时候摔倒、哪里疼、活动时有什么变化。",
+            "model": "Me he caído esta mañana y me duele la muñeca derecha. Me duele más cuando la muevo.",
+            "checks": [
+              "事故时间",
+              "疼痛部位",
+              "动作变化",
+              "用完整西语而非只指部位"
+            ]
+          },
+          "handoff": "下一幕：临床分诊环节，接待顺序和就诊优先程度可能不同。"
+        },
+        {
+          "id": "urgent-2",
+          "level": "A2",
+          "title": "第二幕｜急诊分诊与等候期间的变化",
+          "setting": "急诊分诊台和候诊区",
+          "turning": "因为分诊，患者未必按到达顺序就诊。等候期间如果症状有变化，应告知医护人员。",
+          "dialogue": [
+            {
+              "speaker": "护士",
+              "es": "Buenos días. Voy a hacerle unas preguntas para la valoración inicial.",
+              "zh": "您好，我会问一些问题进行初步评估。"
+            },
+            {
+              "speaker": "患者",
+              "es": "De acuerdo. Me caí mientras hacía deporte.",
+              "zh": "好的。我运动时摔倒了。"
+            },
+            {
+              "speaker": "护士",
+              "es": "¿A qué hora ocurrió?",
+              "zh": "几点发生的？"
+            },
+            {
+              "speaker": "患者",
+              "es": "Alrededor de las diez y media.",
+              "zh": "大约十点半。"
+            },
+            {
+              "speaker": "护士",
+              "es": "¿Cómo ha cambiado el dolor desde entonces?",
+              "zh": "从那时起疼痛有什么变化？"
+            },
+            {
+              "speaker": "患者",
+              "es": "Al principio era leve, pero ahora me duele más.",
+              "zh": "一开始轻微，但现在更痛。"
+            },
+            {
+              "speaker": "护士",
+              "es": "Gracias. Es importante comunicar cualquier cambio.",
+              "zh": "谢谢。有变化时告知很重要。"
+            },
+            {
+              "speaker": "患者",
+              "es": "¿Cómo se decide el orden de atención?",
+              "zh": "按什么决定就诊顺序？"
+            },
+            {
+              "speaker": "护士",
+              "es": "Según la valoración sanitaria, no solamente por la hora de llegada.",
+              "zh": "按医护评估，而不只是按到达时间。"
+            },
+            {
+              "speaker": "患者",
+              "es": "Entiendo. ¿A quién debo avisar si me encuentro peor mientras espero?",
+              "zh": "明白。等候期间如果更不舒服应通知谁？"
+            },
+            {
+              "speaker": "护士",
+              "es": "Avise al personal sanitario de la zona.",
+              "zh": "请通知这个区域的医护人员。"
+            },
+            {
+              "speaker": "患者",
+              "es": "Si no puedo explicar bien algo, ¿puede ayudarme a repetirlo?",
+              "zh": "如果我解释不清楚，您能帮我重复一下吗？"
+            },
+            {
+              "speaker": "护士",
+              "es": "Por supuesto, lo importante es entenderle bien.",
+              "zh": "当然，重要的是理解您的情况。"
+            },
+            {
+              "speaker": "患者",
+              "es": "Gracias. Seguiré sus indicaciones.",
+              "zh": "谢谢，我会遵循指示。"
+            }
+          ],
+          "chunks": [
+            {
+              "es": "valoración inicial",
+              "zh": "初步评估",
+              "note": "triaje 也是分诊常见名称。"
+            },
+            {
+              "es": "alrededor de",
+              "zh": "大约",
+              "note": "时间不确切时使用。"
+            },
+            {
+              "es": "al principio... ahora...",
+              "zh": "一开始……现在……",
+              "note": "表达症状变化。"
+            },
+            {
+              "es": "orden de atención",
+              "zh": "就诊顺序",
+              "note": "急诊不等于先来先看。"
+            },
+            {
+              "es": "comunicar cualquier cambio",
+              "zh": "报告任何变化",
+              "note": "病情变化时要告知专业人员。"
+            },
+            {
+              "es": "mientras espero",
+              "zh": "我等候期间",
+              "note": "mientras + 直陈式动词。"
+            }
+          ],
+          "comprehension": {
+            "prompt": "急诊顺序只按挂号先后吗？",
+            "options": [
+              {
+                "es": "No. Se decide según la valoración sanitaria.",
+                "correct": true,
+                "feedback": "对话明确说明看医疗评估。"
+              },
+              {
+                "es": "Sí. Siempre atienden al que llega primero.",
+                "correct": false,
+                "feedback": "与对话相反。"
+              },
+              {
+                "es": "Depende del precio de la consulta.",
+                "correct": false,
+                "feedback": "没有出现此信息。"
+              }
+            ]
+          },
+          "decision": {
+            "situation": "等候过程中疼痛变明显。",
+            "prompt": "最合适的下一句？",
+            "options": [
+              {
+                "es": "He notado que el dolor ha aumentado mientras esperaba. ¿Puedo comunicarlo al personal sanitario?",
+                "correct": true,
+                "feedback": "及时报告变化，便于重新评估。"
+              },
+              {
+                "es": "Me callaré porque ya he pasado por triaje.",
+                "correct": false,
+                "feedback": "初次分诊不应阻止报告新变化。"
+              },
+              {
+                "es": "Tengo una radiografía confirmada.",
+                "correct": false,
+                "feedback": "没确认就不能假定检查安排。"
+              }
+            ]
+          },
+          "production": {
+            "prompt": "模拟向护士快速汇报：事件发生时间→初始症状→目前变化→希望如何进一步联系医护。",
+            "model": "Me caí sobre las diez y media. Al principio el dolor era leve, pero ha aumentado. ¿Podría avisar al personal sanitario para que valoren este cambio?",
+            "checks": [
+              "发生时间",
+              "起初程度",
+              "现在变化",
+              "告知医护人员"
+            ]
+          },
+          "handoff": "下一幕：医生可能提到影像检查及等待结果，患者要学会确认“为什么做”。"
+        },
+        {
+          "id": "urgent-3",
+          "level": "B1",
+          "title": "第三幕｜讨论是否做 X 光、检查目标和结果",
+          "setting": "急诊医生问诊",
+          "turning": "患者想‘一定是骨折’，医生还没有评估完。关键是区分担心与确定的事实。",
+          "dialogue": [
+            {
+              "speaker": "医生",
+              "es": "Ya hemos hablado del accidente. Voy a examinarle y valorar los siguientes pasos.",
+              "zh": "已经了解事故了。我会检查并评估下一步。"
+            },
+            {
+              "speaker": "患者",
+              "es": "Me preocupa haberme roto algo, pero no sé si es así.",
+              "zh": "我担心骨折，但不知道是不是。"
+            },
+            {
+              "speaker": "医生",
+              "es": "Es importante no sacar conclusiones antes de completar la valoración.",
+              "zh": "在完成评估前不宜下结论。"
+            },
+            {
+              "speaker": "患者",
+              "es": "¿Qué información nos daría una radiografía en mi caso?",
+              "zh": "对我的情况来说，X 光能提供什么信息？"
+            },
+            {
+              "speaker": "医生",
+              "es": "Le explicaré para qué serviría y si procede solicitarla.",
+              "zh": "我会解释它的作用及是否适合安排。"
+            },
+            {
+              "speaker": "患者",
+              "es": "¿Debo mencionar que llevo un informe de una lesión anterior?",
+              "zh": "我带着以前受伤的报告，需要提一下吗？"
+            },
+            {
+              "speaker": "医生",
+              "es": "Sí, comuníquelo para que tengamos la información relevante.",
+              "zh": "是的，请说明，让我们掌握相关信息。"
+            },
+            {
+              "speaker": "患者",
+              "es": "Gracias. ¿Cómo sabré cuándo estarán disponibles los resultados?",
+              "zh": "谢谢。我怎么知道结果何时出来？"
+            },
+            {
+              "speaker": "医生",
+              "es": "Le indicaremos dónde y cómo se comunicarán.",
+              "zh": "我们会说明结果的通知方式。"
+            },
+            {
+              "speaker": "患者",
+              "es": "¿Los resultados me los explica el equipo de urgencias o tengo que pedir otra consulta?",
+              "zh": "急诊团队会解释结果，还是要另约门诊？"
+            },
+            {
+              "speaker": "医生",
+              "es": "Dependerá del proceso y del seguimiento que se establezca.",
+              "zh": "取决于具体流程和安排。"
+            },
+            {
+              "speaker": "患者",
+              "es": "Antes de salir me gustaría confirmar qué debo hacer si noto cambios en casa.",
+              "zh": "离开前想确认回家后如果情况变化应该怎么做。"
+            },
+            {
+              "speaker": "医生",
+              "es": "Le daremos indicaciones específicas según la valoración.",
+              "zh": "我们会按评估结果提供针对性指引。"
+            },
+            {
+              "speaker": "患者",
+              "es": "Perfecto. ¿Podemos repasarlas por escrito?",
+              "zh": "好的，能书面复核一下吗？"
+            }
+          ],
+          "chunks": [
+            {
+              "es": "me preocupa haberme roto algo",
+              "zh": "我担心可能骨折",
+              "note": "表达担心，不等于诊断。"
+            },
+            {
+              "es": "sacar conclusiones",
+              "zh": "下结论",
+              "note": "No sacar conclusiones antes de... "
+            },
+            {
+              "es": "si procede",
+              "zh": "如果适合、适用",
+              "note": "医学文书和行政都常见。"
+            },
+            {
+              "es": "una lesión anterior",
+              "zh": "既往伤情",
+              "note": "让医护人员掌握相关历史。"
+            },
+            {
+              "es": "dar indicaciones",
+              "zh": "给予指引",
+              "note": "不自行推测具体康复措施。"
+            },
+            {
+              "es": "según la valoración",
+              "zh": "依据评估结果",
+              "note": "不是所有患者流程一致。"
+            }
+          ],
+          "comprehension": {
+            "prompt": "患者是否确定有骨折？",
+            "options": [
+              {
+                "es": "No; expresa preocupación, no certeza.",
+                "correct": true,
+                "feedback": "患者说不确定。"
+              },
+              {
+                "es": "Sí, ya lo han confirmado con una radiografía.",
+                "correct": false,
+                "feedback": "对话未确认结果。"
+              },
+              {
+                "es": "No tiene ningún dolor.",
+                "correct": false,
+                "feedback": "明显有疼痛。"
+              }
+            ]
+          },
+          "decision": {
+            "situation": "医生提到‘可能检查’，你还没理解目的。",
+            "prompt": "如何追问？",
+            "options": [
+              {
+                "es": "¿Qué información ayudaría a obtener la radiografía y cómo se usarían los resultados?",
+                "correct": true,
+                "feedback": "要求解释用途及后续依据。"
+              },
+              {
+                "es": "Hágame todas las pruebas posibles sin evaluarme.",
+                "correct": false,
+                "feedback": "应依临床判断安排检查。"
+              },
+              {
+                "es": "Entonces ya sé que tengo una fractura.",
+                "correct": false,
+                "feedback": "检查结果尚未取得。"
+              }
+            ]
+          },
+          "production": {
+            "prompt": "回述医患对话：担心但尚未确诊、医生正在评估、如果需要检查你想了解什么、离院前要确认什么。",
+            "model": "Me preocupa una posible lesión, aunque todavía no sé qué ha ocurrido exactamente. El médico está valorando si hace falta alguna prueba. Quisiera entender su objetivo, cómo se comunicarán los resultados y qué indicaciones debo seguir.",
+            "checks": [
+              "表达担心不是结论",
+              "临床评估",
+              "检查目的",
+              "出院后指引"
+            ]
+          },
+          "handoff": "下一幕：拿到指引后，与家庭医生做后续衔接。"
+        },
+        {
+          "id": "urgent-4",
+          "level": "B2",
+          "title": "第四幕｜急诊出院与家庭医生衔接",
+          "setting": "急诊离院后，通过基层医疗进行随访",
+          "turning": "病人需要把急诊信息压缩成可用时间线，并区分已知检查结果与待核实事项。",
+          "dialogue": [
+            {
+              "speaker": "家庭医生",
+              "es": "Buenos días. Veo que ha acudido a urgencias. ¿Puede resumirme el motivo?",
+              "zh": "您好。我看到您去过急诊，能概括一下原因吗？"
+            },
+            {
+              "speaker": "患者",
+              "es": "Sufrí una caída durante una actividad deportiva y noté dolor en la muñeca derecha.",
+              "zh": "我运动时摔倒，右手腕感到疼痛。"
+            },
+            {
+              "speaker": "家庭医生",
+              "es": "¿Qué información le facilitaron al terminar la atención?",
+              "zh": "急诊结束时给了您什么信息？"
+            },
+            {
+              "speaker": "患者",
+              "es": "Me entregaron un informe y unas indicaciones, pero quisiera revisar qué seguimiento corresponde.",
+              "zh": "给了报告和指引，但我想确认应该怎样跟进。"
+            },
+            {
+              "speaker": "家庭医生",
+              "es": "Vamos a revisar el documento y su evolución desde entonces.",
+              "zh": "我们核对文档和之后的变化。"
+            },
+            {
+              "speaker": "患者",
+              "es": "En el informe aparece un término que no entiendo bien. ¿Podría explicármelo?",
+              "zh": "报告里有一个词我不太明白，您能解释吗？"
+            },
+            {
+              "speaker": "家庭医生",
+              "es": "Por supuesto. Primero lo situaremos en el contexto de su valoración.",
+              "zh": "当然。我们先放到评估背景里看。"
+            },
+            {
+              "speaker": "患者",
+              "es": "¿Hay algún aspecto que deba confirmar directamente con el servicio que me atendió?",
+              "zh": "是否有需要直接向当时接诊部门确认的部分？"
+            },
+            {
+              "speaker": "家庭医生",
+              "es": "Comprobaremos qué información está disponible y qué dudas siguen abiertas.",
+              "zh": "我们核对现有信息和未解决疑问。"
+            },
+            {
+              "speaker": "患者",
+              "es": "He anotado los cambios que noté después de salir de urgencias.",
+              "zh": "我记录了离开急诊后的变化。"
+            },
+            {
+              "speaker": "家庭医生",
+              "es": "Eso ayudará a valorar la evolución.",
+              "zh": "这有助于评估进展。"
+            },
+            {
+              "speaker": "患者",
+              "es": "¿Podemos acordar cómo recibiré las próximas indicaciones y quién coordinará el seguimiento?",
+              "zh": "能否约定我如何收到接下来的指引、谁来负责协调随访？"
+            },
+            {
+              "speaker": "家庭医生",
+              "es": "Lo concretaremos según su caso y los servicios implicados.",
+              "zh": "会根据具体情况和涉及的部门明确安排。"
+            },
+            {
+              "speaker": "患者",
+              "es": "Gracias. Prefiero salir con un plan claro y por escrito.",
+              "zh": "谢谢。我更希望带着清晰的书面计划离开。"
+            }
+          ],
+          "chunks": [
+            {
+              "es": "sufrir una caída",
+              "zh": "经历一次摔倒",
+              "note": "正式病史描述。"
+            },
+            {
+              "es": "resumir el motivo",
+              "zh": "概括就诊原因",
+              "note": "跨科交接时非常有用。"
+            },
+            {
+              "es": "qué seguimiento corresponde",
+              "zh": "应做哪些随访",
+              "note": "不把医院指引当成可随意修改。"
+            },
+            {
+              "es": "situar en el contexto",
+              "zh": "放到背景中解释",
+              "note": "适用于报告说明。"
+            },
+            {
+              "es": "dudas siguen abiertas",
+              "zh": "疑问尚未解决",
+              "note": "B2 结构化追问。"
+            },
+            {
+              "es": "coordinar el seguimiento",
+              "zh": "协调后续医疗",
+              "note": "多服务间的责任衔接。"
+            }
+          ],
+          "comprehension": {
+            "prompt": "患者为什么带急诊报告来家庭医生处？",
+            "options": [
+              {
+                "es": "Para aclarar el informe y organizar el seguimiento.",
+                "correct": true,
+                "feedback": "其目的是解释文书并确认后续安排。"
+              },
+              {
+                "es": "Para exigir que el informe no se lea.",
+                "correct": false,
+                "feedback": "恰好相反。"
+              },
+              {
+                "es": "Para reclamar el coste del aparcamiento.",
+                "correct": false,
+                "feedback": "不是该课程重点。"
+              }
+            ]
+          },
+          "decision": {
+            "situation": "你不理解急诊报告，又不确定应该找谁进一步核对。",
+            "prompt": "合适表达？",
+            "options": [
+              {
+                "es": "¿Podemos distinguir qué aspectos podemos revisar aquí y cuáles debo consultar con el servicio de urgencias?",
+                "correct": true,
+                "feedback": "区分家庭医生可处理事项及需回访部门。"
+              },
+              {
+                "es": "Voy a cambiar las indicaciones a mi manera.",
+                "correct": false,
+                "feedback": "不要擅改专业指引。"
+              },
+              {
+                "es": "No necesito que me expliquen el informe.",
+                "correct": false,
+                "feedback": "与实际疑问相反。"
+              }
+            ]
+          },
+          "production": {
+            "prompt": "用书面形式写一份 100 字的交接摘要：事故时间与过程、急诊处置已知事实、症状变化、尚未理解的信息和需要协调的后续。",
+            "model": "Acudí a urgencias después de una caída durante una actividad deportiva. Me entregaron un informe y unas indicaciones. Desde entonces he anotado la evolución del dolor. Quisiera revisar los términos que no entiendo y confirmar qué profesional coordinará el seguimiento y cómo recibiré el plan por escrito.",
+            "checks": [
+              "事件简述",
+              "区分报告事实与未知",
+              "症状变化",
+              "明确下一步责任"
+            ]
+          },
+          "handoff": "完成：可以在不知道具体病名时，也把自己的就诊时间线清楚交接给下一位医生。"
+        }
+      ]
+    },
+    {
+      "id": "medication-journey",
+      "title": "长期用药与多科就诊：核对药单，不靠记忆",
+      "subtitle": "处方 · 药房 · 多科交流 · 正式核对",
+      "focus": "药物名称—确认剂量—多科信息传递",
+      "profile": "虚构人物：患者同时在两位医生处就诊，药品清单较复杂。学习内容绝不提供实际药量与调整方案。",
+      "stages": [
+        {
+          "id": "med-1",
+          "level": "A1",
+          "title": "第一幕｜药房取处方药",
+          "setting": "社区药房",
+          "turning": "药师问有没有电子处方，你不应凭药盒颜色判断自己要取的药。",
+          "dialogue": [
+            {
+              "speaker": "药师",
+              "es": "Buenos días. ¿Qué necesita?",
+              "zh": "您好，需要什么？"
+            },
+            {
+              "speaker": "患者",
+              "es": "Vengo a por un medicamento que me han recetado.",
+              "zh": "我来取医生给我开的药。"
+            },
+            {
+              "speaker": "药师",
+              "es": "¿Tiene receta electrónica?",
+              "zh": "有电子处方吗？"
+            },
+            {
+              "speaker": "患者",
+              "es": "Sí, y también tengo la tarjeta sanitaria.",
+              "zh": "有，我也带了医疗卡。"
+            },
+            {
+              "speaker": "药师",
+              "es": "Voy a comprobar qué medicamento consta en el sistema.",
+              "zh": "我来核对系统记录的药。"
+            },
+            {
+              "speaker": "患者",
+              "es": "Gracias. ¿Me puede decir el nombre antes de llevármelo?",
+              "zh": "谢谢，取药前能告诉我药名吗？"
+            },
+            {
+              "speaker": "药师",
+              "es": "Claro, vamos a comprobar la información.",
+              "zh": "当然，我们核对信息。"
+            },
+            {
+              "speaker": "患者",
+              "es": "La caja es distinta de la que tenía antes.",
+              "zh": "盒子和我以前拿的不一样。"
+            },
+            {
+              "speaker": "药师",
+              "es": "Conviene comprobar el nombre y la presentación.",
+              "zh": "最好核对名称和规格。"
+            },
+            {
+              "speaker": "患者",
+              "es": "¿Es exactamente la misma presentación?",
+              "zh": "是完全相同的规格吗？"
+            },
+            {
+              "speaker": "药师",
+              "es": "Revisaremos lo que figura en la receta.",
+              "zh": "我们会核对处方上写的内容。"
+            },
+            {
+              "speaker": "患者",
+              "es": "Gracias. Quería asegurarme antes de salir.",
+              "zh": "谢谢，我想离开前确认清楚。"
+            },
+            {
+              "speaker": "药师",
+              "es": "Por supuesto, pregunte lo que necesite.",
+              "zh": "当然，有问题尽管问。"
+            },
+            {
+              "speaker": "患者",
+              "es": "Perfecto. Muchas gracias.",
+              "zh": "好的，非常感谢。"
+            }
+          ],
+          "chunks": [
+            {
+              "es": "venir a por",
+              "zh": "来取、来拿",
+              "note": "西班牙口语高频结构。"
+            },
+            {
+              "es": "me han recetado",
+              "zh": "医生给我开了",
+              "note": "完成时+间接表达。"
+            },
+            {
+              "es": "receta electrónica",
+              "zh": "电子处方",
+              "note": "数字化处方，不等于无需核对。"
+            },
+            {
+              "es": "constar en el sistema",
+              "zh": "系统中有记录",
+              "note": "手续场景常用。"
+            },
+            {
+              "es": "la presentación",
+              "zh": "药品剂型或包装规格",
+              "note": "盒子不一样不一定能直接替换。"
+            },
+            {
+              "es": "asegurarse",
+              "zh": "确认、确保",
+              "note": "Quería asegurarme 语气委婉。"
+            }
+          ],
+          "comprehension": {
+            "prompt": "患者为什么需要药师进一步核对？",
+            "options": [
+              {
+                "es": "Porque la caja es diferente de la anterior.",
+                "correct": true,
+                "feedback": "他注意到包装不同。"
+              },
+              {
+                "es": "Porque no tiene ninguna receta.",
+                "correct": false,
+                "feedback": "他有电子处方。"
+              },
+              {
+                "es": "Porque el centro de salud está cerrado.",
+                "correct": false,
+                "feedback": "不相关。"
+              }
+            ]
+          },
+          "decision": {
+            "situation": "你拿到包装不同的药，未确认处方。",
+            "prompt": "你应该说？",
+            "options": [
+              {
+                "es": "¿Podemos comprobar el nombre y la presentación antes de que me lo lleve?",
+                "correct": true,
+                "feedback": "先核对名称与规格。"
+              },
+              {
+                "es": "Como el color es parecido, me lo llevo.",
+                "correct": false,
+                "feedback": "不能根据颜色判断。"
+              },
+              {
+                "es": "Lo cambiaré por mi cuenta al llegar a casa.",
+                "correct": false,
+                "feedback": "用药调整须专业确认。"
+              }
+            ]
+          },
+          "production": {
+            "prompt": "口头模拟：说明你有电子处方→发现盒子与以前不同→礼貌请求核对名称和规格。",
+            "model": "Vengo a recoger un medicamento de mi receta electrónica. La caja es distinta de la anterior. ¿Podemos comprobar el nombre y la presentación antes de que me lo lleve?",
+            "checks": [
+              "电子处方",
+              "包装不同",
+              "核对药名",
+              "核对规格"
+            ]
+          },
+          "handoff": "下一幕：药师询问你对用法是否清楚，你记得一些却不确定细节。"
+        },
+        {
+          "id": "med-2",
+          "level": "A2",
+          "title": "第二幕｜药房解释说明：不要猜剂量",
+          "setting": "社区药房柜台",
+          "turning": "患者记得药盒上有一串数字，却不明白与剂量还是服药时间有关。",
+          "dialogue": [
+            {
+              "speaker": "患者",
+              "es": "Perdone, no entiendo bien esta parte de las instrucciones.",
+              "zh": "不好意思，我不太懂说明里的这部分。"
+            },
+            {
+              "speaker": "药师",
+              "es": "¿Qué le resulta confuso?",
+              "zh": "哪里让您困惑？"
+            },
+            {
+              "speaker": "患者",
+              "es": "No sé si este número indica la dosis o la hora.",
+              "zh": "我不知道这个数字指剂量还是时间。"
+            },
+            {
+              "speaker": "药师",
+              "es": "Vamos a revisar la pauta prescrita y el prospecto.",
+              "zh": "我们核对医生开的用药方案和说明书。"
+            },
+            {
+              "speaker": "患者",
+              "es": "¿Me lo puede explicar con palabras sencillas?",
+              "zh": "可以用简单的话解释吗？"
+            },
+            {
+              "speaker": "药师",
+              "es": "Sí, le explicaré lo que figura en su receta.",
+              "zh": "可以，我会解释处方上写的内容。"
+            },
+            {
+              "speaker": "患者",
+              "es": "También quería preguntar qué hacer si se me olvida una toma.",
+              "zh": "我还想问如果漏服一次怎么办。"
+            },
+            {
+              "speaker": "药师",
+              "es": "Depende del medicamento; debemos consultar sus instrucciones concretas.",
+              "zh": "因药品而异，我们需要查看它的具体说明。"
+            },
+            {
+              "speaker": "患者",
+              "es": "Entonces, ¿no debo cambiar la pauta por mi cuenta?",
+              "zh": "也就是说，我不应该自行更改用药方案？"
+            },
+            {
+              "speaker": "药师",
+              "es": "Cualquier duda o modificación debe aclararse con el profesional correspondiente.",
+              "zh": "任何疑问或调整都应向相应专业人员确认。"
+            },
+            {
+              "speaker": "患者",
+              "es": "De acuerdo. ¿Puedo resumirle lo que he entendido?",
+              "zh": "明白。我可以复述自己理解的内容吗？"
+            },
+            {
+              "speaker": "药师",
+              "es": "Claro, así comprobamos si ha quedado todo claro.",
+              "zh": "当然，这样能确认是否理解清楚。"
+            },
+            {
+              "speaker": "患者",
+              "es": "Gracias. Preferiría tener las indicaciones por escrito.",
+              "zh": "谢谢。我希望能有书面用药指引。"
+            },
+            {
+              "speaker": "药师",
+              "es": "Revisaremos la información disponible para usted.",
+              "zh": "我们会查看可提供的信息。"
+            }
+          ],
+          "chunks": [
+            {
+              "es": "la pauta prescrita",
+              "zh": "处方指定的服用方案",
+              "note": "不代表任何具体通用用法。"
+            },
+            {
+              "es": "el prospecto",
+              "zh": "说明书",
+              "note": "正规药品随附产品信息。"
+            },
+            {
+              "es": "dosis",
+              "zh": "剂量",
+              "note": "不要从药片颜色或别人经验推断。"
+            },
+            {
+              "es": "olvidar una toma",
+              "zh": "漏服一剂",
+              "note": "处理方式随药物不同。"
+            },
+            {
+              "es": "por mi cuenta",
+              "zh": "我自行决定",
+              "note": "No cambiarlo por mi cuenta 很有价值。"
+            },
+            {
+              "es": "tenerlo por escrito",
+              "zh": "拿到书面内容",
+              "note": "便于带回家核对。"
+            }
+          ],
+          "comprehension": {
+            "prompt": "药师有没有说漏服任何药都要加倍补服？",
+            "options": [
+              {
+                "es": "No. Hay que consultar las indicaciones de cada medicamento.",
+                "correct": true,
+                "feedback": "漏服处理是具体药物相关。"
+              },
+              {
+                "es": "Sí, siempre se toma el doble.",
+                "correct": false,
+                "feedback": "该说法危险且对话没有提到。"
+              },
+              {
+                "es": "Sí, se suspende todo tratamiento.",
+                "correct": false,
+                "feedback": "对话未这样说。"
+              }
+            ]
+          },
+          "decision": {
+            "situation": "你不确定数字是剂量还是时间。",
+            "prompt": "如何求助？",
+            "options": [
+              {
+                "es": "¿Podría mostrarme en la receta qué indica exactamente ese número?",
+                "correct": true,
+                "feedback": "结合处方核对而不是猜。"
+              },
+              {
+                "es": "Voy a elegir la interpretación que me parezca.",
+                "correct": false,
+                "feedback": "不应自行猜测。"
+              },
+              {
+                "es": "El número no importa.",
+                "correct": false,
+                "feedback": "数字可能重要。"
+              }
+            ]
+          },
+          "production": {
+            "prompt": "模拟向药师提出三个问题：处方含义、漏服如何核实、能否得到书面说明。",
+            "model": "No entiendo este número de la receta. ¿Podría explicarme qué significa? Si olvido una toma, ¿dónde debo consultar las indicaciones específicas? ¿Puedo llevarme el plan por escrito?",
+            "checks": [
+              "具体指向不明的数字",
+              "询问漏服适用说明",
+              "不自改剂量",
+              "书面核对"
+            ]
+          },
+          "handoff": "下一幕：医生发现可能有多个处方来源，你需要提供完整药单。"
+        },
+        {
+          "id": "med-3",
+          "level": "B1",
+          "title": "第三幕｜不同医生给的处方如何一起核对？",
+          "setting": "家庭医生复诊",
+          "turning": "患者同时看专科，容易只告诉每个医生‘自己开的药’，产生信息缺口。",
+          "dialogue": [
+            {
+              "speaker": "家庭医生",
+              "es": "Vamos a revisar su medicación actual.",
+              "zh": "我们来核对您目前服用的药。"
+            },
+            {
+              "speaker": "患者",
+              "es": "Me atiende también otro especialista y tengo varias recetas.",
+              "zh": "我还在另一位专科医生处就诊，有几张处方。"
+            },
+            {
+              "speaker": "家庭医生",
+              "es": "¿Tiene una lista con todos los medicamentos que toma?",
+              "zh": "您有正在服用的全部药物清单吗？"
+            },
+            {
+              "speaker": "患者",
+              "es": "He preparado una lista, pero algunos nombres no me resultan familiares.",
+              "zh": "我准备了一份清单，但有些药名不熟悉。"
+            },
+            {
+              "speaker": "家庭医生",
+              "es": "La revisaremos juntos y comprobaré los datos relevantes.",
+              "zh": "我们一起核查相关内容。"
+            },
+            {
+              "speaker": "患者",
+              "es": "También he comprado un producto sin receta. ¿Debo incluirlo?",
+              "zh": "我还买了一种非处方产品，需要列上吗？"
+            },
+            {
+              "speaker": "家庭医生",
+              "es": "Conviene comunicar todos los productos que utilice.",
+              "zh": "最好把使用的所有产品告诉医护人员。"
+            },
+            {
+              "speaker": "患者",
+              "es": "Entiendo. Me preocupa que los dos tratamientos puedan coincidir en algo.",
+              "zh": "我担心两套治疗中可能有重复。"
+            },
+            {
+              "speaker": "家庭医生",
+              "es": "Comprobaremos si hay algún aspecto que deba revisarse con los especialistas.",
+              "zh": "我们会核对是否存在需要与专科进一步确认的问题。"
+            },
+            {
+              "speaker": "患者",
+              "es": "Si hay dudas, ¿quién puede coordinar las indicaciones definitivas?",
+              "zh": "如果有疑问，谁来协调最终的指引？"
+            },
+            {
+              "speaker": "家庭医生",
+              "es": "Le indicaremos el profesional o servicio correspondiente.",
+              "zh": "我们会说明对应的负责人员或部门。"
+            },
+            {
+              "speaker": "患者",
+              "es": "Preferiría no modificar nada sin que se confirme el plan.",
+              "zh": "在计划确认前，我不想自行调整任何药。"
+            },
+            {
+              "speaker": "家庭医生",
+              "es": "Es razonable. Vamos a dejar las dudas claramente anotadas.",
+              "zh": "合理。我们把疑问记录清楚。"
+            },
+            {
+              "speaker": "患者",
+              "es": "Gracias. ¿Podremos actualizar la lista al terminar?",
+              "zh": "谢谢。结束时能更新一下清单吗？"
+            }
+          ],
+          "chunks": [
+            {
+              "es": "me atiende otro especialista",
+              "zh": "我还由另一位专科医生诊治",
+              "note": "结构 me atiende 提供医疗服务。"
+            },
+            {
+              "es": "una lista actualizada",
+              "zh": "更新的清单",
+              "note": "记录药名、剂型、使用情况（在真实临床沟通时）。"
+            },
+            {
+              "es": "sin receta",
+              "zh": "非处方的",
+              "note": "仍应向专业人员说明。"
+            },
+            {
+              "es": "puedan coincidir",
+              "zh": "可能有重叠",
+              "note": "虚拟式表达不确定性。"
+            },
+            {
+              "es": "coordinar indicaciones",
+              "zh": "协调不同医嘱",
+              "note": "多科沟通重要。"
+            },
+            {
+              "es": "dejarlo anotado",
+              "zh": "把它记录下来",
+              "note": "最好落实书面确认。"
+            }
+          ],
+          "comprehension": {
+            "prompt": "患者为什么担心处方信息不完整？",
+            "options": [
+              {
+                "es": "Porque recibe atención de más de un especialista y usa varios productos.",
+                "correct": true,
+                "feedback": "多方处方来源容易遗漏信息。"
+              },
+              {
+                "es": "Porque solo toma una pastilla que no conoce.",
+                "correct": false,
+                "feedback": "对话不是单药情境。"
+              },
+              {
+                "es": "Porque nunca ha visto a un médico.",
+                "correct": false,
+                "feedback": "不符。"
+              }
+            ]
+          },
+          "decision": {
+            "situation": "医生问是否还有非处方产品，你正好在使用。",
+            "prompt": "如何清楚回答？",
+            "options": [
+              {
+                "es": "Sí. También tomo un producto sin receta; quiero incluirlo en la revisión.",
+                "correct": true,
+                "feedback": "应提供完整清单。"
+              },
+              {
+                "es": "Eso no cuenta como medicación, así que no lo diré.",
+                "correct": false,
+                "feedback": "非处方产品也可能重要。"
+              },
+              {
+                "es": "Voy a dejar de tomarlo inmediatamente, sin consultar.",
+                "correct": false,
+                "feedback": "不能自行决定更改治疗。"
+              }
+            ]
+          },
+          "production": {
+            "prompt": "整理一段向医生的 B1 说明：两位医生、全部药品清单、不确定项目、非处方产品和希望谁协调。",
+            "model": "Me atienden dos profesionales y he preparado una lista de todo lo que tomo, incluidos productos sin receta. Algunos datos aún tengo que confirmarlos. Quisiera revisar posibles duplicidades y saber quién coordinará las indicaciones finales.",
+            "checks": [
+              "双重就诊背景",
+              "完整清单",
+              "如实说明未知",
+              "协调责任"
+            ]
+          },
+          "handoff": "下一幕：离开前患者要通过复述确认清单，避免把草稿当成最终用药方案。"
+        },
+        {
+          "id": "med-4",
+          "level": "B2",
+          "title": "第四幕｜药物核对会谈：把‘可能重复’变成可查证的问题",
+          "setting": "医师与药师协作核对",
+          "turning": "患者有多名处方医生，需要区分什么已核对、什么仍未确认，不能听到‘可能’就自行停药。",
+          "dialogue": [
+            {
+              "speaker": "患者",
+              "es": "Quisiera asegurarme de que la lista revisada incluya todos los tratamientos que utilizo.",
+              "zh": "我想确保核对后的清单包含我使用的所有治疗。"
+            },
+            {
+              "speaker": "专业人员",
+              "es": "Empecemos por identificar cada prescripción y quién la indicó.",
+              "zh": "先确认每份处方及由谁开出。"
+            },
+            {
+              "speaker": "患者",
+              "es": "He distinguido los medicamentos prescritos de los productos que compré sin receta.",
+              "zh": "我把处方药与自行购买的非处方产品分开列了。"
+            },
+            {
+              "speaker": "专业人员",
+              "es": "Bien. Ahora comprobaremos las posibles coincidencias y qué dudas deben resolverse.",
+              "zh": "很好。我们核查可能重复的项目和待澄清问题。"
+            },
+            {
+              "speaker": "患者",
+              "es": "¿Podría explicarme qué información falta para valorar posibles interacciones?",
+              "zh": "您能说明要评估潜在相互作用还缺哪些信息吗？"
+            },
+            {
+              "speaker": "专业人员",
+              "es": "Tendremos que reunir datos completos y, en su caso, consultar con los prescriptores.",
+              "zh": "需要收集完整资料，必要时联系开方人员。"
+            },
+            {
+              "speaker": "患者",
+              "es": "Entiendo. No quiero interpretar una sospecha como si fuera una contraindicación confirmada.",
+              "zh": "明白。我不想把怀疑误当成已经确认的禁忌证。"
+            },
+            {
+              "speaker": "专业人员",
+              "es": "Es una distinción importante.",
+              "zh": "这一区分很重要。"
+            },
+            {
+              "speaker": "患者",
+              "es": "Si finalmente se propone algún cambio, ¿quién lo autorizará y cómo se me comunicará?",
+              "zh": "如果最终建议调整，由谁批准、如何通知我？"
+            },
+            {
+              "speaker": "专业人员",
+              "es": "Se lo confirmará el profesional responsable por el canal correspondiente.",
+              "zh": "负责的专业人员会通过相应渠道确认。"
+            },
+            {
+              "speaker": "患者",
+              "es": "¿Podemos señalar en la lista qué puntos están confirmados y cuáles quedan pendientes?",
+              "zh": "能否在清单上标明哪些已确认、哪些仍待定？"
+            },
+            {
+              "speaker": "专业人员",
+              "es": "Sí, así evitamos confusiones cuando consulte con otros especialistas.",
+              "zh": "可以，这样您看其他专科时就不易混淆。"
+            },
+            {
+              "speaker": "患者",
+              "es": "¿Me facilitan la versión actualizada por escrito?",
+              "zh": "能给我更新后的书面版本吗？"
+            },
+            {
+              "speaker": "专业人员",
+              "es": "Revisaremos cómo proporcionársela de forma segura.",
+              "zh": "我们会核实如何安全地提供。"
+            }
+          ],
+          "chunks": [
+            {
+              "es": "prescriptor",
+              "zh": "开方人/处方医生",
+              "note": "多专科情境较正式。"
+            },
+            {
+              "es": "posible interacción",
+              "zh": "可能的相互作用",
+              "note": "可能性不等于确诊。"
+            },
+            {
+              "es": "contraindicación confirmada",
+              "zh": "已确认的禁忌证",
+              "note": "不可从口语练习判断。"
+            },
+            {
+              "es": "qué queda pendiente",
+              "zh": "哪些尚未落实",
+              "note": "书面交接高频。"
+            },
+            {
+              "es": "autorizar un cambio",
+              "zh": "批准调整",
+              "note": "涉及用药时务必专业人员确认。"
+            },
+            {
+              "es": "la versión actualizada",
+              "zh": "最新版清单",
+              "note": "避免多版本混淆。"
+            }
+          ],
+          "comprehension": {
+            "prompt": "患者是否在谈话中自行停用了可疑药品？",
+            "options": [
+              {
+                "es": "No. Solicita confirmar las dudas con los profesionales.",
+                "correct": true,
+                "feedback": "患者明确要求由专业人员确认任何改变。"
+              },
+              {
+                "es": "Sí, deja la mitad de los medicamentos.",
+                "correct": false,
+                "feedback": "对话并无此事。"
+              },
+              {
+                "es": "Sí, decide nuevas dosis por internet.",
+                "correct": false,
+                "feedback": "不符合情境。"
+              }
+            ]
+          },
+          "decision": {
+            "situation": "一项相互作用还只是可能性。",
+            "prompt": "如何礼貌但准确地追问？",
+            "options": [
+              {
+                "es": "¿Qué información falta para confirmarlo o descartarlo y quién coordinará esa revisión?",
+                "correct": true,
+                "feedback": "核实证据与负责人。"
+              },
+              {
+                "es": "Entonces lo suspendo hoy mismo sin esperar la confirmación.",
+                "correct": false,
+                "feedback": "不应擅自停药。"
+              },
+              {
+                "es": "Cualquier coincidencia demuestra un problema grave.",
+                "correct": false,
+                "feedback": "不能把推测等同于确知结论。"
+              }
+            ]
+          },
+          "production": {
+            "prompt": "准备一段跨科交接文字：哪些药已经核对，哪些项目待核查，谁负责确认变化，以及如何获得书面最新版。",
+            "model": "Hemos revisado una lista de tratamientos y separado la información confirmada de las dudas pendientes. Antes de modificar cualquier pauta, agradecería saber qué profesional coordinará la revisión y cómo recibiré la lista actualizada por escrito.",
+            "checks": [
+              "已确认/待定区分",
+              "不自行改药",
+              "负责医护人员",
+              "新版书面清单"
+            ]
+          },
+          "handoff": "完成：就算药名复杂，也可以用‘不知道、请核对、谁负责、书面确认’组织高质量沟通。"
+        }
+      ]
+    },
+    {
+      "id": "hospital-admin-journey",
+      "title": "公立医院与私人保险：就诊手续、账单和投诉",
+      "subtitle": "登记 · 授权 · 文件 · 医疗服务投诉",
+      "focus": "行政沟通—保险范围—书面流程",
+      "profile": "虚构人物：患者有私人医疗保险，同时在公立体系做过检查，不确定哪些服务需要预授权，练习澄清而不是猜测费用。",
+      "stages": [
+        {
+          "id": "adm-1",
+          "level": "A1",
+          "title": "第一幕｜医院登记：我需要去哪个窗口",
+          "setting": "医院门诊服务台",
+          "turning": "患者找到医院，但不确定自己应该到公立门诊还是保险相关接待窗口。",
+          "dialogue": [
+            {
+              "speaker": "患者",
+              "es": "Buenos días. Tengo una cita en este hospital.",
+              "zh": "您好，我在这家医院有预约。"
+            },
+            {
+              "speaker": "工作人员",
+              "es": "¿Sabe en qué servicio es?",
+              "zh": "您知道在哪个部门吗？"
+            },
+            {
+              "speaker": "患者",
+              "es": "En consultas externas.",
+              "zh": "在门诊。"
+            },
+            {
+              "speaker": "工作人员",
+              "es": "¿Tiene la confirmación de la cita?",
+              "zh": "您有预约确认吗？"
+            },
+            {
+              "speaker": "患者",
+              "es": "Sí, la tengo en el móvil.",
+              "zh": "有，在手机里。"
+            },
+            {
+              "speaker": "工作人员",
+              "es": "Perfecto. Vamos a comprobar la información.",
+              "zh": "好的，我们核对一下信息。"
+            },
+            {
+              "speaker": "患者",
+              "es": "¿Dónde debo registrarme?",
+              "zh": "我应该在哪里登记？"
+            },
+            {
+              "speaker": "工作人员",
+              "es": "Le indicaremos el mostrador correspondiente.",
+              "zh": "我们会告诉您对应窗口。"
+            },
+            {
+              "speaker": "患者",
+              "es": "¿Está lejos de aquí?",
+              "zh": "离这里很远吗？"
+            },
+            {
+              "speaker": "工作人员",
+              "es": "No, está al fondo del pasillo.",
+              "zh": "不远，在走廊尽头。"
+            },
+            {
+              "speaker": "患者",
+              "es": "Gracias. ¿Puedo preguntar otra cosa?",
+              "zh": "谢谢，我能再问件事吗？"
+            },
+            {
+              "speaker": "工作人员",
+              "es": "Claro, dígame.",
+              "zh": "当然，请说。"
+            },
+            {
+              "speaker": "患者",
+              "es": "¿Debo traer algún documento más?",
+              "zh": "我还要带其他文件吗？"
+            },
+            {
+              "speaker": "工作人员",
+              "es": "Compruebe los requisitos indicados en su cita.",
+              "zh": "请核对预约通知里的要求。"
+            }
+          ],
+          "chunks": [
+            {
+              "es": "consultas externas",
+              "zh": "医院门诊",
+              "note": "与 urgencias（急诊）不同。"
+            },
+            {
+              "es": "confirmación de cita",
+              "zh": "预约确认",
+              "note": "可用纸质/电子，依机构规定。"
+            },
+            {
+              "es": "en el móvil",
+              "zh": "在手机里",
+              "note": "常用介词 en。"
+            },
+            {
+              "es": "registrarse",
+              "zh": "登记、报到",
+              "note": "依各医院流程不同。"
+            },
+            {
+              "es": "mostrador",
+              "zh": "服务台、柜台",
+              "note": "hacia el mostrador / en el mostrador。"
+            },
+            {
+              "es": "al fondo del pasillo",
+              "zh": "走廊尽头",
+              "note": "实用问路词组。"
+            }
+          ],
+          "comprehension": {
+            "prompt": "患者把预约确认放在哪里？",
+            "options": [
+              {
+                "es": "En el móvil.",
+                "correct": true,
+                "feedback": "存在手机中。"
+              },
+              {
+                "es": "En la caja de medicamentos.",
+                "correct": false,
+                "feedback": "不是。"
+              },
+              {
+                "es": "No tiene confirmación.",
+                "correct": false,
+                "feedback": "已经有。"
+              }
+            ]
+          },
+          "decision": {
+            "situation": "你找不到报到窗口。",
+            "prompt": "怎样问？",
+            "options": [
+              {
+                "es": "¿Dónde debo registrarme para consultas externas?",
+                "correct": true,
+                "feedback": "注明业务类别并询问窗口。"
+              },
+              {
+                "es": "Me siento en cualquier sitio y ya vendrán.",
+                "correct": false,
+                "feedback": "没有确认流程。"
+              },
+              {
+                "es": "Vengo a cambiar la medicación.",
+                "correct": false,
+                "feedback": "与行政事项无关。"
+              }
+            ]
+          },
+          "production": {
+            "prompt": "模拟进医院的完整四句问路：有预约→手机有确认→门诊登记在哪→是否需要其他文件。",
+            "model": "Buenos días. Tengo una cita de consultas externas y la confirmación en el móvil. ¿Dónde debo registrarme? ¿Necesito traer algún otro documento?",
+            "checks": [
+              "预约类别",
+              "预约凭证",
+              "询问窗口",
+              "文件清单"
+            ]
+          },
+          "handoff": "下一幕：接待人员提出需要核实保险授权，患者学会区分覆盖与批准。"
+        },
+        {
+          "id": "adm-2",
+          "level": "A2",
+          "title": "第二幕｜私人保险授权到底是什么？",
+          "setting": "私人医疗机构接待处",
+          "turning": "患者的保单可能覆盖某些服务，但前台提到 autorización previa。病人需要核对范围和手续。",
+          "dialogue": [
+            {
+              "speaker": "患者",
+              "es": "Hola. Tengo una consulta programada con un especialista.",
+              "zh": "您好，我约了专科。"
+            },
+            {
+              "speaker": "工作人员",
+              "es": "¿La consulta se tramita con un seguro privado?",
+              "zh": "这次就诊通过私人保险办理吗？"
+            },
+            {
+              "speaker": "患者",
+              "es": "Sí, tengo un seguro médico, pero no sé si necesita autorización.",
+              "zh": "是的，我有医疗保险，但不确定是否要授权。"
+            },
+            {
+              "speaker": "工作人员",
+              "es": "Las condiciones dependen de la póliza y de la prestación.",
+              "zh": "要求取决于保单和具体服务。"
+            },
+            {
+              "speaker": "患者",
+              "es": "¿Es lo mismo que el servicio esté cubierto y que tenga autorización previa?",
+              "zh": "保单覆盖一项服务和获得事先授权是一回事吗？"
+            },
+            {
+              "speaker": "工作人员",
+              "es": "No necesariamente. Debemos revisar la cobertura y los requisitos de autorización.",
+              "zh": "不一定。需核对保障范围和授权要求。"
+            },
+            {
+              "speaker": "患者",
+              "es": "¿Dónde puedo consultar esa información por escrito?",
+              "zh": "我在哪里能书面查看信息？"
+            },
+            {
+              "speaker": "工作人员",
+              "es": "En las condiciones de su seguro y por los canales oficiales de la compañía.",
+              "zh": "在保单条款和保险公司官方渠道。"
+            },
+            {
+              "speaker": "患者",
+              "es": "¿Puede decirme qué datos necesito para preguntar correctamente?",
+              "zh": "您能告诉我咨询时需要哪些信息吗？"
+            },
+            {
+              "speaker": "工作人员",
+              "es": "Le indicaremos el servicio concreto y los documentos que correspondan.",
+              "zh": "我们会说明具体服务及所需文件。"
+            },
+            {
+              "speaker": "患者",
+              "es": "Gracias. Antes de confirmar, quiero saber si habría algún coste a mi cargo.",
+              "zh": "谢谢。确认前我想了解是否有需要自行承担的费用。"
+            },
+            {
+              "speaker": "工作人员",
+              "es": "Esa información debe verificarse con su póliza y el centro.",
+              "zh": "应结合保单和医院核实。 "
+            },
+            {
+              "speaker": "患者",
+              "es": "De acuerdo. Pediré la información por el canal adecuado.",
+              "zh": "明白。我会通过正确渠道了解。"
+            }
+          ],
+          "chunks": [
+            {
+              "es": "la póliza",
+              "zh": "保险合同/保单",
+              "note": "不能把保险类别当成统一条款。"
+            },
+            {
+              "es": "la cobertura",
+              "zh": "保障范围",
+              "note": "可能含排除、限制。"
+            },
+            {
+              "es": "autorización previa",
+              "zh": "事先授权",
+              "note": "不等于已覆盖/已预约。"
+            },
+            {
+              "es": "la prestación",
+              "zh": "一项医疗服务",
+              "note": "如咨询、检查等。"
+            },
+            {
+              "es": "a mi cargo",
+              "zh": "由我承担",
+              "note": "费用沟通。"
+            },
+            {
+              "es": "tramitar",
+              "zh": "办理、处理手续",
+              "note": "¿Cómo se tramita...?"
+            }
+          ],
+          "comprehension": {
+            "prompt": "为什么要同时核对 cobertura 和 autorización？",
+            "options": [
+              {
+                "es": "Porque cobertura y autorización previa no son necesariamente lo mismo.",
+                "correct": true,
+                "feedback": "保单覆盖与预授权流程是不同维度。"
+              },
+              {
+                "es": "Porque todos los seguros cubren todo sin condiciones.",
+                "correct": false,
+                "feedback": "不成立。"
+              },
+              {
+                "es": "Porque ninguna consulta se puede realizar con seguro.",
+                "correct": false,
+                "feedback": "不成立。"
+              }
+            ]
+          },
+          "decision": {
+            "situation": "前台告诉你可能有自付费用，但无法确认金额。",
+            "prompt": "怎样追问？",
+            "options": [
+              {
+                "es": "¿Dónde puedo obtener por escrito las condiciones y posibles costes antes de confirmar la cita?",
+                "correct": true,
+                "feedback": "书面核对费用和条款。"
+              },
+              {
+                "es": "Seguro que todo será gratuito; no hace falta comprobarlo.",
+                "correct": false,
+                "feedback": "不能默认全部免费。"
+              },
+              {
+                "es": "Cambiaré de hospital sin consultar mi póliza.",
+                "correct": false,
+                "feedback": "并未解决原问题。"
+              }
+            ]
+          },
+          "production": {
+            "prompt": "组织一通保险公司电话：我有专科预约→想确认保障范围和预授权→是否会产生自付费用。",
+            "model": "Tengo una consulta con un especialista y quisiera verificar si está cubierta por mi póliza, si requiere autorización previa y si existe algún coste a mi cargo. ¿Podrían confirmármelo por escrito?",
+            "checks": [
+              "服务种类",
+              "保单覆盖",
+              "预授权",
+              "费用及书面确认"
+            ]
+          },
+          "handoff": "下一幕：拿到两份不同说明，需要区分‘服务已完成’和‘费用是否合理’。"
+        },
+        {
+          "id": "adm-3",
+          "level": "B1",
+          "title": "第三幕｜账单看不懂，如何提出可追踪的问题",
+          "setting": "私人医疗保险客户服务/医院财务窗口",
+          "turning": "医院账单中有一个你不知道的收费项目。不能未经核实就认定违规，也不应略过凭证。",
+          "dialogue": [
+            {
+              "speaker": "患者",
+              "es": "He recibido una factura con un concepto que no entiendo.",
+              "zh": "我收到一张账单，有一项收费看不懂。"
+            },
+            {
+              "speaker": "客服",
+              "es": "¿Puede indicarme qué servicio aparece en la factura?",
+              "zh": "能说说账单上列了什么服务吗？"
+            },
+            {
+              "speaker": "患者",
+              "es": "Figura una prueba realizada el mes pasado, pero no conozco el motivo de este cargo.",
+              "zh": "账单里有上个月做的一项检查，但我不知道为何产生这笔费用。"
+            },
+            {
+              "speaker": "客服",
+              "es": "Tendremos que comprobar la prestación y las condiciones aplicables.",
+              "zh": "需要核对服务项目及适用条款。"
+            },
+            {
+              "speaker": "患者",
+              "es": "Entiendo. Quisiera saber si el importe corresponde al centro, al seguro o a una parte a mi cargo.",
+              "zh": "明白。我想知道金额属于医院费用、保险费用，还是我的自付部分。"
+            },
+            {
+              "speaker": "客服",
+              "es": "Le explicaremos qué documentación puede consultar para comprobarlo.",
+              "zh": "我们会说明可查看哪些文件核实。"
+            },
+            {
+              "speaker": "患者",
+              "es": "¿Podrían facilitarme un desglose del cargo y la referencia de la factura?",
+              "zh": "能否给我这笔收费的明细和账单参考编号？"
+            },
+            {
+              "speaker": "客服",
+              "es": "Puede solicitar un detalle por el canal correspondiente.",
+              "zh": "可通过相应渠道申请明细。"
+            },
+            {
+              "speaker": "患者",
+              "es": "También quisiera comparar ese detalle con lo que figuraba en la autorización.",
+              "zh": "我还想把明细和授权文件的内容对照。"
+            },
+            {
+              "speaker": "客服",
+              "es": "Es importante revisar ambos documentos antes de sacar conclusiones.",
+              "zh": "下结论前核对两份文件很重要。"
+            },
+            {
+              "speaker": "患者",
+              "es": "Si hubiera una discrepancia, ¿cómo se puede solicitar una revisión?",
+              "zh": "如果发现不一致，怎样申请复核？"
+            },
+            {
+              "speaker": "客服",
+              "es": "Le indicaremos el procedimiento de consulta o reclamación disponible.",
+              "zh": "我们会告知可用的咨询或投诉流程。"
+            },
+            {
+              "speaker": "患者",
+              "es": "¿Recibiré un número de seguimiento cuando presente la consulta?",
+              "zh": "提交咨询后能收到跟进编号吗？"
+            },
+            {
+              "speaker": "客服",
+              "es": "Compruebe qué justificante emite el canal utilizado.",
+              "zh": "请核对所用渠道生成的凭证。"
+            }
+          ],
+          "chunks": [
+            {
+              "es": "un concepto de la factura",
+              "zh": "账单的一个费用项目",
+              "note": "不同于医学上 concepto 的其他含义。"
+            },
+            {
+              "es": "importe",
+              "zh": "金额",
+              "note": "询问总额及细目。"
+            },
+            {
+              "es": "desglose",
+              "zh": "明细拆分",
+              "note": "información desglosada。"
+            },
+            {
+              "es": "a mi cargo",
+              "zh": "由我承担",
+              "note": "自费份额需核对条款。"
+            },
+            {
+              "es": "discrepancia",
+              "zh": "不一致之处",
+              "note": "先确认事实再争议。"
+            },
+            {
+              "es": "número de seguimiento",
+              "zh": "跟进编号",
+              "note": "便于再次联系。"
+            }
+          ],
+          "comprehension": {
+            "prompt": "患者已认定医院收费非法了吗？",
+            "options": [
+              {
+                "es": "No. Busca comprender y contrastar la factura con la autorización.",
+                "correct": true,
+                "feedback": "先核对两份文件。"
+              },
+              {
+                "es": "Sí, acusa al hospital de fraude.",
+                "correct": false,
+                "feedback": "对话未做此指控。"
+              },
+              {
+                "es": "Sí, ya ha solicitado devolución y cobrado.",
+                "correct": false,
+                "feedback": "没有。"
+              }
+            ]
+          },
+          "decision": {
+            "situation": "不认识某项费用，需要书面明细。",
+            "prompt": "最适合的问法？",
+            "options": [
+              {
+                "es": "¿Podrían facilitarme un desglose y el fundamento del cargo para compararlo con mi autorización?",
+                "correct": true,
+                "feedback": "请求具体文件和依据。"
+              },
+              {
+                "es": "Esto es ilegal y punto; no pienso revisarlo.",
+                "correct": false,
+                "feedback": "缺乏事实核对。"
+              },
+              {
+                "es": "No importa lo que aparezca en la factura.",
+                "correct": false,
+                "feedback": "回避真实需求。"
+              }
+            ]
+          },
+          "production": {
+            "prompt": "模拟写给客服的简短邮件：收费发生时间、项目不明、请求明细与授权核对、跟进编号。",
+            "model": "He recibido una factura relativa a una prueba del mes pasado. No entiendo el concepto facturado y agradecería un desglose por escrito, así como una explicación de su relación con la autorización. ¿Pueden facilitarme una referencia de seguimiento?",
+            "checks": [
+              "时间和服务",
+              "不清楚的收费",
+              "书面明细",
+              "参考编号"
+            ]
+          },
+          "handoff": "下一幕：多次查询后仍有争议，患者开始正式书面投诉，重点是清楚陈述而非情绪化指责。"
+        },
+        {
+          "id": "adm-4",
+          "level": "B2",
+          "title": "第四幕｜正式投诉：如何有依据地表达不同意见",
+          "setting": "保险客服与书面投诉渠道",
+          "turning": "三份文件内容看似不一致。要列明可验证事实，问适用处理流程与期限，谨慎处理敏感数据。",
+          "dialogue": [
+            {
+              "speaker": "患者",
+              "es": "Quisiera presentar una reclamación relativa a un cargo que no consigo aclarar.",
+              "zh": "我想就一直无法澄清的收费提出正式投诉。"
+            },
+            {
+              "speaker": "工作人员",
+              "es": "¿Ha realizado consultas previas sobre esta cuestión?",
+              "zh": "之前就此咨询过吗？"
+            },
+            {
+              "speaker": "患者",
+              "es": "Sí. Tengo las referencias de dos consultas anteriores y las respuestas recibidas.",
+              "zh": "有。我保存了前两次咨询的参考编号和回复。"
+            },
+            {
+              "speaker": "工作人员",
+              "es": "¿Cuál es la discrepancia que mantiene?",
+              "zh": "现在仍存在什么不一致？"
+            },
+            {
+              "speaker": "患者",
+              "es": "La factura incluye un concepto cuya relación con la autorización previa no se me ha explicado suficientemente.",
+              "zh": "账单有一项收费与之前授权的关系未得到充分解释。"
+            },
+            {
+              "speaker": "工作人员",
+              "es": "Para revisarlo necesitaremos identificar los documentos relevantes.",
+              "zh": "为了复核，需要明确相关文件。"
+            },
+            {
+              "speaker": "患者",
+              "es": "Puedo aportar copias de la factura, la autorización y las comunicaciones anteriores.",
+              "zh": "我可以提供账单、授权书以及之前沟通记录的复印件。"
+            },
+            {
+              "speaker": "工作人员",
+              "es": "Le indicaremos el canal seguro para aportar esa documentación.",
+              "zh": "我们会说明安全提交材料的渠道。"
+            },
+            {
+              "speaker": "患者",
+              "es": "Agradecería una respuesta motivada que cite las condiciones aplicadas.",
+              "zh": "我希望收到说明理由、引用适用条款的答复。"
+            },
+            {
+              "speaker": "工作人员",
+              "es": "La respuesta se tramitará según el procedimiento correspondiente.",
+              "zh": "回复将按照适用程序处理。"
+            },
+            {
+              "speaker": "患者",
+              "es": "¿Cómo se computa el plazo de respuesta y cómo me confirmarán la recepción?",
+              "zh": "回复期限如何计算？怎样确认收到投诉？"
+            },
+            {
+              "speaker": "工作人员",
+              "es": "Comprobaremos el procedimiento y el justificante que corresponda.",
+              "zh": "我们会核对流程及对应回执。"
+            },
+            {
+              "speaker": "患者",
+              "es": "Deseo dejar claro que solicito información y revisión, no hacer afirmaciones que aún no pueda demostrar.",
+              "zh": "我想明确：我请求说明和复核，而不是断言尚无证据的事实。"
+            },
+            {
+              "speaker": "工作人员",
+              "es": "De acuerdo. Exponga de forma ordenada los hechos y la solicitud concreta.",
+              "zh": "好的。请有条理地陈述事实和具体请求。"
+            }
+          ],
+          "chunks": [
+            {
+              "es": "reclamación formal",
+              "zh": "正式投诉",
+              "note": "不同于普通口头抱怨。"
+            },
+            {
+              "es": "respuesta motivada",
+              "zh": "带有理由说明的答复",
+              "note": "可要求列举适用依据。"
+            },
+            {
+              "es": "computar el plazo",
+              "zh": "计算期限",
+              "note": "不同事项法律期限不同，需要核实。"
+            },
+            {
+              "es": "aportar copias",
+              "zh": "提交复印件",
+              "note": "通过安全渠道传递。"
+            },
+            {
+              "es": "afirmaciones sin demostrar",
+              "zh": "未经证实的断言",
+              "note": "保护沟通准确性。"
+            },
+            {
+              "es": "exponer los hechos",
+              "zh": "陈述事实",
+              "note": "构建证据/诉求结构。"
+            }
+          ],
+          "comprehension": {
+            "prompt": "投诉方要求回复包括什么？",
+            "options": [
+              {
+                "es": "Una explicación motivada que cite las condiciones aplicadas.",
+                "correct": true,
+                "feedback": "希望有依据的解释。"
+              },
+              {
+                "es": "Una promesa inmediata de devolver todo el dinero.",
+                "correct": false,
+                "feedback": "对话没有作此要求。"
+              },
+              {
+                "es": "Una lista de datos personales de otros pacientes.",
+                "correct": false,
+                "feedback": "无关且涉及隐私。"
+              }
+            ]
+          },
+          "decision": {
+            "situation": "投诉渠道允许上传材料，但用户担心隐私。",
+            "prompt": "如何回应？",
+            "options": [
+              {
+                "es": "¿Cuál es el canal seguro para aportar copias y obtener un justificante de presentación?",
+                "correct": true,
+                "feedback": "核实安全提交方式与回执。"
+              },
+              {
+                "es": "Publicaré la factura con todos mis datos en redes sociales.",
+                "correct": false,
+                "feedback": "不应公开私人医疗/支付资料。"
+              },
+              {
+                "es": "No necesito conservar ningún comprobante.",
+                "correct": false,
+                "feedback": "缺少跟进证据。"
+              }
+            ]
+          },
+          "production": {
+            "prompt": "写 100–140 字西语投诉提纲：事实、日期、三份文件、暂未解决的问题、要求与保留材料。",
+            "model": "En relación con la factura recibida por una prestación del mes pasado, quisiera solicitar una explicación de un concepto cuyo fundamento no me ha quedado claro. Adjunto, por el canal seguro indicado, la factura, la autorización y las comunicaciones previas. Agradecería que revisaran la discrepancia, me explicaran las condiciones aplicables y confirmaran la recepción de la reclamación.",
+            "checks": [
+              "事件和文件",
+              "不做未经核实指控",
+              "提出具体请求",
+              "渠道和回执"
+            ]
+          },
+          "handoff": "案例结束：尝试用 B2 连贯说明区分‘服务已完成’、‘费用是否受保’和‘是否符合保单条款’。"
+        }
+      ]
+    }
+  ]
+}
